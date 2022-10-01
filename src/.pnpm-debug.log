@@ -1,0 +1,30 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1
+  },
+  "1 debug pnpm:package-manifest": {
+    "initial": {},
+    "prefix": "/data/data/com.termux/files/home/.local/share/pnpm/global/5"
+  },
+  "2 debug pnpm:context": {
+    "currentLockfileExists": false,
+    "storeDir": "/data/data/com.termux/files/home/.local/share/pnpm/store/v3",
+    "virtualStoreDir": "/data/data/com.termux/files/home/.local/share/pnpm/global/5/.pnpm"
+  },
+  "3 debug pnpm:stage": {
+    "prefix": "/data/data/com.termux/files/home/.local/share/pnpm/global/5",
+    "stage": "resolution_started"
+  },
+  "4 debug pnpm:request-retry": {
+    "attempt": 1,
+    "error": {
+      "type": "system",
+      "errno": "ERR_SOCKET_TIMEOUT",
+      "code": "ERR_SOCKET_TIMEOUT"
+    },
+    "maxRetries": 2,
+    "method": "GET",
+    "timeout": 10000,
+    "url": "https://registry.npmjs.org/sass"
+  }
+}
