@@ -15,7 +15,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="flex grid grid-cols-1 place-items-center gap-2 p-5 mt-[3rem]">
+    <div className="grid grid-cols-1 place-items-center gap-2 p-5 mt-[3rem]">
       {/* search component */}
     <Search/>
       {/* contents */}

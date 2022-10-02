@@ -5,7 +5,7 @@ const SearchBar = () => {
   return (
     <>
       {/* <hr className="w-screen" /> */}
-    <div className="flex flex-wrap justify-center gap-1 h-min p-2 mx-auto max-w-[30rem] min-w-[20rem] rounded-full shadow-md border max-w-md bg-white ">
+    <div className="flex flex-wrap justify-center gap-1 h-min p-2 mx-auto max-w-[30rem] min-w-[18rem] rounded-full shadow-md border max-w-md bg-white ">
         <span>
           <input
             type="text"
