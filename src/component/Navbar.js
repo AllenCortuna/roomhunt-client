@@ -21,7 +21,7 @@ const Navbar = () => {
 
   // WARN: Navbar
   const navlink =
-    "navlink text-[#fff] text-sm font-semibold hover:font-[700] transition-all ease-linear uppercase xs:hover:ml-5 duration-300 w-min";
+    " text-[#fff] text-sm font-[700] transition-all ease-linear uppercase xs:hover:ml-5 duration-300 hover:text-amber-300";
   const nav = (
     <nav
       className={`grid gap-2 transition-all duration-300 ease-linear h-0 p-4 h-full ${

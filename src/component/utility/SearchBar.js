@@ -4,7 +4,7 @@ import { BsSearch } from "react-icons/bs";
 const SearchBar = () => {
   return (
     <>
-      <div className="flex flex-wrap justify-center gap-1 h-min p-2 mx-auto w-80 rounded-full shadow-md border max-w-md bg-white ">
+      <div className="flex flex-wrap justify-center gap-1 h-min p-2 mx-auto w-80 rounded-full shadow-sm border max-w-md bg-white ">
         <span>
           <input
             type="text"
