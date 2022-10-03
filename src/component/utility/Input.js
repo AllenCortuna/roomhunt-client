@@ -1,0 +1,18 @@
+import React from "react";
+
+const Input = ({name,type,onChange,placeholder }) => {
+  const formClass = "min-w-[18rem] max-w-[23rem] font-regular mx-auto border-grey-400 border p-2 rounded focus:outline-none text-xs focus:text-gray-600";
+  return (
+    <input
+      className={formClass}
+      name={name}
+      type={type}
+      placeholder={placeholder}
+      autoComplete="off"
+      onChange={onChange}
+    ></input>
+  );
+};
+
+export default Input;
+

@@ -24,3 +24,9 @@ import { RiHotelLine } from "react-icons/ri";
           </span>
         ))}
       </div>
+
+
+          <input
+            type={"checkbox"}
+            className="border ring-gray-300 w-5 bg-gray-200 checked:text-gray-400 accent-black focus:outline-none trasition-all duration-300"
+          />
