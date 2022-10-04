@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./component/Navbar";
 import Home from "./component/Home";
-import RegisterClient from "./component/RegisterClient";
+import RegisterClient from "./component/register/RegisterClient";
 import Notfound from "./component/NotFound";
 
 const App = () => {

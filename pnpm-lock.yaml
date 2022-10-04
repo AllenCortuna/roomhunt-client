@@ -16,6 +16,7 @@ specifiers:
   react: ^18.1.0
   react-dom: ^18.1.0
   react-file-base64: ^1.0.3
+  react-hook-form: ^7.36.1
   react-icons: ^4.4.0
   react-router-dom: ^6.3.0
   react-scripts: 5.0.1
@@ -37,6 +38,7 @@ dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-file-base64: 1.0.3
+  react-hook-form: 7.36.1_react@18.2.0
   react-icons: 4.4.0_react@18.2.0
   react-router-dom: 6.3.0_biqbaboplfbrettd7655fr4n2y
   react-scripts: 5.0.1_react@18.2.0
@@ -8249,6 +8251,15 @@ packages:
     resolution: {integrity: sha512-itGMFH6IkJUZF2p0YXQnUBqzUHFaMYcs+ssD9e4j1XJGHRibGe8kiLr6y46oAIw1JknX/bJUUogDJOk/o91TMg==}
     dependencies:
       react: 15.7.0
+    dev: false
+
+  /react-hook-form/7.36.1_react@18.2.0:
+    resolution: {integrity: sha512-EbYYkCG2p8ywe7ikOH2l02lAFMrrrslZi1I8fqd8ifDGNAkhomHZQzQsP6ksvzrWBKntRe8b5L5L7Zsd+Gm02Q==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-icons/4.4.0_react@18.2.0:

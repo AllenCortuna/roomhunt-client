@@ -2,7 +2,7 @@ import React from "react";
 import resort from "./img/resort.svg";
 import hotel from "./img/hotel.svg";
 import house from "./img/house.svg";
-import Search from './Search'
+import Search from "./Search";
 const Home = () => {
   const contents = [
     {
@@ -17,7 +17,7 @@ const Home = () => {
   return (
     <div className="grid grid-cols-1 place-items-center gap-2 p-5 mt-[3rem]">
       {/* search component */}
-    <Search/>
+      <Search />
       {/* contents */}
       <div className="grid grid-cols-1 place-items-center sm:grid-cols-3 gap-8 mt-5">
         {contents.map((content) => (
@@ -34,7 +34,6 @@ const Home = () => {
           </div>
         ))}
       </div>
-    <span
     </div>
   );
 };
