@@ -1,6 +1,7 @@
 import React from "react";
 import autoAnimate from "@formkit/auto-animate";
 import { rightIcon } from "./utility/rightIcon";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const dom = React.useRef(null);
@@ -11,13 +12,15 @@ const Navbar = () => {
   }, [dom]);
   const isSmallScreen = window.innerWidth <= 440;
   const content = [
-    { name: "Home", desc: "" },
-    { name: "register", desc: "" },
-    { name: "contact", desc: "" },
-    { name: "terms/privacy", desc: "" },
+    { name: "Home", desc: "/" },
+    { name: "register", desc: "/register/client" },
+    { name: "terms", desc: "/terms" },
+    { name: "menu", desc: "/menu" },
   ];
 
-  const logo = <p className="text-gray-100 font-semibold text-[1.3rem] ">RoomHunt</p>;
+  const logo = (
+    <p className="text-gray-100 font-semibold text-[1.3rem] ">RoomHunt</p>
+  );
 
   // WARN: Navbar
   const navlink =
@@ -25,11 +28,13 @@ const Navbar = () => {
   const nav = (
     <nav
       className={`grid gap-2 transition-all duration-300 ease-linear h-0 p-4 h-full ${
-        !isSmallScreen && "grid-cols-4 p-5 py-1"
+        !isSmallScreen && "grid-cols-4 p-5 py-1 justify-items-center"
       }`}
     >
       {content.map((a) => (
-        <p className={navlink}>{a.name}</p>
+        <Link to={a.desc}>
+          <p className={navlink}>{a.name}</p>
+        </Link>
       ))}
     </nav>
   );
@@ -72,7 +77,10 @@ const Navbar = () => {
   );
 
   return (
-    <div className="bg-black space-mono grid w-screen h-auto shadow-lg " ref={dom}>
+    <div
+      className="bg-black space-mono grid w-screen h-auto shadow-lg "
+      ref={dom}
+    >
       {isSmallScreen ? smallScreen : otherScreen}
     </div>
   );
