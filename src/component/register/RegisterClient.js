@@ -3,8 +3,10 @@ import profile from "../img/profile.svg";
 import ClientPage1 from "./ClientPage1";
 import ClientPage2 from "./ClientPage2";
 
+
 const RegisterClient = () => {
   const [page, setPage] = useState(1);
+
 
   const btnClass = "transition-all duration-300 p-4 py-2 space-mono rounded-md  ";
 
@@ -18,26 +20,6 @@ const RegisterClient = () => {
       </div>
       {/* <p>{page}/3</p> */}
 
-      <span className="max-w-[30rem] min-w-[20rem] flex mx-auto">
-        <button
-          className={`${btnClass} ${
-            page === 1 && "border border-gray-400 text-gray-400"
-          } ${page !== 1 && "bg-green"} mr-auto ml-0`}
-          disabled={page === 1}
-          onClick={() => setPage(page - 1)}
-        >
-          prev
-        </button>
-        <button
-          className={`${btnClass} ${
-            page === 3 && "border border-gray-400 text-gray-400"
-          } ${page !== 3 && "bg-green"} mr-0 ml-auto`}
-          disabled={page === 3}
-          onClick={() => setPage(page + 1)}
-        >
-          next
-        </button>
-      </span>
     </div>
   );
 };

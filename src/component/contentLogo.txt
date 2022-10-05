@@ -30,3 +30,26 @@ import { RiHotelLine } from "react-icons/ri";
             type={"checkbox"}
             className="border ring-gray-300 w-5 bg-gray-200 checked:text-gray-400 accent-black focus:outline-none trasition-all duration-300"
           />
+
+
+
+      <span className="max-w-[30rem] min-w-[20rem] flex mx-auto">
+        <button
+          className={`${btnClass} ${
+            page === 1 && "border border-gray-400 text-gray-400"
+          } ${page !== 1 && "bg-green"} mr-auto ml-0`}
+          disabled={page === 1}
+          onClick={() => setPage(page - 1)}
+        >
+          prev
+        </button>
+        <button
+          className={`${btnClass} ${
+            page === 3 && "border border-gray-400 text-gray-400"
+          } ${page !== 3 && "bg-green"} mr-0 ml-auto`}
+          disabled={page === 3}
+          onClick={() => setPage(page + 1)}
+        >
+          next
+        </button>
+      </span>
