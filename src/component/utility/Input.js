@@ -5,8 +5,6 @@ const Input = ({name,type,onChange,placeholder }) => {
   return (
     <input
       className={formClass}
-      name={name}
-      type={type}
       placeholder={placeholder}
       autoComplete="off"
       onChange={onChange}

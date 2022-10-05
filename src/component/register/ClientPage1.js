@@ -1,5 +1,4 @@
 import React from "react";
-import Input from "../utility/Input";
 import Date from "../utility/Date";
 import { useForm } from "react-hook-form";
 
@@ -19,32 +18,36 @@ const ClientPage1 = () => {
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-wrap gap-2 justify-center"
       >
-        <Input
-          name={"name"}
-          type={"text"}
+        <input
+          type="text"
+          className="form-input"
           placeholder={"name: eg John Doe"}
           {...register("name", { required: true })}
           // onChange={}
         />
-        {errors.name && <span>name is required</span>}
-        <Input
-          name={"email"}
-          type={"email"}
+        {errors.name && <span className="form-error">name is required</span>}
+        <input
+          type="email"
+          className="form-input"
           placeholder={"email"}
           {...register("email", { required: true })}
           // onChange={}
         />
-        {errors.email && <span>email is required</span>}
+        {errors.email && <span className="form-error">email is required</span>}
 
-        <Input
-          name={"contact"}
-          type={"number"}
-          placeholder={"contact number"}
+        <input
+          type="number"
+          className="form-input"
+          placeholder={"contact: e.g. 09123456789"}
           maxLenght={11}
-          {...register("contact", { maxLength: 11, required: true })}
+          {...register("contact", {
+            minLength: 11,
+            maxLength: 11,
+            required: true,
+          })}
           // onChange={}
         />
-        {errors.contact && <span>please enter a 11 digit number</span>}
+        {errors.contact && <span className="form-error">please enter a 11 digit number</span>}
         {/* birthday */}
         <span className="min-w-[18rem] max-w-[23rem] flex justify-start mx-auto align-center">
           <p className="text-xs text-gray-400 inline font-[500] ml-1 mr-3 mt-1">

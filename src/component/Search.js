@@ -33,24 +33,25 @@ const Search = () => {
       </span>
 
       {/* Property type checkbox */}
-      <span className="grid grid-cols-3 gap-2">
+      <span className="grid grid-cols-3 gap-2 mt-1">
         {type.map((a) => (
           <span className="flex flex-wrap justify-center text-center flex-row border border-gray-300 p-2 rounded-lg">
             {a.icon}
-            <p className="ml-2 mt-1 inline text-xs text-gray-400 font-[400]">{a.name}</p>
+            <p className="ml-2 mt-1 inline text-xs text-gray-400 font-[400]">
+              {a.name}
+            </p>
           </span>
         ))}
       </span>
-      <hr className="text-gray-400 w-full my-[.5rem]" />
 
       {/* tags */}
-      <span className="flex justify-start gap-4">
+      <span className="flex justify-start gap-4 mt-4">
         {/* number or beds */}
         <span className="border border-gray-200 shadow-sm rounded-lg p-2 ">
           <label className=" ml-1 text-xs text-gray-500 font-[500] mr-2">
             Beds:
           </label>
-          <select className="border border-gray-200 text-xs font-semibold text-gray-400 rounded-lg p-1 focus:outline-none text-center space-mono">
+          <select className="border border-gray-200 text-xs font-semibold text-gray-400 rounded-md p-1 focus:outline-none text-center space-mono">
             <option value={"1"}>1</option>
             <option value={"2"}>2</option>
             <option value={"3"}>3</option>
@@ -59,16 +60,17 @@ const Search = () => {
         </span>
         {/* aircon */}
         <span className="border border-gray-200 shadow-sm rounded-lg p-2 flex align-center ">
-      <MdOutlineAir className="text-[1.3rem] text-gray-400 mt-1"/>
+          <MdOutlineAir className="text-[1.3rem] text-gray-400 mt-1" />
           <label className="mt-[.4rem] ml-1 text-xs text-gray-500 font-[500] ml-3">
             Aircon
           </label>
         </span>
       </span>
-      <hr className="text-gray-400 w-full my-[.5rem]" />
 
       {/* available dates */}
-           <DateRange/>
+      <span className="mt-4">
+        <DateRange />
+      </span>
     </div>
   );
 };

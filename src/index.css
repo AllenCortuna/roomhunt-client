@@ -19,6 +19,12 @@ body {
   .navlink {
     @apply text-sm  duration-300 ease-linear rounded-lg border-white  p-1 uppercase font-semibold mr-3 hover:bg-green hover:rounded-lg hover:px-3 hover:py-1  transition-all hover:text-black;
   }
+  .form-input {
+    @apply outline-none text-gray-500 min-w-[18rem] max-w-[23rem] font-normal mx-auto border-gray-300 border p-2 rounded focus:outline-none text-sm focus:text-gray-500 focus:border-green transition-all ease-linear duration-300;
+  }
+  .form-error {
+    @apply ml-4 mr-auto text-error text-xs 
+  }
 }
 .space-mono{
   font-family: "Space Mono", sans-serif;
