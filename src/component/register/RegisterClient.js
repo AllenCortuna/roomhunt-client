@@ -8,11 +8,10 @@ const RegisterClient = () => {
   const [page, setPage] = useState(1);
 
 
-  const btnClass = "transition-all duration-300 p-4 py-2 space-mono rounded-md  ";
 
   return (
     <div className="flex-wrap flex justify-center pt-10 max-w-[30rem] min-w-[20rem] px-auto mx-auto gap-4">
-      <div className="text-center p-4 bg-white h-auto w-[21rem] rounded-md shadow h-[28rem]">
+      <div className="text-center p-4 bg-white w-[21rem] min-h-[20rem] rounded-md shadow h-auto">
         <img src={profile} alt="login" className="w-20 m-auto my-2 " />
         <h1 className=" font-semibold text-gray-500 text-md ">Register</h1>
         {page === 1 && <ClientPage1 />}

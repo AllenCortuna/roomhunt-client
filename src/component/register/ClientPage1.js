@@ -47,7 +47,9 @@ const ClientPage1 = () => {
           })}
           // onChange={}
         />
-        {errors.contact && <span className="form-error">please enter a 11 digit number</span>}
+        {errors.contact && (
+          <span className="form-error">please enter a 11 digit number</span>
+        )}
         {/* birthday */}
         <span className="min-w-[18rem] max-w-[23rem] flex justify-start mx-auto align-center">
           <p className="text-xs text-gray-400 inline font-[500] ml-1 mr-3 mt-1">
@@ -55,7 +57,10 @@ const ClientPage1 = () => {
           </p>
           <Date />
         </span>
-        <input type="submit" className="border-" />
+        <input
+          type="submit"
+          className="border-secondary p-4 py-3 bg-secondary text-sm font-[500] shadow-sm rounded-md mt-2 text-gray-600 mr-2 ml-auto"
+        />
       </form>
     </span>
   );
