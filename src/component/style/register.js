@@ -11,4 +11,4 @@ export const birthdaySpan =
 export const birthdayText =
   "text-xs text-gray-400 inline font-[500] ml-1 mr-3 mt-1";
 export const submit =
-  "border-secondary p-4 py-3 bg-secondary text-sm font-[500] shadow-sm rounded-md mt-2 text-gray-600 mr-2 ml-auto";
+  "border-secondary p-4 py-3 bg-secondary text-xs md:text-sm font-[500] shadow-md rounded-md mt-2 text-gray-600 mr-2 ml-auto";

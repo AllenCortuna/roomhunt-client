@@ -5,7 +5,7 @@ import { TbBeach } from "react-icons/tb";
 import { RiHotelLine } from "react-icons/ri";
 import SearchBar from "./utility/SearchBar";
 import DateRange from "./utility/DateRange";
-import { bsFilter, container, iconClass } from "./style/search";
+import { aircon, bsFilter, container, iconClass, optionLabel, selection } from "./style/search";
 
 const Search = () => {
   const type = [
@@ -37,7 +37,7 @@ const Search = () => {
         {type.map((a) => (
           <span className="flex flex-wrap justify-center text-center flex-row border border-gray-300 p-2 rounded-lg">
             {a.icon}
-            <p className="ml-2 mt-1 inline text-xs text-gray-400 font-[400]">
+           <p className="ml-2 mt-1 inline text-xs text-gray-400 font-[400]">
               {a.name}
             </p>
           </span>
@@ -48,10 +48,10 @@ const Search = () => {
       <span className="flex justify-start gap-4 mt-4">
         {/* number or beds */}
         <span className="border border-gray-200 shadow-sm rounded-lg p-2 ">
-          <label className=" ml-1 text-xs text-gray-500 font-[500] mr-2">
+          <label className={optionLabel}>
             Beds:
           </label>
-          <select className="border border-gray-200 text-xs font-semibold text-gray-400 rounded-md p-1 focus:outline-none text-center space-mono">
+          <select className={selection}>
             <option value={"1"}>1</option>
             <option value={"2"}>2</option>
             <option value={"3"}>3</option>
@@ -59,7 +59,7 @@ const Search = () => {
           </select>
         </span>
         {/* aircon */}
-        <span className="border border-gray-200 shadow-sm rounded-lg p-2 flex align-center ">
+        <span className={aircon}>
           <MdOutlineAir className="text-[1.3rem] text-gray-400 mt-1" />
           <label className="mt-[.4rem] ml-1 text-xs text-gray-500 font-[500] ml-3">
             Aircon

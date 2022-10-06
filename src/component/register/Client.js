@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import profile from "../img/profile.svg";
-import ClientPage1 from "./ClientPage1";
-import ClientPage2 from "./ClientPage2";
-import { container, header, img, } from '../style/registerClient'
+import ClientPage1 from "./Client1";
+import ClientPage2 from "./Client2";
+import { container, header, img, } from '../style/register'
 
 
-const RegisterClient = () => {
+const Client = () => {
   const [page, setPage] = useState(1);
-
-
 
   return (
       <div className={container}>
@@ -21,4 +19,4 @@ const RegisterClient = () => {
   );
 };
 
-export default RegisterClient;
+export default Client;

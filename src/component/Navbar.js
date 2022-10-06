@@ -14,8 +14,8 @@ const Navbar = () => {
   const isSmallScreen = window.innerWidth <= 440;
   const content = [
     { name: "Home", desc: "/" },
-    { name: "register", desc: "/register/client" },
-    { name: "terms", desc: "/terms" },
+    { name: "register", desc: "/register/accommodator" },
+    { name: "sign-up", desc: "/register/client" },
     { name: "menu", desc: "/menu" },
   ];
 

@@ -1,3 +1,4 @@
+
 import React from "react";
 import Date from "../utility/Date";
 import { useForm } from "react-hook-form";
@@ -7,9 +8,9 @@ import {
   form,
   page1container,
   submit,
-} from "../style/registerClient";
+} from "../style/register";
 
-const ClientPage1 = () => {
+const Acc1 = () => {
   const {
     register,
     handleSubmit,
@@ -25,11 +26,28 @@ const ClientPage1 = () => {
         <input
           type="text"
           className="form-input"
-          placeholder={"name: eg John Doe"}
-          {...register("name", { required: true })}
+          placeholder={"owner name: eg Mario B. Luigue"}
+          {...register("owner", { required: true })}
           // onChange={}
         />
-        {errors.name && <span className="form-error">name is required</span>}
+        {errors.owner && <span className="form-error">Owner name is required</span>}
+        <input
+          type="text"
+          className="form-input"
+          placeholder={"business name: Hotel California"}
+          {...register("businessName", { required: true })}
+          // onChange={}
+        />
+        {errors.businessName && <span className="form-error"> business name is required</span>}
+        <input
+          type="text"
+          className="form-input"
+          placeholder={"location"}
+          {...register("location", { required: true })}
+          // onChange={}
+        />
+        {errors.location && <span className="form-error">location is required</span>}
+
         <input
           type="email"
           className="form-input"
@@ -54,15 +72,10 @@ const ClientPage1 = () => {
         {errors.contact && (
           <span className="form-error">please enter a 11 digit number</span>
         )}
-        {/* birthday */}
-        <span className={birthdaySpan}>
-          <p className={birthdayText}>Birthday:</p>
-          <Date />
-        </span>
         <input type="submit" className={submit} />
       </form>
     </span>
   );
 };
 
-export default ClientPage1;
+export default Acc1;

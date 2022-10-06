@@ -1,8 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./component/Navbar";
 import Home from "./component/Home";
-import RegisterClient from "./component/register/RegisterClient";
+import Client from "./component/register/Client";
 import Notfound from "./component/NotFound";
+import Accommodators from "./component/register/Accommodators";
 
 const App = () => {
   return (
@@ -10,7 +11,8 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/register/client" element={<RegisterClient />} />
+        <Route path="/register/client" element={<Client />} />
+        <Route path="/register/accommodator" element={<Accommodators />} />
         <Route path="*" element={<Notfound />} />
       </Routes>
     </Router>
