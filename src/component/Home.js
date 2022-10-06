@@ -25,7 +25,7 @@ const Home = () => {
   ];
 
   return (
-    <div className={container}>
+  <div className={container}>
       {/* search component */}
       <Search />
       {/* contents */}

@@ -1,36 +1,54 @@
-
-import React from "react";
-import Date from "../utility/Date";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import {
-  birthdaySpan,
-  birthdayText,
-  form,
-  page1container,
-  submit,
-} from "../style/register";
+import { form, page1container, submit } from "../style/register";
+import { useAccommodatorsData } from "../../state/accommodatorData";
 
 const Acc1 = () => {
   const {
     register,
     handleSubmit,
-    watch,
+    // watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
 
-  console.log(watch("example"));
+  const [data, setdata] = useState({
+    owner: "",
+    businessName: "",
+    contact: "",
+    location: "",
+    email: "",
+  });
+
+  const handleChange = (e) => {
+    setdata({ ...data, [e.target.name]: e.target.value });
+  };
+
+  const Accdata = useAccommodatorsData((state) => state.data);
+
+  const setData = useAccommodatorsData((state) => state.setData);
+  const onSubmit = (data) => {
+    setData(data);
+    console.log(data);
+    console.log(Accdata)
+  };
+
+  // console.log(watch("example"));
   return (
     <span className={page1container}>
+      <p>owner: {Accdata?.owner}</p>
+      <p>category: {Accdata?.category}</p>
+
       <form onSubmit={handleSubmit(onSubmit)} className={form}>
         <input
           type="text"
           className="form-input"
           placeholder={"owner name: eg Mario B. Luigue"}
+          onChange={()=>handleChange()}
           {...register("owner", { required: true })}
-          // onChange={}
         />
-        {errors.owner && <span className="form-error">Owner name is required</span>}
+        {errors.owner && (
+          <span className="form-error">Owner name is required</span>
+        )}
         <input
           type="text"
           className="form-input"
@@ -38,7 +56,9 @@ const Acc1 = () => {
           {...register("businessName", { required: true })}
           // onChange={}
         />
-        {errors.businessName && <span className="form-error"> business name is required</span>}
+        {errors.businessName && (
+          <span className="form-error"> business name is required</span>
+        )}
         <input
           type="text"
           className="form-input"
@@ -46,7 +66,9 @@ const Acc1 = () => {
           {...register("location", { required: true })}
           // onChange={}
         />
-        {errors.location && <span className="form-error">location is required</span>}
+        {errors.location && (
+          <span className="form-error">location is required</span>
+        )}
 
         <input
           type="email"
