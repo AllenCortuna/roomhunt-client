@@ -2,6 +2,7 @@ import React from "react";
 import autoAnimate from "@formkit/auto-animate";
 import { rightIcon } from "./utility/rightIcon";
 import { Link } from "react-router-dom";
+import { logoCl, navlink } from "./style/navbar";
 
 const Navbar = () => {
   const dom = React.useRef(null);
@@ -18,13 +19,9 @@ const Navbar = () => {
     { name: "menu", desc: "/menu" },
   ];
 
-  const logo = (
-    <p className="text-gray-100 font-semibold text-[1.3rem] ">RoomHunt</p>
-  );
+  const logo = <p className={logoCl}>RoomHunt</p>;
 
   // WARN: Navbar
-  const navlink =
-    " text-[#fff] text-sm font-[700] transition-all ease-linear uppercase xs:hover:ml-5 duration-300 hover:text-amber-300";
   const nav = (
     <nav
       className={`grid gap-2 transition-all duration-300 ease-linear h-0 p-4 h-full ${

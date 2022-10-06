@@ -1,6 +1,13 @@
 import React from "react";
 import Date from "../utility/Date";
 import { useForm } from "react-hook-form";
+import {
+  birthdaySpan,
+  birthdayText,
+  form,
+  page1container,
+  submit,
+} from "../style/registerClient";
 
 const ClientPage1 = () => {
   const {
@@ -13,11 +20,8 @@ const ClientPage1 = () => {
 
   console.log(watch("example"));
   return (
-    <span className="flex flex-wrap flex-rows mt-10">
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-wrap gap-2 justify-center"
-      >
+    <span className={page1container}>
+      <form onSubmit={handleSubmit(onSubmit)} className={form}>
         <input
           type="text"
           className="form-input"
@@ -51,16 +55,11 @@ const ClientPage1 = () => {
           <span className="form-error">please enter a 11 digit number</span>
         )}
         {/* birthday */}
-        <span className="min-w-[18rem] max-w-[23rem] flex justify-start mx-auto align-center">
-          <p className="text-xs text-gray-400 inline font-[500] ml-1 mr-3 mt-1">
-            Birthday:
-          </p>
+        <span className={birthdaySpan}>
+          <p className={birthdayText}>Birthday:</p>
           <Date />
         </span>
-        <input
-          type="submit"
-          className="border-secondary p-4 py-3 bg-secondary text-sm font-[500] shadow-sm rounded-md mt-2 text-gray-600 mr-2 ml-auto"
-        />
+        <input type="submit" className={submit} />
       </form>
     </span>
   );

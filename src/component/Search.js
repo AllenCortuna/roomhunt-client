@@ -5,9 +5,9 @@ import { TbBeach } from "react-icons/tb";
 import { RiHotelLine } from "react-icons/ri";
 import SearchBar from "./utility/SearchBar";
 import DateRange from "./utility/DateRange";
+import { bsFilter, container, iconClass } from "./style/search";
 
 const Search = () => {
-  const iconClass = "text-[1.5rem] inline text-gray-400 ";
   const type = [
     {
       name: "Rentals",
@@ -20,12 +20,12 @@ const Search = () => {
     { name: "Resort", icon: <TbBeach className={`${iconClass}`} /> },
   ];
   return (
-    <div className="grid grid-cols-1 border border-gray-200 bg-white shadow-md rounded-lg p-4 max-w-[45rem] min-w-[21rem]">
+    <div className={container}>
       {/* <SearchBar/> */}
       <SearchBar />
       {/* filter */}
       <span className="pt-5">
-        <BsFilter className="text-[1.5rem] text-gray-600 inline" />
+        <BsFilter className={bsFilter} />
         <p className="ml-3 inline text-sm font-semibold text-gray-500">
           Filters
         </p>
