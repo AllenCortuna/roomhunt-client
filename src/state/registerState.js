@@ -1,5 +1,5 @@
 import create from "zustand";
-export const useAccommodatorsData = create((set) => ({
+export const useRegisterState = create((set) => ({
   // data: {
   //   owner: "",
   //   name: "",
@@ -16,7 +16,7 @@ export const useAccommodatorsData = create((set) => ({
   data: {},
 
   setData: ({ newData}) => {
-    set((state) => ({
+    set(() => ({
       data: {owner: newData.owner,}
     }));
   },
@@ -28,5 +28,9 @@ export const useAccommodatorsData = create((set) => ({
       ...state.data.fromEntries(Object.entries(...state.data).filter(([key]) => !key.includes(oldData)))
     }))
   },
+
+  logData: ({data})=> {
+    console.log(data)
+  }
 
 }));

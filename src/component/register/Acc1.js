@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { form, page1container, submit } from "../style/register";
-import { useAccommodatorsData } from "../../state/accommodatorData";
 
-const Acc1 = () => {
+const Acc1 = ({data,setData,setPage,page}) => {
   const {
     register,
     handleSubmit,
@@ -11,32 +10,17 @@ const Acc1 = () => {
     formState: { errors },
   } = useForm();
 
-  const [data, setdata] = useState({
-    owner: "",
-    businessName: "",
-    contact: "",
-    location: "",
-    email: "",
-  });
-
   const handleChange = (e) => {
-    setdata({ ...data, [e.target.name]: e.target.value });
+    setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  const Accdata = useAccommodatorsData((state) => state.data);
-
-  const setData = useAccommodatorsData((state) => state.setData);
-  const onSubmit = (data) => {
-    setData(data);
-    console.log(data);
-    console.log(Accdata)
+  const onSubmit = () => {
+    setPage(page+1)
   };
 
   // console.log(watch("example"));
   return (
     <span className={page1container}>
-      <p>owner: {Accdata?.owner}</p>
-      <p>category: {Accdata?.category}</p>
 
       <form onSubmit={handleSubmit(onSubmit)} className={form}>
         <input
