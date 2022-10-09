@@ -1,5 +1,5 @@
 import React from "react";
-import Date from "../utility/Date";
+import Date from "../../component/utility/Date";
 import { useForm } from "react-hook-form";
 import {
   birthdaySpan,
@@ -7,7 +7,7 @@ import {
   form,
   page1container,
   submit,
-} from "../style/register";
+} from "../../style/register";
 
 const ClientPage1 = () => {
   const {

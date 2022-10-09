@@ -1,7 +1,8 @@
 import React,{useState} from 'react'
-import { container,img,header } from '../style/register'
-import profile from '../img/profile.svg'
+import { container,img,header } from '../../style/register'
+import profile from '../../component/img/profile.svg'
 import Acc1 from './Acc1'
+import Button from '../../component/btn/Button'
 
 const Accommodators = () => {
   const [page, setPage] = useState(1)
@@ -28,6 +29,8 @@ const Accommodators = () => {
         <h1 className={header}>Register</h1>
         <h1 className={header}>Accommodators</h1>
         {page === 1 && <Acc1 data={data} setData={setData} setPage={handlePage} page={page}/>}
+   <Button text={"next"} color={"secondary"}/> 
+   <Button text={"err"} color={"primary"}/> 
       </div>
 
 

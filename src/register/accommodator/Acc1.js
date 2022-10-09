@@ -1,6 +1,6 @@
 // import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { form, page1container, submit } from "../style/register";
+import { form, page1container, submit } from "../../style/register";
 
 const Acc1 = ({data,setData,setPage,page}) => {
   const {
