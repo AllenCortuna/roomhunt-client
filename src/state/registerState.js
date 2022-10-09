@@ -16,8 +16,8 @@ export const useRegisterState = create((set) => ({
   data: {},
 
   setData: ({ newData}) => {
-    set(() => ({
-      data: {owner: newData.owner,}
+    set((state) => ({
+      data: {...state.data, ...newData}
     }));
   },
 

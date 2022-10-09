@@ -1,82 +1,60 @@
-// import React, { useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { form, page1container, submit } from "../../style/register";
 
-const Acc1 = ({data,setData,setPage,page}) => {
+const Acc1 = ({ setPage, page, handleChange,data }) => {
   const {
     register,
     handleSubmit,
     // watch,
     formState: { errors },
   } = useForm();
-
-  const handleChange = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
-  };
+  const [isMatch, setIsMatch] = useState(true);
 
   const onSubmit = () => {
-    setPage(page+1)
+    if (data.password !== data.confirmPassword) {
+      setIsMatch(false)
+    }else{
+    setPage(page + 1);
+    }
+    console.log(data)
   };
 
   // console.log(watch("example"));
   return (
     <span className={page1container}>
-
       <form onSubmit={handleSubmit(onSubmit)} className={form}>
-        <input
-          type="text"
-          className="form-input"
-          placeholder={"owner name: eg Mario B. Luigue"}
-          onChange={()=>handleChange()}
-          {...register("owner", { required: true })}
-        />
-        {errors.owner && (
-          <span className="form-error">Owner name is required</span>
-        )}
-        <input
-          type="text"
-          className="form-input"
-          placeholder={"business name: Hotel California"}
-          {...register("businessName", { required: true })}
-          // onChange={}
-        />
-        {errors.businessName && (
-          <span className="form-error"> business name is required</span>
-        )}
-        <input
-          type="text"
-          className="form-input"
-          placeholder={"location"}
-          {...register("location", { required: true })}
-          // onChange={}
-        />
-        {errors.location && (
-          <span className="form-error">location is required</span>
-        )}
-
         <input
           type="email"
           className="form-input"
           placeholder={"email"}
           {...register("email", { required: true })}
-          // onChange={}
+          onChange={handleChange}
         />
         {errors.email && <span className="form-error">email is required</span>}
 
         <input
-          type="number"
+          type="password"
           className="form-input"
-          placeholder={"contact: e.g. 09123456789"}
-          maxLenght={11}
-          {...register("contact", {
-            minLength: 11,
-            maxLength: 11,
-            required: true,
-          })}
-          // onChange={}
+          placeholder={"password"}
+          {...register("password", { required: true })}
+          onChange={handleChange}
         />
-        {errors.contact && (
-          <span className="form-error">please enter a 11 digit number</span>
+        {errors.location && (
+          <span className="form-error">password is required</span>
+        )}
+        <input
+          type="password"
+          className="form-input"
+          placeholder={"Confirm Password"}
+          {...register("confirmPassword", { required: true })}
+          onChange={handleChange}
+        />
+        {errors.location && (
+          <span className="form-error">password is required</span>
+        )}
+        {!isMatch && (
+          <span className="form-error">password does not match</span>
         )}
         <input type="submit" className={submit} />
       </form>
