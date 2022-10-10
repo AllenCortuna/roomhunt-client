@@ -11,11 +11,11 @@ const Accommodators = () => {
     email: "",
     password: "",
     confirmPassword: "",
-    owner: "",
     businessName: "",
     location: "",
     contact: "",
     image: "",
+    owner: "",
     category: "",
   })
   const handlePage = (n) => {
@@ -26,6 +26,7 @@ const Accommodators = () => {
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
+    console.log(data)
   };
 
 
@@ -36,7 +37,7 @@ const Accommodators = () => {
         <h1 className={header}>Accommodators</h1>
         {page === 1 && <Acc1 setPage={handlePage} page={page} handleChange={handleChange} data={data}/>}
         {page === 2 && <Acc2 setPage={handlePage} page={page} handleChange={handleChange} data={data}/>}
-        {page === 3 && <Acc3 setPage={handlePage} page={page} handleChange={handleChange} data={data}/>}
+        {page === 3 && <Acc3 setPage={handlePage} page={page} handleChange={handleChange} />}
       </div>
 
 

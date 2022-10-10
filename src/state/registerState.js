@@ -1,20 +1,6 @@
 import create from "zustand";
 export const useRegisterState = create((set) => ({
-  // data: {
-  //   owner: "",
-  //   name: "",
-  //   location: "",
-  //   email: "",
-  //   contact: "",
-  //   image: "",
-  //   validID: "",
-  //   businessPermit: "",
-  //   category: "",
-  //   password: "",
-  //   confirmPassword: "",
-  // },
-  data: {},
-
+  data:{},
   setData: ({ newData}) => {
     set((state) => ({
       data: {...state.data, ...newData}

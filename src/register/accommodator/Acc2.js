@@ -1,8 +1,12 @@
 // import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useRegisterState } from "../../state/register";
 import { form, page1container, submit } from "../../style/register";
 
-const Acc2 = ({ setPage, page, handleChange }) => {
+const Acc2 = ({ setPage, page, handleChange,data }) => {
+  const registerAcc = useRegisterState(state=>state.registerAcc)
+
+
   const {
     register,
     handleSubmit,
@@ -11,7 +15,9 @@ const Acc2 = ({ setPage, page, handleChange }) => {
   } = useForm();
 
   const onSubmit = () => {
+    console.log("submitdata", data)
     setPage(page + 1);
+    registerAcc(data)
   };
 
   // console.log(watch("example"));
@@ -22,13 +28,14 @@ const Acc2 = ({ setPage, page, handleChange }) => {
         <input
           type="text"
           className="form-input"
-          placeholder={"owner name: eg Mario B. Luigue"}
-          onChange={handleChange}
+          placeholder={"owner"}
           {...register("owner", { required: true })}
+          onChange={handleChange}
         />
         {errors.owner && (
-          <span className="form-error">Owner name is required</span>
+          <span className="form-error"> business name is required</span>
         )}
+
         <input
           type="text"
           className="form-input"
@@ -74,9 +81,21 @@ const Acc2 = ({ setPage, page, handleChange }) => {
           {...register("image", { required: true })}
           onChange={handleChange}
         />
-        {errors.location && (
+        {errors.image && (
           <span className="form-error">Hotel Image is required</span>
         )}
+
+        <input
+          type="text"
+          className="form-input"
+          placeholder={"category"}
+          {...register("category", { required: true })}
+          onChange={handleChange}
+        />
+        {errors.category && (
+          <span className="form-error"> business name is required</span>
+        )}
+
 
         <input type="submit" className={submit} />
       </form>
