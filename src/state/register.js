@@ -11,8 +11,21 @@ export const useRegisterState = create((set) => ({
     set({ loading: true });
     try {
       const result = await api.post("/accommodator/signup", data);
+      set({ data: result.data.result });
+      console.log(result.data.result)
+    } catch (err) {
+      set({ error: err });
+    }
+    set({ loading: false });
+  },
+
+  verifyEmail: async (data) => {
+    console.log("data",data);
+    set({ loading: true });
+    try {
+      const result = await api.post("/accommodator/verify-email", data);
       set({ data: result });
-      console.log("here api result",result)
+      console.log(result)
     } catch (err) {
       set({ error: err });
     }

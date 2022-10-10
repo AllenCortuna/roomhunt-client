@@ -15,7 +15,6 @@ const Acc2 = ({ setPage, page, handleChange,data }) => {
   } = useForm();
 
   const onSubmit = () => {
-    console.log("submitdata", data)
     setPage(page + 1);
     registerAcc(data)
   };

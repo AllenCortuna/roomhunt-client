@@ -17,12 +17,12 @@ const Acc1 = ({ setPage, page, handleChange,data }) => {
     }else{
     setPage(page + 1);
     }
-    console.log(data)
   };
 
   // console.log(watch("example"));
   return (
     <span className={page1container}>
+
       <form onSubmit={handleSubmit(onSubmit)} className={form}>
         <input
           type="email"
