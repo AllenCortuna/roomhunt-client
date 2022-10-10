@@ -15,7 +15,7 @@ const Client = () => {
   return (
       <div className={container}>
         <img src={profile} alt="login" className={img} />
-        <h1 className={header}>Register</h1>
+        <h1 className={header}>Signup</h1>
         {page === 1 && <ClientPage1 />}
         {page === 2 && <ClientPage2 />}
       </div>

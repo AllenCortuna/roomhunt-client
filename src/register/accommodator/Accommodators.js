@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { container, img, header } from "../../style/register";
-import profile from "../../component/img/profile.svg";
+import profile from "../../component/img/accommodator.svg";
 import Acc1 from "./Acc1";
 import Acc2 from "./Acc2";
 import Acc3 from "./Acc3";
