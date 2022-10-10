@@ -31,7 +31,7 @@ const Home = () => {
       {/* contents */}
       <div className={contentContainer}>
         {contents.map((cont) => (
-          <div className={content}>
+          <div className={content} key={cont.name}>
             <img className={contentImg} src={cont.img} alt="content" />
             <h1 className={contentName}>{cont.name}</h1>
             <p className={contentDesc}>{cont.desc}</p>

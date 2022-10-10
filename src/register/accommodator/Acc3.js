@@ -1,5 +1,5 @@
 import React from "react";
-import { submit } from "../../style/register";
+import { otpContainer, otpInput, otpText } from "../../style/register";
 import Button from "../../component/btn/Button";
 const Acc3 = () => {
   const [otp, setOtp] = React.useState(new Array(4).fill(""));
@@ -16,17 +16,17 @@ const Acc3 = () => {
 
   return (
     <>
-      <div className="flex flex-wrap justify-center ">
-<p className="text-gray-500 text-sm mt-5 mb-4">Please enter the OTP sent to your email</p>
+      <div className={otpContainer}>
+<p className={otpText}>Please enter the OTP sent to your email</p>
 
         <div className="">
           {otp.map((data, index) => {
             return (
               <input
-                className="text-center h-10 w-8 border-2 border-gray-400 rounded-md space-mono text-gray-500 text-xl m-1 focus:outline-none focus:border-gray-500"
-                type="text"
+                className={otpInput}        
+                type="number"
                 name="otp"
-                maxLength="1"
+                maxLength={"1"}
                 key={index}
                 value={data}
                 onChange={(e) => handleChange(e.target, index)}
@@ -35,7 +35,7 @@ const Acc3 = () => {
             );
           })}
         </div>
-        <span className= "flex flex-wrap justify-between w-[13rem] mt-5">
+        <span className= "flex flex-wrap justify-between w-[10.5rem] mt-5 mx-auto">
           <Button
             onClick={() => setOtp([...otp.map(() => "")])}
             text={"Clear"}
