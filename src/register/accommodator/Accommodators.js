@@ -43,7 +43,7 @@ const Accommodators = () => {
       )}
       {page === 2 && (
         <>
-          <h1 className={header}>Business Info</h1>
+          <h1 className={header}>Accommodation Info</h1>
         <Acc2
           setPage={handlePage}
           page={page}
