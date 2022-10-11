@@ -1,6 +1,6 @@
 export const container =
   "text-center p-4 bg-white w-[21rem] min-h-[20rem] rounded-md shadow h-auto mx-auto mt-[5rem] ";
-export const img = "w-20 m-auto my-2 ";
+export const img = "w-20 m-auto my-2 drop-shadow-lg";
 export const header = "font-semibold text-gray-500 text-md space-mono mx-auto";
 
 // RegisterClient1

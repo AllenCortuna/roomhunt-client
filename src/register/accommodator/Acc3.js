@@ -2,21 +2,23 @@ import React from "react";
 import { otpContainer, otpInput, otpText } from "../../style/register";
 import Button from "../../component/btn/Button";
 import { useRegisterState } from "../../state/register";
+import { useNavigate } from "react-router-dom";
 const Acc3 = () => {
+  const navigate = useNavigate();
   const [otp, setOtp] = React.useState(new Array(4).fill(""));
 
   const data = useRegisterState((state) => state.data);
   const verifyEmail = useRegisterState((state) => state.verifyEmail);
+
   const handleVerify = () => {
-    console.log(data._id);
-    verifyEmail({ otp: otp.join(""), accommodatorId: data._id });
+    console.log("accId",data._id);
+    // data to be send in the zustand api
+    verifyEmail({otp: otp.join(""), accommodatorId: data._id, navigate: navigate});
   };
 
   const handleChange = (element, index) => {
     if (isNaN(element.value)) return false;
-
     setOtp([...otp.map((d, idx) => (idx === index ? element.value : d))]); //Focus next input
-
     if (element.nextSibling) {
       element.nextSibling.focus();
     }

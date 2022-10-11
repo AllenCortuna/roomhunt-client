@@ -23,8 +23,11 @@ export const useRegisterState = create((set) => ({
     console.log("data",data);
     set({ loading: true });
     try {
-      const result = await api.post("/accommodator/verify-email", data);
+      const result = await api.post("/accommodator/verify-email", {otp : data.otp, accommodatorId : data.accommodatorId});
+      const nav = data.navigate
+      nav("/dashboard")
       set({ data: result });
+
       console.log(result)
     } catch (err) {
       set({ error: err });
