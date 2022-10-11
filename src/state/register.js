@@ -12,7 +12,7 @@ export const useRegisterState = create((set) => ({
     try {
       const result = await api.post("/accommodator/signup", data);
       set({ data: result.data.result });
-      console.log(result.data.result)
+      console.log(result.data.result);
     } catch (err) {
       set({ error: err });
     }
@@ -20,18 +20,27 @@ export const useRegisterState = create((set) => ({
   },
 
   verifyEmail: async (data) => {
-    console.log("data",data);
+    console.log("data", data);
     set({ loading: true });
     try {
-      const result = await api.post("/accommodator/verify-email", {otp : data.otp, accommodatorId : data.accommodatorId});
-      const nav = data.navigate
-      nav("/dashboard")
+      const result = await api.post("/accommodator/verify-email", {
+        otp: data.otp,
+        accommodatorId: data.accommodatorId,
+      });
+      const nav = data.navigate;
+      nav("/dashboard");
       set({ data: result });
-
-      console.log(result)
+      localStorage.setItem("profile", result);
+      console.log(localStorage.getItem("profile")?.token)
+      console.log(result);
     } catch (err) {
       set({ error: err });
     }
     set({ loading: false });
+  },
+
+  logOut: () => {
+    localStorage.clear();
+    console.log("logout and clear storage")
   },
 }));
