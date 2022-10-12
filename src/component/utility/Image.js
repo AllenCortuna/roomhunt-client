@@ -1,71 +1,28 @@
-import React from 'react'
-import ImageUploading from 'react-images-uploading';
+import React, { useState } from "react";
 
-const Image = (setPicture) => {
-
-  const [images, setImages] = React.useState([]);
-  const maxNumber = 1;
-
-  const onChange = (imageList, addUpdateIndex) => {
-    // data for submit
-    console.log(imageList, addUpdateIndex);
-    setImages(imageList);
-    setPicture(images[0])
+const Image = ({ handleImg ,data}) => {
+  const [selectedImage, setSelectedImage] = useState(null);
+  const handleImage = (e) => {
+    setSelectedImage(e.target.files[0]);
+    handleImg(e.target.files[0]);
   };
 
   return (
-    <div>
-      <div className="App">
-        <ImageUploading
-          multiple
-          value={images}
-          onChange={onChange}
-          maxNumber={maxNumber}
-          dataURLKey="data_url"
-        >
-          {({
-            imageList,
-            onImageUpload,
-            onImageRemoveAll,
-            onImageUpdate,
-            onImageRemove,
-            isDragging,
-            dragProps,
-          }) => (
-            // write your building UI
-            <div className="upload__image-wrapper">
-              <button
-                style={isDragging ? { color: 'red' } : undefined}
-                onClick={onImageUpload}
-                {...dragProps}
-              >
-                Click or Drop here
-              </button>
-              &nbsp;
-              <button onClick={onImageRemoveAll}>Remove all images</button>
-              {imageList.map((image, index) => (
-                <div key={index} className="image-item">
-                  <img src={image['data_url']} alt="" width="100" />
-                  <div className="image-item__btn-wrapper">
-                    <button onClick={() => onImageUpdate(index)}>Update</button>
-                    <button onClick={() => onImageRemove(index)}>Remove</button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-        </ImageUploading>
-        {({ imageList, onImageUpload, onImageRemoveAll, errors }) => (
-          errors && <div>
-            {errors.maxNumber && <span>Number of selected images exceed maxNumber</span>}
-            {errors.acceptType && <span>Your selected file type is not allow</span>}
-            {errors.maxFileSize && <span>Selected file size exceed maxFileSize</span>}
-            {errors.resolution && <span>Selected file is not match your desired resolution</span>}
-          </div>
-        )}
-      </div>
+    <div className="flex flex-wrap justify-center mx-auto border border-gray-300 w-[18rem] rounded-md bg-primary">
+    {!data.image &&<p className="ml-2 mr-auto text-xs text-gray-500">Hotel Image</p>}
+      <input title="Hotel Image" type="file" name="image" onChange={handleImage} className="ml-0 mr-auto text-gray-500 text-xs outline-gray-300" placeholder="Hotel Image" />
+      {selectedImage && (
+        <div>
+          <img
+            alt="not fount"
+            width={"240px"}
+            src={URL.createObjectURL(selectedImage)}
+          />
+          {/* <button onClick={() => setSelectedImage(null)}>Remove</button> */}
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default Image
+export default Image;

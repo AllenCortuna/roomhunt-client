@@ -1,7 +1,8 @@
 import axios from "axios";
 import create from "zustand";
-// const api = axios.create({ baseURL: "https://room-hunt.herokuapp.com/" });
-const api = axios.create({ baseURL: "http://localhost:8000" });
+// WARN: put in env
+const api = axios.create({ baseURL: "https://room-hunt.herokuapp.com/" });
+// const api = axios.create({ baseURL: "http://localhost:8000" });
 export const useRegisterState = create((set) => ({
   data: {},
   loading: false,

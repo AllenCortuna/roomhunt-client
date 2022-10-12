@@ -2,6 +2,7 @@
 import { useForm } from "react-hook-form";
 import { useRegisterState } from "../../state/register";
 import { form, page1container, submit, formInput } from "../style";
+import Image from "../../component/utility/Image";
 
 const Acc2 = ({ setPage, handleChange, data }) => {
   const registerAcc = useRegisterState((state) => state.registerAcc);
@@ -72,24 +73,15 @@ const Acc2 = ({ setPage, handleChange, data }) => {
         <input
           type="text"
           className={formInput}
-          placeholder={"Hotel Image"}
-          {...register("image", { required: true })}
-          onChange={handleChange}
-        />
-        {errors.image && (
-          <span className="form-error">Hotel Image is required</span>
-        )}
-
-        <input
-          type="text"
-          className={formInput}
-          placeholder={"category"}
+          placeholder={"category eg:hotel, resort bh"}
           {...register("category", { required: true })}
           onChange={handleChange}
         />
         {errors.category && (
-          <span className="form-error"> business name is required</span>
+          <span className="form-error">category is required</span>
         )}
+
+        <Image handleImg={handleChange} data={data} />
 
         <input type="submit" className={submit} />
       </form>
