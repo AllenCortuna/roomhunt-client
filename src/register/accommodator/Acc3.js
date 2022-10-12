@@ -1,5 +1,5 @@
 import React from "react";
-import { otpContainer, otpInput, otpText } from "../../style/register";
+import { otpContainer, otpInput, otpText } from "../style";
 import Button from "../../component/btn/Button";
 import { useRegisterState } from "../../state/register";
 import { useNavigate } from "react-router-dom";
@@ -11,10 +11,10 @@ const Acc3 = () => {
   const verifyEmail = useRegisterState((state) => state.verifyEmail);
 
   const handleVerify = () => {
-    console.log("accId",data._id);
+    console.log("accId", data._id);
     // data to be send in the zustand api
-    const verifyData = {otp: otp.join(""), accommodatorId: data._id}
-    verifyEmail(verifyData,navigate);
+    const verifyData = { otp: otp.join(""), accommodatorId: data._id };
+    verifyEmail(verifyData, navigate);
   };
 
   const handleChange = (element, index) => {
@@ -62,7 +62,6 @@ const Acc3 = () => {
           />
         </span>
       </div>
-              
     </>
   );
 };

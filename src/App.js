@@ -4,7 +4,7 @@ import Home from "./component/Home";
 // import Client from "./register/client/Client";
 import Notfound from "./component/NotFound";
 import Accommodators from "./register/accommodator/Accommodators.js";
-import Dashboard from "./dashboard/acc/Dashboard";
+import AccDashboard from "./dashboard/AccDashboard";
 
 const App = () => {
   return (
@@ -13,7 +13,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         {/* <Route path="/register/client" element={<Client />} /> */}
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<AccDashboard />} />
         <Route path="/register/accommodator" element={<Accommodators />} />
         <Route path="*" element={<Notfound />} />
       </Routes>

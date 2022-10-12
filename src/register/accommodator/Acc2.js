@@ -1,11 +1,10 @@
 // import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRegisterState } from "../../state/register";
-import { form, page1container, submit,formInput } from "../../style/register";
+import { form, page1container, submit, formInput } from "../style";
 
-const Acc2 = ({ setPage, page, handleChange,data }) => {
-  const registerAcc = useRegisterState(state=>state.registerAcc)
-
+const Acc2 = ({ setPage, handleChange, data }) => {
+  const registerAcc = useRegisterState((state) => state.registerAcc);
 
   const {
     register,
@@ -15,15 +14,13 @@ const Acc2 = ({ setPage, page, handleChange,data }) => {
   } = useForm();
 
   const onSubmit = () => {
-    setPage(page + 1);
-    registerAcc(data)
+    registerAcc(data, setPage);
   };
 
   // console.log(watch("example"));
   return (
     <span className={page1container}>
       <form onSubmit={handleSubmit(onSubmit)} className={form}>
-
         <input
           type="text"
           className={formInput}
@@ -75,7 +72,6 @@ const Acc2 = ({ setPage, page, handleChange,data }) => {
         <input
           type="text"
           className={formInput}
-
           placeholder={"Hotel Image"}
           {...register("image", { required: true })}
           onChange={handleChange}
@@ -94,7 +90,6 @@ const Acc2 = ({ setPage, page, handleChange,data }) => {
         {errors.category && (
           <span className="form-error"> business name is required</span>
         )}
-
 
         <input type="submit" className={submit} />
       </form>

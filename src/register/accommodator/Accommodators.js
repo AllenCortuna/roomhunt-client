@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { container, img, header } from "../../style/register";
+import { container, img, header } from "../style";
 import profile from "../../component/img/profile.svg";
 import Acc1 from "./Acc1";
 import Acc2 from "./Acc2";
@@ -44,18 +44,18 @@ const Accommodators = () => {
       {page === 2 && (
         <>
           <h1 className={header}>Accommodation Info</h1>
-        <Acc2
-          setPage={handlePage}
-          page={page}
-          handleChange={handleChange}
-          data={data}
-        />
+          <Acc2
+            setPage={handlePage}
+            page={page}
+            handleChange={handleChange}
+            data={data}
+          />
         </>
       )}
       {page === 3 && (
         <>
           <h1 className={header}>Verify Email</h1>
-        <Acc3 setPage={handlePage} page={page} handleChange={handleChange} />
+          <Acc3 setPage={handlePage} page={page} handleChange={handleChange} />
         </>
       )}
     </div>
