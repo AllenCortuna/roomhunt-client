@@ -7,8 +7,8 @@ const AccInfo = ({ data }) => {
         <img src={data.image} alt="" className="" />
         <h1 className="">{data?.businessName}</h1>
       </span>
-    <h4 className="">{data.owner}</h4>
-    <p>hahaha</p>
+      <h4 className="">{data.owner}</h4>
+      <p>hahaha</p>
     </div>
   );
 };
