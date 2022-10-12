@@ -32,7 +32,7 @@ const AccDashboard = () => {
   return (
     <div className="pt-10" >
       {/* accommodator info */}
-    <AccInfo data={user?.result} />
+    <AccInfo user={user?.result} />
     </div>
   );
 };
