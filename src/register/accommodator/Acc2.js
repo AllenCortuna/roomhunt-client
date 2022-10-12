@@ -1,7 +1,7 @@
 // import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRegisterState } from "../../state/register";
-import { form, page1container, submit } from "../../style/register";
+import { form, page1container, submit,formInput } from "../../style/register";
 
 const Acc2 = ({ setPage, page, handleChange,data }) => {
   const registerAcc = useRegisterState(state=>state.registerAcc)
@@ -26,7 +26,7 @@ const Acc2 = ({ setPage, page, handleChange,data }) => {
 
         <input
           type="text"
-          className="form-input"
+          className={formInput}
           placeholder={"owner"}
           {...register("owner", { required: true })}
           onChange={handleChange}
@@ -37,7 +37,7 @@ const Acc2 = ({ setPage, page, handleChange,data }) => {
 
         <input
           type="text"
-          className="form-input"
+          className={formInput}
           placeholder={"business name: Hotel California"}
           {...register("businessName", { required: true })}
           onChange={handleChange}
@@ -47,7 +47,7 @@ const Acc2 = ({ setPage, page, handleChange,data }) => {
         )}
         <input
           type="text"
-          className="form-input"
+          className={formInput}
           placeholder={"location"}
           {...register("location", { required: true })}
           onChange={handleChange}
@@ -58,9 +58,9 @@ const Acc2 = ({ setPage, page, handleChange,data }) => {
 
         <input
           type="number"
-          className="form-input"
+          className={formInput}
           placeholder={"contact: e.g. 09123456789"}
-          maxLenght={11}
+          maxLength="11"
           {...register("contact", {
             minLength: 11,
             maxLength: 11,
@@ -74,7 +74,7 @@ const Acc2 = ({ setPage, page, handleChange,data }) => {
 
         <input
           type="text"
-          className="form-input"
+          className={formInput}
 
           placeholder={"Hotel Image"}
           {...register("image", { required: true })}
@@ -86,7 +86,7 @@ const Acc2 = ({ setPage, page, handleChange,data }) => {
 
         <input
           type="text"
-          className="form-input"
+          className={formInput}
           placeholder={"category"}
           {...register("category", { required: true })}
           onChange={handleChange}

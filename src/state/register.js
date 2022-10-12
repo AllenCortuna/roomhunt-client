@@ -12,29 +12,28 @@ export const useRegisterState = create((set) => ({
     try {
       const result = await api.post("/accommodator/signup", data);
       set({ data: result.data.result });
-      console.log(result.data.result);
+      alert(result.data.result);
     } catch (err) {
       set({ error: err });
+      alert(err.message)
     }
     set({ loading: false });
   },
 
-  verifyEmail: async (data) => {
-    console.log("data", data);
+  verifyEmail: async (data,navigate) => {
     set({ loading: true });
     try {
       const result = await api.post("/accommodator/verify-email", {
         otp: data.otp,
         accommodatorId: data.accommodatorId,
       });
-      const nav = data.navigate;
-      nav("/dashboard");
-      set({ data: result });
-      localStorage.setItem("profile", result);
-      console.log(localStorage.getItem("profile")?.token)
-      console.log(result);
+      navigate("/dashboard");
+      set({ data: result.data.result });
+      localStorage.setItem("profile", result.data);
+      console.log("result verify email",result.data);
     } catch (err) {
       set({ error: err });
+      alert(err)
     }
     set({ loading: false });
   },

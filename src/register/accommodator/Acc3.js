@@ -13,7 +13,8 @@ const Acc3 = () => {
   const handleVerify = () => {
     console.log("accId",data._id);
     // data to be send in the zustand api
-    verifyEmail({otp: otp.join(""), accommodatorId: data._id, navigate: navigate});
+    const verifyData = {otp: otp.join(""), accommodatorId: data._id}
+    verifyEmail(verifyData,navigate);
   };
 
   const handleChange = (element, index) => {
