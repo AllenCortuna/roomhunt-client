@@ -1,34 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
+import { BsFillImageFill } from "react-icons/bs";
+import Filebase from 'react-file-base64'
 
-const Image = ({ handleImg, data }) => {
-  const [selectedImage, setSelectedImage] = useState(null);
-  const handleImage = (e) => {
-    setSelectedImage(e.target.files[0]);
-    handleImg(e.target.files[0]);
-    console.log(e.target.files[0]);
-  };
+const Image = ({ handleImg,data }) => {
 
   return (
-    <div className="flex flex-wrap justify-center mx-auto border border-gray-300 w-[18rem] rounded-md bg-primary">
-      <label for="upload-img" className="text-gray-500 text-xs ml-0 mr-auto"> upload images</label>
-      <input id="upload-img"
-        title="Hotel Image"
-        type="file"
-        name="image"
-        onChange={handleImage}
-        placeholder="Hotel Image"
-        className="hidden"
-      />
-      {selectedImage && (
+
+    <div className="flex flex-wrap justify-center mx-auto border border-gray-300 w-[18rem] rounded-md p-2">
+      <label htmlFor="upload-img" className="text-gray-400 text-xs ml-0 mr-auto">
+        <BsFillImageFill className="text-[1rem] text-gray-500 inline mr-2" />
+        Hotel Image
+      </label>
+
+       <Filebase type="file" multiple={false} onDone={({ base64 }) => handleImg(base64)} />
+    {data.image &&
         <div>
           <img
             alt="not fount"
             width={"240px"}
-            src={URL.createObjectURL(selectedImage)}
+            src={data.image}
           />
-          {/* <button onClick={() => setSelectedImage(null)}>Remove</button> */}
         </div>
-      )}
+    }
     </div>
   );
 };

@@ -20,12 +20,15 @@ const Accommodators = () => {
   });
   const handlePage = (n) => {
     setPage(n);
-    console.log(data);
   };
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
+  const handleImg = (img) => {
+    setData({ ...data, image: img });
+    console.log("data.image:",data.image)
+  }
 
   return (
     <div className={container}>
@@ -49,6 +52,7 @@ const Accommodators = () => {
             page={page}
             handleChange={handleChange}
             data={data}
+            handleImg={handleImg}
           />
         </>
       )}

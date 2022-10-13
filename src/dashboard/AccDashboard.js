@@ -30,7 +30,7 @@ const AccDashboard = () => {
   }, [logOut, navigate, user.token]);
 
   return (
-    <div className="pt-10" >
+    <div className="grid justify-items-center pt-10 grid-cols-1 md:grid-cols-2 bg-primary" >
       {/* accommodator info */}
     <AccInfo user={user?.result} />
     </div>

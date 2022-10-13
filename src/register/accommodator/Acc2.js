@@ -4,7 +4,7 @@ import { useRegisterState } from "../../state/register";
 import { form, page1container, submit, formInput } from "../style";
 import Image from "../../component/utility/Image";
 
-const Acc2 = ({ setPage, handleChange, data }) => {
+const Acc2 = ({ setPage, handleChange, data,handleImg }) => {
   const registerAcc = useRegisterState((state) => state.registerAcc);
 
   const {
@@ -81,7 +81,7 @@ const Acc2 = ({ setPage, handleChange, data }) => {
           <span className="form-error">category is required</span>
         )}
 
-        <Image handleImg={handleChange} data={data} />
+        <Image handleImg={handleImg} data={data} />
 
         <input type="submit" className={submit} />
       </form>
