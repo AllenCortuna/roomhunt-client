@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { form, page1container, submit } from "../../style/register";
+import { useRegisterState } from "../../state/register";
+import { form, page1container, submit } from "../style";
 
 const Acc1 = ({ setPage, page, handleChange,data }) => {
+
+  const loading = useRegisterState((state) => state.loading);
   const {
     register,
     handleSubmit,
@@ -27,7 +30,7 @@ const Acc1 = ({ setPage, page, handleChange,data }) => {
         <input
           type="email"
           className="form-input"
-          placeholder={"email"}
+          placeholder={"Email"}
           {...register("email", { required: true })}
           onChange={handleChange}
         />
@@ -36,7 +39,7 @@ const Acc1 = ({ setPage, page, handleChange,data }) => {
         <input
           type="password"
           className="form-input"
-          placeholder={"password"}
+          placeholder={"Password"}
           {...register("password", { required: true })}
           onChange={handleChange}
         />
@@ -56,7 +59,7 @@ const Acc1 = ({ setPage, page, handleChange,data }) => {
         {!isMatch && (
           <span className="form-error">password does not match</span>
         )}
-        <input type="submit" className={submit} />
+        <input type="submit" className={submit(loading)} disabled={loading} />
       </form>
     </span>
   );

@@ -12,11 +12,13 @@ const Accommodators = () => {
     password: "",
     confirmPassword: "",
     businessName: "",
-    location: "",
     contact: "",
     image: "",
     owner: "",
     category: "",
+    street: "",
+    brgy: "",
+    
   });
   const handlePage = (n) => {
     setPage(n);
@@ -24,13 +26,13 @@ const Accommodators = () => {
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
-    console.log(data.category);
   };
   const handleImg = (img) => {
     setData({ ...data, image: img });
   };
   const handleOpt = (cat) => {
     setData({ ...data, category: cat });
+    console.log(data.category);
   };
 
   return (
@@ -39,6 +41,7 @@ const Accommodators = () => {
       {page === 1 && (
         <>
           <h1 className={header}>Register</h1>
+        <hr className="w-full text-gray-400 drop-shadow-sm"/>
           <Acc1
             setPage={handlePage}
             page={page}
@@ -50,6 +53,7 @@ const Accommodators = () => {
       {page === 2 && (
         <>
           <h1 className={header}>Accommodation Info</h1>
+        <hr className="w-full text-gray-400 drop-shadow-sm"/>
           <Acc2
             setPage={handlePage}
             page={page}

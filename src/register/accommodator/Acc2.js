@@ -1,11 +1,11 @@
 // import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRegisterState } from "../../state/register";
-import { form, page1container, submit, formInput } from "../style";
+import { form, page1container, submit,  } from "../style";
 import Image from "../../component/utility/Image";
 import Option from "../../component/utility/Option";
 
-const Acc2 = ({ setPage, handleChange, data, handleImg ,handleOpt}) => {
+const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
   const registerAcc = useRegisterState((state) => state.registerAcc);
   const error = useRegisterState((state) => state.error);
   const loading = useRegisterState((state) => state.loading);
@@ -32,8 +32,9 @@ const Acc2 = ({ setPage, handleChange, data, handleImg ,handleOpt}) => {
       <form onSubmit={handleSubmit(onSubmit)} className={form}>
         <input
           type="text"
-          className={formInput}
-          placeholder={"owner"}
+          className="form-input"
+          autoComplete="no"
+          placeholder={"Owner Full Name"}
           {...register("owner", { required: true })}
           onChange={handleChange}
         />
@@ -43,8 +44,9 @@ const Acc2 = ({ setPage, handleChange, data, handleImg ,handleOpt}) => {
 
         <input
           type="text"
-          className={formInput}
-          placeholder={"business name: Hotel California"}
+          className="form-input"
+          autoComplete="no"
+          placeholder={"Business Name"}
           {...register("businessName", { required: true })}
           onChange={handleChange}
         />
@@ -52,20 +54,10 @@ const Acc2 = ({ setPage, handleChange, data, handleImg ,handleOpt}) => {
           <span className="form-error"> business name is required</span>
         )}
         <input
-          type="text"
-          className={formInput}
-          placeholder={"location"}
-          {...register("location", { required: true })}
-          onChange={handleChange}
-        />
-        {errors.location && (
-          <span className="form-error">location is required</span>
-        )}
-
-        <input
           type="number"
-          className={formInput}
-          placeholder={"contact: e.g. 09123456789"}
+          className="form-input"
+          autoComplete="no"
+          placeholder={"Contact"}
           maxLength="11"
           {...register("contact", {
             minLength: 11,
@@ -77,7 +69,21 @@ const Acc2 = ({ setPage, handleChange, data, handleImg ,handleOpt}) => {
         {errors.contact && (
           <span className="form-error">please enter a 11 digit number</span>
         )}
-        <Option
+
+        <input
+          type="text"
+          className="form-input"
+          autoComplete="no"
+          placeholder={"Location"}
+          {...register("location", { required: true })}
+          onChange={handleChange}
+        />
+        {errors.location && (
+          <span className="form-error">location is required</span>
+        )}
+
+        <Option 
+          label={"Category"}
           handleOpt={handleOpt}
           option={["resort", "hotel", "rental-home"]}
         />
