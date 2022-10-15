@@ -17,11 +17,13 @@ const Accommodators = () => {
     businessName: "",
     contact: "",
     image: "",
-    owner: "",
     category: "",
+    owner: "",
+    // location`
     street: "",
     brgy: "",
-    
+    city: "",
+    province :""
   });
 
   const dom = React.useRef(null);

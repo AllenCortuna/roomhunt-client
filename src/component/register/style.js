@@ -5,7 +5,7 @@ export const header = "font-semibold text-gray-500 text-md mx-auto text-[1.3rem]
 
 // RegisterClient1
 export const page1container = "flex flex-wrap mt-10 justify-center pl-2";
-export const form = "flex flex-wrap gap-1 justify-start";
+export const form = "flex flex-wrap justify-start";
 export const birthdaySpan =
   "min-w-[18rem] max-w-[23rem] flex justify-start mx-auto align-center";
 export const birthdayText =
@@ -23,5 +23,5 @@ export const numInput =
   "outline-none text-gray-500 w-[8rem] font-normal mx-auto border-gray-300 border p-2 rounded focus:outline-none focus:text-gray-500 focus:border-green transition-all ease-linear duration-300 text-xs md:text-sm";
 
 export const formErr = (err)=> {
-  return `rale duration-200 transition-all ease-linear text-xs text-red-500 font-[400] ${err ? "scale-y-100 h-auto": "scale-y-0 h-0"} `
+  return ` ml-1 mb-2 rale duration-200 transition-all ease-linear text-xs text-red-500 font-[400] ${err ? "scale-y-100 h-auto": "scale-y-0 h-0"} `
 }

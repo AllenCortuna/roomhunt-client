@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 * {
   box-sizing: border-box;
@@ -11,7 +11,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #F7F6F0;
+  background-color: #f7f6f0;
 }
 
 @layer components {
@@ -22,45 +22,48 @@ body {
     @apply shadow-md outline-none text-gray-500 min-w-[18rem] max-w-[23rem] font-normal border-gray-200 border-2 bg-gray-200 p-2 rounded focus:outline-none focus:text-gray-500 transition-all ease-linear duration-300 text-xs md:text-sm focus:border-orange active:text-gray-500;
   }
 }
-.space-mono{
+.space-mono {
   font-family: "Space Mono", sans-serif;
 }
-.red-hat{
+.red-hat {
   font-family: "Red Hat Display", sans-serif;
 }
-.poppin{
+.poppin {
   font-family: "Poppins", sans-serif;
 }
-.mon{
+.mon {
   font-family: "Montserrat", sans-serif;
 }
-.rale{
-  font-family: 'Raleway', sans-serif;
-
+.rale {
+  font-family: "Raleway", sans-serif;
 }
-
+.shad {
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, */
+  /* rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; */
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
 
 /* OTP form */
 .digit-group input {
-width: 30px;
-height: 50px;
-background-color: #18182a;
-border: none;
-line-height: 50px;
-text-align: center;
-font-size: 24px;
-/* font-family: 'Raleway', sans-serif; */
-font-weight: 200;
-color: white;
-margin: 0 2px;
+  width: 30px;
+  height: 50px;
+  background-color: #18182a;
+  border: none;
+  line-height: 50px;
+  text-align: center;
+  font-size: 24px;
+  /* font-family: 'Raleway', sans-serif; */
+  font-weight: 200;
+  color: white;
+  margin: 0 2px;
 }
 .digit-group .splitter {
-padding: 0 5px;
-color: white;
-font-size: 24px;
+  padding: 0 5px;
+  color: white;
+  font-size: 24px;
 }
 .prompt {
-margin-bottom: 20px;
-font-size: 20px;
-color: white;
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: white;
 }
