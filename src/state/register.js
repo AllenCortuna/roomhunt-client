@@ -15,8 +15,7 @@ export const useRegisterState = create((set) => ({
       set({ data: result.data.result });
       setPage(3);
     } catch (err) {
-      set({ error: err });
-      alert(err.message);
+      set({ error: true });
     }
     set({ loading: false });
   },
@@ -31,16 +30,15 @@ export const useRegisterState = create((set) => ({
       navigate("/dashboard");
       set({ data: result.data.result });
       localStorage.setItem("profile", JSON.stringify(result?.data));
-      console.log("result verify email", result.data);
     } catch (err) {
-      set({ error: err });
-      alert(err);
+      set({ error: true });
     }
     set({ loading: false });
   },
 
-  logOut: () => {
+  logOut: (navigate) => {
     localStorage.clear();
-    console.log("logout and clear storage");
+    alert("logout and clear storage");
+    navigate("/");
   },
 }));

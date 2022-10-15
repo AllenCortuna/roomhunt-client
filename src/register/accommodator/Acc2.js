@@ -3,9 +3,12 @@ import { useForm } from "react-hook-form";
 import { useRegisterState } from "../../state/register";
 import { form, page1container, submit, formInput } from "../style";
 import Image from "../../component/utility/Image";
+import Option from "../../component/utility/Option";
 
-const Acc2 = ({ setPage, handleChange, data,handleImg }) => {
+const Acc2 = ({ setPage, handleChange, data, handleImg ,handleOpt}) => {
   const registerAcc = useRegisterState((state) => state.registerAcc);
+  const error = useRegisterState((state) => state.error);
+  const loading = useRegisterState((state) => state.loading);
 
   const {
     register,
@@ -21,6 +24,11 @@ const Acc2 = ({ setPage, handleChange, data,handleImg }) => {
   // console.log(watch("example"));
   return (
     <span className={page1container}>
+      {error && (
+        <p className="text-sm text-error mb-4">
+          There is an error while registering your account please try again
+        </p>
+      )}
       <form onSubmit={handleSubmit(onSubmit)} className={form}>
         <input
           type="text"
@@ -69,21 +77,14 @@ const Acc2 = ({ setPage, handleChange, data,handleImg }) => {
         {errors.contact && (
           <span className="form-error">please enter a 11 digit number</span>
         )}
-
-        <input
-          type="text"
-          className={formInput}
-          placeholder={"category eg:hotel, resort bh"}
-          {...register("category", { required: true })}
-          onChange={handleChange}
+        <Option
+          handleOpt={handleOpt}
+          option={["resort", "hotel", "rental-home"]}
         />
-        {errors.category && (
-          <span className="form-error">category is required</span>
-        )}
 
         <Image handleImg={handleImg} data={data} />
 
-        <input type="submit" className={submit} />
+        <input type="submit" className={submit(loading)} disabled={loading} />
       </form>
     </span>
   );

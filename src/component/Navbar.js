@@ -15,7 +15,7 @@ const Navbar = () => {
   const content = [
     { name: "Home", desc: "/" },
     { name: "register", desc: "/register/accommodator" },
-    { name: "sign-up", desc: "/register/client" },
+    { name: "dashboard", desc: "/dashboard" },
     { name: "menu", desc: "/menu" },
   ];
 

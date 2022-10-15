@@ -24,11 +24,14 @@ const Accommodators = () => {
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
+    console.log(data.category);
   };
   const handleImg = (img) => {
     setData({ ...data, image: img });
-    console.log("data.image:",data.image)
-  }
+  };
+  const handleOpt = (cat) => {
+    setData({ ...data, category: cat });
+  };
 
   return (
     <div className={container}>
@@ -53,6 +56,7 @@ const Accommodators = () => {
             handleChange={handleChange}
             data={data}
             handleImg={handleImg}
+            handleOpt={handleOpt}
           />
         </>
       )}

@@ -5,7 +5,14 @@ import { TbBeach } from "react-icons/tb";
 import { RiHotelLine } from "react-icons/ri";
 import SearchBar from "./utility/SearchBar";
 import DateRange from "./utility/DateRange";
-import { aircon, bsFilter, container, iconClass, optionLabel, selection } from "./style/search";
+import {
+  aircon,
+  bsFilter,
+  container,
+  iconClass,
+  optionLabel,
+  selection,
+} from "./style/search";
 
 const Search = () => {
   const type = [
@@ -37,7 +44,7 @@ const Search = () => {
         {type.map((a) => (
           <span className="flex flex-wrap justify-center text-center flex-row border border-gray-300 p-2 rounded-lg">
             {a.icon}
-           <p className="ml-2 mt-1 inline text-xs text-gray-400 font-[400]">
+            <p className="ml-2 mt-1 inline text-xs text-gray-400 font-[400]">
               {a.name}
             </p>
           </span>
@@ -48,9 +55,7 @@ const Search = () => {
       <span className="flex justify-start gap-4 mt-4">
         {/* number or beds */}
         <span className="border border-gray-200 shadow-sm rounded-lg p-2 ">
-          <label className={optionLabel}>
-            Beds:
-          </label>
+          <label className={optionLabel}>Beds:</label>
           <select className={selection}>
             <option value={"1"}>1</option>
             <option value={"2"}>2</option>
