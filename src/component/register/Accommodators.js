@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import { container, img, header } from "../style";
-import profile from "../../component/img/profile.svg";
+import { container, img, header } from "./style";
+import profile from "../img/profile.svg";
 import Acc1 from "./Acc1";
 import Acc2 from "./Acc2";
 import Acc3 from "./Acc3";
+import autoAnimate from "@formkit/auto-animate";
+
 
 const Accommodators = () => {
+
   const [page, setPage] = useState(1);
   const [data, setData] = useState({
     email: "",
@@ -20,6 +23,12 @@ const Accommodators = () => {
     brgy: "",
     
   });
+
+  const dom = React.useRef(null);
+  React.useEffect(() => {
+    dom.current && autoAnimate(dom.current);
+  }, [dom]);
+
   const handlePage = (n) => {
     setPage(n);
   };
@@ -36,7 +45,7 @@ const Accommodators = () => {
   };
 
   return (
-    <div className={container}>
+    <div className={container} ref={dom}>
       <img src={profile} alt="login" className={img} />
       {page === 1 && (
         <>

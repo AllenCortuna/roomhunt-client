@@ -1,5 +1,5 @@
 import React from "react";
-import { otpContainer, otpInput, otpText } from "../style";
+import { otpContainer, otpInput, otpText } from "./style";
 import Button from "../../component/btn/Button";
 import { useRegisterState } from "../../state/register";
 import { useNavigate } from "react-router-dom";

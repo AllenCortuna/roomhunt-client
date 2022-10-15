@@ -10,6 +10,7 @@ export const useRegisterState = create((set) => ({
 
   registerAcc: async (data, setPage) => {
     set({ loading: true });
+    set({ error: false });
     try {
       const result = await api.post("/accommodator/signup", data);
       set({ data: result.data.result });

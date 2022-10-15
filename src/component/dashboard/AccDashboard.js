@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useRegisterState } from "../state/register";
+import { useRegisterState } from "../../state/register";
 import decode from "jwt-decode";
-import AccInfo from "./component/AccInfo";
+import AccInfo from "./AccInfo";
 
 const AccDashboard = () => {
   const navigate = useNavigate();

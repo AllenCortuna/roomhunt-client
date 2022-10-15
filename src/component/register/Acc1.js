@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRegisterState } from "../../state/register";
-import { form, page1container, submit } from "../style";
+import { form, formErr, page1container, submit } from "./style";
+import Input from "../utility/Input";
 
-const Acc1 = ({ setPage, page, handleChange,data }) => {
-
+const Acc1 = ({ setPage, page, handleChange, data }) => {
   const loading = useRegisterState((state) => state.loading);
   const {
     register,
@@ -16,49 +16,40 @@ const Acc1 = ({ setPage, page, handleChange,data }) => {
 
   const onSubmit = () => {
     if (data.password !== data.confirmPassword) {
-      setIsMatch(false)
-    }else{
-    setPage(page + 1);
+      setIsMatch(false);
+    } else {
+      setPage(page + 1);
     }
   };
 
   // console.log(watch("example"));
   return (
     <span className={page1container}>
-
       <form onSubmit={handleSubmit(onSubmit)} className={form}>
-        <input
+        <Input
           type="email"
-          className="form-input"
           placeholder={"Email"}
-          {...register("email", { required: true })}
+          register={{ ...register("email", { required: true }) }}
           onChange={handleChange}
         />
-        {errors.email && <span className="form-error">email is required</span>}
+          <span className={formErr(errors.email)}>Email is required</span>
 
-        <input
+        <Input
           type="password"
-          className="form-input"
           placeholder={"Password"}
-          {...register("password", { required: true })}
+          register={{ ...register("password", { required: true }) }}
           onChange={handleChange}
         />
-        {errors.location && (
-          <span className="form-error">password is required</span>
-        )}
-        <input
+          <span className={formErr(errors.password)}>password is required</span>
+
+        <Input
           type="password"
-          className="form-input"
           placeholder={"Confirm Password"}
-          {...register("confirmPassword", { required: true })}
+          register={{ ...register("confirmPassword", { required: true }) }}
           onChange={handleChange}
         />
-        {errors.location && (
-          <span className="form-error">password is required</span>
-        )}
-        {!isMatch && (
-          <span className="form-error">password does not match</span>
-        )}
+          <span className={formErr(errors.confirmPassword)}>password is required</span>
+          <span className={formErr(!isMatch)}>password does not match</span>
         <input type="submit" className={submit(loading)} disabled={loading} />
       </form>
     </span>

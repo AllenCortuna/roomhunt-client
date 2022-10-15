@@ -3,8 +3,8 @@ import Navbar from "./component/Navbar";
 import Home from "./component/Home";
 // import Client from "./register/client/Client";
 import Notfound from "./component/NotFound";
-import Accommodators from "./register/accommodator/Accommodators.js";
-import AccDashboard from "./dashboard/AccDashboard";
+import Accommodators from "./component/register/Accommodators";
+import AccDashboard from "./component/dashboard/AccDashboard";
 
 const App = () => {
   return (
