@@ -6,7 +6,7 @@ import { MdLocationOn } from "react-icons/md";
 
 const AccInfo = ({ user }) => {
   return (
-    <div className="grid grid-cols-2 justify-items-between w-[21rem] border border-gray-200 rounded-lg shadow-md bg-primary h-[26rem]">
+    <div className="grid grid-cols-2 justify-items-between w-[21rem] border border-gray-200 rounded-lg shadow-md bg-primary h-[26rem] md:mr-0 md:ml-auto">
       <img
         src={user.image}
         alt=""
@@ -43,7 +43,7 @@ const AccInfo = ({ user }) => {
         <p className=" inline text-center text-xs text-gray-500 rale">
           {user.owner}
         </p>
-        <div class="mt-2 mx-5 w-auto bg-gray-200 rounded-full h-2 dark:bg-gray-700">
+        <div class="mt-1 mx-5 w-auto bg-gray-200 rounded-full h-2 dark:bg-gray-700">
           <div class="bg-yellow h-2 rounded-full" style={{width:"45%",}} ></div>
         </div>
       </span>

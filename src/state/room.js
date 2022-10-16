@@ -44,7 +44,7 @@ export const expenseStore = create((set) => ({
       alert(err.message);
     }
   },
-
+  
   deleteRooms: async ({ id, state }) => {
     try {
       await api.delete(`/rooms/${id}`);

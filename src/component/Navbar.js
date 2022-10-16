@@ -1,6 +1,6 @@
 import React from "react";
 import autoAnimate from "@formkit/auto-animate";
-import { rightIcon } from "./utility/rightIcon";
+// import { rightIcon } from "./utility/rightIcon";
 import { Link } from "react-router-dom";
 import { logoCl, navlink } from "./style/navbar";
 
@@ -67,8 +67,8 @@ const Navbar = () => {
 
   const otherScreen = (
     <div>
-      <span className="flex flex-wrap justify-between px-3 py-2">
-        {logo} {nav} {rightIcon}
+      <span className="flex flex-wrap justify-between px-10 py-2">
+        {logo} {nav} 
       </span>
     </div>
   );

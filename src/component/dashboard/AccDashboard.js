@@ -4,6 +4,7 @@ import { useRegisterState } from "../../state/register";
 import decode from "jwt-decode";
 import AccInfo from "./AccInfo";
 import RoomList from "./RoomList";
+import AccUtility from "./AccUtility";
 
 const AccDashboard = () => {
   const navigate = useNavigate();
@@ -31,10 +32,11 @@ const AccDashboard = () => {
   }, [logOut, navigate, user.token]);
 
   return (
-    <div className="grid justify-items-center pt-10 grid-cols-1 md:grid-cols-2 bg-gray-200 h-screen" >
+    <div className="grid gap-10 place-items-start justify-items-center pt-10 grid-cols-1 md:grid-cols-2 bg-gray-200 h-screen" >
       {/* accommodator info */}
     <AccInfo user={user?.result} />
     <RoomList id={user._id}/>
+    <AccUtility/>
     </div>
   );
 };

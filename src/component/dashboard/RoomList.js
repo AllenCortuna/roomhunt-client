@@ -5,7 +5,7 @@ const RoomList = ({id}) => {
   const rooms = 4
 
   return (
-    <div className="grid grid-cols-2 w-[21rem] bg-primary p-3 rounded-md shadow-md ">
+    <div className="grid grid-cols-2 w-[21rem] bg-primary p-3 rounded-md shadow-md h-[26rem] md:ml-0 md:mr-auto ">
     <span className="">
       <h1 className="text-md text-cyan-800 font-bold uppercase -mb-2">
         RoomList
