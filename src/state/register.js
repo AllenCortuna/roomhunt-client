@@ -12,7 +12,16 @@ export const useRegisterState = create((set) => ({
     set({ loading: true });
     set({ error: false });
     try {
-      const result = await api.post("/accommodator/signup", data);
+      const result = await api.post("/accommodator/signup", {
+    email: data.email,
+    password: data.password,
+    businessName:  data.businessName,
+    contact: data.contact,
+    image: data.image,
+    category: data.category,
+    owner: data.owner,
+    location : `${data.street} ${data.brgy} ${data.city}, ${data.province}`,
+      });
       set({ data: result.data.result });
       setPage(3);
     } catch (err) {
