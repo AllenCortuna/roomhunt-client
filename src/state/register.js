@@ -3,6 +3,15 @@ import create from "zustand";
 // WARN: put in env
 const api = axios.create({ baseURL: "https://room-hunt.herokuapp.com/" });
 // const api = axios.create({ baseURL: "http://localhost:8000" });
+
+api.interceptors.request.use((req) => {
+  if (localStorage.getItem("profile")) {
+    req.headers.Authorization = `Bearer ${
+      JSON.parse(localStorage.getItem("profile")).token
+    }`;
+  }
+  return req;
+});
 export const useRegisterState = create((set) => ({
   data: {},
   loading: false,
@@ -13,14 +22,14 @@ export const useRegisterState = create((set) => ({
     set({ error: false });
     try {
       const result = await api.post("/accommodator/signup", {
-    email: data.email,
-    password: data.password,
-    businessName:  data.businessName,
-    contact: data.contact,
-    image: data.image,
-    category: data.category,
-    owner: data.owner,
-    location : `${data.street} ${data.brgy} ${data.city}, ${data.province}`,
+        email: data.email,
+        password: data.password,
+        businessName: data.businessName,
+        contact: data.contact,
+        image: data.image,
+        category: data.category,
+        owner: data.owner,
+        location: `${data.street} ${data.brgy} ${data.city}, ${data.province}`,
       });
       set({ data: result.data.result });
       setPage(3);

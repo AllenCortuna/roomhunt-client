@@ -10,7 +10,7 @@ const AccInfo = ({ user }) => {
       <img
         src={user.image}
         alt=""
-        className="w-full col-span-2 rounded-tr-md rounded-tl-md shadow-md mb-2 h-[13rem] object-cover "
+        className="w-full col-span-2 rounded-tr-md rounded-tl-md rounded-lg shadow-md h-[13rem] object-cover "
       />
       {/* Business name */}
       <span className="col-span-2 text-center">
