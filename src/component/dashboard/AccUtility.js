@@ -4,13 +4,12 @@ import message from "../img/message.svg";
 import roomlist from "../img/roomlist.svg";
 import review from "../img/review.svg";
 const AccUtility = () => {
-  const icon = "text-brown text-[6rem]";
   const items = [
     { 
       icon: roomlist,
       name: "Roomlist",
       link: "/",
-      desc: "manage,update room"
+      desc: "manage room"
     },
     {
       icon: upload,
@@ -22,7 +21,7 @@ const AccUtility = () => {
       icon: message,
       name: "message", 
       link: "", 
-      desc: "see mesaage"
+      desc: "see mesagge"
     },
     { 
       icon: review,
@@ -36,7 +35,7 @@ const AccUtility = () => {
       {/* content */}
       <div className=" grid grid-cols-2 w-full gap-4">
         {items.map((item) => (
-          <span className="grid h-[10.9rem] shadow-md bg-primary rounded-lg p-2 transition-all duration-300 ease-linear hover:bg-yellow hover:shadow-lg">
+          <span className="group grid h-[10.9rem] shadow-md bg-primary rounded-lg p-2 transition-all duration-300 ease-linear hover:bg-yellow hover:shadow-lg hover:border-2 hover:border-gray-200">
             <img
               src={item.icon}
               alt=""
@@ -46,7 +45,7 @@ const AccUtility = () => {
               <p className="text-cyan-800 text-xs font-bold uppercase">
                 {item.name}
               </p>
-              <p className="text-gray-400 text-xs rale">{item.desc}</p>
+              <p className="md:text-sm text-gray-400 text-xs rale group-hover:text-gray-600">{item.desc}</p>
             </span>
           </span>
         ))}

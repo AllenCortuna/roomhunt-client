@@ -6,6 +6,7 @@ import Image from "../utility/Image";
 import Option from "../utility/Option";
 import Input from "../utility/Input";
 import Error from "../utility/Error";
+import Loading from "../utility/Loading";
 
 const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
   const registerAcc = useRegisterState((state) => state.registerAcc);
@@ -104,11 +105,9 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
               <Error text={"There is an error while registering your account. Plaese complete all the info and try again"}/>
       )}
 
-      {loading && (
-        <p className="text-sm text-gray-400">
-        Registering ... 
-        </p>
-      )}
+      {/* {loading && ( */}
+              <Loading text={"registering"} />
+      {/* )} */}
 
         <input type="submit" className={submit(loading)} disabled={loading} />
       </form>
