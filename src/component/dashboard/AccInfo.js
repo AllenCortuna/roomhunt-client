@@ -6,11 +6,11 @@ import { MdLocationOn } from "react-icons/md";
 
 const AccInfo = ({ user }) => {
   return (
-    <div className="grid grid-cols-2 justify-items-between w-[21rem] border border-gray-200 rounded-lg shadow-md bg-primary h-[26rem] md:mr-0 md:ml-auto">
+    <div className="grid grid-cols-2 justify-items-between w-[21rem] border border-gray-200 rounded-lg shadow-md bg-primary h-[26rem] md:h-[23rem] md:mr-0 md:ml-auto">
       <img
         src={user.image}
         alt=""
-        className="w-full col-span-2 rounded-tr-md rounded-tl-md rounded-lg shadow-md h-[13rem] object-cover "
+        className="w-full col-span-2 rounded-tr-md rounded-tl-md rounded-lg h-[12rem] object-cover "
       />
       {/* Business name */}
       <span className="col-span-2 text-center">
@@ -50,7 +50,6 @@ const AccInfo = ({ user }) => {
       {/* TODO: review */}
       {/* TODO:update feature  */}
 
-      <span className="bg-orange h-3 rounded-bl-md rounded-br-md mt-auto mb-0 col-span-2"></span>
     </div>
   );
 };

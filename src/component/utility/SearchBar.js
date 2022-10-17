@@ -9,8 +9,8 @@ const SearchBar = () => {
         <span>
           <input
             type="text"
-            placeholder="search (eg.location,name)"
-            className="w-60 h-9 text-xs font-normal p-2 text-gray-600 bg-none rounded-lg text-center  col-span-2 focus:outline-none focus:border-none focus:text-gray-500 "
+            placeholder="search (eg.location,hotel name)"
+            className="w-60 h-9 text-xs font-normal p-2 text-gray-600 bg-none rounded-lg text-center  col-span-2 focus:outline-none focus:border-none focus:text-gray-500 capitalize "
           />
         </span>
         <span className="bg-gray-200 rounded-xl border-2 shadow-sm h-8 w-8 flex flex-wrap justify-center align-center">
