@@ -25,6 +25,7 @@ const Acc1 = ({ setPage, page, handleChange, data }) => {
   // console.log(watch("example"));
   return (
     <span className={page1container}>
+      <hr className="my-4"/>
       <form onSubmit={handleSubmit(onSubmit)} className={form}>
         <Input
           type="email"

@@ -6,7 +6,7 @@ import Acc2 from "./Acc2";
 import Acc3 from "./Acc3";
 import autoAnimate from "@formkit/auto-animate";
 
-const Accommodators = () => {
+const RegisterAcc= () => {
   const [page, setPage] = useState(1);
   const [data, setData] = useState({
     email: "",
@@ -83,4 +83,4 @@ const Accommodators = () => {
   );
 };
 
-export default Accommodators;
+export default RegisterAcc;

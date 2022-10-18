@@ -8,6 +8,7 @@ const Acc3 = () => {
   const [otp, setOtp] = React.useState(new Array(4).fill(""));
 
   const data = useRegisterState((state) => state.data);
+  const loading = useRegisterState((state) => state.loading);
   const verifyEmail = useRegisterState((state) => state.verifyEmail);
 
   const handleVerify = () => {
@@ -59,6 +60,7 @@ const Acc3 = () => {
             onClick={handleVerify}
             text={"Verify"}
             color={"bg-secondary"}
+            loading={loading}
           />
         </span>
       </div>

@@ -6,7 +6,6 @@ import Image from "../utility/Image";
 import Option from "../utility/Option";
 import Input from "../utility/Input";
 import Error from "../utility/Error";
-import Loading from "../utility/Loading";
 
 const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
   const registerAcc = useRegisterState((state) => state.registerAcc);
@@ -67,6 +66,12 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
           Enter a valid 11 digit number
         </span>
 
+        <Option
+          label={"Category"}
+          handleOpt={handleOpt}
+          option={["resort", "hotel", "rental-home"]}
+        />
+
         <p className="ml-2 mt-5 text-cyan-800 text-xs text-left w-full uppercase font-bold">
           Address
         </p>
@@ -103,15 +108,11 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
         />
         <span className={formErr(errors.province)}>Location is required</span>
 
-        <Option
-          label={"Category"}
-          handleOpt={handleOpt}
-          option={["resort", "hotel", "rental-home"]}
-        />
 
-        <p className="ml-2 mt-5 mb-1 text-cyan-800 text-xs text-left w-full uppercase font-bold">
+        <p className="ml-2 mt-5 text-cyan-800 text-xs text-left w-full uppercase font-bold">
           Business Image
         </p>
+        <hr className="w-[18rem] mb-2 " />
         <Image handleImg={handleImg} data={data} />
 
         {error && (
@@ -122,9 +123,9 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
           />
         )}
 
-        {loading && <Loading text={"registering"} />}
-
-        <input type="submit" className={submit(loading)} disabled={loading} />
+        <button type="submit" className={submit(loading)} disabled={loading}>
+          {loading ? "registering" : "submit"}{" "}
+        </button>
       </form>
     </span>
   );

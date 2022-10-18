@@ -3,9 +3,10 @@ import Navbar from "./component/navbar/Navbar";
 import Home from "./component/Home";
 // import Client from "./register/client/Client";
 import Notfound from "./component/NotFound";
-import Accommodators from "./component/register/Accommodators";
+import RegisterAcc from "./component/register/RegisterAcc";
 import AccDashboard from "./component/dashboard/AccDashboard";
 import Register from "./component/register/Register";
+import Login from "./component/login/Login";
 
 const App = () => {
   return (
@@ -15,8 +16,11 @@ const App = () => {
         <Route path="/" element={<Home />} />
         {/* <Route path="/register/client" element={<Client />} /> */}
         <Route path="/dashboard" element={<AccDashboard />} />
+        {/* register */}
         <Route path="/register" element={<Register />} />
-        <Route path="/register/accommodator" element={<Accommodators />} />
+        <Route path="/register/accommodator" element={<RegisterAcc />} />
+        {/* login */}
+        <Route path="/login/" element={<Login />} />
         <Route path="*" element={<Notfound />} />
       </Routes>
     </Router>
