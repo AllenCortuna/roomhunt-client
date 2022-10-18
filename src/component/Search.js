@@ -42,9 +42,9 @@ const Search = () => {
       {/* Property type checkbox */}
       <span className="grid grid-cols-3 gap-2 mt-1">
         {type.map((a) => (
-          <span className="flex flex-wrap justify-center text-center flex-row border border-gray-300 p-2 rounded-lg">
+          <span className="group flex flex-wrap justify-center text-center flex-row border border-gray-300 p-2 rounded-lg  hover:border-gray-300 hover:bg-yellow hover:shadow-md transition-all duration-300 ease-linear">
             {a.icon}
-            <p className="ml-2 mt-1 inline text-xs text-gray-400 font-[400]">
+            <p className="group-hover:text-white group-hover:font-semibold ml-2 mt-1 inline group-hover:text-[.7rem] text-gray-400 drop-shadow-md text-xs">
               {a.name}
             </p>
           </span>
