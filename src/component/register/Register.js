@@ -1,24 +1,46 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import acc from '../img/acc.svg'
-import client from '../img/client.svg'
+import BtnLink from "../btn/BtnLink";
+import acc from "../img/acc.svg";
+import client from "../img/client.svg";
 
 const Register = () => {
   return (
     <div className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 p-4 place-items-center max-w-[40rem]">
-      <Link to="/register/accommodator">
-        <span className="h-[15rem] w-[15rem] grid grid-cols-1 bg-white rounded-lg p-4 shadow-md text-center ">
+      <span className="h-[19rem] w-[19rem] grid grid-cols-1 place-content-between bg-white rounded-lg p-4 shadow-md text-center ">
+        <img src={acc} alt="accommodator" className="w-[50%] mx-auto" />
+        <span className="text-center p-2">
+          <h1 className="uppercase text-md text-cyan-800 font-bold drop-shadow-md">
+            accommodator
+          </h1>
+          <p className="text-gray-500 text-xs rale">
+            {" "}
+            Register as Accommodator to upload and mange rooms
+          </p>
+        </span>
+        <BtnLink
+          text={"register"}
+          link={"/register/accommodator"}
+          width={"w-[8rem]"}
+        />
+      </span>
 
-    <img src={acc} alt="accommodator" className="w-[74%] mx-auto"/>
-    </span>
-      </Link>
-
-
-      <Link to="/register/client">
-        <span className="h-[15rem] w-[15rem] grid grid-cols-1 bg-white rounded-lg p-4 shadow-md text-center ">
-    <img src={client} alt="accommodator"/>
-    </span>
-      </Link>
+      <span className="h-[19rem] w-[19rem] place-content-between grid grid-cols-1 bg-white rounded-lg p-4 shadow-md text-center ">
+        <img src={client} alt="accommodator" className="w-[58%] mx-auto" />
+        <span className="text-center p-2">
+          <h1 className="uppercase text-md text-cyan-800 font-bold drop-shadow-md">
+            Room Seekers
+          </h1>
+          <p className="text-gray-500 text-xs rale">
+            {" "}
+            Register as Client to reserve a room and send reviews
+          </p>
+        </span>
+        <BtnLink
+          text={"register"}
+          link={"/register/client"}
+          width={"w-[8rem]"}
+        />
+      </span>
     </div>
   );
 };
