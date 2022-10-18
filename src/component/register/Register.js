@@ -5,7 +5,7 @@ import client from "../img/client.svg";
 
 const Register = () => {
   return (
-    <div className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 p-4 place-items-center max-w-[40rem]">
+    <div className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 mt-5 md:mt-10 p-4 place-items-center max-w-[40rem]">
       <span className="h-[19rem] w-[19rem] grid grid-cols-1 place-content-between bg-white rounded-lg p-4 shadow-md text-center ">
         <img src={acc} alt="accommodator" className="w-[50%] mx-auto" />
         <span className="text-center p-2">

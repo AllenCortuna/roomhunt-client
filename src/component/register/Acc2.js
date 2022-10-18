@@ -28,6 +28,10 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
   return (
     <span className={page1container}>
       <form onSubmit={handleSubmit(onSubmit)} className={form}>
+        <p className="ml-2 mt-8 mb-1 text-cyan-800 text-xs text-left w-full uppercase font-bold">
+          Business Info
+        </p>
+        <hr className="w-[18rem] " />
         <Input
           type={"text"}
           placeholder={"Owner Full Name"}
@@ -63,7 +67,7 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
           Enter a valid 11 digit number
         </span>
 
-        <p className="ml-2 mt-2 text-gray-500 text-xs text-left w-full">
+        <p className="ml-2 mt-5 text-cyan-800 text-xs text-left w-full uppercase font-bold">
           Address
         </p>
         <hr className="w-[18rem] " />
@@ -105,6 +109,9 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
           option={["resort", "hotel", "rental-home"]}
         />
 
+        <p className="ml-2 mt-5 mb-1 text-cyan-800 text-xs text-left w-full uppercase font-bold">
+          Business Image
+        </p>
         <Image handleImg={handleImg} data={data} />
 
         {error && (

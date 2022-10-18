@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { container, img, header } from "./style";
-import profile from "../img/profile.svg";
+import login from "../img/login.svg";
 import Acc1 from "./Acc1";
 import Acc2 from "./Acc2";
 import Acc3 from "./Acc3";
 import autoAnimate from "@formkit/auto-animate";
 
-
 const Accommodators = () => {
-
   const [page, setPage] = useState(1);
   const [data, setData] = useState({
     email: "",
@@ -23,7 +21,7 @@ const Accommodators = () => {
     street: "",
     brgy: "",
     city: "",
-    province :""
+    province: "",
   });
 
   const dom = React.useRef(null);
@@ -48,11 +46,11 @@ const Accommodators = () => {
 
   return (
     <div className={container} ref={dom}>
-      <img src={profile} alt="login" className={img} />
+      <img src={login} alt="login" className={img} />
       {page === 1 && (
         <>
           <h1 className={header}>Register</h1>
-        <hr className="w-full text-gray-400 drop-shadow-sm"/>
+          <hr className="w-full text-gray-400 drop-shadow-sm" />
           <Acc1
             setPage={handlePage}
             page={page}
@@ -64,7 +62,7 @@ const Accommodators = () => {
       {page === 2 && (
         <>
           <h1 className={header}>Accommodation Info</h1>
-        <hr className="w-full text-gray-400 drop-shadow-sm"/>
+          <hr className="w-full text-gray-400 drop-shadow-sm" />
           <Acc2
             setPage={handlePage}
             page={page}
