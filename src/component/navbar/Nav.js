@@ -22,7 +22,7 @@ const Nav = ({content}) => {
   // WARN: Navbar
   const nav = (
     <nav
-      className={`grid gap-2 transition-all duration-300 ease-linear h-0 p-4 h-full ${
+      className={`grid gap-2 transition-all duration-300 ease-linear h-0 p-4 h-auto ${
         !isSmallScreen && "grid-cols-4 p-5 py-1 justify-items-center"
       }`}
     >
