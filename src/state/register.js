@@ -48,7 +48,7 @@ export const useRegisterState = create((set) => ({
       });
       navigate("/dashboard");
       set({ data: result.data.result });
-      localStorage.setItem("profile", JSON.stringify(result?.data));
+      localStorage.setItem("acc", JSON.stringify(result?.data));
     } catch (err) {
       set({ error: true });
     }

@@ -1,25 +1,23 @@
+
+/* eslint-disable no-unused-vars */
 import React from "react";
 import autoAnimate from "@formkit/auto-animate";
 // import { rightIcon } from "./utility/rightIcon";
 import { Link } from "react-router-dom";
-import { logoCl, navlink } from "./style/navbar";
+import { logo } from "./content";
 
-const Navbar = () => {
+const Nav = ({content}) => {
+  const isSmallScreen = window.innerWidth <= 440;
+  const navlink =
+    " text-[#fff] text-sm font-[700] transition-all ease-linear uppercase xs:hover:ml-5 duration-300 hover:text-amber-300";
   const dom = React.useRef(null);
   const [showNav, setShowNav] = React.useState(false);
+
 
   React.useEffect(() => {
     dom.current && autoAnimate(dom.current);
   }, [dom]);
-  const isSmallScreen = window.innerWidth <= 440;
-  const content = [
-    { name: "Home", desc: "/" },
-    { name: "register", desc: "/register/accommodator" },
-    { name: "dashboard", desc: "/dashboard" },
-    { name: "menu", desc: "/menu" },
-  ];
 
-  const logo = <p className={logoCl}>RoomHunt</p>;
 
   // WARN: Navbar
   const nav = (
@@ -68,7 +66,7 @@ const Navbar = () => {
   const otherScreen = (
     <div>
       <span className="flex flex-wrap justify-between px-10 py-2">
-        {logo} {nav} 
+        {logo} {nav}
       </span>
     </div>
   );
@@ -83,4 +81,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Nav;

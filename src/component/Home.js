@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import logo from "./img/roomhunt_logo.png";
 
 import React from "react";
@@ -6,6 +7,7 @@ const Home = () => {
   return (
     <div className="flex flex-wrap justify-center m-0 w-full p-5 mt-5">
     <Search/>
+     
     </div>
   );
 };

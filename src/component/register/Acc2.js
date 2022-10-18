@@ -21,7 +21,6 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
   } = useForm();
 
   const onSubmit = () => {
-
     registerAcc(data, setPage);
   };
 
@@ -35,7 +34,7 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
           register={{ ...register("owner", { required: true }) }}
           onChange={handleChange}
         />
-          <span className={formErr(errors.owner)}>Owner name is required</span>
+        <span className={formErr(errors.owner)}>Owner name is required</span>
 
         <Input
           type="text"
@@ -43,7 +42,10 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
           register={{ ...register("businessName", { required: true }) }}
           onChange={handleChange}
         />
-          <span className={formErr(errors.businessName)}> Business name is required</span>
+        <span className={formErr(errors.businessName)}>
+          {" "}
+          Business name is required
+        </span>
 
         <Input
           type="number"
@@ -57,17 +59,21 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
           }}
           onChange={handleChange}
         />
-          <span className={formErr(errors.contact)}>Enter a valid 11 digit number</span>
+        <span className={formErr(errors.contact)}>
+          Enter a valid 11 digit number
+        </span>
 
-          <p className="ml-2 mt-2 text-gray-500 text-xs text-left w-full">Address</p>
-          <hr className="w-[18rem] " />
+        <p className="ml-2 mt-2 text-gray-500 text-xs text-left w-full">
+          Address
+        </p>
+        <hr className="w-[18rem] " />
         <Input
           type="text"
           placeholder={"Street"}
           register={{ ...register("street", { required: true }) }}
           onChange={handleChange}
         />
-          <span className={formErr(errors.street)}>Location is required</span>
+        <span className={formErr(errors.street)}>Location is required</span>
 
         <Input
           type="text"
@@ -75,7 +81,7 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
           register={{ ...register("brgy", { required: true }) }}
           onChange={handleChange}
         />
-          <span className={formErr(errors.brgy)}>Location is required</span>
+        <span className={formErr(errors.brgy)}>Location is required</span>
 
         <Input
           type="text"
@@ -83,7 +89,7 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
           register={{ ...register("city", { required: true }) }}
           onChange={handleChange}
         />
-          <span className={formErr(errors.city)}>Location is required</span>
+        <span className={formErr(errors.city)}>Location is required</span>
 
         <Input
           type="text"
@@ -91,7 +97,7 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
           register={{ ...register("province", { required: true }) }}
           onChange={handleChange}
         />
-          <span className={formErr(errors.province)}>Location is required</span>
+        <span className={formErr(errors.province)}>Location is required</span>
 
         <Option
           label={"Category"}
@@ -101,13 +107,15 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
 
         <Image handleImg={handleImg} data={data} />
 
-      {error && (
-              <Error text={"There is an error while registering your account. Plaese complete all the info and try again"}/>
-      )}
+        {error && (
+          <Error
+            text={
+              "There is an error while registering your account. Plaese complete all the info and try again"
+            }
+          />
+        )}
 
-      {/* {loading && ( */}
-              <Loading text={"registering"} />
-      {/* )} */}
+        {loading && <Loading text={"registering"} />}
 
         <input type="submit" className={submit(loading)} disabled={loading} />
       </form>

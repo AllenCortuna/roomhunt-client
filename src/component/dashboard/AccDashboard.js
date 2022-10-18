@@ -10,7 +10,7 @@ const AccDashboard = () => {
   const navigate = useNavigate();
 
   const [user, setUser] = useState(
-    JSON.parse(localStorage?.getItem("profile"))
+    JSON.parse(localStorage?.getItem("acc"))
   );
   const logOut = useRegisterState((state) => state.logOut);
   const data = useRegisterState((state) => state.data);
@@ -28,7 +28,7 @@ const AccDashboard = () => {
       const decodedToken = decode(token);
       if (decodedToken.exp * 1000 < new Date().getTime()) logout();
     }
-    setUser(JSON.parse(localStorage?.getItem("profile")));
+    setUser(JSON.parse(localStorage?.getItem("acc")));
   }, [logOut, navigate, user.token]);
 
   return (
