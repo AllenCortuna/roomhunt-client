@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import FormErr from "../utility/FormErr";
 import Input from "../utility/Input";
 import { useForm } from "react-hook-form";
-import { useRegisterState } from "../../state/acc";
+import { useRegisterState } from "../../state/register";
 import BtnSubmit from "../btn/BtnSubmit";
 import client from "../img/client.svg";
 import { Link } from "react-router-dom";

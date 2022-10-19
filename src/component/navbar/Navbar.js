@@ -1,35 +1,31 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useEffect } from "react";
+import { useRegisterState } from "../../state/register";
 import Nav from "./Nav";
 
 const Navbar = () => {
-  const [user, setUser] = React.useState("");
+  const login = useRegisterState((state) => state.login);
+  const logout = useRegisterState((state) => state.logout);
+  useEffect(() => {}, [login]);
 
-  React.useEffect(() => {
-    if (localStorage.getItem("acc")) {
-      setUser("acc");
-    }
-  }, [user]);
   return (
     <div>
-      {user === "acc" && (
+      {login === "acc" ? (
         <Nav
           content={[
-            { name: "dashboard", desc: "/dashboard", action: "" },
-            { name: "message", desc: "/message", action: "" },
-            { name: "menu", desc: "/menu", action: "" },
-            { name: "logout", desc: "/logout", action: "" },
+            { name: "dashboard", desc: "/dashboard" },
+            { name: "message", desc: "/message" },
+            { name: "menu", desc: "/menu" },
+            { name: "logout", desc: "/logout" },
           ]}
         />
-      )}
-
-      {user === "" && (
+      ) : (
         <Nav
           content={[
-            { name: "search", desc: "/", action: "" },
-            { name: "register", desc: "/register", action: "" },
-            { name: "about", desc: "/about", action: "" },
-            { name: "contact", desc: "/contact", action: "" },
+            { name: "search", desc: "/" },
+            { name: "login", desc: "/login" },
+            { name: "register", desc: "/register" },
+            { name: "menu", desc: "/menu" },
           ]}
         />
       )}

@@ -16,6 +16,7 @@ export const useRegisterState = create((set) => ({
   data: {},
   loading: false,
   error: false,
+  login: "",
 
   registerAcc: async (data, setPage) => {
     set({ loading: true });
@@ -48,9 +49,10 @@ export const useRegisterState = create((set) => ({
       navigate("/dashboard");
       set({ data: result.data.result });
       localStorage.setItem("acc", JSON.stringify(result?.data));
+      set({ login: "acc" });
     } catch (err) {
       set({ error: true });
-      console.log(err.message)
+      console.log(err.message);
     }
     set({ loading: false });
   },
@@ -65,6 +67,7 @@ export const useRegisterState = create((set) => ({
       });
       navigate("/dashboard");
       set({ data: result.data.result });
+      set({ login: "acc" });
       localStorage.setItem("acc", JSON.stringify(result?.data));
     } catch (err) {
       set({ error: true });
@@ -74,7 +77,7 @@ export const useRegisterState = create((set) => ({
 
   logOut: (navigate) => {
     localStorage.clear();
-    alert("logout and clear storage");
+    set({ login: "" });
     navigate("/");
   },
 }));

@@ -1,6 +1,6 @@
 // import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useRegisterState } from "../../state/acc";
+import { useRegisterState } from "../../state/register";
 import { form, page1container } from "./style";
 import Image from "../utility/Image";
 import Option from "../utility/Option";
