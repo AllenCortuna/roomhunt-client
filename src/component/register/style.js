@@ -5,7 +5,7 @@ export const header = "font-bold text-cyan-800 mx-auto text-lg uppercase drop-sh
 
 // RegisterClient1
 export const page1container = "flex flex-wrap justify-center pl-2";
-export const form = "flex flex-wrap justify-start";
+export const form = "flex-cols gap-1.5 flex flex-wrap justify-start";
 export const birthdaySpan =
   "min-w-[18rem] max-w-[23rem] flex justify-start mx-auto align-center";
 export const birthdayText =

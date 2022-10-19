@@ -3,6 +3,7 @@ import upload from "../img/upload.svg";
 import message from "../img/message.svg";
 import roomlist from "../img/roomlist.svg";
 import review from "../img/review.svg";
+import { CgMoreVertical } from "react-icons/cg";
 import { Link } from "react-router-dom";
 const AccUtility = () => {
   const items = [
@@ -28,7 +29,7 @@ const AccUtility = () => {
       icon: review,
       name: "Review",
       link: "/review",
-      desc: "see client feedback",
+      desc: "client feedback",
     },
   ];
   return (
@@ -46,13 +47,16 @@ const AccUtility = () => {
                 alt=""
                 className="w-[60%] m-auto drop-shadow-md"
               />
-              <span className="grid mb-0 mt-auto p-2">
-                <p className="text-cyan-800 text-xs font-bold uppercase">
-                  {item.name}
-                </p>
-                <p className="md:text-sm text-gray-400 text-xs rale group-hover:text-gray-600">
-                  {item.desc}
-                </p>
+              <span className="flex flex-cols items-center">
+                <span className="grid mb-0 mt-auto p-2">
+                  <p className="text-cyan-800 text-xs font-bold uppercase">
+                    {item.name}
+                  </p>
+                  <p className="md:text-sm text-gray-400 text-xs rale group-hover:text-gray-600">
+                    {item.desc}
+                  </p>
+                </span>
+                <CgMoreVertical className="text-gray-500 drop-shadow-md mr-2 ml-auto mb-4 mt-auto text-md" />
               </span>
             </span>
           </Link>
