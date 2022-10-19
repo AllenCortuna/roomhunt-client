@@ -35,7 +35,7 @@ const AccUtility = () => {
       {/* content */}
       <div className=" grid grid-cols-2 w-full gap-4">
         {items.map((item) => (
-          <span className="group grid h-[10.9rem] shadow-md bg-primary rounded-lg p-2 transition-all duration-300 ease-linear hover:bg-yellow hover:shadow-lg hover:border-2 hover:border-gray-200">
+          <span key={item.name} className="group grid h-[10.9rem] shadow-md bg-primary rounded-lg p-2 transition-all duration-300 ease-linear hover:bg-yellow hover:shadow-lg hover:border-2 hover:border-gray-200">
             <img
               src={item.icon}
               alt=""

@@ -50,6 +50,7 @@ export const useRegisterState = create((set) => ({
       localStorage.setItem("acc", JSON.stringify(result?.data));
     } catch (err) {
       set({ error: true });
+      console.log(err.message)
     }
     set({ loading: false });
   },

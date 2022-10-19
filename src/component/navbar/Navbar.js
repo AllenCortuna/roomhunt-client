@@ -9,7 +9,7 @@ const Navbar = () => {
     if (localStorage.getItem("acc")) {
       setUser("acc");
     }
-  }, []);
+  }, [user]);
   return (
     <div>
       {user === "acc" && (
