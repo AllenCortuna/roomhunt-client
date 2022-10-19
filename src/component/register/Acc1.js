@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useRegisterState } from "../../state/register";
-import { form, formErr, page1container, submit } from "./style";
+import { form,  page1container} from "./style";
 import Input from "../utility/Input";
+import BtnSubmit from "../btn/BtnSubmit";
+import FormErr from "../utility/FormErr";
 
 const Acc1 = ({ setPage, page, handleChange, data }) => {
-  const loading = useRegisterState((state) => state.loading);
   const {
     register,
     handleSubmit,
@@ -25,7 +25,7 @@ const Acc1 = ({ setPage, page, handleChange, data }) => {
   // console.log(watch("example"));
   return (
     <span className={page1container}>
-      <hr className="my-4"/>
+      <hr className="my-4" />
       <form onSubmit={handleSubmit(onSubmit)} className={form}>
         <Input
           type="email"
@@ -33,7 +33,7 @@ const Acc1 = ({ setPage, page, handleChange, data }) => {
           register={{ ...register("email", { required: true }) }}
           onChange={handleChange}
         />
-          <span className={formErr(errors.email)}>Email is required</span>
+        <FormErr text={"Email is required"} err={errors.email} />
 
         <Input
           type="password"
@@ -41,7 +41,7 @@ const Acc1 = ({ setPage, page, handleChange, data }) => {
           register={{ ...register("password", { required: true }) }}
           onChange={handleChange}
         />
-          <span className={formErr(errors.password)}>password is required</span>
+        <FormErr text={"Password is required"} err={errors.password} />
 
         <Input
           type="password"
@@ -49,9 +49,10 @@ const Acc1 = ({ setPage, page, handleChange, data }) => {
           register={{ ...register("confirmPassword", { required: true }) }}
           onChange={handleChange}
         />
-          <span className={formErr(errors.confirmPassword)}>password is required</span>
-          <span className={formErr(!isMatch)}>password does not match</span>
-        <input type="submit" className={submit(loading)} disabled={loading} />
+        <FormErr text={"Password is required"} err={errors.confirmPassword} />
+        <FormErr text={"Password does not match"} err={!isMatch} />
+          
+        <BtnSubmit loading={false} />
       </form>
     </span>
   );

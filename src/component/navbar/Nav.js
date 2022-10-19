@@ -9,7 +9,7 @@ import { logo } from "./content";
 const Nav = ({content}) => {
   const isSmallScreen = window.innerWidth <= 440;
   const navlink =
-    " text-[#fff] text-sm font-[700] transition-all ease-linear uppercase xs:hover:ml-5 duration-300 hover:text-amber-300";
+    " text-[#fff] text-xs font-[700] transition-all ease-linear uppercase xs:hover:ml-5 duration-300 hover:text-amber-300 ";
   const dom = React.useRef(null);
   const [showNav, setShowNav] = React.useState(false);
 
@@ -22,7 +22,7 @@ const Nav = ({content}) => {
   // WARN: Navbar
   const nav = (
     <nav
-      className={`grid gap-2 transition-all duration-300 ease-linear h-0 p-4 h-auto ${
+      className={`grid gap-2 transition-all duration-300 ease-linear p-4  ${
         !isSmallScreen && "grid-cols-4 p-5 py-1 justify-items-center"
       }`}
     >
@@ -73,7 +73,7 @@ const Nav = ({content}) => {
 
   return (
     <div
-      className="bg-black space-mono grid w-screen h-auto shadow-lg "
+      className="bg-black grid w-screen h-auto shadow-lg "
       ref={dom}
     >
       {isSmallScreen ? smallScreen : otherScreen}

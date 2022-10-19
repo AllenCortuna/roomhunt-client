@@ -15,9 +15,3 @@ export const otpText = "mx-auto w-[15rem] text-gray-500 text-sm mt-5 mb-4 rale";
 export const otpInput =
   "text-center h-10 w-8 border rounded-md space-mono text-gray-100 text-xl m-1 focus:outline-none bg-gray-800";
 
-export const formErr = (err)=> {
-  return ` ml-1 mb-2 rale duration-200 transition-all ease-linear text-xs text-red-500 font-[400] ${err ? "scale-y-100 h-auto": "scale-y-0 h-0"} `
-}
-export const submit = (loading) => {
-  return `transition-all duration-200 ease-linear border-2 p-4 py-3 text-xs md:text-sm font-[500] shadow-md rounded-md mt-2 text-gray-600 mr-2 ml-auto ${loading ? 'border-gray-500 text-gray-400 bg-none' : 'bg-secondary border-secondary'} `;
-} ;
