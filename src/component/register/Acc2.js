@@ -1,13 +1,13 @@
 // import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useRegisterState } from "../../state/register";
+import { useRegisterState } from "../../state/acc";
 import { form, page1container } from "./style";
 import Image from "../utility/Image";
 import Option from "../utility/Option";
-import Input from "../utility/Input";
 import Error from "../utility/Error";
 import BtnSubmit from "../btn/BtnSubmit";
 import FormErr from "../utility/FormErr";
+import Input from "../utility/Input";
 
 const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
   const registerAcc = useRegisterState((state) => state.registerAcc);
@@ -99,7 +99,7 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
           register={{ ...register("city", { required: true }) }}
           onChange={handleChange}
         />
-        <FormErr text={"city is required"} err={errors.city} />
+        <FormErr text={"City is required"} err={errors.city} />
 
         <Input
           type="text"
@@ -122,7 +122,7 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
             }
           />
         )}
-        <BtnSubmit loading={loading} />
+        <BtnSubmit loading={loading} loadingTxt={"Registering"} text={"Register"} />
       </form>
     </span>
   );

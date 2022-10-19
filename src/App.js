@@ -7,6 +7,7 @@ import RegisterAcc from "./component/register/RegisterAcc";
 import AccDashboard from "./component/dashboard/AccDashboard";
 import Register from "./component/register/Register";
 import Login from "./component/login/Login";
+import LoginAcc from "./component/login/LoginAcc";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/register/accommodator" element={<RegisterAcc />} />
         {/* login */}
         <Route path="/login/" element={<Login />} />
+        <Route path="/login/accommodator" element={<LoginAcc />} />
         <Route path="*" element={<Notfound />} />
       </Routes>
     </Router>

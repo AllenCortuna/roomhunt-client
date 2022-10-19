@@ -1,6 +1,6 @@
 import React from "react";
 
-const BtnSubmit = ({ loading }) => {
+const BtnSubmit = ({ loading, text, loadingTxt }) => {
   return (
     <button
       type="submit"
@@ -11,7 +11,7 @@ const BtnSubmit = ({ loading }) => {
       } `}
       disabled={loading}
     >
-      {loading ? "registering" : "Submit"}
+      {loading ? loadingTxt : text}
     </button>
   );
 };

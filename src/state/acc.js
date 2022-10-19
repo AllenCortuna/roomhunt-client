@@ -4,14 +4,14 @@ import create from "zustand";
 const api = axios.create({ baseURL: "https://room-hunt.herokuapp.com/" });
 // const api = axios.create({ baseURL: "http://localhost:8000" });
 
-api.interceptors.request.use((req) => {
-  if (localStorage.getItem("profile")) {
-    req.headers.Authorization = `Bearer ${
-      JSON.parse(localStorage.getItem("profile")).token
-    }`;
-  }
-  return req;
-});
+// api.interceptors.request.use((req) => {
+//   if (localStorage.getItem("acc")) {
+//     req.headers.Authorization = `Bearer ${
+//       JSON.parse(localStorage.getItem("acc")).token
+//     }`;
+//   }
+//   return req;
+// });
 export const useRegisterState = create((set) => ({
   data: {},
   loading: false,
@@ -39,8 +39,24 @@ export const useRegisterState = create((set) => ({
     set({ loading: false });
   },
 
+  loginAcc: async (data, navigate) => {
+    set({ loading: true });
+    set({ error: false });
+    try {
+      const result = await api.post("/accommodator/login", data);
+      set({ data: result.data.result });
+      navigate("/dashboard");
+      set({ data: result.data.result });
+      localStorage.setItem("acc", JSON.stringify(result?.data));
+    } catch (err) {
+      set({ error: true });
+    }
+    set({ loading: false });
+  },
+
   verifyEmail: async (data, navigate) => {
     set({ loading: true });
+    set({ error: false });
     try {
       const result = await api.post("/accommodator/verify-email", {
         otp: data.otp,

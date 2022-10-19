@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useRegisterState } from "../../state/register";
+import { useRegisterState } from "../../state/acc";
 import decode from "jwt-decode";
 import AccInfo from "./AccInfo";
 import RoomList from "./RoomList";
