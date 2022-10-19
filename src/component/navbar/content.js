@@ -1,3 +1,9 @@
+import roomhunt_logo from '../img/roomhunt_logo.png'
+import romhunt_text from '../img/romhunt_text.png'
 export const logo = (
-  <p className="text-gray-100 font-semibold text-[1.3rem]">RoomHunt</p>
+  <span className='flex flex-wrap flex-cols items-center gap-2'>
+  <img src={roomhunt_logo} alt="logo" className=" w-6"/>
+  <img src={romhunt_text} alt="logo" className=" w-20"/>
+
+</span>
 );

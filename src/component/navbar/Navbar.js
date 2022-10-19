@@ -5,7 +5,6 @@ import Nav from "./Nav";
 
 const Navbar = () => {
   const login = useRegisterState((state) => state.login);
-  const logout = useRegisterState((state) => state.logout);
   useEffect(() => {}, [login]);
 
   return (

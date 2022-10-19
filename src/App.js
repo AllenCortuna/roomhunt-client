@@ -9,6 +9,7 @@ import Register from "./component/register/Register";
 import Login from "./component/login/Login";
 import LoginAcc from "./component/login/LoginAcc";
 import Logout from "./component/Logout";
+import Upload from "./component/upload/Upload";
 
 const App = () => {
   return (
@@ -21,6 +22,8 @@ const App = () => {
         {/* register */}
         <Route path="/register" element={<Register />} />
         <Route path="/register/accommodator" element={<RegisterAcc />} />
+{/* utility */}
+        <Route path="/upload" element={<Upload />} />
         {/* login */}
         <Route path="/login/" element={<Login />} />
         <Route path="/login/accommodator" element={<LoginAcc />} />
