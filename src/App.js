@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./component/navbar/Navbar";
-import Home from "./component/Home";
-// import Client from "./register/client/Client";
+import Search from "./component/search/Search";
 import Notfound from "./component/NotFound";
 import RegisterAcc from "./component/register/RegisterAcc";
 import AccDashboard from "./component/dashboard/AccDashboard";
@@ -16,7 +15,7 @@ const App = () => {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Search />} />
         {/* <Route path="/register/client" element={<Client />} /> */}
         <Route path="/dashboard" element={<AccDashboard />} />
         {/* register */}
