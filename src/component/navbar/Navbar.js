@@ -5,7 +5,13 @@ import Nav from "./Nav";
 
 const Navbar = () => {
   const login = useRegisterState((state) => state.login);
-  useEffect(() => {}, [login]);
+  const curUsr = useRegisterState((state) => state.curUsr);
+  const acc = localStorage.getItem("acc")
+  useEffect(() => {
+    if (acc) {
+      curUsr("acc")
+    }
+  }, [acc, login, curUsr]);
 
   return (
     <div>

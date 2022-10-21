@@ -80,4 +80,8 @@ export const useRegisterState = create((set) => ({
     set({ login: "" });
     navigate("/");
   },
+
+  curUsr: (data) => {
+    set({ login: data });
+  },
 }));
