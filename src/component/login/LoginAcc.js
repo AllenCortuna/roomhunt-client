@@ -15,7 +15,7 @@ const LoginAcc = () => {
   });
   const loginAcc = useRegisterState((state) => state.loginAcc);
   const loading = useRegisterState((state) => state.loading);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const {
     register,
@@ -23,7 +23,7 @@ const LoginAcc = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = () => {
-    loginAcc(data,navigate);
+    loginAcc(data, navigate);
     return;
   };
   const handleChange = (e) => {
@@ -65,7 +65,6 @@ const LoginAcc = () => {
           onChange={handleChange}
         />
         <FormErr text={"Passwords required"} err={errors.password} />
-
         <BtnSubmit loading={loading} loadingTxt={"Processing"} text={"Login"} />
       </form>
 

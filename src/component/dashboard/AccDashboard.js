@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useRegisterState } from "../../state/register";
 import decode from "jwt-decode";
 import AccInfo from "./AccInfo";
-import RoomList from "./RoomList";
+// import RoomList from "./RoomList";
 import AccUtility from "./AccUtility";
 
 const AccDashboard = () => {
@@ -36,7 +36,7 @@ const AccDashboard = () => {
       {/* accommodator info */}
     <AccInfo user={user?.result} />
     <AccUtility/>
-    <RoomList id={user._id}/>
+    {/* <RoomList id={user._id}/> */}
     </div>
   );
 };

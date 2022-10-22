@@ -15,12 +15,12 @@ const api = axios.create({ baseURL: "https://room-hunt.herokuapp.com/" });
 export const useRegisterState = create((set) => ({
   data: {},
   loading: false,
-  error: false,
+  err: false,
   login: "",
 
   registerAcc: async (data, setPage) => {
     set({ loading: true });
-    set({ error: false });
+    set({ err: null });
     try {
       const result = await api.post("/accommodator/signup", {
         email: data.email,
@@ -35,14 +35,15 @@ export const useRegisterState = create((set) => ({
       set({ data: result.data.result });
       setPage(3);
     } catch (err) {
-      set({ error: true });
+      set({ err: err.response.data.message });
+      alert(err.response.data.message);
     }
     set({ loading: false });
   },
 
   loginAcc: async (data, navigate) => {
     set({ loading: true });
-    set({ error: false });
+    set({ err: null });
     try {
       const result = await api.post("/accommodator/login", data);
       set({ data: result.data.result });
@@ -51,15 +52,15 @@ export const useRegisterState = create((set) => ({
       localStorage.setItem("acc", JSON.stringify(result?.data));
       set({ login: "acc" });
     } catch (err) {
-      set({ error: true });
-      console.log(err.message);
+      set({ err: err.response.data.message });
+      alert(err.response.data.message);
     }
     set({ loading: false });
   },
 
   verifyEmail: async (data, navigate) => {
     set({ loading: true });
-    set({ error: false });
+    set({ err: null });
     try {
       const result = await api.post("/accommodator/verify-email", {
         otp: data.otp,
@@ -70,7 +71,8 @@ export const useRegisterState = create((set) => ({
       set({ login: "acc" });
       localStorage.setItem("acc", JSON.stringify(result?.data));
     } catch (err) {
-      set({ error: true });
+      set({ err: err.response.data.message });
+      alert(err.response.data.message);
     }
     set({ loading: false });
   },

@@ -4,14 +4,12 @@ import { useRegisterState } from "../../state/register";
 import { form, page1container } from "./style";
 import Image from "../utility/Image";
 import Option from "../utility/Option";
-import Error from "../utility/Error";
 import BtnSubmit from "../btn/BtnSubmit";
 import FormErr from "../utility/FormErr";
 import Input from "../utility/Input";
 
 const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
   const registerAcc = useRegisterState((state) => state.registerAcc);
-  const error = useRegisterState((state) => state.error);
   const loading = useRegisterState((state) => state.loading);
 
   const {
@@ -115,14 +113,11 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
         <hr className="w-[18rem] mb-2 " />
         <Image handleImg={handleImg} data={data} />
 
-        {error && (
-          <Error
-            text={
-              "There is an error while registering your account. Plaese complete all the info and try again"
-            }
-          />
-        )}
-        <BtnSubmit loading={loading} loadingTxt={"Registering"} text={"Register"} />
+        <BtnSubmit
+          loading={loading}
+          loadingTxt={"Registering"}
+          text={"Register"}
+        />
       </form>
     </span>
   );
