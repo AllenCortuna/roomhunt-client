@@ -4,6 +4,7 @@ import { form,  page1container} from "./style";
 import Input from "../utility/Input";
 import BtnSubmit from "../btn/BtnSubmit";
 import FormErr from "../utility/FormErr";
+import { BsFillGridFill } from "react-icons/bs";
 
 const Acc1 = ({ setPage, page, handleChange, data }) => {
   const {
@@ -25,8 +26,12 @@ const Acc1 = ({ setPage, page, handleChange, data }) => {
   // console.log(watch("example"));
   return (
     <span className={page1container}>
-      <hr className="my-4" />
       <form onSubmit={handleSubmit(onSubmit)} className={form}>
+
+        <p className="ml-2 mt-5 text-cyan-800 text-xs text-left w-full uppercase font-bold">
+          <BsFillGridFill className="inline -mt-0.5 mr-1" />
+          Email
+        </p>
         <Input
           type="email"
           placeholder={"Email"}

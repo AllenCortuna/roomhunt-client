@@ -14,7 +14,6 @@ const AccDashboard = () => {
   );
   const logOut = useRegisterState((state) => state.logOut);
   const data = useRegisterState((state) => state.data);
-  console.log("dashboard data:", data);
 
   useEffect(() => {
     const logout = () => {
@@ -32,7 +31,7 @@ const AccDashboard = () => {
   }, [logOut, navigate, user.token]);
 
   return (
-    <div className="grid gap-14 md:gap-5 place-items-start justify-items-center pt-10 grid-cols-1 md:grid-cols-2 bg-gray-200 h-full pb-[5rem]" >
+    <div className="grid gap-14 md:gap-5 place-items-start justify-items-center pt-10 grid-cols-1 md:grid-cols-2 bg-gray-200 pb-14 h-auto" >
       {/* accommodator info */}
     <AccInfo user={user?.result} />
     <AccUtility/>

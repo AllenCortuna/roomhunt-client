@@ -48,7 +48,7 @@ const LoginAcc = () => {
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="p-4 gap-1.5 grid place-items-center"
+        className="p-4 gap-3 grid place-items-center"
       >
         <Input
           type={"email"}

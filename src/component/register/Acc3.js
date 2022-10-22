@@ -49,7 +49,7 @@ const Acc3 = () => {
             );
           })}
         </div>
-        <span className="flex flex-wrap justify-between w-[10.5rem] mt-5 mx-auto">
+        <span className="flex flex-wrap justify-between w-[12rem] mt-5 mx-auto">
           <Button
             onClick={() => setOtp([...otp.map(() => "")])}
             text={"Clear"}
@@ -62,6 +62,7 @@ const Acc3 = () => {
             color={"bg-secondary"}
             loading={loading}
           />
+
         </span>
       </div>
     </>

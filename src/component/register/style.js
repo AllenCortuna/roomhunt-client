@@ -1,11 +1,11 @@
 export const container =
   "text-center p-4 bg-white w-[21rem] min-h-[20rem] rounded-md shadow h-auto mx-auto mt-[5rem]";
 export const img = "w-20 m-auto my-2 drop-shadow-lg";
-export const header = "font-bold text-cyan-800 mx-auto text-lg uppercase drop-shadow-md";
+export const header = "font-bold text-cyan-800 mx-auto text-lg uppercase drop-shadow-sm my-1";
 
 // RegisterClient1
-export const page1container = "flex flex-wrap justify-center pl-2";
-export const form = "flex-cols gap-1.5 flex flex-wrap justify-start";
+export const page1container = "flex flex-wrap justify-center";
+export const form = "flex-cols gap-3 flex flex-wrap justify-start";
 export const birthdaySpan =
   "min-w-[18rem] max-w-[23rem] flex justify-start mx-auto align-center";
 export const birthdayText =

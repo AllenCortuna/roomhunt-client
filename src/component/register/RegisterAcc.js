@@ -50,7 +50,6 @@ const RegisterAcc= () => {
       {page === 1 && (
         <>
           <h1 className={header}>Register</h1>
-          <hr className="w-full text-gray-400 drop-shadow-sm" />
           <Acc1
             setPage={handlePage}
             page={page}
@@ -62,7 +61,7 @@ const RegisterAcc= () => {
       {page === 2 && (
         <>
           <h1 className={header}>Accommodation Info</h1>
-          <hr className="w-full text-gray-400 drop-shadow-sm" />
+          <hr className="w-full text-gray-300 drop-shadow-sm" />
           <Acc2
             setPage={handlePage}
             page={page}

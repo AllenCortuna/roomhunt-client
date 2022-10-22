@@ -10,7 +10,7 @@ const AccInfo = ({ user }) => {
       <img
         src={user.image}
         alt=""
-        className="w-[19.5rem] shadow-md mt-2 mx-auto col-span-2 rounded-md h-[12.5rem] object-cover border-2 border-white "
+        className="w-[19.5rem] shad mt-2 mx-auto col-span-2 rounded-md h-[12.5rem] object-cover border-2 border-white "
       />
       {/* Business name */}
       <span className="col-span-2 text-center">
@@ -23,6 +23,7 @@ const AccInfo = ({ user }) => {
         </p>
         <hr className="w-auto ml-2 mr-2 text-gray-400 shadow-md" />
       </span>
+
       <span className=" text-center mt-4 p-3">
         <h1 className="text-sm text-cyan-800 font-bold uppercase -mb-2">
           contact
@@ -36,16 +37,16 @@ const AccInfo = ({ user }) => {
         </p>
       </span>
 
-      <span className=" text-center mt-4 p-3">
-        <h1 className="text-sm text-cyan-800 font-bold uppercase -mb-2">
+      <span className="grid text-center mt-4 p-3">
+        <h1 className="text-sm text-cyan-800 font-bold uppercase -mb-3">
           owner
         </h1>
-        <p className=" inline text-center text-xs text-gray-500 rale">
+        <p className="-mt-2 inline text-center text-xs text-gray-500 rale">
           {user.owner}
         </p>
-        <div class="mt-1 mx-5 w-auto bg-gray-200 rounded-full h-2 dark:bg-gray-700">
-          <div class="bg-yellow h-2 rounded-full" style={{width:"45%",}} ></div>
-        </div>
+        <p className="capitalize -mt-4 inline text-center text-xs text-gray-500 rale">
+          {user.category}
+        </p>
       </span>
       {/* TODO: review */}
       {/* TODO:update feature  */}
