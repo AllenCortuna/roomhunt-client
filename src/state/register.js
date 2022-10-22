@@ -1,17 +1,17 @@
 import axios from "axios";
 import create from "zustand";
 // WARN: put in env
-const api = axios.create({ baseURL: "https://room-hunt.herokuapp.com/" });
-// const api = axios.create({ baseURL: "http://localhost:8000" });
+// const api = axios.create({ baseURL: "https://room-hunt.herokuapp.com/" });
+const api = axios.create({ baseURL: "http://localhost:8000" });
 
-// api.interceptors.request.use((req) => {
-//   if (localStorage.getItem("acc")) {
-//     req.headers.Authorization = `Bearer ${
-//       JSON.parse(localStorage.getItem("acc")).token
-//     }`;
-//   }
-//   return req;
-// });
+api.interceptors.request.use((req) => {
+  if (localStorage.getItem("acc")) {
+    req.headers.Authorization = `Bearer ${
+      JSON.parse(localStorage.getItem("acc")).token
+    }`;
+  }
+  return req;
+});
 export const useRegisterState = create((set) => ({
   data: {},
   loading: false,

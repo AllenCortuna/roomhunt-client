@@ -7,27 +7,20 @@ import Image from "../utility/Image";
 import Option from "../utility/Option";
 import BtnSubmit from "../btn/BtnSubmit";
 import { BsFillGridFill } from "react-icons/bs";
-import { useState } from "react";
 import { roomStore } from "../../state/room";
 
-const UploadForm = () => {
+const UploadForm = ({ data, setdata }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const [data, setdata] = useState({
-    name: "",
-    price: Number(),
-    checkIn: Date(),
-    checkOut: Date(),
-    bed: Number(),
-  });
   const uploadRoom = roomStore((state) => state.uploadRoom);
   const loading = roomStore((state) => state.loading);
 
   const onSubmit = () => {
+    // alert(data.creator);
     uploadRoom(data);
   };
   const handleChange = (e) => {
@@ -99,7 +92,6 @@ const UploadForm = () => {
         <DateInput />
       </span>
       <BtnSubmit loading={loading} loadingTxt={"uploading"} text={"Upload"} />
-
     </form>
   );
 };
