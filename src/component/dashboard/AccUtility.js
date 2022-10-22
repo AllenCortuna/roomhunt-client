@@ -39,12 +39,13 @@ const AccUtility = () => {
         {items.map((item) => (
           <Link to={item.link}>
             <span
-              key={item.name}
+              key={item}
               className="group grid h-[10.9rem] shadow-md bg-primary rounded-lg p-2 transition-all duration-300 ease-linear hover:bg-yellow hover:shadow-lg hover:border-2 hover:border-gray-200"
             >
               <img
                 src={item.icon}
                 alt=""
+          loading="lazy"
                 className="w-[60%] m-auto drop-shadow-md"
               />
               <span className="flex flex-cols items-center">

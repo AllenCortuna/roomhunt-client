@@ -4,11 +4,11 @@ import Filebase from "react-file-base64";
 
 const Image = ({ handleImg, data }) => {
   return (
-    <div className="shad grid gap-2 w-[18rem] border-2 border-primary rounded-md p-1 bg-primary hover:border-orange transition-all duration-300 ease-liner">
+    <div className=" shad grid gap-2 w-full border-2 border-primary rounded-md bg-primary hover:border-orange transition-all duration-300 ease-liner">
       {data.image && (
-        <img alt="not fount" className="rounded-xl w-full shadow-md border border-gray-200" src={data.image} />
+        <img alt="not found" className="rounded-md w-full shadow-md border-2 border-gray-200" src={data.image} />
       )}
-      <p className="text-gray-500 text-xs mr-auto w-[5rem]">
+      <p className="text-gray-500 text-xs mr-auto w-[5rem] p-2">
         <Filebase
           type="file"
           multiple={false}

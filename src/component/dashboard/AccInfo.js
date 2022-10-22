@@ -10,6 +10,7 @@ const AccInfo = ({ user }) => {
       <img
         src={user.image}
         alt=""
+        loading="lazy"
         className="w-[19.5rem] shad mt-2 mx-auto col-span-2 rounded-md h-[12.5rem] object-cover border-2 border-white "
       />
       {/* Business name */}
@@ -50,7 +51,6 @@ const AccInfo = ({ user }) => {
       </span>
       {/* TODO: review */}
       {/* TODO:update feature  */}
-
     </div>
   );
 };

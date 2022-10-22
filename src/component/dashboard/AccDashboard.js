@@ -13,7 +13,6 @@ const AccDashboard = () => {
     JSON.parse(localStorage?.getItem("acc"))
   );
   const logOut = useRegisterState((state) => state.logOut);
-  const data = useRegisterState((state) => state.data);
 
   useEffect(() => {
     const logout = () => {
