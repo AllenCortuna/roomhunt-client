@@ -20,7 +20,7 @@ const UploadForm = ({ data, setdata }) => {
   const loading = roomStore((state) => state.loading);
 
   const onSubmit = () => {
-    // alert(data.creator);
+    alert("data",data.name);
     uploadRoom(data);
   };
   const handleChange = (e) => {
@@ -29,6 +29,11 @@ const UploadForm = ({ data, setdata }) => {
 
   const handleImg = (img) => {
     setdata({ ...data, image: img });
+  };
+
+  const handleOpt = (e) => {
+    setdata({ ...data, bed: e.target.value });
+    alert(data.bed)
   };
 
   const acc = JSON.parse(localStorage?.getItem("acc"))?.result?.category;
@@ -79,7 +84,8 @@ const UploadForm = ({ data, setdata }) => {
             onChange={handleChange}
           />
         )}
-        <Option label={"Bed"} option={[1, 2, 3, 4, 5]} />
+        <Option label={"Bed"} option={[1, 2, 3, 4, 5]}
+    handleOpt={handleOpt}/>
       </span>
       <FormErr text={"Price is required"} err={errors.price} />
 

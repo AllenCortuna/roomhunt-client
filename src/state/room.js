@@ -38,28 +38,12 @@ export const roomStore = create((set) => ({
     }
   },
 
-  uploadRoom: async ({ data }) => {
+  uploadRoom: async (data) => {
     set({ loading: true });
     try {
-      await api.post("/room", data);
-      alert(data.creator)
-      set((state) => ({ rooms: [...state.rooms, data] }));
-    } catch (err) {
-      alert(err.response.data.message);
-    }
-    set({ loading: false });
-  },
-
-  loginAcc: async (data, navigate) => {
-    set({ loading: true });
-    set({ err: null });
-    try {
-      const result = await api.post("/accommodator/login", data);
-      set({ data: result.data.result });
-      navigate("/dashboard");
-      set({ data: result.data.result });
-      localStorage.setItem("acc", JSON.stringify(result?.data));
-      set({ login: "acc" });
+      const result = await api.post("/room",data);
+      alert(result);
+      set((state) => ({ rooms: [...state.rooms, result] }));
     } catch (err) {
       alert(err.response.data.message);
     }

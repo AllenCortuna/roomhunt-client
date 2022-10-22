@@ -15,7 +15,7 @@ const Option = ({ handleOpt, option, label }) => {
     };
   });
   return (
-    <select className={selection} onChange={(e) => handleOpt(e.target.value)}>
+    <select className={selection} onChange={handleOpt}>
       {option.map((a) => (
         <option value={a}>
           {a}

@@ -8,10 +8,11 @@ const Upload = () => {
   const [data, setdata] = useState({
     // creator: JSON.parse(localStorage?.getItem("acc"))?.result?._id,
     name: "",
-    price: Number(),
-    checkIn: Date(),
-    checkOut: Date(),
-    bed: Number(),
+    price: "",
+    checkInDate: "05-05-2022",
+    checkOutDate: "05-05-2022",
+    bed: "",
+    image: "",
   });
   return (
     <div className="grid md:grid-cols-2 mx-auto max-w-[48rem] gap-4 place-items-center mt-5">
