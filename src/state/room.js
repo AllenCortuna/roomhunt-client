@@ -38,12 +38,36 @@ export const roomStore = create((set) => ({
     }
   },
 
+  getOwnRooms: async ({ id }) => {
+    try {
+      const response = await api.get(`room/${id}`);
+      set({ rooms: response.data });
+    } catch (err) {
+      alert(err.response.data.message);
+    }
+  },
+
   uploadRoom: async (data) => {
     set({ loading: true });
     try {
-      const result = await api.post("/room",data);
+      const result  = await api.post("/room", data);
+      set((state) => ({ rooms: [...state.rooms, data] }));
+    } catch (err) {
+      alert(err.response.data.message);
+    }
+    set({ loading: false });
+  },
+
+  updateRoom: async (data, id) => {
+    set({ loading: true });
+    try {
+      const { result } = await api.post(`/room/${id}`, data);
       alert(result);
-      set((state) => ({ rooms: [...state.rooms, result] }));
+      set((state) => ({
+        rooms: [
+          ...state.rooms.map((room) => (room._id === id ? result : data)),
+        ],
+      }));
     } catch (err) {
       alert(err.response.data.message);
     }

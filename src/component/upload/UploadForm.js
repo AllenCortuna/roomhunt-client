@@ -9,29 +9,14 @@ import { BsFillGridFill } from "react-icons/bs";
 import { roomStore } from "../../state/room";
 import Option from "../utility/Option";
 
-const UploadForm = ({ data, setdata, initialValue }) => {
+const UploadForm = ({ data, setdata ,onSubmit}) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const uploadRoom = roomStore((state) => state.uploadRoom);
   const loading = roomStore((state) => state.loading);
-
-  const onSubmit = () => {
-    alert(Date(data.checkInDate) < Date(data.checkOutDate));
-    if (data.image === "") {
-      alert("Room images  is required");
-    } else if (Date(data.checkInDate) > Date(data.checkOutDate)) {
-      alert("Invalid date selection");
-    } else if (data.bed === "") {
-      alert("Select no. of bed");
-    } else {
-      uploadRoom(data);
-      setdata(initialValue);
-    }
-  };
   const handleChange = (e) => {
     setdata({ ...data, [e.target.name]: e.target.value });
   };

@@ -4,7 +4,6 @@ import { form, page1container } from "./style";
 import Input from "../utility/Input";
 import BtnSubmit from "../btn/BtnSubmit";
 import FormErr from "../utility/FormErr";
-import { BsFillGridFill } from "react-icons/bs";
 import { formHint } from "../utility/Text";
 
 const Acc1 = ({ setPage, page, handleChange, data }) => {
