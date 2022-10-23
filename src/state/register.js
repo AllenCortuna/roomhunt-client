@@ -15,13 +15,14 @@ api.interceptors.request.use((req) => {
 export const useRegisterState = create((set) => ({
   data: {},
   loading: false,
-  err: false,
+  err: "",
   login: "",
 
   registerAcc: async (data, setPage) => {
     set({ loading: true });
     set({ err: null });
     try {
+      console.log("data:",data);
       const result = await api.post("/accommodator/signup", {
         email: data.email,
         password: data.password,
@@ -32,6 +33,7 @@ export const useRegisterState = create((set) => ({
         owner: data.owner,
         location: `${data.street} ${data.brgy} ${data.city}, ${data.province}`,
       });
+      console.log("result",result);
       set({ data: result.data.result });
       setPage(3);
     } catch (err) {

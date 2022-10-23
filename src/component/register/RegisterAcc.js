@@ -39,9 +39,9 @@ const RegisterAcc= () => {
   const handleImg = (img) => {
     setData({ ...data, image: img });
   };
-  const handleOpt = (cat) => {
-    setData({ ...data, category: cat });
-    console.log(data.category);
+  const handleOpt = (e) => {
+    setData({ ...data, category: e.target.value });
+    console.log("cat:", data.category);
   };
 
   return (
@@ -60,7 +60,7 @@ const RegisterAcc= () => {
       )}
       {page === 2 && (
         <>
-          <h1 className={header}>Accommodation Info</h1>
+          <h1 className={header}>Business Info</h1>
           <hr className="w-full text-gray-300 drop-shadow-sm" />
           <Acc2
             setPage={handlePage}

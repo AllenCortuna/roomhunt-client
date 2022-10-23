@@ -1,5 +1,5 @@
 export const container =
-  "text-center p-4 bg-white w-[21rem] min-h-[20rem] rounded-md shadow h-auto mx-auto mt-[5rem]";
+  "text-center p-4 bg-white w-[21rem] min-h-[20rem] rounded-md shadow h-auto mx-auto mt-10 mb-24";
 export const img = "w-20 m-auto my-2 drop-shadow-lg";
 export const header = "font-bold text-cyan-800 mx-auto text-lg uppercase drop-shadow-sm my-1";
 
