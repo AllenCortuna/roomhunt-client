@@ -1,12 +1,12 @@
-import React from "react";
+import { BsInfoCircleFill } from "react-icons/bs";
 
-export const FormHint = ({ text, icon }) => {
-  return (
-    <>
-      <p className="text-zinc-500 text-xs text-left w-full font-semibold">
-        {icon}
-        {text}
-      </p>
-    </>
-  );
-};
+export const formHint = (text) => {
+    return (
+      <>
+        <p className=" mt-5 -mb-1 text-gray-500 text-[.65rem] text-left w-full capitalize font-semibold">
+          <BsInfoCircleFill className="inline -mt-0.5 mr-1" />
+          {text}
+        </p>
+      </>
+    );
+  };

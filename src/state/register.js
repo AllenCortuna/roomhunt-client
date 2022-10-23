@@ -18,7 +18,7 @@ export const useRegisterState = create((set) => ({
   err: "",
   login: "",
 
-  registerAcc: async (data, setPage) => {
+  registerAcc: async (data, navigate) => {
     set({ loading: true });
     set({ err: null });
     try {
@@ -33,26 +33,9 @@ export const useRegisterState = create((set) => ({
         owner: data.owner,
         location: `${data.street} ${data.brgy} ${data.city}, ${data.province}`,
       });
-      console.log("result",result);
-      set({ data: result.data.result });
-      setPage(3);
-    } catch (err) {
-      set({ err: err.response.data.message });
-      alert(err.response.data.message);
-    }
-    set({ loading: false });
-  },
-
-  loginAcc: async (data, navigate) => {
-    set({ loading: true });
-    set({ err: null });
-    try {
-      const result = await api.post("/accommodator/login", data);
-      set({ data: result.data.result });
-      navigate("/dashboard");
-      set({ data: result.data.result });
-      localStorage.setItem("acc", JSON.stringify(result?.data));
-      set({ login: "acc" });
+      localStorage.setItem("register", JSON.stringify(result?.data));
+      console.log(result.data)
+      navigate("/register/verify-email");
     } catch (err) {
       set({ err: err.response.data.message });
       alert(err.response.data.message);
@@ -84,6 +67,24 @@ export const useRegisterState = create((set) => ({
     set({ login: "" });
     navigate("/");
   },
+
+  loginAcc: async (data, navigate) => {
+    set({ loading: true });
+    set({ err: null });
+    try {
+      const result = await api.post("/accommodator/login", data);
+      set({ data: result.data.result });
+      navigate("/dashboard");
+      set({ data: result.data.result });
+      localStorage.setItem("acc", JSON.stringify(result?.data));
+      set({ login: "acc" });
+    } catch (err) {
+      set({ err: err.response.data.message });
+      alert(err.response.data.message);
+    }
+    set({ loading: false });
+  },
+
 
   curUsr: (data) => {
     set({ login: data });

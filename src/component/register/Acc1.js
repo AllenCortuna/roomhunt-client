@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { form,  page1container} from "./style";
+import { form, page1container } from "./style";
 import Input from "../utility/Input";
 import BtnSubmit from "../btn/BtnSubmit";
 import FormErr from "../utility/FormErr";
 import { BsFillGridFill } from "react-icons/bs";
+import { formHint } from "../utility/Text";
 
 const Acc1 = ({ setPage, page, handleChange, data }) => {
   const {
@@ -26,12 +27,10 @@ const Acc1 = ({ setPage, page, handleChange, data }) => {
   // console.log(watch("example"));
   return (
     <span className={page1container}>
+      <hr className="my-4" />
       <form onSubmit={handleSubmit(onSubmit)} className={form}>
+        {formHint("Email")}
 
-        <p className="ml-2 mt-5 text-cyan-800 text-xs text-left w-full uppercase font-bold">
-          <BsFillGridFill className="inline -mt-0.5 mr-1" />
-          Email
-        </p>
         <Input
           type="email"
           placeholder={"Email"}
@@ -56,7 +55,7 @@ const Acc1 = ({ setPage, page, handleChange, data }) => {
         />
         <FormErr text={"Password is required"} err={errors.confirmPassword} />
         <FormErr text={"Password does not match"} err={!isMatch} />
-          
+
         <BtnSubmit loading={false} loadingTxt={""} text={"Submit"} />
       </form>
     </span>

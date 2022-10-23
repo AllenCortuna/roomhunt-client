@@ -9,7 +9,7 @@ const Upload = () => {
     price: "",
     checkInDate: "",
     checkOutDate: "",
-    bed: "",
+    bed: 1,
     image: "",
   };
   const [data, setdata] = useState({

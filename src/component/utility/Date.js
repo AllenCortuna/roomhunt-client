@@ -9,6 +9,7 @@ const DateInput = ({ handleChange, date }) => {
       <input
         type="text"
         name="date"
+        value={date}
         placeholder={date}
         className={formClass}
         onFocus={(e) => (e.target.type = "date")}

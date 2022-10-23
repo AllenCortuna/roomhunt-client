@@ -20,7 +20,7 @@ const Login = () => {
         </span>
         <BtnLink
           text={"login"}
-          link={"/login/accommodator"}
+          link={"/login/acc"}
           width={"w-[8rem]"}
         />
       </span>

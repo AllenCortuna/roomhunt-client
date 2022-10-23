@@ -4,10 +4,10 @@ import InputVal from "../utility/InputVal";
 import FormErr from "../utility/FormErr";
 import DateInput from "../utility/Date";
 import Image from "../utility/Image";
-import Option from "../utility/Option";
 import BtnSubmit from "../btn/BtnSubmit";
 import { BsFillGridFill } from "react-icons/bs";
 import { roomStore } from "../../state/room";
+import Option from "../utility/Option";
 
 const UploadForm = ({ data, setdata, initialValue }) => {
   const {
@@ -20,13 +20,16 @@ const UploadForm = ({ data, setdata, initialValue }) => {
   const loading = roomStore((state) => state.loading);
 
   const onSubmit = () => {
+    alert(Date(data.checkInDate) < Date(data.checkOutDate));
     if (data.image === "") {
-      alert("upload room images");
-    } else if (Date(data.checkInDate) > Date(data.checkOutDate))  {
-      alert("invalid date selection");
+      alert("Room images  is required");
+    } else if (Date(data.checkInDate) > Date(data.checkOutDate)) {
+      alert("Invalid date selection");
+    } else if (data.bed === "") {
+      alert("Select no. of bed");
     } else {
       uploadRoom(data);
-      setdata(initialValue)
+      setdata(initialValue);
     }
   };
   const handleChange = (e) => {
@@ -72,7 +75,7 @@ const UploadForm = ({ data, setdata, initialValue }) => {
       <span className="grid gap-1">
         {text("Room No.")}
         <InputVal
-    value={data.name}
+          value={data.name}
           type={"text"}
           placeholder={"Name or No."}
           register={{ ...register("name", { required: true }) }}
@@ -84,7 +87,7 @@ const UploadForm = ({ data, setdata, initialValue }) => {
         {text("Bed")}
         {acc === "hotel" || acc === "resort" ? (
           <InputVal
-    value={data.price}
+            value={data.price}
             type={"number"}
             placeholder={"per night"}
             register={{ ...register("price") }}
@@ -92,14 +95,19 @@ const UploadForm = ({ data, setdata, initialValue }) => {
           />
         ) : (
           <InputVal
-    value={data.price}
+            value={data.price}
             type={"number"}
             placeholder={"monthly"}
             register={{ ...register("price") }}
             onChange={handleChange}
           />
         )}
-        <Option label={"Bed"} option={[1, 2, 3, 4, 5]} handleOpt={handleOpt} value={data.bed} />
+        <Option
+          label={"Bed"}
+          option={[1, 2, 3, 4, 5]}
+          handleOpt={handleOpt}
+          value={data.bed}
+        />
       </span>
       <FormErr text={"Price is required"} err={errors.price} />
 

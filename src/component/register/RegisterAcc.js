@@ -47,9 +47,11 @@ const RegisterAcc= () => {
   return (
     <div className={container} ref={dom}>
       <img src={login} alt="login" className={img} />
+
       {page === 1 && (
         <>
           <h1 className={header}>Register</h1>
+          <hr className="w-full text-gray-300 drop-shadow-sm" />
           <Acc1
             setPage={handlePage}
             page={page}
@@ -74,8 +76,9 @@ const RegisterAcc= () => {
       )}
       {page === 3 && (
         <>
-          <h1 className={header}>Verify Email</h1>
-          <Acc3 setPage={handlePage} page={page} handleChange={handleChange} />
+          <h1 className={header}>Location</h1>
+          <hr className="w-full text-gray-300 drop-shadow-sm" />
+          <Acc3 handleChange={handleChange} data={data} />
         </>
       )}
     </div>

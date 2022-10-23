@@ -19,7 +19,7 @@ const Register = () => {
         </span>
         <BtnLink
           text={"register"}
-          link={"/register/accommodator"}
+          link={"/register/acc"}
           width={"w-[8rem]"}
         />
       </span>

@@ -1,71 +1,73 @@
 import React from "react";
-import { otpContainer, otpInput, otpText } from "./style";
-import Button from "../../component/btn/Button";
-import { useRegisterState } from "../../state/register";
 import { useNavigate } from "react-router-dom";
-const Acc3 = () => {
+import Input from "../utility/Input";
+import FormErr from "../utility/FormErr";
+import {formHint} from "../utility/Text";
+import { useForm } from "react-hook-form";
+import BtnSubmit from "../btn/BtnSubmit";
+import { form, page1container } from "./style";
+import { useRegisterState } from "../../state/register";
+
+
+const Acc3 = ({ handleChange, data }) => {
+  const registerAcc = useRegisterState((state) => state.registerAcc);
   const navigate = useNavigate();
-  const [otp, setOtp] = React.useState(new Array(4).fill(""));
-
-  const data = useRegisterState((state) => state.data);
   const loading = useRegisterState((state) => state.loading);
-  const verifyEmail = useRegisterState((state) => state.verifyEmail);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    // watch,
+  } = useForm();
 
-  const handleVerify = () => {
-    console.log("accId", data._id);
-    // data to be send in the zustand api
-    const verifyData = { otp: otp.join(""), accommodatorId: data._id };
-    verifyEmail(verifyData, navigate);
+  const onSubmit = () => {
+    registerAcc(data, navigate);
   };
 
-  const handleChange = (element, index) => {
-    if (isNaN(element.value)) return false;
-    setOtp([...otp.map((d, idx) => (idx === index ? element.value : d))]); //Focus next input
-    if (element.nextSibling) {
-      element.nextSibling.focus();
-    }
-  };
 
   return (
-    <>
-      <div className={otpContainer}>
-        <p className={otpText}>
-          Please enter the 4 digit OTP code sent to your email
-        </p>
-
-        <div className="">
-          {otp.map((data, index) => {
-            return (
-              <input
-                className={otpInput}
-                type="number"
-                name="otp"
-                maxLength={"1"}
-                key={index}
-                value={data}
-                onChange={(e) => handleChange(e.target, index)}
-                onFocus={(e) => e.target.select()}
-              />
-            );
-          })}
-        </div>
-        <span className="flex flex-wrap justify-between w-[12rem] mt-5 mx-auto">
-          <Button
-            onClick={() => setOtp([...otp.map(() => "")])}
-            text={"Clear"}
-            color={"bg-none border-2 border-gray-500"}
-            txtClr={"text-gray-400"}
+      <span className={page1container}>
+        <form onSubmit={handleSubmit(onSubmit)} className={form}>
+          {formHint("Address")}
+          <Input
+            type="text"
+            placeholder={"Street"}
+            register={{ ...register("street", { required: true }) }}
+            onChange={handleChange}
           />
-          <Button
-            onClick={handleVerify}
-            text={"Verify"}
-            color={"bg-secondary"}
-            loading={loading}
-          />
+          <FormErr text={"Street is required"} err={errors.street} />
 
-        </span>
-      </div>
-    </>
+          <Input
+            type="text"
+            placeholder={"Brgy"}
+            register={{ ...register("brgy", { required: true }) }}
+            onChange={handleChange}
+          />
+          <FormErr text={"Brgy is required"} err={errors.brgy} />
+
+          <Input
+            type="text"
+            placeholder={"City/Town"}
+            register={{ ...register("city", { required: true }) }}
+            onChange={handleChange}
+          />
+          <FormErr text={"City is required"} err={errors.city} />
+
+          <Input
+            type="text"
+            placeholder={"Province"}
+            register={{ ...register("province", { required: true }) }}
+            onChange={handleChange}
+          />
+          <FormErr text={"Province is required"} err={errors.province} />
+
+        <BtnSubmit
+          loading={loading}
+          loadingTxt={"Registering"}
+          text={"Submit"}
+        />
+        </form>
+      </span>
   );
 };
 

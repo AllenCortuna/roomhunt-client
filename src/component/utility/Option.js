@@ -1,6 +1,6 @@
 import React from "react";
 
-const Option = ({ handleOpt, option }) => {
+const Option = ({ handleOpt, option,value }) => {
   const selection =
     "capitalize text-xs font-semibold text-gray-500 rounded-md shadow-md p-2 px-0 focus:outline-none text-center space-mono bg-primary";
 
@@ -15,7 +15,7 @@ const Option = ({ handleOpt, option }) => {
     };
   });
   return (
-    <select className={selection} onChange={handleOpt}>
+    <select className={selection} onChange={handleOpt} value={value}>
       {option.map((a) => (
         <option value={a} key={a}>
           {a}
