@@ -51,7 +51,7 @@ export const roomStore = create((set) => ({
     set({ loading: true });
     try {
       const result  = await api.post("/room", data);
-      set((state) => ({ rooms: [...state.rooms, data] }));
+      set((state) => ({ rooms: [...state.rooms, result] }));
     } catch (err) {
       alert(err.response.data.message);
     }
@@ -61,7 +61,7 @@ export const roomStore = create((set) => ({
   updateRoom: async (data, id) => {
     set({ loading: true });
     try {
-      const { result } = await api.post(`/room/${id}`, data);
+      const result  = await api.post(`/room/${id}`, data);
       alert(result);
       set((state) => ({
         rooms: [
