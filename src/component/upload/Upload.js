@@ -3,15 +3,21 @@ import UploadForm from "./UploadForm";
 import { BsFillGridFill } from "react-icons/bs";
 import { useState } from "react";
 
-
 const Upload = () => {
-  const [data, setdata] = useState({
-    // creator: JSON.parse(localStorage?.getItem("acc"))?.result?._id,
-    name: "",
+  const initialValue = {
+    name: "Name",
     price: "",
-    checkInDate: "05-05-2022",
-    checkOutDate: "05-05-2022",
+    checkInDate: "",
+    checkOutDate: "",
     bed: "",
+    image: "",
+  };
+  const [data, setdata] = useState({
+    name: "Name",
+    price: "",
+    checkInDate: "",
+    checkOutDate: "",
+    bed: 1,
     image: "",
   });
   return (
@@ -22,7 +28,7 @@ const Upload = () => {
           Upload
         </h1>
         <hr className="w-full text-gray-400 drop-shadow-sm" />
-        <UploadForm data={data} setdata={setdata} />
+        <UploadForm data={data} setdata={setdata} initialValue={initialValue} />
       </span>
     </div>
   );

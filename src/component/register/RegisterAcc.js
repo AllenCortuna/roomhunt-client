@@ -15,7 +15,7 @@ const RegisterAcc= () => {
     businessName: "",
     contact: "",
     image: "",
-    category: "",
+    category: "boarding-house",
     owner: "",
     // location`
     street: "",

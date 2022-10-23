@@ -2,7 +2,7 @@
 import { useForm } from "react-hook-form";
 import { useRegisterState } from "../../state/register";
 import { form, page1container } from "./style";
-import { BsFillGridFill } from "react-icons/bs";
+import { BsInfoCircleFill } from "react-icons/bs";
 import Image from "../utility/Image";
 import Option from "../utility/Option";
 import BtnSubmit from "../btn/BtnSubmit";
@@ -23,14 +23,21 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
   const onSubmit = () => {
     registerAcc(data, setPage);
   };
+  const formHint = (text) => {
+    return (
+      <>
+        <p className=" mt-5 -mb-1 text-gray-600 text-[.65rem] text-left w-full capitalize font-semibold">
+          <BsInfoCircleFill className="inline -mt-0.5 mr-1" />
+          {text}
+        </p>
+      </>
+    );
+  };
 
   return (
     <span className={page1container}>
       <form onSubmit={handleSubmit(onSubmit)} className={form}>
-        <p className="ml-2 mt-8 mb-1 text-cyan-800 text-xs text-left w-full uppercase font-bold">
-          <BsFillGridFill className="inline -mt-0.5 mr-1" />
-          Business Info
-        </p>
+        {formHint("Business Info")}
         <Input
           type={"text"}
           placeholder={"Owner Full Name"}
@@ -64,21 +71,16 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
         />
         <FormErr text={"Enter a 11 digit number"} err={errors.contact} />
 
-        <p className="ml-2 mt-4 -mb-1 text-cyan-800 text-xs text-left w-full uppercase font-bold">
-          <BsFillGridFill className="inline -mt-0.5 mr-1" />
-          Property type
-        </p>
+        {formHint("Property type")}
 
         <Option
           label={"Category"}
           handleOpt={handleOpt}
           option={["resort", "hotel", "boarding-house"]}
+          value={data.category}
         />
 
-        <p className="ml-2 mt-5 text-cyan-800 text-xs text-left w-full uppercase font-bold">
-          <BsFillGridFill className="inline -mt-0.5 mr-1" />
-          Address
-        </p>
+        {formHint("Address")}
         <Input
           type="text"
           placeholder={"Street"}
@@ -111,10 +113,7 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
         />
         <FormErr text={"Province is required"} err={errors.province} />
 
-        <p className="ml-2 mt-5 text-cyan-800 text-xs text-left w-full uppercase font-bold">
-          <BsFillGridFill className="inline -mt-0.5 mr-1" />
-          Business Image
-        </p>
+        {formHint("Business Image")}
         <Image handleImg={handleImg} data={data} />
 
         <BtnSubmit

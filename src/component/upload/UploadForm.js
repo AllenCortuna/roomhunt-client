@@ -1,6 +1,6 @@
 // import React from "react";
 import { useForm } from "react-hook-form";
-import Input from "../utility/Input";
+import InputVal from "../utility/InputVal";
 import FormErr from "../utility/FormErr";
 import DateInput from "../utility/Date";
 import Image from "../utility/Image";
@@ -9,7 +9,7 @@ import BtnSubmit from "../btn/BtnSubmit";
 import { BsFillGridFill } from "react-icons/bs";
 import { roomStore } from "../../state/room";
 
-const UploadForm = ({ data, setdata }) => {
+const UploadForm = ({ data, setdata, initialValue }) => {
   const {
     register,
     handleSubmit,
@@ -20,8 +20,14 @@ const UploadForm = ({ data, setdata }) => {
   const loading = roomStore((state) => state.loading);
 
   const onSubmit = () => {
-    alert("data",data.name);
-    uploadRoom(data);
+    if (data.image === "") {
+      alert("upload room images");
+    } else if (Date(data.checkInDate) > Date(data.checkOutDate))  {
+      alert("invalid date selection");
+    } else {
+      uploadRoom(data);
+      setdata(initialValue)
+    }
   };
   const handleChange = (e) => {
     setdata({ ...data, [e.target.name]: e.target.value });
@@ -33,11 +39,17 @@ const UploadForm = ({ data, setdata }) => {
 
   const handleOpt = (e) => {
     setdata({ ...data, bed: e.target.value });
-    alert(data.bed)
+  };
+
+  const handleCheckIn = (e) => {
+    setdata({ ...data, checkInDate: e.target.value });
+  };
+
+  const handleCheckOut = (e) => {
+    setdata({ ...data, checkOutDate: e.target.value });
   };
 
   const acc = JSON.parse(localStorage?.getItem("acc"))?.result?.category;
-  console.log(acc.category);
 
   // label
   const text = (txt) => {
@@ -59,7 +71,8 @@ const UploadForm = ({ data, setdata }) => {
       <Image handleImg={handleImg} data={data} />
       <span className="grid gap-1">
         {text("Room No.")}
-        <Input
+        <InputVal
+    value={data.name}
           type={"text"}
           placeholder={"Name or No."}
           register={{ ...register("name", { required: true }) }}
@@ -70,22 +83,23 @@ const UploadForm = ({ data, setdata }) => {
         {text("Price")}
         {text("Bed")}
         {acc === "hotel" || acc === "resort" ? (
-          <Input
+          <InputVal
+    value={data.price}
             type={"number"}
             placeholder={"per night"}
             register={{ ...register("price") }}
             onChange={handleChange}
           />
         ) : (
-          <Input
+          <InputVal
+    value={data.price}
             type={"number"}
             placeholder={"monthly"}
             register={{ ...register("price") }}
             onChange={handleChange}
           />
         )}
-        <Option label={"Bed"} option={[1, 2, 3, 4, 5]}
-    handleOpt={handleOpt}/>
+        <Option label={"Bed"} option={[1, 2, 3, 4, 5]} handleOpt={handleOpt} value={data.bed} />
       </span>
       <FormErr text={"Price is required"} err={errors.price} />
 
@@ -94,8 +108,8 @@ const UploadForm = ({ data, setdata }) => {
       <span className="mt-2 grid grid-cols-2 gap-1 gap-x-3">
         {text("Check in")}
         {text("Check out")}
-        <DateInput />
-        <DateInput />
+        <DateInput handleChange={handleCheckIn} date={data.checkInDate} />
+        <DateInput handleChange={handleCheckOut} date={data.checkOutDate} />
       </span>
       <BtnSubmit loading={loading} loadingTxt={"uploading"} text={"Upload"} />
     </form>
