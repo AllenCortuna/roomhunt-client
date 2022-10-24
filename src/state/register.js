@@ -1,7 +1,6 @@
 import axios from "axios";
 import create from "zustand";
 // WARN: put in env
-// const api = axios.create({ baseURL: "https://room-hunt.herokuapp.com/" });
 const api = axios.create({ baseURL: "https://roomhunt-server.onrender.com/" });
 // const api = axios.create({ baseURL: "http://localhost:8000" });
 
