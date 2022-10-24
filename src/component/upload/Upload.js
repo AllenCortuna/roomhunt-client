@@ -25,7 +25,7 @@ const Upload = () => {
 
   const uploadRoom = roomStore((state) => state.uploadRoom);
   const onSubmit = () => {
-    alert(Date(data.checkInDate) < Date(data.checkOutDate));
+    // alert(Date(data.checkInDate) < Date(data.checkOutDate));
     if (data.image === "") {
       alert("Room images  is required");
     } else if (Date(data.checkInDate) > Date(data.checkOutDate)) {

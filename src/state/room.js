@@ -49,7 +49,7 @@ export const roomStore = create((set) => ({
   uploadRoom: async (data) => {
     set({ loading: true });
     try {
-      const result  = await api.post("/room", data);
+      const result = await api.post("/room", data);
       set((state) => ({ rooms: [...state.rooms, result] }));
     } catch (err) {
       alert(err.response.data.message);
@@ -60,7 +60,7 @@ export const roomStore = create((set) => ({
   updateRoom: async (data, id) => {
     set({ loading: true });
     try {
-      const result  = await api.post(`/room/${id}`, data);
+      const result = await api.post(`/room/${id}`, data);
       alert(result);
       set((state) => ({
         rooms: [
@@ -73,14 +73,14 @@ export const roomStore = create((set) => ({
     set({ loading: false });
   },
 
-  deleteRooms: async ({ id }) => {
+  deleteRoom: async (id) => {
     try {
-      await api.delete(`/rooms/${id}`);
+      await api.delete(`/room/${id}`);
       set((state) => ({
         rooms: state.rooms.filter((a) => a._id !== id),
       }));
     } catch (err) {
-      alert(err.message);
+      alert("message", err.response.data.message);
     }
   },
 }));
