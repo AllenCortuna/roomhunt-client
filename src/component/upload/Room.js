@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { RiShieldKeyholeFill } from "react-icons/ri";
 import { BsCalendarWeek } from "react-icons/bs";
@@ -11,8 +12,8 @@ const Room = ({ room }) => {
   return (
     <span
       key={room._id}
-      className="bg-white shadow-md grid p-1 gap-1  grid-cols-1 rounded-lg pb-1 hover:rotate-[10deg] hover:shadow-lg transition-all ease-linear duration-300 "
-    onClick={()=> deleteRoom(room._id)}
+      className="bg-white shadow-md grid p-1 gap-1  grid-cols-1 rounded-lg pb-1 transition-all ease-linear duration-300 hover:-m-2 hover:shadow-xl "
+    // onClick={()=> deleteRoom(room._id)}
     >
       <img
         src={room.image}

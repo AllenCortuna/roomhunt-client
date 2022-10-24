@@ -15,10 +15,10 @@ const RoomList = () => {
   }, [rooms.length]);
   return (
     <div className="grid grid-cols-2 w-[21rem] md:w-[28rem] gap-3 gap-y-5 mx-auto">
-      <h1>render count: {render}</h1>
       {rooms.map((room) => (
         <Room room={room} />
       ))}
+      <h1>render count: {render}</h1>
     </div>
   );
 };
