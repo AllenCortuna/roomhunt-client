@@ -38,7 +38,7 @@ const Upload = () => {
     }
   };
   return (
-    <div className="flex flex-wrap justify-center items-start mx-auto gap-14 mt-5">
+    <div className="flex flex-wrap justify-center items-start mx-auto gap-14 mt-5 mb-14">
 
 
       <span className=" mx-auto flex flex-wrap  w-[21rem] rounded-md shadow-md bg-white border h-auto p-4 ">
