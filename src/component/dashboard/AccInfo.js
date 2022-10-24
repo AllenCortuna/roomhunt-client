@@ -1,4 +1,3 @@
-import React from "react";
 import { MdLocationOn } from "react-icons/md";
 // import { FaUserCircle } from "react-icons/fa";
 // import { AiFillPhone } from "react-icons/ai";
