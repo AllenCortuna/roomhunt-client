@@ -10,10 +10,11 @@ const Room = ({ room }) => {
   const txt = "text-gray-500 font-[500] text-[.64rem] space-mono truncate";
   const highlight = "text-gray-500 font-semibold  text-[.64rem] space-mono";
   return (
+    <div className="duration-300 transition-all ease-linear group p-0 relative hover:-mb-14">
     <span
       key={room._id}
-      className="group bg-white shadow-md grid p-1 gap-1  grid-cols-1 rounded-lg pb-1 transition-all ease-linear duration-300 hover:-m-2 hover:shadow-xl "
-      // onClick={()=> deleteRoom(room._id)}
+      className="bg-white shadow-md grid p-1 gap-1  grid-cols-1 rounded-lg pb-1 transition-all ease-linear duration-300 hover:shadow-xl "
+    // onClick={()=> deleteRoom(room._id)}
     >
       <img
         src={room.image}
@@ -54,13 +55,13 @@ const Room = ({ room }) => {
           )}
         </h1>
         {/* btn */}
-        <span className="ease-linear duration-300 transition-all grid grid-cols-2 scale-0  group-hover:scale-100">
-          <button type="button" onClick={() => deleteRoom(room._id)}>
-            delete
-          </button>
-        </span>
       </span>
     </span>
+    
+    <span className="grid rounded-md z-40 shadow-xl absolute -mb-6 w-full h-5 bg-white scale-0 group-hover:scale-100 transition-all ease-linear duration-300">
+
+    </span>
+    </div>
   );
 };
 

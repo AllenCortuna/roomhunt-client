@@ -25,13 +25,11 @@ const Upload = () => {
 
   const uploadRoom = roomStore((state) => state.uploadRoom);
   const onSubmit = () => {
-    // alert(Date(data.checkInDate) < Date(data.checkOutDate));
+    // alert(data.checkInDate) < data.checkOutDate);
     if (data.image === "") {
-      alert("Room images  is required");
-    } else if (Date(data.checkInDate) > Date(data.checkOutDate)) {
-      alert("Invalid date selection");
-    } else if (data.bed === "") {
-      alert("Select no. of bed");
+      alert("WARN: Select a Room image");
+    } else if (data.checkInDate> data.checkOutDate) {
+      alert("INVALID DATE: Check-Out-Date must be less than Check-Out-Date");
     } else {
       uploadRoom(data);
       setdata(initialValue);

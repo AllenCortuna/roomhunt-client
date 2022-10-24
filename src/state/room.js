@@ -2,8 +2,8 @@ import create from "zustand";
 import axios from "axios";
 // WARN:https://room-hunt.herokuapp.com/
 // dapat na env
-const api = axios.create({ baseURL: "https://roomhunt-server.onrender.com/" });
-// const api = axios.create({ baseURL: "http://localhost:8000" });
+// const api = axios.create({ baseURL: "https://roomhunt-server.onrender.com/" });
+const api = axios.create({ baseURL: "http://localhost:8000" });
 
 api.interceptors.request.use((req) => {
   if (localStorage.getItem("acc")) {
@@ -28,7 +28,7 @@ export const roomStore = create((set) => ({
     }
   },
 
-  getRoomsById: async ({ id }) => {
+  getRoomsById: async (id) => {
     try {
       const response = await api.get(`room/${id}`);
       set({ rooms: response.data });
@@ -37,20 +37,23 @@ export const roomStore = create((set) => ({
     }
   },
 
-  getOwnRooms: async ({ id }) => {
+  getOwnRooms: async (id) => {
+    // set({ loading: true });
+    // alert(id)
     try {
       const response = await api.get(`room/${id}`);
       set({ rooms: response.data });
     } catch (err) {
       alert(err.response.data.message);
     }
+    // set({ loading: false });
   },
 
   uploadRoom: async (data) => {
     set({ loading: true });
     try {
       const result = await api.post("/room", data);
-      set((state) => ({ rooms: [...state.rooms, result] }));
+      set((state) => ({ rooms: [...state.rooms, result.data] }));
     } catch (err) {
       alert(err.response.data.message);
     }
