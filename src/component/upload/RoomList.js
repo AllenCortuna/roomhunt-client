@@ -15,7 +15,7 @@ const RoomList = () => {
     setrender(render + 1);
   }, [rooms]);
   return (
-    <div className="grid grid-cols-2 w-[21rem] md:w-[28rem] gap-3 gap-y-5 mx-auto">
+    <div className="grid grid-cols-2 w-[21rem] gap-3 gap-y-5 mx-auto">
       {rooms.map((room) => (
         <Room room={room} />
       ))}

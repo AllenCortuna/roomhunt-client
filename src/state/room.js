@@ -19,9 +19,9 @@ export const roomStore = create((set) => ({
   loading: false,
   error: false,
 
-  getRoomBySearch: async () => {
+  getRoomBySearch: async (query) => {
     try {
-      const response = await api.get("/room");
+      const response = await api.get(`/room/search?${query}`);
       set({ rooms: response.data });
     } catch (err) {
       alert(err.response.data.message);

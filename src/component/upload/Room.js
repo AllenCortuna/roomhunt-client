@@ -54,8 +54,20 @@ const Room = ({ room }) => {
           )}
         </h1>
         {/* btn */}
-        <span className="ease-linear duration-300 transition-all grid grid-cols-2 scale-0  group-hover:scale-100">
-          <button type="button" onClick={() => deleteRoom(room._id)}>
+        <span className="ease-linear duration-300 transition-all grid-cols-2 scale-0 grid  group-hover:scale-100 gap-3 w-full h-0 group-hover:h-full">
+          <button
+            type="button"
+            onClick={() => deleteRoom(room._id)}
+            className="text-[.6rem] font-semibold p-1 rounded-xl border-[0.085rem] border-zinc-400 bg-none text-zinc-400 shadow-sm"
+          >
+            update
+          </button>
+
+          <button
+            type="button"
+            onClick={() => deleteRoom(room._id)}
+            className="text-[.6rem] font-semibold p-1 rounded-xl border bg-rose-600 text-white shadow-sm"
+          >
             delete
           </button>
         </span>
