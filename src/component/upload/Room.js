@@ -54,11 +54,11 @@ const Room = ({ room, setid }) => {
           )}
         </h1>
         {/* btn */}
-        <span className="ease-linear duration-300 transition-all grid-cols-2 scale-0 grid  group-hover:scale-100 gap-3 w-full h-0 group-hover:h-full">
+        <span className="ease-linear duration-300 transition-all grid-cols-2 scale-0 grid  group-hover:scale-100 gap-3 w-full h-0 group-hover:h-full pt-1">
           <button
             type="button"
             onClick={() => setid(room._id)}
-            className="text-[.6rem] font-semibold p-1 rounded-xl border-[0.085rem] border-zinc-400 bg-none text-zinc-400 shadow-sm"
+            className="text-[.6rem] font-semibold p-1 rounded-md border-[0.085rem] border-zinc-400 bg-none text-zinc-400 shadow-sm"
     disabled={loading}
           >
             update
@@ -67,7 +67,7 @@ const Room = ({ room, setid }) => {
           <button
             type="button"
             onClick={() => deleteRoom(room._id)}
-            className="text-[.6rem] font-semibold p-1 rounded-xl border bg-rose-600 text-white shadow-sm truncate"
+            className="text-[.6rem] font-semibold p-1 rounded-lg border bg-rose-600 text-white shadow-sm truncate"
     disabled={loading}
           >
     {loading ?"processing" :  "delete"}

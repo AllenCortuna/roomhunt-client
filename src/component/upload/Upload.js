@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
 import UploadForm from "./UploadForm";
@@ -7,7 +8,7 @@ import { roomStore } from "../../state/room";
 import RoomList from "./RoomList";
 
 const Upload = () => {
-  const [id, setid] = useState(null);
+  const [id, setid] = useState(0);
   const initialValue = {
     name: "",
     price: "",
@@ -24,35 +25,34 @@ const Upload = () => {
     bed: 1,
     image: "",
   });
-  const clear = () => {
-    setid(null);
-    setdata(initialValue);
-    console.log(data, id);
-    setdata(initialValue);
-  };
 
   const uploadRoom = roomStore((state) => state.uploadRoom);
   const updateRoom = roomStore((state) => state.updateRoom);
   const rooms = roomStore((state) => state.rooms);
   const [room, setroom] = useState(null);
 
+  const clear = () => {
+    setid(0);
+    setroom(null);
+    setdata(initialValue);
+  };
+
   useEffect(() => {
-    setroom(id ? rooms.find((room) => room._id === id) : null);
-    console.log("newid set", id);
-  }, [id, rooms]);
+    setroom(id ? rooms.find((r) => r._id === id) : null);
+  }, [id]);
 
   useEffect(() => {
     if (room) setdata(room);
-    console.log("new room set", room);
   }, [id, room]);
 
   const onSubmit = async () => {
-    if (id === null) {
+    if (id === 0) {
       if (data.image === "") {
         alert("WARN: Select a Room image");
       } else if (data.checkInDate > data.checkOutDate) {
         alert("INVALID DATE: Check-Out-Date must be less than Check-Out-Date");
-      } else {
+      }
+      else {
         uploadRoom(data);
         clear();
       }
@@ -70,11 +70,7 @@ const Upload = () => {
           Upload
         </h1>
         <hr className="w-full text-gray-400 drop-shadow-sm" />
-        <UploadForm
-          data={data}
-          setdata={setdata}
-          onSubmit={onSubmit}
-        />
+        <UploadForm data={data} setdata={setdata} onSubmit={onSubmit} />
       </span>
       <RoomList setid={setid} />
     </div>
