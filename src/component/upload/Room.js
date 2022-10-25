@@ -5,7 +5,7 @@ import { BsCalendarWeek } from "react-icons/bs";
 import Moment from "react-moment";
 import { roomStore } from "../../state/room";
 
-const Room = ({ room }) => {
+const Room = ({ room, setid }) => {
   const deleteRoom = roomStore((state) => state.deleteRoom);
   const txt = "text-gray-500 font-[500] text-[.64rem] space-mono truncate";
   const highlight = "text-gray-500 font-semibold  text-[.64rem] space-mono";
@@ -13,7 +13,6 @@ const Room = ({ room }) => {
     <span
       key={room._id}
       className="group bg-white shadow-md grid p-1 gap-1  grid-cols-1 rounded-lg pb-1 transition-all ease-linear duration-300 hover:-m-2 hover:shadow-xl "
-      // onClick={()=> deleteRoom(room._id)}
     >
       <img
         src={room.image}
@@ -57,7 +56,7 @@ const Room = ({ room }) => {
         <span className="ease-linear duration-300 transition-all grid-cols-2 scale-0 grid  group-hover:scale-100 gap-3 w-full h-0 group-hover:h-full">
           <button
             type="button"
-            onClick={() => deleteRoom(room._id)}
+            onClick={() => setid(room._id)}
             className="text-[.6rem] font-semibold p-1 rounded-xl border-[0.085rem] border-zinc-400 bg-none text-zinc-400 shadow-sm"
           >
             update

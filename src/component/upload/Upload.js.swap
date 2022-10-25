@@ -8,6 +8,12 @@ import RoomList from "./RoomList";
 
 const Upload = () => {
   const [id, setid] = useState(null);
+  
+  const uploadRoom = roomStore((state) => state.uploadRoom);
+  const stateId = roomStore((state) => state.stateId);
+  
+  const updateRoom = roomStore((state) => state.updateRoom);
+  const rooms = roomStore((state) => state.rooms);
   const initialValue = {
     name: "",
     price: "",
@@ -29,20 +35,12 @@ const Upload = () => {
     setdata(initialValue);
   };
 
-  const uploadRoom = roomStore((state) => state.uploadRoom);
-  const updateRoom = roomStore((state) => state.updateRoom);
-  const rooms = roomStore((state) => state.rooms);
-  const [room, setroom] = useState(null);
 
   useEffect(() => {
-    setroom(id ? rooms.find((room) => room._id === id) : null);
-    console.log("newid set",id)
-  }, [id, rooms]);
+    const room = sta ? rooms.find((room) => room._id === id) : null;
+    setdata(room)
+  }, [id]);
 
-  useEffect(() => {
-    if (room) setdata(room);
-    console.log("new room set", room);
-  }, [room, id]);
 
   const onSubmit = () => {
     if (id === null) {
@@ -55,7 +53,6 @@ const Upload = () => {
         setdata(initialValue);
       }
     } else {
-      console.log("update data:", data, "id:",id)
       updateRoom(data, id);
     }
   };

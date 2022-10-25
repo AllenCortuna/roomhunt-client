@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { roomStore } from "../../state/room";
 import Room from "./Room";
 
-const RoomList = () => {
+const RoomList = ({setid}) => {
   const rooms = roomStore((state) => state.rooms);
 
   const loading = roomStore((state) => state.loading);
@@ -15,12 +15,20 @@ const RoomList = () => {
     setrender(render + 1);
   }, []);
   return (
-    <div className="grid grid-cols-2 w-[21rem] gap-3 gap-y-5 mx-auto">
-      <h1>render count: {render}</h1>
+    <div className="grid grid-cols-2 w-[21rem] md:w-[32.5rem] md:grid-cols-3 lg gap-3 gap-y-5 mx-auto">
       {rooms.map((room) => (
-        <Room room={room} />
+        <Room room={room} setid={setid} key={room._id} />
       ))}
-      {loading && "loading"}
+      <span>
+        <p className="drop-shadow-md text-cyan-800 text-sm font-bold capitalize">
+          render: {render}
+        </p>
+        {loading && (
+          <p className="drop-shadow-md text-cyan-800 text-sm font-bold ">
+            loading..
+          </p>
+        )}
+      </span>
     </div>
   );
 };
