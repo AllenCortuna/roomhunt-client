@@ -95,7 +95,7 @@ export const roomStore = create((set) => ({
         rooms: state.rooms.filter((a) => a._id !== id),
       }));
     } catch (err) {
-      alert("message", err.response.data.message);
+      alert(err.response.data.message);
     }
     set({ loading: false });
   },
