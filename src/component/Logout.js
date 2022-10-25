@@ -9,10 +9,10 @@ const Logout = () => {
   return (
     <div className="grid grid-cols-2 place-items-center p-4 mt-40 md:mt-28 gap-5 min-w-[18rem] max-w-[24rem] mx-auto">
       <span className="col-span-2 text-center">
-        <h1 className="font-bold uppercase text-cyan-800 text-xl drop-shadow-md ">
+        <h1 className="font-bold uppercase text-cyan-800 text-xl drop-shadow-sm ">
           logout
         </h1>
-        <p className="text-sm text-gray-400 rale">Logout and clear Account info ?</p>
+        <p className="text-sm text-gray-400 rale">Logout and clear Session ?</p>
       </span>
       <Button
         color={
@@ -27,7 +27,7 @@ const Logout = () => {
 
       <Button
         color={
-          "border-2 border-error bg-error shad mt-5 ml-0 mr-auto"
+          "border-2 border-rose-600 bg-rose-600 shad mt-5 ml-0 mr-auto"
         }
         loading={false}
         text={<p className="text-white">Logout</p>}

@@ -27,6 +27,8 @@ const Upload = () => {
   const clear = () => {
     setid(null);
     setdata(initialValue);
+    console.log(data, id);
+    setdata(initialValue);
   };
 
   const uploadRoom = roomStore((state) => state.uploadRoom);
@@ -36,15 +38,15 @@ const Upload = () => {
 
   useEffect(() => {
     setroom(id ? rooms.find((room) => room._id === id) : null);
-    console.log("newid set",id)
+    console.log("newid set", id);
   }, [id, rooms]);
 
   useEffect(() => {
     if (room) setdata(room);
     console.log("new room set", room);
-  }, [room, id]);
+  }, [id, room]);
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     if (id === null) {
       if (data.image === "") {
         alert("WARN: Select a Room image");
@@ -52,12 +54,13 @@ const Upload = () => {
         alert("INVALID DATE: Check-Out-Date must be less than Check-Out-Date");
       } else {
         uploadRoom(data);
-        setdata(initialValue);
+        clear();
       }
     } else {
-      console.log("update data:", data, "id:",id)
       updateRoom(data, id);
+      clear();
     }
+    clear();
   };
   return (
     <div className="flex flex-wrap justify-center items-start gap-y-14 gap-0 mt-5 mb-14">
@@ -70,7 +73,6 @@ const Upload = () => {
         <UploadForm
           data={data}
           setdata={setdata}
-          initialValue={initialValue}
           onSubmit={onSubmit}
         />
       </span>

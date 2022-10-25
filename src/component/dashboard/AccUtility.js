@@ -27,9 +27,9 @@ const AccUtility = () => {
     },
     {
       icon: review,
-      name: "Review",
-      link: "/review",
-      desc: "client feedback",
+      name: "account",
+      link: "/acc/account",
+      desc: "account settings",
     },
   ];
   return (

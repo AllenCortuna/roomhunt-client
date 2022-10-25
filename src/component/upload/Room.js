@@ -9,6 +9,7 @@ const Room = ({ room, setid }) => {
   const deleteRoom = roomStore((state) => state.deleteRoom);
   const txt = "text-gray-500 font-[500] text-[.64rem] space-mono truncate";
   const highlight = "text-gray-500 font-semibold  text-[.64rem] space-mono";
+  const loading = roomStore((state) => state.loading);
   return (
     <span
       key={room._id}
@@ -58,6 +59,7 @@ const Room = ({ room, setid }) => {
             type="button"
             onClick={() => setid(room._id)}
             className="text-[.6rem] font-semibold p-1 rounded-xl border-[0.085rem] border-zinc-400 bg-none text-zinc-400 shadow-sm"
+    disabled={loading}
           >
             update
           </button>
@@ -65,9 +67,10 @@ const Room = ({ room, setid }) => {
           <button
             type="button"
             onClick={() => deleteRoom(room._id)}
-            className="text-[.6rem] font-semibold p-1 rounded-xl border bg-rose-600 text-white shadow-sm"
+            className="text-[.6rem] font-semibold p-1 rounded-xl border bg-rose-600 text-white shadow-sm truncate"
+    disabled={loading}
           >
-            delete
+    {loading ?"processing" :  "delete"}
           </button>
         </span>
       </span>

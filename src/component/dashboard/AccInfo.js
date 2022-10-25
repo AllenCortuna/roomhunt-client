@@ -10,11 +10,11 @@ const AccInfo = ({ user }) => {
         src={user.image}
         alt=""
         loading="lazy"
-        className="w-[19.5rem] shad mt-2 mx-auto col-span-2 rounded-md h-[12.5rem] object-cover border-2 border-white "
+        className="w-[19.8rem] mt-2 mx-auto col-span-2  rounded-tr-md rounded-tl-md h-[12.5rem] object-cover border-white border-2 shadow-md "
       />
       {/* Business name */}
       <span className="col-span-2 text-center">
-        <h1 className="text-cyan-900 uppercase font-bold text-[1.5rem] mt-2 -mb-2">
+        <h1 className="text-cyan-900 capitalize font-bold text-[1.5rem] mt-2 -mb-2">
           {user?.businessName}
         </h1>
         <MdLocationOn className="mr-1 inline text-sm text-gray-400" />
