@@ -13,13 +13,13 @@ const RoomList = () => {
   useEffect(() => {
     getOwnRooms(id);
     setrender(render + 1);
-  }, [rooms]);
+  }, []);
   return (
     <div className="grid grid-cols-2 w-[21rem] gap-3 gap-y-5 mx-auto">
+      <h1>render count: {render}</h1>
       {rooms.map((room) => (
         <Room room={room} />
       ))}
-      <h1>render count: {render}</h1>
       {loading && "loading"}
     </div>
   );

@@ -1,8 +1,8 @@
 import axios from "axios";
 import create from "zustand";
 // WARN: put in env
-// const api = axios.create({ baseURL: "https://roomhunt-server.onrender.com/" });
-const api = axios.create({ baseURL: "http://localhost:8000" });
+const api = axios.create({ baseURL: "https://roomhunt-server.onrender.com/" });
+// const api = axios.create({ baseURL: "http://localhost:8000" });
 
 api.interceptors.request.use((req) => {
   if (localStorage.getItem("acc")) {
