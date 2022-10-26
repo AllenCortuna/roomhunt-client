@@ -6,6 +6,7 @@ import Moment from "react-moment";
 import { roomStore } from "../../state/room";
 
 const Room = ({ room, setid }) => {
+  // TODO: upload room window.scroll(0,0)
   const deleteRoom = roomStore((state) => state.deleteRoom);
   const txt = "text-gray-500 font-[500] text-[.64rem] space-mono truncate";
   const highlight = "text-gray-500 font-semibold  text-[.64rem] space-mono";
@@ -57,7 +58,7 @@ const Room = ({ room, setid }) => {
         <span className="ease-linear duration-300 transition-all grid-cols-2 scale-0 grid  group-hover:scale-100 gap-3 w-full h-0 group-hover:h-full pt-1">
           <button
             type="button"
-            onClick={() => setid(room._id)}
+            onClick={() => {setid(room._id); window.scroll(0,0)}}
             className="text-[.6rem] font-semibold p-1 rounded-md border-[0.085rem] border-zinc-400 bg-none text-zinc-400 shadow-sm"
     disabled={loading}
           >

@@ -69,7 +69,7 @@ const LoginAcc = () => {
       </form>
 
       <Link
-        to="/register/accommodator"
+        to="/register/acc"
         className="text-gray-400 underline text-xs mt-5 "
       >
         Dont have an Account? Register{" "}
