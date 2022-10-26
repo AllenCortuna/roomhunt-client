@@ -24,12 +24,8 @@ export const useRegisterState = create((set) => ({
       const result = await api.post("/client/signup", {
         email: data.email,
         password: data.password,
-        businessName: data.businessName,
         contact: data.contact,
-        image: data.image,
-        category: data.category,
-        owner: data.owner,
-        location: `${data.street} ${data.brgy} ${data.city}, ${data.province}`,
+        birthday: data.birthday,
       });
       localStorage.setItem("register", JSON.stringify(result?.data));
       navigate("/client/verify-email");

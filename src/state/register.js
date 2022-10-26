@@ -11,7 +11,6 @@ api.interceptors.request.use((req) => {
   return req;
 });
 export const useRegisterState = create((set) => ({
-  data: {},
   loading: false,
   err: "",
   login: "",
@@ -20,7 +19,7 @@ export const useRegisterState = create((set) => ({
     set({ loading: true });
     set({ err: null });
     try {
-      console.log("data:",data);
+      console.log("data:", data);
       const result = await api.post("/accommodator/signup", {
         email: data.email,
         password: data.password,
@@ -32,7 +31,7 @@ export const useRegisterState = create((set) => ({
         location: `${data.street} ${data.brgy} ${data.city}, ${data.province}`,
       });
       localStorage.setItem("register", JSON.stringify(result?.data));
-      console.log(result.data)
+      console.log(result.data);
       navigate("/register/verify-email");
     } catch (err) {
       set({ err: err.response.data.message });
@@ -60,12 +59,6 @@ export const useRegisterState = create((set) => ({
     set({ loading: false });
   },
 
-  logOut: (navigate) => {
-    localStorage.clear();
-    set({ login: "" });
-    navigate("/");
-  },
-
   loginAcc: async (data, navigate) => {
     set({ loading: true });
     set({ err: null });
@@ -83,5 +76,39 @@ export const useRegisterState = create((set) => ({
     set({ loading: false });
   },
 
+  
+  //PIN: CLIENT
+  registerClient: async (data, navigate) => {
+    set({ loading: true });
+    set({ err: null });
+    try {
+      const result = await api.post("/client/signup", {
+        email: data.email,
+        password: data.password,
+        contact: data.contact,
+        birthday: data.birthday,
+      });
+      localStorage.setItem("register", JSON.stringify(result?.data));
+      navigate("/client/verify-email");
+    } catch (err) {
+      set({ err: err.response.data.message });
+      alert(err.response.data.message);
+    }
+    set({ loading: false });
+  },
 
+  
+  
+  // PIN :UTILITY
+
+  curUsr: (data) => {
+    set({ login: data });
+  },
+
+  logOut: (navigate) => {
+    localStorage.clear();
+    set({ login: "" });
+    navigate("/");
+  },
+  
 }));

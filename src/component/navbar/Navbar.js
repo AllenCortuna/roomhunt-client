@@ -6,6 +6,7 @@ import Nav from "./Nav";
 const Navbar = () => {
   const login = useRegisterState((state) => state.login);
   const curUsr = useRegisterState((state) => state.curUsr);
+  // set navbar content to acc pag refresh
   const acc = localStorage.getItem("acc")
   useEffect(() => {
     if (acc) {
