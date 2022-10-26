@@ -1,4 +1,3 @@
-
 /* eslint-disable no-unused-vars */
 import React from "react";
 import autoAnimate from "@formkit/auto-animate";
@@ -6,20 +5,18 @@ import autoAnimate from "@formkit/auto-animate";
 import { Link } from "react-router-dom";
 import { logo } from "./content";
 
-const Nav = ({content}) => {
+const Nav = ({ content }) => {
   const isSmallScreen = window.innerWidth <= 440;
-  const navlink =
-    " text-[#fff] text-xs font-[700] transition-all ease-linear uppercase xs:hover:ml-5 duration-300 hover:text-amber-300 ";
   const dom = React.useRef(null);
   const [showNav, setShowNav] = React.useState(false);
-
 
   React.useEffect(() => {
     dom.current && autoAnimate(dom.current);
   }, [dom]);
 
-
   // WARN: Navbar
+  const navlink =
+    " text-[#fff] text-xs font-[700] transition-all ease-linear uppercase xs:hover:ml-5 duration-300 hover:text-amber-300 mx-auto my-auto";
   const nav = (
     <nav
       className={`grid gap-2 transition-all duration-300 ease-linear p-4  ${
@@ -28,7 +25,14 @@ const Nav = ({content}) => {
     >
       {content.map((a) => (
         <Link to={a.desc}>
-          <p className={navlink}>{a.name}</p>
+          <p
+            className={navlink}
+            onClick={() => {
+              setShowNav(false);
+            }}
+          >
+            {a.name}
+          </p>
         </Link>
       ))}
     </nav>
@@ -44,7 +48,7 @@ const Nav = ({content}) => {
           {logo}
           <span
             onClick={() => setShowNav(!showNav)}
-            className="h-5 w-5 flex flex-wrap align-center justify-center "
+            className="h-5 w-5 flex flex-wrap align-center justify-center my-auto"
           >
             <span
               className={`${toggleCls}${
@@ -66,16 +70,17 @@ const Nav = ({content}) => {
   const otherScreen = (
     <div>
       <span className="flex flex-wrap justify-between px-10 py-2">
-        {logo} {nav}
+    <span className="flex flex-wrap gap-3">
+        {logo}
+        <h3 className="text-white text-xl font-[800]">roomhunt</h3>
+    </span>
+        {nav}
       </span>
     </div>
   );
 
   return (
-    <div
-      className="bg-black grid w-screen h-auto shadow-lg "
-      ref={dom}
-    >
+    <div className="bg-black grid w-screen h-auto shadow-lg " ref={dom}>
       {isSmallScreen ? smallScreen : otherScreen}
     </div>
   );

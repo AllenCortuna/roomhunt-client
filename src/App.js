@@ -8,6 +8,7 @@ import AccDashboard from "./component/dashboard/AccDashboard";
 import Register from "./component/register/Register";
 import Login from "./component/login/Login";
 import LoginAcc from "./component/login/LoginAcc";
+import LoginClient from "./component/login/LoginClient";
 import Logout from "./component/Logout";
 import Upload from "./component/upload/Upload";
 
@@ -28,6 +29,8 @@ const App = () => {
         {/* login */}
         <Route path="/login/" element={<Login />} />
         <Route path="/login/acc" element={<LoginAcc />} />
+        <Route path="/login/client" element={<LoginClient />} />
+  
         <Route path="/logout" element={<Logout/>} />
         <Route path="*" element={<Notfound />} />
       </Routes>

@@ -31,7 +31,7 @@ const Navbar = () => {
             { name: "search", desc: "/" },
             { name: "login", desc: "/login" },
             { name: "register", desc: "/register" },
-            { name: "menu", desc: "/menu" },
+            { name: "about", desc: "/menu" },
           ]}
         />
       )}

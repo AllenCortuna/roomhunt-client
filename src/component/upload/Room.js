@@ -6,7 +6,6 @@ import Moment from "react-moment";
 import { roomStore } from "../../state/room";
 
 const Room = ({ room, setid }) => {
-  // TODO: upload room window.scroll(0,0)
   const deleteRoom = roomStore((state) => state.deleteRoom);
   const txt = "text-gray-500 font-[500] text-[.64rem] space-mono truncate";
   const highlight = "text-gray-500 font-semibold  text-[.64rem] space-mono";

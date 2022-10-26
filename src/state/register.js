@@ -2,14 +2,6 @@ import axios from "axios";
 import create from "zustand";
 const api = axios.create({ baseURL: process.env.REACT_APP_API });
 
-api.interceptors.request.use((req) => {
-  if (localStorage.getItem("acc")) {
-    req.headers.Authorization = `Bearer ${
-      JSON.parse(localStorage.getItem("acc")).token
-    }`;
-  }
-  return req;
-});
 export const useRegisterState = create((set) => ({
   loading: false,
   err: "",

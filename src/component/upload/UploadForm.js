@@ -96,7 +96,6 @@ const UploadForm = ({ data, setdata ,onSubmit}) => {
       </span>
       <FormErr text={"Price is required"} err={errors.price} />
 
-      {/* TODO: date validation */}
       {/* Available date */}
       <span className="mt-2 grid grid-cols-2 gap-1 gap-x-3">
         {text("Check in")}
