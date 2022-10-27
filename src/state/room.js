@@ -12,7 +12,7 @@ api.interceptors.request.use((req) => {
 });
 
 export const roomStore = create((set) => ({
-  rooms: [],
+  rooms: [].reverse(),
   loading: false,
   error: false,
   // stateId : null,

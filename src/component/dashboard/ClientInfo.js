@@ -13,6 +13,7 @@ const ClientInfo = ({ user }) => {
       />
       {/* Business name */}
       <span className="col-span-2 text-center">
+    
         <h1 className="text-cyan-900 capitalize font-bold text-[1.4rem] drop-shadow-sm p-1 -px-1 bg-gray-300 mx-auto w-auto">
           <HiUserCircle className=" text-[1.84rem] mr-2 inline" />
           {user.name}
@@ -36,9 +37,9 @@ const ClientInfo = ({ user }) => {
         </h1>
         <p className="ml-5 mr-auto font-[900] space-mono inline text-left text-xs ">
           {user.verified ? (
-            <span className=" text-secondary">verified </span>
+            <span className="text-lime-500">verifed</span>
           ) : (
-            <span className="text-rose-400"> unverified </span>
+            <span className="text-rose-500">unverifed</span>
           )}
         </p>
       </span>

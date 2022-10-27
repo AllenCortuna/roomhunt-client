@@ -1,11 +1,12 @@
 import { MdLocationOn } from "react-icons/md";
-// import { FaUserCircle } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import { AiFillCheckCircle } from "react-icons/ai";
 // import { AiFillPhone } from "react-icons/ai";
 // import { GiHouse } from "react-icons/gi";
 
 const AccInfo = ({ user }) => {
   return (
-    <div className="grid grid-cols-2 justify-items-between w-[21rem] border border-gray-200 rounded-lg shadow-md bg-primary h-[26rem] md:h-[23rem] md:mr-0 md:ml-auto">
+    <div className="grid gap-1 grid-cols-2 justify-items-between w-[21rem] border border-gray-200 rounded-lg shadow-md bg-primary h-[26rem] md:h-[23rem] md:mr-0 md:ml-auto">
       <img
         src={user.image}
         alt=""
@@ -24,30 +25,32 @@ const AccInfo = ({ user }) => {
         <hr className="w-auto ml-2 mr-2 text-gray-400 shadow-md" />
       </span>
 
-      <span className=" text-center mt-4 p-3">
-        <h1 className="text-sm text-cyan-800 font-bold uppercase -mb-2">
+      <span className="p-2">
+        <h1 className="text-xs text-cyan-800 font-bold uppercase ">
+          <MdEmail className="text-[1rem] mr-1 inline" />
           contact
         </h1>
-        <p className=" inline text-center text-xs text-gray-500 rale">
-          {user.email}
-        </p>
+        <p className="inline text-xs text-gray-500 rale">{user.email}</p>
 
-        <p className="text-center text-xs text-gray-500 rale ">
-          {user.contact}
-        </p>
+        <p className="text-xs text-gray-500 rale ">{user.contact}</p>
       </span>
 
-      <span className="grid text-center mt-4 p-3">
-        <h1 className="text-sm text-cyan-800 font-bold uppercase -mb-3">
-          owner
+      <span className="p-2">
+        <h1 className="text-xs text-cyan-800 font-bold uppercase ">
+          <AiFillCheckCircle className="text-[1rem] mr-1 inline" />
+          Owner
         </h1>
-        <p className="-mt-2 inline text-center text-xs text-gray-500 rale">
-          {user.owner}
-        </p>
-        <p className="capitalize -mt-4 inline text-center text-xs text-gray-500 rale">
-          {user.category}
+        <p className="inline text-xs text-gray-500 rale">{user.owner}</p>
+
+        <p className="drop-shadow-sm text-xs space-mono font-[900]">
+          {user.verified ? (
+            <span className="text-lime-500">verifed</span>
+          ) : (
+            <span className="text-rose-500">unverifed</span>
+          )}
         </p>
       </span>
+
       {/* TODO: review */}
       {/* TODO:update feature  */}
     </div>
