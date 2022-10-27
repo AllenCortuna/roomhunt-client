@@ -1,5 +1,5 @@
 import React from "react";
-import notfound from "./img/404.svg";
+import notfound from "./img/warn.svg";
 const Notfound = () => {
   return (
     <div className="grid max-w-sm m-auto">

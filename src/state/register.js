@@ -23,7 +23,6 @@ export const useRegisterState = create((set) => ({
         location: `${data.street} ${data.brgy} ${data.city}, ${data.province}`,
       });
       localStorage.setItem("register", JSON.stringify(result?.data));
-      console.log(result.data);
       navigate("/register/acc/verify-email");
     } catch (err) {
       set({ err: err.response.data.message });
@@ -75,12 +74,11 @@ export const useRegisterState = create((set) => ({
     set({ err: null });
     try {
       const result = await api.post("/client/signup", {
-        name: data.contact,
+        name: data.name,
         email: data.email,
         password: data.password,
         birthday: data.birthday,
       });
-      localStorage.clear();
       localStorage.setItem("register", JSON.stringify(result?.data));
       navigate("/register/client/verify-email");
     } catch (err) {
@@ -119,8 +117,8 @@ export const useRegisterState = create((set) => ({
       set({ data: result.data.result });
       navigate("/client/dashboard");
       set({ data: result.data.result });
-      localStorage.setItem("acc", JSON.stringify(result?.data));
-      set({ login: "acc" });
+      localStorage.setItem("client", JSON.stringify(result?.data));
+      set({ login: "client" });
     } catch (err) {
       set({ err: err.response.data.message });
       alert(err.response.data.message);

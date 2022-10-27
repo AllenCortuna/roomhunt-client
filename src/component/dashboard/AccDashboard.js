@@ -17,7 +17,7 @@ const AccDashboard = () => {
   useEffect(() => {
     const logout = () => {
       logOut();
-      navigate.push("/accommodator/login");
+      navigate.push("/acc/login");
       setUser(null);
     };
     const token = user?.token;
