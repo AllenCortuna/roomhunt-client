@@ -21,7 +21,7 @@ const PropertyType = () => {
   return (
     // <span className="grid rounded-tl-md rounded-tr-md p-3 pb-4 bg-gray-100 shadow-sm mb-2">
     <span className="grid">
-      <span className="grid grid-cols-3 gap-2">
+      <span className="grid grid-cols-3 gap-2 mt-2">
         {type.map((a) => (
           <span className="group flex flex-wrap justify-center bg-smoke items-center text-center flex-row p-2 shad rounded-2xl hover:bg-cyan-700 hover:shadow-none transition-all duration-300 ease-linear " key={a.name}>
             {a.icon}
