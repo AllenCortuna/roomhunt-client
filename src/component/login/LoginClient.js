@@ -14,7 +14,7 @@ const LoginAcc = () => {
     email: "",
     password: "",
   });
-  const loginAcc = useRegisterState((state) => state.loginAcc);
+  const loginClient = useRegisterState((state) => state.loginClient);
   const loading = useRegisterState((state) => state.loading);
   const navigate = useNavigate();
 
@@ -24,7 +24,7 @@ const LoginAcc = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = () => {
-    loginAcc(data, navigate);
+    loginClient(data, navigate);
     return;
   };
   const handleChange = (e) => {

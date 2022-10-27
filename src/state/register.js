@@ -24,7 +24,7 @@ export const useRegisterState = create((set) => ({
       });
       localStorage.setItem("register", JSON.stringify(result?.data));
       console.log(result.data);
-      navigate("/register/verify-email");
+      navigate("/register/acc/verify-email");
     } catch (err) {
       set({ err: err.response.data.message });
       alert(err.response.data.message);
@@ -57,7 +57,7 @@ export const useRegisterState = create((set) => ({
     try {
       const result = await api.post("/accommodator/login", data);
       set({ data: result.data.result });
-      navigate("/dashboard");
+      navigate("/acc/dashboard");
       set({ data: result.data.result });
       localStorage.setItem("acc", JSON.stringify(result?.data));
       set({ login: "acc" });
@@ -68,20 +68,21 @@ export const useRegisterState = create((set) => ({
     set({ loading: false });
   },
 
-  
+
   //PIN: CLIENT
   registerClient: async (data, navigate) => {
     set({ loading: true });
     set({ err: null });
     try {
       const result = await api.post("/client/signup", {
+        name: data.contact,
         email: data.email,
         password: data.password,
-        contact: data.contact,
         birthday: data.birthday,
       });
+      localStorage.clear();
       localStorage.setItem("register", JSON.stringify(result?.data));
-      navigate("/client/verify-email");
+      navigate("/register/client/verify-email");
     } catch (err) {
       set({ err: err.response.data.message });
       alert(err.response.data.message);
@@ -89,8 +90,47 @@ export const useRegisterState = create((set) => ({
     set({ loading: false });
   },
 
-  
-  
+
+  verifyEmailClient: async (data, navigate) => {
+    set({ loading: true });
+    set({ err: null });
+    try {
+      const result = await api.post("/client/verify-email", {
+        otp: data.otp,
+        clientId: data.clientId,
+      });
+      navigate("/client/dashboard");
+      set({ data: result.data.result });
+      set({ login: "client" });
+      localStorage.setItem("client", JSON.stringify(result?.data));
+    } catch (err) {
+      set({ err: err.response.data.message });
+      alert(err.response.data.message);
+    }
+    set({ loading: false });
+  },
+
+
+  loginClient: async (data, navigate) => {
+    set({ loading: true });
+    set({ err: null });
+    try {
+      const result = await api.post("/client/login", data);
+      set({ data: result.data.result });
+      navigate("/client/dashboard");
+      set({ data: result.data.result });
+      localStorage.setItem("acc", JSON.stringify(result?.data));
+      set({ login: "acc" });
+    } catch (err) {
+      set({ err: err.response.data.message });
+      alert(err.response.data.message);
+    }
+    set({ loading: false });
+  },
+
+
+
+
   // PIN :UTILITY
 
   curUsr: (data) => {
@@ -102,5 +142,5 @@ export const useRegisterState = create((set) => ({
     set({ login: "" });
     navigate("/");
   },
-  
+
 }));

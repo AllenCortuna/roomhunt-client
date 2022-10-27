@@ -8,30 +8,47 @@ const Navbar = () => {
   const curUsr = useRegisterState((state) => state.curUsr);
   // set navbar content to acc pag refresh
   const acc = localStorage.getItem("acc")
+  const client = localStorage.getItem("client")
   useEffect(() => {
     if (acc) {
       curUsr("acc")
     }
-  }, [acc, login, curUsr]);
+    if (client) {
+      curUsr("client")
+    }
+  }, [acc,client, login, curUsr]);
 
   return (
     <div>
-      {login === "acc" ? (
+      {login === "acc" && (
         <Nav
           content={[
-            { name: "dashboard", desc: "/dashboard" },
+            { name: "dashboard", desc: "/acc/dashboard" },
             { name: "message", desc: "/message" },
             { name: "menu", desc: "/menu" },
             { name: "logout", desc: "/logout" },
           ]}
         />
-      ) : (
+      )}
+      {login === "client" && (
+        <Nav
+          content={[
+            { name: "search", desc: "/" },
+            { name: "dashboard", desc: "/client/dashboard" },
+            { name: "menu", desc: "/menu" },
+            { name: "logout", desc: "/logout" },
+            
+          ]}
+        />
+      )}
+    
+      {login === "" && (
         <Nav
           content={[
             { name: "search", desc: "/" },
             { name: "login", desc: "/login" },
             { name: "register", desc: "/register" },
-            { name: "about", desc: "/menu" },
+            { name: "about", desc: "/about" },
           ]}
         />
       )}
