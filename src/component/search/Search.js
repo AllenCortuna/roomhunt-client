@@ -7,20 +7,36 @@ import { Label } from "./utilty";
 
 const Search = () => {
   const [query, setquery] = useState({
-    category:"",
+    category: "",
     location: "",
-    bed:1,
-    minPrice:"",
-    maxPrice:"",
-    checkInDate:"",
-    checkOutDate:"",
+    bed: 1,
+    minPrice: "",
+    maxPrice: "",
+    checkInDate: "",
+    checkOutDate: "",
   });
   const handleChange = (e) => {
     setquery({ ...query, [e.target.name]: e.target.value });
   };
+
+  const handleCat = (cat) => {
+    setquery({ ...query, category: cat });
+    console.log(query);
+  };
+
   const onSubmit = () => {
-    console.log(query) 
-  }
+    if (query.category === "") {
+      alert("WARN: Choose a Category");
+    } else if (query.checkInDate > query.checkOutDate) {
+      alert("WARN: Check-In-Date must be equal or less than Check-Out-Date");
+    } else if (query.location === "") {
+      alert("WARN: Enter a Location");
+    } else if (parseInt(query.minPrice) > parseInt(query.maxPrice)) {
+      alert("WARN: Min-Price must be equal or less than Max-Price");
+    } else {
+      alert("submit ok");
+    }
+  };
 
   const iconCl = "mr-1 inline";
   return (
@@ -28,7 +44,7 @@ const Search = () => {
       <span className="h-4 bg-orange rounded-tl-md rounded-tr-md shadow-sm"></span>
       <span className="p-3">
         <Label text={"Category"} icon={<AiFillSetting className={iconCl} />} />
-        <PropertyType />
+        <PropertyType handleCat={handleCat} query={query} />
       </span>
       <Filter
         handleChange={handleChange}

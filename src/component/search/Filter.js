@@ -12,7 +12,7 @@ const Filter = ({ handleChange, query, setquery, onSubmit }) => {
   const {
     register,
     handleSubmit,
-    // formState: { errors },
+    formState: { errors },
   } = useForm();
 
   const iconCl = "mr-1 inline";
@@ -39,8 +39,8 @@ const Filter = ({ handleChange, query, setquery, onSubmit }) => {
         <InputVal
           type={"text"}
           onChange={handleChange}
-          register={{ ...register("price") }}
-          value={query.maxPrice}
+          register={{ ...register("location", { required: true }) }}
+          value={query.location}
           placeholder={"City or Province"}
         />
       </span>
@@ -60,7 +60,7 @@ const Filter = ({ handleChange, query, setquery, onSubmit }) => {
         <InputVal
           type={"number"}
           onChange={handleChange}
-          register={null}
+          register={{ ...register("minPrice", { required: true }) }}
           value={query.minPrice}
           placeholder={"min price"}
         />
@@ -71,7 +71,7 @@ const Filter = ({ handleChange, query, setquery, onSubmit }) => {
         <InputVal
           type={"number"}
           onChange={handleChange}
-          register={null}
+          register={{ ...register("maxPrice", { required: true }) }}
           value={query.maxPrice}
           placeholder={"max price"}
         />

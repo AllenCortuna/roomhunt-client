@@ -2,11 +2,9 @@ import React from "react";
 import { BiBuildings, BiHome } from "react-icons/bi";
 import { TbBeach } from "react-icons/tb";
 
-
-const PropertyType = () => {
-  
+const PropertyType = ({ handleCat,query }) => {
   const iconClass =
-    "text-[1.5rem] inline text-gray-400 group-hover:text-primary group-hover:drop-shadow-md ";
+    "text-[1.5rem] inline text-gray-500 group-hover:drop-shadow-md ";
   const type = [
     {
       name: "Rental",
@@ -23,9 +21,13 @@ const PropertyType = () => {
     <span className="grid">
       <span className="grid grid-cols-3 gap-2 mt-2">
         {type.map((a) => (
-          <span className="group flex flex-wrap justify-center bg-smoke items-center text-center flex-row p-2 shad rounded-2xl hover:bg-cyan-700 hover:shadow-none transition-all duration-300 ease-linear " key={a.name}>
+          <span
+            className={`group flex flex-wrap justify-center items-center text-center flex-row p-2 rounded-2xl hover:bg- hover:shadow-none transition-all duration-300 ease-linear shad ${query.category===a.name ? "bg-yellow " : "bg-smoke"}`}
+            key={a.name}
+            onClick={()=>handleCat(a.name)}
+          >
             {a.icon}
-            <p className="group-hover:text-white group-hover:font-semibold ml-2 inline text-[.8rem] text-gray-400 group-hover:drop-shadow-md">
+            <p className={`group-hover:text-gray-500 group-hover:font-semibold ml-2 inline text-[.8rem] group-hover:drop-shadow-md ${query.category === a.name ? "text-gray-500 font-semibold" : "text-gray-400"}`}>
               {a.name}
             </p>
           </span>
