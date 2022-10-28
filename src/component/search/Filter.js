@@ -12,13 +12,14 @@ const Filter = ({ handleChange, query, setquery, onSubmit }) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    // formState: { errors },
   } = useForm();
 
   const iconCl = "mr-1 inline";
 
   const handleOpt = (e) => {
-    setquery({ ...query, category: e.target.value });
+    setquery({ ...query, bed: e.target.value });
+    console.log(query.bed)
   };
 
   const handleCheckIn = (e) => {
@@ -95,14 +96,14 @@ const Filter = ({ handleChange, query, setquery, onSubmit }) => {
 
       <button
         type="reset"
-        className="border-2 border-gray-400 text-xs font-[500] rounded-md p-3 text-gray-500 mt-3 hover:animate-bounce"
+        className="border-2 border-gray-400 text-xs font-[500] rounded-md p-3 text-gray-500 mt-3"
         // onClick={handleSubmit}
       >
         clear
       </button>
       <button
         type="submit"
-        className="shad mt-3 border-2 bg-green text-xs font-[500] text-gray-500 rounded-md border-green hover:text-sm duration-300 ease-linear transition-all hover:animate-bounce"
+        className="shad mt-3 border-2 bg-secondary text-xs font-[500] text-gray-500 rounded-md border-secondary hover:text-sm duration-300 ease-linear transition-all"
       >
         Search
       </button>

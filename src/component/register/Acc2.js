@@ -64,7 +64,7 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
         <Option
           label={"Category"}
           handleOpt={handleOpt}
-          option={["resort", "hotel", "boarding-house"]}
+          option={["resort", "hotel", "dorm"]}
           value={data.category}
         />
 

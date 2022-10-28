@@ -22,8 +22,9 @@ export const roomStore = create((set) => ({
 
   getRoomBySearch: async (query) => {
     try {
-      const response = await api.get(`/room/search?${query}`);
+      const response = await api.get(`/room/search?query=${query}`);
       set({ rooms: response.data });
+      console.log(response.data)
     } catch (err) {
       alert(err.response.data.message);
     }
@@ -54,7 +55,14 @@ export const roomStore = create((set) => ({
   uploadRoom: async (data) => {
     set({ loading: true });
     try {
-      const result = await api.post("/room", data);
+      const result = await api.post("/room", {
+        name: data.name,
+        price: parseInt(data.price),
+        image: data.image,
+        checkInDate: data.checkInDate,
+        checkOutDate: data.checkOutDate,
+        bed: parseInt(data.bed)
+      });
       set((state) => ({ rooms: [...state.rooms, result.data] }));
     } catch (err) {
       alert(err.response.data.message);
@@ -67,11 +75,11 @@ export const roomStore = create((set) => ({
     try {
       const result = await api.patch(`/room/${id}`, {
         name: data.name,
-        price: data.price,
+        price: parseInt(data.price),
         image: data.image,
         checkInDate: data.checkInDate,
         checkOutDate: data.checkOutDate,
-        bed: data.bed
+        bed: parseInt(data.bed)
       });
       set((state) => ({
         rooms: [

@@ -2,10 +2,12 @@ import React, { useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import PropertyType from "./PropertyType";
 import Filter from "./Filter";
+import { roomStore } from "../../state/room";
 import { AiFillSetting } from "react-icons/ai";
 import { Label } from "./utilty";
 
 const Search = () => {
+  const getRoomBySearch = roomStore((state) => state.getRoomBySearch);
   const [query, setquery] = useState({
     category: "",
     location: "",
@@ -34,7 +36,7 @@ const Search = () => {
     } else if (parseInt(query.minPrice) > parseInt(query.maxPrice)) {
       alert("WARN: Min-Price must be equal or less than Max-Price");
     } else {
-      alert("submit ok");
+      getRoomBySearch(query)
     }
   };
 

@@ -39,7 +39,7 @@ export const useRegisterState = create((set) => ({
         otp: data.otp,
         accommodatorId: data.accommodatorId,
       });
-      navigate("/dashboard");
+      navigate("/acc/dashboard");
       set({ data: result.data.result });
       set({ login: "acc" });
       localStorage.setItem("acc", JSON.stringify(result?.data));
