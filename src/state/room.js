@@ -15,16 +15,20 @@ export const roomStore = create((set) => ({
   rooms: [].reverse(),
   loading: false,
   error: false,
-  // stateId : null,
-  // setId: (nId)=>{
-  //     set({ stateId:  nId});
-  // },
 
   getRoomBySearch: async (query) => {
     try {
-      const response = await api.get(`/room/search?query=${query}`);
+      const response = await api.get(
+        `/room/search?category=${query.category}&location=${
+          query.location
+        }&minPrice=${parseInt(query.minPrice)}&maxPrice=${parseInt(
+          query.maxPrice
+        )}&bed=${parseInt(query.bed)}&checkInDate=${
+          query.checkInDate
+        }&checkOutDate=${query.checkOutDate}`
+      );
       set({ rooms: response.data });
-      console.log(response.data)
+      console.log(response.data);
     } catch (err) {
       alert(err.response.data.message);
     }
@@ -51,7 +55,6 @@ export const roomStore = create((set) => ({
     // set({ loading: false });
   },
 
-
   uploadRoom: async (data) => {
     set({ loading: true });
     try {
@@ -61,7 +64,7 @@ export const roomStore = create((set) => ({
         image: data.image,
         checkInDate: data.checkInDate,
         checkOutDate: data.checkOutDate,
-        bed: parseInt(data.bed)
+        bed: parseInt(data.bed),
       });
       set((state) => ({ rooms: [...state.rooms, result.data] }));
     } catch (err) {
@@ -79,7 +82,7 @@ export const roomStore = create((set) => ({
         image: data.image,
         checkInDate: data.checkInDate,
         checkOutDate: data.checkOutDate,
-        bed: parseInt(data.bed)
+        bed: parseInt(data.bed),
       });
       set((state) => ({
         rooms: [
