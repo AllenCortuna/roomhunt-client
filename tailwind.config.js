@@ -12,7 +12,7 @@ module.exports = {
       'error': "#E63734",
       'white': "#FFFFFF",
       'black': "#24282C",
-      'green': "#ABC379",
+      'green': "#D4F176",
       'brown': "#473C33",
       'yellow': "#FEC868",
       'orange': "#FDA769",
