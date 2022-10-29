@@ -26,6 +26,7 @@ const RoomInfo = () => {
         {room.name}
         {room.price}
         {room.category}
+        {room.category}
       </span>}
     </>
   )
