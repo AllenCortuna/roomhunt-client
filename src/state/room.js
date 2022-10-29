@@ -54,7 +54,7 @@ export const roomStore = create((set) => ({
   getOwnRooms: async (id) => {
     set({ loading: true });
     try {
-      const response = await api.get(`room/${id}`);
+      const response = await api.get(`room/own/${id}`);
       set({ rooms: response.data });
     } catch (err) {
       alert(err.response.data.message);
@@ -65,7 +65,7 @@ export const roomStore = create((set) => ({
   uploadRoom: async (data) => {
     set({ loading: true });
     try {
-      const result = await api.post("/room/own", {
+      const result = await api.post("/room", {
         name: data.name,
         price: parseInt(data.price),
         image: data.image,
