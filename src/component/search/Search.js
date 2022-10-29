@@ -5,8 +5,11 @@ import Filter from "./Filter";
 import { roomStore } from "../../state/room";
 import { AiFillSetting } from "react-icons/ai";
 import { Label } from "./utilty";
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
+  
+  const navigate = useNavigate()
   const getRoomBySearch = roomStore((state) => state.getRoomBySearch);
   const [query, setquery] = useState({
     category: "",
@@ -37,6 +40,7 @@ const Search = () => {
       alert("WARN: Min-Price must be equal or less than Max-Price");
     } else {
       getRoomBySearch(query)
+      navigate("/search");
     }
   };
 

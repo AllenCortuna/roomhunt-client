@@ -14,6 +14,7 @@ import LoginAcc from "./component/login/LoginAcc";
 import LoginClient from "./component/login/LoginClient";
 import Logout from "./component/Logout";
 import Upload from "./component/upload/Upload";
+import RoomSearch from "./component/room/RoomSearch";
 
 const App = () => {
   return (
@@ -21,7 +22,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Search />} />
-        {/* <Route path="/register/client" element={<Client />} /> */}
+        <Route path="/search" element={<RoomSearch />} />
         <Route path="/acc/dashboard" element={<AccDashboard />} />
         <Route path="/client/dashboard" element={<ClientDashboard />} />
     

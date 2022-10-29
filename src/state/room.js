@@ -12,11 +12,13 @@ api.interceptors.request.use((req) => {
 });
 
 export const roomStore = create((set) => ({
-  rooms: [].reverse(),
+  rooms: [],
   loading: false,
   error: false,
 
   getRoomBySearch: async (query) => {
+    set({ loading: true });
+    set({ rooms: [] });
     try {
       const response = await api.get(
         `/room/search?category=${query.category}&location=${
@@ -32,27 +34,29 @@ export const roomStore = create((set) => ({
     } catch (err) {
       alert(err.response.data.message);
     }
+    set({ loading: false });
   },
 
   getRoomsById: async (id) => {
+    set({ loading: true });
     try {
       const response = await api.get(`room/${id}`);
       set({ rooms: response.data });
     } catch (err) {
       alert(err.response.data.message);
     }
+    set({ loading: false });
   },
 
   getOwnRooms: async (id) => {
-    // set({ loading: true });
-    // alert(id)
+    set({ loading: true });
     try {
       const response = await api.get(`room/${id}`);
       set({ rooms: response.data });
     } catch (err) {
       alert(err.response.data.message);
     }
-    // set({ loading: false });
+    set({ loading: false });
   },
 
   uploadRoom: async (data) => {
