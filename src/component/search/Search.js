@@ -40,7 +40,7 @@ const Search = () => {
       alert("WARN: Min-Price must be equal or less than Max-Price");
     } else {
       getRoomBySearch(query)
-      navigate("/search");
+      navigate("/rooms");
     }
   };
 

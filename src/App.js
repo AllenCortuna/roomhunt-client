@@ -15,6 +15,8 @@ import LoginClient from "./component/login/LoginClient";
 import Logout from "./component/Logout";
 import Upload from "./component/upload/Upload";
 import RoomSearch from "./component/room/RoomSearch";
+import RoomInfo from "./component/room/RoomInfo";
+
 
 const App = () => {
   return (
@@ -22,7 +24,8 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Search />} />
-        <Route path="/search" element={<RoomSearch />} />
+        <Route path="/rooms" element={<RoomSearch />} />
+        <Route path="/rooms/:id" element={<RoomInfo />} />
         <Route path="/acc/dashboard" element={<AccDashboard />} />
         <Route path="/client/dashboard" element={<ClientDashboard />} />
     

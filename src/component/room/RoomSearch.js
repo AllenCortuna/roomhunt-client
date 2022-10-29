@@ -20,7 +20,7 @@ const RoomSearch = () => {
       )}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto  gap-3  pt-14 items-start p-3 md:p-10">
           {rooms.map((room) => (
-            <Room room={room} />
+            <Room room={room} key={room._id} />
           ))}
         </div>
     </span>

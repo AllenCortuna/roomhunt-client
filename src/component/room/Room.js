@@ -1,17 +1,19 @@
-
 /* eslint-disable no-unused-vars */
+import { useNavigate } from "react-router-dom";
 import React from "react";
 import { RiShieldKeyholeFill } from "react-icons/ri";
 import { BsCalendarWeek } from "react-icons/bs";
 import Moment from "react-moment";
 
 const Room = ({ room }) => {
+  const navigate = useNavigate();
   const txt = "text-gray-500 font-[500] text-[.64rem] space-mono truncate";
   const highlight = "text-gray-500 font-semibold  text-[.64rem] space-mono";
   return (
     <span
       key={room._id}
       className="group bg-white shadow-md grid p-1 gap-1  grid-cols-1 rounded-lg pb-1 transition-all ease-linear duration-300 hover:-m-2 hover:shadow-xl md:w-[12rem] "
+      onClick={() => navigate(`/rooms/${room._id}`)}
     >
       <img
         src={room.image}

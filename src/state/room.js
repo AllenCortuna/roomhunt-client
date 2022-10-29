@@ -13,6 +13,7 @@ api.interceptors.request.use((req) => {
 
 export const roomStore = create((set) => ({
   rooms: [],
+  room: {},
   loading: false,
   error: false,
 
@@ -37,11 +38,13 @@ export const roomStore = create((set) => ({
     set({ loading: false });
   },
 
-  getRoomsById: async (id) => {
+  getRoom: async (id) => {
     set({ loading: true });
+    console.log(id)
     try {
       const response = await api.get(`room/${id}`);
-      set({ rooms: response.data });
+      console.log(response.data)
+      set({ room: response.data });
     } catch (err) {
       alert(err.response.data.message);
     }
@@ -62,7 +65,7 @@ export const roomStore = create((set) => ({
   uploadRoom: async (data) => {
     set({ loading: true });
     try {
-      const result = await api.post("/room", {
+      const result = await api.post("/room/own", {
         name: data.name,
         price: parseInt(data.price),
         image: data.image,
