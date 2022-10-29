@@ -22,19 +22,7 @@ const RoomInfo = () => {
   return (
     <>
       {loading ? waiting :
-        <span className='mt-14 p-3 grid md:grid-cols-3 gap-5 max-w-[21rem] md:max-w-[50rem] mx-auto bg-white rounded-lg shadow-md'>
-          <img
-            src={room.image}
-            alt="room"
-            className=" rounded-tr-md rounded-tl-md object-cover w-full h-[26rem]  md:rounded-tr-none md:rounded-br-none md:rounded-md"
-          />
-
-          <span className='col-span-2 p-2'>
-            {room.name}
-            {room.price}
-            {room.category}
-            {room.category}
-          </span>
+        <span className='grid'>
         </span>}
     </>
   )
