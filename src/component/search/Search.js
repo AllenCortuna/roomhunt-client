@@ -8,7 +8,7 @@ import { Label } from "./utilty";
 import { useNavigate } from "react-router-dom";
 
 const Search = () => {
-  
+
   const navigate = useNavigate()
   const getRoomBySearch = roomStore((state) => state.getRoomBySearch);
   const [query, setquery] = useState({
@@ -23,6 +23,17 @@ const Search = () => {
   const handleChange = (e) => {
     setquery({ ...query, [e.target.name]: e.target.value });
   };
+  const clear = () => {
+    setquery({
+      category: "",
+      location: "",
+      bed: 1,
+      minPrice: "",
+      maxPrice: "",
+      checkInDate: "",
+      checkOutDate: "",
+    })
+  }
 
   const handleCat = (cat) => {
     setquery({ ...query, category: cat });
@@ -46,8 +57,8 @@ const Search = () => {
 
   const iconCl = "mr-1 inline";
   return (
-    <div className="grid grid-cols-1 border border-gray-200 bg-white shadow-md rounded-lg w-[21rem] mx-auto mt-10 md:mt-14 pb-5">
-      <span className="h-4 bg-orange rounded-tl-md rounded-tr-md shadow-sm"></span>
+    <div className="grid grid-cols-1 border border-gray-200 bg-white shadow-lg rounded-lg w-[21rem] mx-auto mt-10 md:mt-14 pb-5">
+      {/* <span className="h-4 bg-cyan-600 rounded-tl-md rounded-tr-md shadow-sm"></span> */}
       <span className="p-3">
         <Label text={"Category"} icon={<AiFillSetting className={iconCl} />} />
         <PropertyType handleCat={handleCat} query={query} />
@@ -57,7 +68,9 @@ const Search = () => {
         setquery={setquery}
         onSubmit={onSubmit}
         query={query}
+        clear={clear}
       />
+      {/* <span className="h-2 mt-4 bg-cyan-600 rounded-bl-md rounded-br-md shadow-sm"></span> */}
     </div>
   );
 };

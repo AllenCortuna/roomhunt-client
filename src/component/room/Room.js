@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useNavigate } from "react-router-dom";
 import React from "react";
-import { BsCalendarWeek,BsFillHouseFill } from "react-icons/bs";
+import { BsCalendarWeek, BsFillHouseFill } from "react-icons/bs";
 import { MdLocationOn } from "react-icons/md";
 import Moment from "react-moment";
 
@@ -25,7 +25,7 @@ const Room = ({ room }) => {
           <BsFillHouseFill className="mr-[.2rem] inline -mt-[.15rem]" />
           {room.ownerName}
         </h1>
-    
+
         <h1 className="text-gray-400 text-[.64rem] capitalize truncate rale">
           <MdLocationOn className="mr-[.2rem] inline -mt-[.15rem]" />
           {room.location}
@@ -35,7 +35,7 @@ const Room = ({ room }) => {
           {room.price}
         </h1>
         <h1 className={highlight}>
-          <span className="rale font-normal text-gray-400">Bed count:</span>{" "}
+          <span className="rale font-normal text-gray-400">Bed count:</span>
           {room.bed}
         </h1>
 
@@ -51,7 +51,7 @@ const Room = ({ room }) => {
 
         <h1 className={txt}>
           <BsCalendarWeek className="inline mr-1" />
-          <span className="rale font-normal text-gray-400">CheckOut:</span>{" "}
+          <span className="rale font-normal text-gray-400">CheckOut:</span>
           {room.checkOutDate ? (
             <Moment date={room.checkOutDate} format="MMM-DD" />
           ) : (

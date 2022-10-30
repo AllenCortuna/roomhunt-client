@@ -8,7 +8,8 @@ import DateInput from "../utility/Date";
 import Option from "../utility/Option";
 import { Label } from "./utilty";
 import { useForm } from "react-hook-form";
-const Filter = ({ handleChange, query, setquery, onSubmit }) => {
+
+const Filter = ({ handleChange, query, setquery, onSubmit, clear }) => {
   const {
     register,
     handleSubmit,
@@ -96,16 +97,15 @@ const Filter = ({ handleChange, query, setquery, onSubmit }) => {
 
       <button
         type="reset"
-        className="border-2 border-gray-400 text-xs font-[500] rounded-md p-3 text-gray-500 mt-3"
-        // onClick={handleSubmit}
+        className="border-2 border-gray-400 text-xs font-[500] rounded-md p-3 text-gray-400 mt-3"
+        onClick={clear}
       >
         clear
       </button>
       <button
         type="submit"
-        className="shad mt-3 border-2 bg-secondary text-xs font-[500] text-gray-500 rounded-md border-secondary hover:text-sm duration-300 ease-linear transition-all"
-      >
-        Search
+        className="shad mt-3 border-2 border-brown bg-brown text-xs font-[500] rounded-full duration-300 ease-linear transition-all group hover:bg-brown">
+        <p className="text-white text-sm font-semibold">Search</p>
       </button>
     </form>
   );
