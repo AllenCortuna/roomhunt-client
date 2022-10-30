@@ -25,15 +25,16 @@ const RoomInfo = () => {
   return (
     <>
       {loading ? waiting :
-        <span className='grid md:grid-cols-3 gap-5 w-[21rem] md:w-[42rem] mt-14 mb-14 md:mt-20 rounded-lg bg-white shadow-md mx-auto border'>
+        <span className='grid md:grid-cols-3 w-[21rem] md:w-[42rem] mt-14 mb-14 md:mt-20 rounded-lg bg-white shadow-md mx-auto border p-0'>
           <img
             src={room.image}
             alt="room"
-            className='object-cover w-full h-[24rem] rounded-tl-lg rounded-tr-lg md:rounded-bl-lg md:rounded-tr-none'
+            loading="lazy"
+            className='object-cover h-[24rem] rounded-tl-lg rounded-tr-lg md:rounded-bl-lg md:rounded-tr-none'
           />
-          <span className="md:col-span-2">
+          <span className="block md:col-span-2 pt-4">
             {/* room owner */}
-            <span className='grid p-2 bg-zinc-200  w-auto h-auto rounded-tr-xl rounded-br-xl mr-4 my-4'>
+            <span className='shad grid p-3 bg-zinc-200  w-auto h-auto rounded-tr-xl rounded-br-xl md:mr-20 mr-8 mb-4 truncate '>
               <h4 className="drop-shadow-sm text-cyan-800 font-bold">
                 <RiBuildingFill className='inline mr-1 mb-1' />
                 {room.ownerName}</h4>
@@ -42,8 +43,8 @@ const RoomInfo = () => {
                 {room.location}</h4>
             </span>
             {/* room info */}
-            <span className='grid md:grid-cols-2'>
-              <Info />
+            <span className='grid gap-5'>
+              <Info room={room} />
               {/* room review */}
               <span>
 

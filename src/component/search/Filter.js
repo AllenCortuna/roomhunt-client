@@ -1,6 +1,6 @@
 import React from "react";
-import { ImPriceTag } from "react-icons/im";
 import { IoIosBed } from "react-icons/io";
+import { ImPriceTag } from "react-icons/im";
 import { BsCalendar2CheckFill } from "react-icons/bs";
 import { MdLocationOn } from "react-icons/md";
 import InputVal from "../utility/InputVal";
