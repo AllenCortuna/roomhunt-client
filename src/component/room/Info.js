@@ -13,7 +13,6 @@ const Info = ({ room }) => {
       <h1 className="text-cyan-800 font-semibold text-[.84rem] capitalize ">
         <BsFillHouseFill className="mr-[.2rem] inline -mt-[.15rem]" />
     Room Status
-        
       </h1>
 
       <h1 className={highlight}>
@@ -58,6 +57,7 @@ const Info = ({ room }) => {
             <Moment date={room.uodatedAt} format="MMM-DD-YYYY" />
         </span>
       </h1>
+    
     </span>
   )
 }
