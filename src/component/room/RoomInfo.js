@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 // import Moment from "react-moment";
 import Loading from '../utility/Loading'
-import review from '../img/review.svg'
+// import review from '../img/review.svg'
 import React, { useEffect } from 'react'
 import { roomStore } from "../../state/room";
 import { useParams } from 'react-router-dom';
-import { MdLocationOn } from "react-icons/md";
+import { MdLocationOn, MdFeedback } from "react-icons/md";
 import { RiBuildingFill } from "react-icons/ri";
 import Review from './Review';
 import Info from './Info';
@@ -49,12 +49,17 @@ const RoomInfo = () => {
             <span className='flex flex-wrap items-start'>
               <Info room={room} />
               {/* room review */}
-              <span className='ml-4 p-3 grid gap-1'>
-                <img src={review} alt="review" className='w-20 drop-shadow-md ' />
-                <Review review={2.5} />
-                <h4 className="text-zinc-500 text-[.64rem] capitalize rale ">
-                  total review: <span className='space-mono font-bold'>5</span>
-                </h4>
+              <span className='ml-4 mb-5 pt-4 grid gap-1'>
+                {/* <img src={review} alt="review" className='w-20 drop-shadow-md ' /> */}
+                <h4 className='text-cyan-800 font-[600] text-sm drop-shadow-sm'>
+                  <MdFeedback className="inline mr-1" />
+                  Feedback</h4>
+                <span className='ml-4 grid gap-1'>
+                  <h4 className="text-zinc-500 text-[.64rem] capitalize rale ">
+                    total review: <span className='space-mono font-bold'>5</span>
+                  </h4>
+                  <Review review={2.5} />
+                </span>
               </span>
             </span>
           </span>

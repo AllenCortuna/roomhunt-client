@@ -6,7 +6,7 @@ const Review = ({ review }) => {
   const starClear = "-mt-1 my-auto text-sm drop-shadow-sm inline text-zinc-400"
   
   return (
-    <span className='grid gap-1 p-1 py-0 grid-cols-5 w-auto rounded-md bg-zinc-100 '>
+    <span className='grid gap-1 p-1 py-0 grid-cols-5 w-auto rounded-md bg-zinc-100 shadow-sm '>
     
       <span>
         {review >= 1 ? <BsStarFill className={star} /> : (

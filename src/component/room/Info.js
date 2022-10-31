@@ -57,7 +57,6 @@ const Info = ({ room }) => {
             <Moment date={room.uodatedAt} format="MMM-DD-YYYY" />
         </span>
       </h1>
-    
     </span>
   )
 }
