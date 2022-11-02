@@ -9,6 +9,7 @@ import { MdLocationOn, MdFeedback } from "react-icons/md";
 import { RiBuildingFill } from "react-icons/ri";
 import Review from './Review';
 import Info from './Info';
+import RoomReview from './RoomReview';
 
 
 const RoomInfo = () => {
@@ -28,13 +29,7 @@ const RoomInfo = () => {
   return (
     <>
       {loading ? waiting :
-        <span className='grid grid-cols-1 md:grid-cols-3 w-[21rem] md:w-[42rem] mt-14 mb-14 md:mt-20 rounded-lg bg-white shadow-md mx-auto border p-0'>
-          <img
-            src={room.image}
-            alt="room"
-            className='object-cover h-[24rem] rounded-tl-lg rounded-tr-lg md:rounded-bl-lg md:rounded-tr-none w-full'
-            loading="lazy"
-          />
+        <span className='grid grid-cols-1 md:grid-cols-3 w-[21rem] md:w-[42rem] mt-14 mb-14 md:mt-20 rounded-lg bg-white shadow-md mx-auto border p-0 gap-y-14 md:gap-y-0'>
           <span className="block md:col-span-2 pt-4">
             {/* room owner */}
             <span className='shad grid p-3 bg-zinc-200  w-auto h-auto rounded-tr-xl rounded-br-xl md:mr-20 mr-8 mb-4 truncate '>
@@ -56,13 +51,23 @@ const RoomInfo = () => {
                   Feedback</h4>
                 <span className='ml-4 grid gap-1'>
                   <h4 className="text-zinc-500 text-[.64rem] capitalize rale ">
-                    total review: <span className='space-mono font-bold'>5</span>
+                    total review: <span className='space-mono font-bold'>{room.total}</span>
                   </h4>
-                  <Review review={2.5} />
+                  <Review review={room.review} />
                 </span>
               </span>
             </span>
+
+            {/* room review */}
+        <RoomReview room={room} />
           </span>
+          <img
+            src={room.image}
+            alt="room"
+            className='object-cover h-[24rem] rounded-br-lg rounded-bl-lg md:rounded-tr-lg md:rounded-bl-none m w-full'
+            loading="lazy"
+          />
+
         </span>}
     </>
   )

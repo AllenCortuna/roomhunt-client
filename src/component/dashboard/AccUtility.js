@@ -32,6 +32,7 @@ const AccUtility = () => {
       desc: "account settings",
     },
   ];
+
   return (
     <div className=" flex flex-wrap content-start w-[21rem] h-auto md:ml-0 md:mr-auto ">
       {/* content */}

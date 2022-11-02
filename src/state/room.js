@@ -40,10 +40,10 @@ export const roomStore = create((set) => ({
 
   getRoom: async (id) => {
     set({ loading: true });
-    console.log(id)
+    console.log(id);
     try {
       const response = await api.get(`room/${id}`);
-      console.log(response.data)
+      console.log(response.data);
       set({ room: response.data });
     } catch (err) {
       alert(err.response.data.message);
@@ -109,6 +109,18 @@ export const roomStore = create((set) => ({
       set((state) => ({
         rooms: state.rooms.filter((a) => a._id !== id),
       }));
+    } catch (err) {
+      alert(err.response.data.message);
+    }
+    set({ loading: false });
+  },
+
+  reviewRoom: async (review) => {
+    set({ loading: true });
+    try {
+      const result = await api.post("/room/review/", review);
+      set({ room: result });
+      console.log(result)
     } catch (err) {
       alert(err.response.data.message);
     }

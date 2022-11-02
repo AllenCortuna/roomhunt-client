@@ -19,6 +19,7 @@ const Info = ({ room }) => {
         <MdPriceChange className="inline mr-1" />
         <span className="rale font-normal text-gray-400">Price:</span> &#8369;
         {room.price}
+    <span className='inline text-zinc-400 rale font-[400]'>{room.category==="dorm" ? "/month" : "/night"}</span>
       </h1>
       <h1 className={highlight}>
         <IoIosBed className="inline mr-1" />
