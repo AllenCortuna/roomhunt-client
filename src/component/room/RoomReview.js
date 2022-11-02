@@ -9,16 +9,15 @@ const RoomReview = ({ room }) => {
   const onSubmit = () => {
     reviewRoom({
       room: room._id,
-      senderId: JSON.parse(localStorage.getItem("client"))?._id,
+      senderId: JSON.parse(localStorage.getItem("client")).result._id,
       review: review,
     });
   };
 
   const star = "-mt-1 my-auto text-sm drop-shadow-sm inline text-yellow";
-  const starClear = "-mt-1 my-auto text-sm drop-shadow-sm inline text-zinc-400";
+  const starClear = "-mt-1 my-auto text-lg drop-shadow-sm inline text-zinc-400";
   return (
-    <div className="grid md:grid-cols-2 gao-5 m-5">
-      <img src={upload} alt="" className="drop-shadow-smw-full " />
+    <div className="grid flex flex-wrap gap-5 m-5">
       <span className="grid gap-1 p-1 py-0 grid-cols-5 w-auto rounded-md bg-zinc-100 shadow-sm ">
         <span onClick={() => setreview(1)}>
           {review >= 1 ? (
