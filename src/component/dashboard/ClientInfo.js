@@ -4,7 +4,7 @@ import { AiFillCheckCircle } from "react-icons/ai";
 import { HiUserCircle } from "react-icons/hi";
 const ClientInfo = ({ user }) => {
   return (
-    <div className="grid grid-cols-2 gap-3 justify-items-between w-[21rem] border border-gray-200 rounded-lg shadow-md bg-white h-[26rem] md:h-[23rem] pt-10">
+    <div className="grid grid-cols-2 gap-3 justify-items-between w-[21rem] border border-gray-200 rounded-lg shadow-md bg-white h-[26rem] pt-10">
       <img
         src={client}
         alt=""

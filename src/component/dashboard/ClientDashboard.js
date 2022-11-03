@@ -30,7 +30,7 @@ const ClientDashboard = () => {
     <div className="w-full p-2 md:p-8 flex flex-wrap pt-14 justify-center gap-10 pb-14 md:mt-40">
       {/* client info */}
     <ClientInfo user={user?.result} />
-    <Verify/>
+    {user?.result.verified===false && <Verify/>}
       {/* TODO: totorial feat */}
     </div>
   );

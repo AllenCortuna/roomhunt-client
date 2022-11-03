@@ -5,6 +5,7 @@ import decode from "jwt-decode";
 import AccInfo from "./AccInfo";
 // import RoomList from "./RoomList";
 import AccUtility from "./AccUtility";
+import Verify from "./Verify";
 
 const AccDashboard = () => {
   const navigate = useNavigate();
@@ -33,7 +34,8 @@ const AccDashboard = () => {
     <div className="grid gap-14 md:gap-5 place-items-start justify-items-center pt-10 grid-cols-1 md:grid-cols-2 bg-gray-200 pb-14 h-screen md:pt-40" >
       {/* accommodator info */}
     <AccInfo user={user?.result} />
-    <AccUtility/>
+    {user?.result.verified===true ?  <AccUtility/> : <Verify/>  }
+    
     {/* <RoomList id={user._id}/> */}
     </div>
   );
