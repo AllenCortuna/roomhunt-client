@@ -1,7 +1,7 @@
 import create from "zustand";
 import axios from "axios";
-// const api = axios.create({ baseURL: process.env.REACT_APP_API });
-const api = axios.create({ baseURL: "https://roomhunt-server.onrender.com" });
+const api = axios.create({ baseURL: process.env.REACT_APP_API });
+// const api = axios.create({ baseURL: "https://roomhunt-server.onrender.com" });
 
 api.interceptors.request.use((req) => {
   if (localStorage.getItem("acc")) {
