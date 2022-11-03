@@ -1,6 +1,7 @@
 import axios from "axios";
 import create from "zustand";
-const api = axios.create({ baseURL: process.env.REACT_APP_API });
+// const api = axios.create({ baseURL: process.env.REACT_APP_API });
+const api = axios.create({ baseURL: "https://roomhunt-server.onrender.com" });
 
 export const useRegisterState = create((set) => ({
   loading: false,

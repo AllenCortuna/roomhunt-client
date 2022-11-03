@@ -6,10 +6,11 @@ import { BsStarFill, BsStar, BsStarHalf } from "react-icons/bs";
 const RoomReview = ({ room }) => {
   const reviewRoom = roomStore((state) => state.reviewRoom);
   const [review, setreview] = useState(0);
+  const id = JSON.parse(localStorage.getItem("client"))?.result?._id;
   const onSubmit = () => {
     reviewRoom({
       room: room._id,
-      senderId: JSON.parse(localStorage.getItem("client")).result._id,
+      senderId: id,
       review: review,
     });
   };

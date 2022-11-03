@@ -1,6 +1,7 @@
 import create from "zustand";
 import axios from "axios";
-const api = axios.create({ baseURL: process.env.REACT_APP_API });
+// const api = axios.create({ baseURL: process.env.REACT_APP_API });
+const api = axios.create({ baseURL: "https://roomhunt-server.onrender.com" });
 
 api.interceptors.request.use((req) => {
   if (localStorage.getItem("acc")) {
@@ -117,12 +118,16 @@ export const roomStore = create((set) => ({
 
   reviewRoom: async (review) => {
     set({ loading: true });
-    try {
-      const result = await api.post("/room/review/", review);
-      set({ room: result.data});
-      console.log(result.data)
-    } catch (err) {
-      alert(err.response.data.message);
+    if (!review.senderId) {
+      alert("WARN:Client(only) must be Login or Register to submit Review");
+    } else {
+      try {
+        const result = await api.post("/room/review/", review);
+        set({ room: result.data });
+        console.log(result);
+      } catch (err) {
+        alert(err.response.data.message);
+      }
     }
     set({ loading: false });
   },
