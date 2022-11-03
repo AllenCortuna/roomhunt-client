@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import upload from "../img/upload.svg";
+// import upload from "../img/upload.svg";
 import { roomStore } from "../../state/room";
 import { BsStarFill, BsStar, BsStarHalf } from "react-icons/bs";
 
@@ -14,18 +14,18 @@ const RoomReview = ({ room }) => {
     });
   };
 
-  const star = "-mt-1 my-auto text-sm drop-shadow-sm inline text-yellow";
-  const starClear = "-mt-1 my-auto text-lg drop-shadow-sm inline text-zinc-400";
+  const star = "-mt-1 my-auto text-xl drop-shadow-sm inline text-yellow";
+  const starClear = "-mt-1 my-auto text-xl drop-shadow-sm inline text-zinc-400";
   return (
-    <div className="grid flex flex-wrap gap-5 m-5">
-      <span className="grid gap-1 p-1 py-0 grid-cols-5 w-auto rounded-md bg-zinc-100 shadow-sm ">
+    <div className="flex flex-wrap mt-14 border border-zinc-300 rounded-md ml-3 p-2 w-[16rem] justify-between items-center bg-zinc-100">
+      <span className="grid gap-1 p-1 py-0 grid-cols-5 w-auto ">
         <span onClick={() => setreview(1)}>
           {review >= 1 ? (
             <BsStarFill className={star} />
           ) : review >= 0.5 ? (
             <BsStarHalf className={star} />
           ) : (
-            <BsStar className={star} />
+            <BsStar className={starClear} />
           )}
         </span>
 
@@ -69,8 +69,12 @@ const RoomReview = ({ room }) => {
           )}
         </span>
       </span>
-      <button type="submit" onClick={onSubmit}>
-        submit
+      <button
+        type="submit"
+        onClick={onSubmit}
+        className="p-3 font-semibold bg-zinc-300 rounded-md hover:shadow-lg shad"
+      >
+        <p className="drop-shadow-sm text-[.74rem] text-zinc-500 ">submit</p>
       </button>
     </div>
   );

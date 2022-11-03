@@ -48,7 +48,7 @@ const RoomInfo = () => {
                 {/* <img src={review} alt="review" className='w-20 drop-shadow-md ' /> */}
                 <h4 className='text-cyan-800 font-[600] text-sm drop-shadow-sm'>
                   <MdFeedback className="inline mr-1" />
-                  Feedback</h4>
+                  Ratings</h4>
                 <span className='ml-4 grid gap-1'>
                   <h4 className="text-zinc-500 text-[.64rem] capitalize rale ">
                     total review: <span className='space-mono font-bold'>{room.total}</span>
