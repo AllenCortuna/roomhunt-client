@@ -120,7 +120,7 @@ export const roomStore = create((set) => ({
     try {
       const result = await api.post("/room/review/", review);
       set({ room: result.data});
-      console.log(result)
+      console.log(result.data)
     } catch (err) {
       alert(err.response.data.message);
     }

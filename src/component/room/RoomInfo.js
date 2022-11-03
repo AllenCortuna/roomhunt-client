@@ -64,7 +64,7 @@ const RoomInfo = () => {
           <img
             src={room.image}
             alt="room"
-            className='object-cover h-[24rem] rounded-br-lg rounded-bl-lg md:rounded-tr-lg md:rounded-bl-none m w-full'
+            className='object-cover h-[24rem] rounded-br-lg rounded-bl-lg md:rounded-tr-lg md:rounded-bl-none m w-full border'
             loading="lazy"
           />
 
