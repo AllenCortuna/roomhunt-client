@@ -3,6 +3,7 @@ import decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import { useRegisterState } from "../../state/register";
 import ClientInfo from './ClientInfo'
+import Verify from "./Verify";
 
 const ClientDashboard = () => {
   const navigate = useNavigate();
@@ -26,9 +27,10 @@ const ClientDashboard = () => {
   }, [logOut, navigate, user.token]);
 
   return (
-    <div className="w-full p-2 md:p-8 flex flex-wrap pt-14 justify-center">
+    <div className="w-full p-2 md:p-8 flex flex-wrap pt-14 justify-center gap-10 pb-14">
       {/* client info */}
     <ClientInfo user={user?.result} />
+    <Verify/>
       {/* TODO: totorial feat */}
     </div>
   );
