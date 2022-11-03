@@ -24,8 +24,8 @@ const Navbar = () => {
         <Nav
           content={[
             { name: "dashboard", desc: "/acc/dashboard" },
-            { name: "message", desc: "/message" },
             { name: "menu", desc: "/menu" },
+            { name: "about", desc: "/about" },
             { name: "logout", desc: "/logout" },
           ]}
         />
@@ -34,7 +34,7 @@ const Navbar = () => {
         <Nav
           content={[
             { name: "search", desc: "/" },
-            { name: "dashboard", desc: "/client/dashboard" },
+            { name: "account", desc: "/client/dashboard" },
             { name: "menu", desc: "/menu" },
             { name: "logout", desc: "/logout" },
             

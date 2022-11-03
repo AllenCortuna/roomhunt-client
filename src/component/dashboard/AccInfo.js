@@ -6,7 +6,7 @@ import { AiFillCheckCircle } from "react-icons/ai";
 
 const AccInfo = ({ user }) => {
   return (
-    <div className="grid gap-1 grid-cols-2 justify-items-between w-[21rem] border border-gray-200 rounded-lg shadow-md bg-primary h-[26rem] md:h-[23rem] md:mr-0 md:ml-auto">
+    <div className="grid gap-1 grid-cols-2 justify-items-between w-[21rem] border border-gray-200 rounded-lg shadow-md bg-smoke h-[26rem] md:h-[23rem] md:mr-0 md:ml-auto">
       <img
         src={user.image}
         alt=""
