@@ -64,7 +64,7 @@ const AccUtility = () => {
           </Link>
         ))}
     
-          <a href={`https://mail.google.com/mail/mu/mp/893/#tl/Inbox`} >
+          <a href={`https://mail.google.com/mail/`} >
             <span
               className="group grid h-[10.9rem] shadow-md bg-primary rounded-lg p-2 transition-all duration-300 ease-linear hover:bg-yellow hover:shadow-lg hover:border-2 hover:border-gray-200"
             >
