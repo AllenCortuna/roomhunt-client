@@ -16,6 +16,7 @@ import Logout from "./component/Logout";
 import Upload from "./component/upload/Upload";
 import RoomSearch from "./component/room/RoomSearch";
 import RoomInfo from "./component/room/RoomInfo";
+import Menu from "./component/menu/Menu";
 
 
 const App = () => {
@@ -42,6 +43,10 @@ const App = () => {
         <Route path="/login/" element={<Login />} />
         <Route path="/login/acc" element={<LoginAcc />} />
         <Route path="/login/client" element={<LoginClient />} />
+    
+        <Route path="/client/menu" element={<Menu />} />
+        <Route path="/acc/menu" element={<Menu />} />
+    
 
         <Route path="/logout" element={<Logout />} />
         <Route path="*" element={<Notfound />} />
