@@ -10,7 +10,7 @@ const Verify = () => {
 
   const client = (
     <>
-      <span className="border p-4 text-xs text-zinc-400 w-[14rem] ml-4 m-3 rounded-lg">
+      <span className="border p-4 text-xs text-zinc-400 w-[16rem] ml-4 m-3 rounded-lg">
         <TiWarning className="mr-2 inline" />
         Some feature are not available for unverfied room seekers (Sending of
         feedback and chatting with accommodators).
@@ -38,7 +38,7 @@ const Verify = () => {
 
   const acc = (
     <>
-      <span className="border p-4 text-xs text-zinc-400 w-[14rem] ml-4 m-3 rounded-lg">
+      <span className="border p-4 text-xs text-zinc-400 w-[16rem] ml-4 m-3 rounded-lg">
         <TiWarning className="mr-2 inline" />
         Some feature are not available for unverified Accommodators (Uploading
         of rooms).
@@ -64,17 +64,23 @@ const Verify = () => {
       </span>
     </>
   );
-  const btn = "p-3 text-white rounded-full w-full bg-zinc-400  mt-3 text-center  mx-10 shad text-sm font-semibold "
+  const btn =
+    "p-3 text-white rounded-full w-full bg-zinc-400  mt-3 text-center  mx-10 shad text-sm font-semibold ";
 
   return (
     <div className="flex flex-wrap content-start flex-rows border border-gray-200 rounded-lg shadow-md bg-white h-[26rem] w-[21rem]">
-      <span className="text-left p-1 bg-gray-300 w-full rounded-tr-md rounded-tl-md w-full mb-0">
+      <span className="text-left p-1 bg-zinc-300 w-full rounded-tr-md rounded-tl-md w-full mb-0">
         <h1 className="text-cyan-900 capitalize font-bold text-[1.2rem] ">
           <TiWarning className="mr-2 inline" />
           Verify Account
         </h1>
       </span>
+
       {location.pathname === "/client/dashboard" ? client : acc}
+      <p className="text-zinc-400 text-[.7rem] mx-auto rale ">
+        <TiWarning className="mr-1 inline" />
+        May take a few days to get verified
+      </p>
       {location.pathname === "/client/dashboard" ? (
         <a
           href="mailto:olsencortuna@gmail.com?subject=Verify Account Client"
