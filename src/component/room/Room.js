@@ -12,7 +12,7 @@ const Room = ({ room }) => {
   return (
     <span
       key={room._id}
-      className="group bg-white shadow-md grid p-1 gap-1  grid-cols-1 rounded-lg pb-1 transition-all ease-linear duration-300 hover:-m-2 hover:shadow-xl md:w-[12rem] "
+      className="group bg-white shadow-md grid p-1 gap-1  grid-cols-1 rounded-lg pb-1 transition-all ease-linear duration-300 hover:-m-2 hover:shadow-xl md:w-[12rem] border"
       onClick={() => navigate(`/rooms/${room._id}`)}
     >
       <img

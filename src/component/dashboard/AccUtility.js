@@ -25,12 +25,6 @@ const AccUtility = () => {
       link: "/acc/account",
       desc: "account setting",
     },
-    // {
-    //   icon: message,
-    //   name: "message",
-    //   link: "https://mail.google.com/mail/?view=cm&fs=1&to=nextgeeducation@gmail.com",
-    //   desc: "see mesagge",
-    // },
   ];
 
   return (

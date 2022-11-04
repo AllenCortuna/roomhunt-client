@@ -18,6 +18,7 @@ const RoomInfo = () => {
   const room = roomStore((state) => state.room);
   const loading = roomStore((state) => state.loading);
   const { id } = useParams()
+  const verified = JSON.parse(localStorage?.getItem("client"))?.result.verified;
 
   useEffect(() => {
     getRoom(id)
@@ -59,7 +60,8 @@ const RoomInfo = () => {
             </span>
 
             {/* room review */}
-        <RoomReview room={room} />
+        {verified &&<RoomReview room={room} /> }
+        
           </span>
           <img
             src={room.image}
