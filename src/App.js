@@ -17,6 +17,7 @@ import Upload from "./component/upload/Upload";
 import RoomSearch from "./component/room/RoomSearch";
 import RoomInfo from "./component/room/RoomInfo";
 import Menu from "./component/menu/Menu";
+import AccRoomList from "./component/dashboard/AccRoomList";
 
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/rooms" element={<RoomSearch />} />
         <Route path="/rooms/:id" element={<RoomInfo />} />
         <Route path="/acc/dashboard" element={<AccDashboard />} />
+        <Route path="/acc/roomlist" element={<AccRoomList />} />
         <Route path="/client/dashboard" element={<ClientDashboard />} />
     
     

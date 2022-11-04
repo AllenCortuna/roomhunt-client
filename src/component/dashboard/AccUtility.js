@@ -10,8 +10,8 @@ const AccUtility = () => {
     {
       icon: roomlist,
       name: "Roomlist",
-      link: "/roomlist",
-      desc: "manage room",
+      link: "/acc/roomlist",
+      desc: "room info",
     },
     {
       icon: upload,
@@ -20,16 +20,16 @@ const AccUtility = () => {
       desc: "upload rooms",
     },
     {
-      icon: message,
-      name: "message",
-      link: "/message",
-      desc: "see mesagge",
-    },
-    {
       icon: review,
       name: "account",
       link: "/acc/account",
-      desc: "account settings",
+      desc: "account setting",
+    },
+    {
+      icon: message,
+      name: "logout",
+      link: "/logout",
+      desc: "see mesagge",
     },
   ];
 
