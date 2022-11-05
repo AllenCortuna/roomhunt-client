@@ -18,6 +18,7 @@ import RoomSearch from "./component/room/RoomSearch";
 import RoomInfo from "./component/room/RoomInfo";
 import Menu from "./component/menu/Menu";
 import AccRoomList from "./component/dashboard/AccRoomList";
+import About from "./component/About";
 
 
 const App = () => {
@@ -51,6 +52,7 @@ const App = () => {
     
 
         <Route path="/logout" element={<Logout />} />
+        <Route path="/about" element={<About />} />
         <Route path="*" element={<Notfound />} />
       </Routes>
     </Router>
