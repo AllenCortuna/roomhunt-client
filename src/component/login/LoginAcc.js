@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FormErr from "../utility/FormErr";
 import Input from "../utility/Input";
 import { useForm } from "react-hook-form";
@@ -7,6 +7,8 @@ import BtnSubmit from "../btn/BtnSubmit";
 import acc from "../img/acc.svg";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import {errNotify} from '../utility/notify'
 
 const LoginAcc = () => {
   const [data, setdata] = useState({
@@ -15,6 +17,14 @@ const LoginAcc = () => {
   });
   const loginAcc = useRegisterState((state) => state.loginAcc);
   const loading = useRegisterState((state) => state.loading);
+  
+  const err = useRegisterState((state) => state.err);
+  useEffect(()=>{
+    if (err!==null) {
+      errNotify(err)
+    }
+  },[err])
+  
   const navigate = useNavigate();
 
   const {
@@ -32,6 +42,7 @@ const LoginAcc = () => {
 
   return (
     <div className="grid text-center bg-white w-[21rem] h-auto border rounded-md shadow-md h-auto mx-auto mt-10 pb-5">
+      <ToastContainer />
       <span className="rounded-tl-md rounded-tr-md h-3 bg-orange mb-5 shadow-sm"></span>
       <img
         src={acc}

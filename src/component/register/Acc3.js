@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "../utility/Input";
 import FormErr from "../utility/FormErr";
@@ -7,21 +7,31 @@ import { useForm } from "react-hook-form";
 import BtnSubmit from "../btn/BtnSubmit";
 import { form, page1container } from "./style";
 import { useRegisterState } from "../../state/register";
+import { ToastContainer } from "react-toastify";
+import {errNotify} from '../utility/notify'
 
 
 const Acc3 = ({ handleChange, data }) => {
   const registerAcc = useRegisterState((state) => state.registerAcc);
   const navigate = useNavigate();
   const loading = useRegisterState((state) => state.loading);
+  const err = useRegisterState((state) => state.err);
   const {
     register,
     handleSubmit,
     formState: { errors },
     // watch,
   } = useForm();
+  
+  useEffect(()=>{
+    if (err!==null) {
+      errNotify(err)
+    }
 
-  const onSubmit = () => {
-    registerAcc(data, navigate);
+  },[err])
+
+  const onSubmit = async() => {
+    await registerAcc(data, navigate);
   };
 
 
@@ -67,6 +77,7 @@ const Acc3 = ({ handleChange, data }) => {
           text={"Submit"}
         />
         </form>
+      <ToastContainer />
       </span>
   );
 };

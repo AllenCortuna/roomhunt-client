@@ -5,7 +5,7 @@ const api = axios.create({ baseURL: process.env.REACT_APP_API });
 
 export const useRegisterState = create((set) => ({
   loading: false,
-  err: "",
+  err: null,
   login: "",
 
   registerAcc: async (data, navigate) => {
@@ -27,7 +27,6 @@ export const useRegisterState = create((set) => ({
       navigate("/register/acc/verify-email");
     } catch (err) {
       set({ err: err.response.data.message });
-      alert(err.response.data.message);
     }
     set({ loading: false });
   },
@@ -46,7 +45,6 @@ export const useRegisterState = create((set) => ({
       localStorage.setItem("acc", JSON.stringify(result?.data));
     } catch (err) {
       set({ err: err.response.data.message });
-      alert(err.response.data.message);
     }
     set({ loading: false });
   },
@@ -62,12 +60,11 @@ export const useRegisterState = create((set) => ({
       localStorage.setItem("acc", JSON.stringify(result?.data));
       set({ login: "acc" });
     } catch (err) {
+      console.log(err.response.data.message)
       set({ err: err.response.data.message });
-      alert(err.response.data.message);
     }
     set({ loading: false });
   },
-
 
   //PIN: CLIENT
   registerClient: async (data, navigate) => {
@@ -84,11 +81,9 @@ export const useRegisterState = create((set) => ({
       navigate("/register/client/verify-email");
     } catch (err) {
       set({ err: err.response.data.message });
-      alert(err.response.data.message);
     }
     set({ loading: false });
   },
-
 
   verifyEmailClient: async (data, navigate) => {
     set({ loading: true });
@@ -104,11 +99,9 @@ export const useRegisterState = create((set) => ({
       localStorage.setItem("client", JSON.stringify(result?.data));
     } catch (err) {
       set({ err: err.response.data.message });
-      alert(err.response.data.message);
     }
     set({ loading: false });
   },
-
 
   loginClient: async (data, navigate) => {
     set({ loading: true });
@@ -121,25 +114,23 @@ export const useRegisterState = create((set) => ({
       localStorage.setItem("client", JSON.stringify(result?.data));
       set({ login: "client" });
     } catch (err) {
+      console.log(err)
       set({ err: err.response.data.message });
-      alert(err.response.data.message);
     }
     set({ loading: false });
   },
 
-
-
-
   // PIN :UTILITY
 
   curUsr: (data) => {
+    set({ err: null });
     set({ login: data });
   },
 
   logOut: (navigate) => {
+    set({ err: null });
     localStorage.clear();
     set({ login: "" });
     navigate("/");
   },
-
 }));

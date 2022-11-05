@@ -1,15 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { ToastContainer } from "react-toastify";
+import { errNotify } from "../utility/notify";
 import client from "../img/client.svg";
 import { img, container, otpContainer, otpInput, otpText } from "./style";
 import Button from "../../component/btn/Button";
 import { useRegisterState } from "../../state/register";
 import { useNavigate } from "react-router-dom";
+
 const ClientOpt = () => {
   const navigate = useNavigate();
   const [otp, setOtp] = React.useState(new Array(4).fill(""));
 
   const loading = useRegisterState((state) => state.loading);
-  const verifyEmailClient = useRegisterState((state) => state.verifyEmailClient);
+  const err = useRegisterState((state) => state.err);
+  const verifyEmailClient = useRegisterState(
+    (state) => state.verifyEmailClient
+  );
+
+  useEffect(() => {
+    if (err !== null) {
+      errNotify(err);
+    }
+  }, [err]);
 
   const handleVerify = () => {
     const verifyData = {
@@ -70,6 +82,7 @@ const ClientOpt = () => {
           />
         </span>
       </div>
+      <ToastContainer />
     </div>
   );
 };

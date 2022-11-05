@@ -1,14 +1,12 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
 import UploadForm from "./UploadForm";
 import { BsFillGridFill } from "react-icons/bs";
 import { useState } from "react";
 import { roomStore } from "../../state/room";
-import RoomList from "./RoomList";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { roomUploadNotify, roomUpdateNotify , errNotify} from "../utility/notify";
+import { roomUploadNotify, roomUpdateNotify , errNotify, warnNotify} from "../utility/notify";
+import RoomList from "./RoomList";
 
 const Upload = () => {
   const [id, setid] = useState(0);
@@ -43,6 +41,7 @@ const Upload = () => {
 
   useEffect(() => {
     setroom(id ? rooms.find((r) => r._id === id) : null);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
   useEffect(() => {
     if (err!==null) {
@@ -56,9 +55,9 @@ const Upload = () => {
   const onSubmit = async () => {
     if (id === 0) {
       if (data.image === "") {
-        alert("WARN: Select a Room image");
+        warnNotify("Select a Room Image")
       } else if (data.checkInDate > data.checkOutDate) {
-        alert("INVALID DATE: Check-Out-Date must be less than Check-Out-Date");
+        warnNotify("INVALID DATE: Check-Out-Date must be less than Check-Out-Date");
       } else {
         await uploadRoom(data);
         clear();

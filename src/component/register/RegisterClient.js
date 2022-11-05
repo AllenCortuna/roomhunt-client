@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "../utility/Input";
 import DateInput from "../utility/Date";
@@ -7,6 +7,8 @@ import client from "../img/client.svg";
 import { formHint } from "../utility/Text";
 import { useForm } from "react-hook-form";
 import BtnSubmit from "../btn/BtnSubmit";
+import { ToastContainer } from "react-toastify";
+import {errNotify} from '../utility/notify'
 import { container, img, form, page1container } from "./style";
 import { useRegisterState } from "../../state/register";
 
@@ -14,6 +16,7 @@ const RegisterClient = () => {
   const registerClient = useRegisterState((state) => state.registerClient);
   const navigate = useNavigate();
   const loading = useRegisterState((state) => state.loading);
+  const err = useRegisterState((state) => state.err);
   const {
     register,
     handleSubmit,
@@ -27,9 +30,15 @@ const RegisterClient = () => {
     confirmPassword: "",
     birthday: ""
   })
+  
+  useEffect(()=>{
+    if (err!==null) {
+      errNotify(err)
+    }
+  },[err])
 
-  const onSubmit = () => {
-    registerClient(data, navigate);
+  const onSubmit = async() => {
+    await registerClient(data, navigate);
   };
   const handleChange = (e) => {
     setdata({ ...data, [e.target.name]: e.target.value });
@@ -91,6 +100,7 @@ const RegisterClient = () => {
           />
         </form>
       </span>
+      <ToastContainer />
     </div>
   );
 };

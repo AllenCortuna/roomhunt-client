@@ -100,7 +100,7 @@ export const roomStore = create((set) => ({
         ],
       }));
     } catch (err) {
-      set({ err: err.response.data.message });
+      set({ err: err.message });
     }
     set({ loading: false });
   },

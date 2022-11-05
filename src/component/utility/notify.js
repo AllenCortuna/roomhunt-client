@@ -29,7 +29,19 @@ export const roomUpdateNotify = () =>
 
 
 export const errNotify = (err) =>
-    toast.error(`WARN: ${err}`, {
+    toast.error(`${err}`, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+
+export const warnNotify = (text) =>
+    toast.warning(`WARN: ${text}`, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
