@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { ToastContainer } from "react-toastify";
 import {errNotify} from '../utility/notify'
 import React, { useState, useEffect } from "react";
@@ -13,10 +14,12 @@ import { useNavigate } from "react-router-dom";
 const LoginAcc = () => {
   
   const err = useRegisterState((state) => state.err);
+  const setErr = useRegisterState((state) => state.setErr);
   useEffect(()=>{
     if (err!==null) {
       errNotify(err)
     }
+    setErr(null)
   },[err])
   
   const [data, setdata] = useState({

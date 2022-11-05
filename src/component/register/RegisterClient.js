@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "../utility/Input";
@@ -17,6 +18,15 @@ const RegisterClient = () => {
   const navigate = useNavigate();
   const loading = useRegisterState((state) => state.loading);
   const err = useRegisterState((state) => state.err);
+  
+  const setErr = useRegisterState((state) => state.setErr);
+  useEffect(()=>{
+    if (err!==null) {
+      errNotify(err)
+    }
+    setErr(null);
+  },[err])
+  
   const {
     register,
     handleSubmit,
@@ -30,12 +40,6 @@ const RegisterClient = () => {
     confirmPassword: "",
     birthday: ""
   })
-  
-  useEffect(()=>{
-    if (err!==null) {
-      errNotify(err)
-    }
-  },[err])
 
   const onSubmit = async() => {
     await registerClient(data, navigate);
@@ -51,6 +55,7 @@ const RegisterClient = () => {
 
   return (
     <div className={container}>
+      <ToastContainer />
       <img src={client} alt="client" className={img} />
 
       <span className={page1container}>
@@ -100,7 +105,6 @@ const RegisterClient = () => {
           />
         </form>
       </span>
-      <ToastContainer />
     </div>
   );
 };

@@ -10,6 +10,7 @@ export const useRegisterState = create((set) => ({
 
   registerAcc: async (data, navigate) => {
     set({ loading: true });
+    set({ err: null });
     try {
       const result = await api.post("/accommodator/signup", {
         email: data.email,
@@ -27,11 +28,11 @@ export const useRegisterState = create((set) => ({
       set({ err: err.response.data.message });
     }
     set({ loading: false });
-    set({ err: null });
   },
 
   verifyEmail: async (data, navigate) => {
     set({ loading: true });
+    set({ err: null });
     try {
       const result = await api.post("/accommodator/verify-email", {
         otp: data.otp,
@@ -45,11 +46,11 @@ export const useRegisterState = create((set) => ({
       set({ err: err.response.data.message });
     }
     set({ loading: false });
-    set({ err: null });
   },
 
   loginAcc: async (data, navigate) => {
     set({ loading: true });
+    set({ err: null });
     try {
       const result = await api.post("/accommodator/login", data);
       set({ data: result.data.result });
@@ -62,12 +63,12 @@ export const useRegisterState = create((set) => ({
       set({ err: err.response.data.message });
     }
     set({ loading: false });
-    set({ err: null });
   },
 
   //PIN: CLIENT
   registerClient: async (data, navigate) => {
     set({ loading: true });
+    set({ err: null });
     try {
       const result = await api.post("/client/signup", {
         name: data.name,
@@ -81,11 +82,11 @@ export const useRegisterState = create((set) => ({
       set({ err: err.response.data.message });
     }
     set({ loading: false });
-    set({ err: null });
   },
 
   verifyEmailClient: async (data, navigate) => {
     set({ loading: true });
+    set({ err: null });
     try {
       const result = await api.post("/client/verify-email", {
         otp: data.otp,
@@ -98,12 +99,12 @@ export const useRegisterState = create((set) => ({
     } catch (err) {
       set({ err: err.response.data.message });
     }
-    set({ err: null });
     set({ loading: false });
   },
 
   loginClient: async (data, navigate) => {
     set({ loading: true });
+    set({ err: null });
     try {
       const result = await api.post("/client/login", data);
       set({ data: result.data.result });
@@ -116,7 +117,6 @@ export const useRegisterState = create((set) => ({
       set({ err: err.response.data.message });
     }
     set({ loading: false });
-    set({ err: null });
   },
 
   // PIN :UTILITY
@@ -124,6 +124,9 @@ export const useRegisterState = create((set) => ({
   curUsr: (data) => {
     set({ err: null });
     set({ login: data });
+  },
+  setErr: (err) =>{
+    set({ err: err });
   },
 
   logOut: (navigate) => {

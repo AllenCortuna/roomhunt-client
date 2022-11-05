@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import FormErr from "../utility/FormErr";
 import Input from "../utility/Input";
@@ -19,10 +20,13 @@ const LoginAcc = () => {
   const loading = useRegisterState((state) => state.loading);
   
   const err = useRegisterState((state) => state.err);
+  const setErr = useRegisterState((state) => state.setErr);
+  
   useEffect(()=>{
     if (err!==null) {
       errNotify(err)
     }
+    setErr(null)
   },[err])
   
   const navigate = useNavigate();
