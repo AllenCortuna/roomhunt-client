@@ -24,7 +24,7 @@ const AccMenu = () => {
       icon: review,
       name: "account",
       link: "/acc/account",
-      desc: "Bmbusiness info",
+      desc: "business info",
     },
     {
       icon: message,
@@ -35,7 +35,7 @@ const AccMenu = () => {
   ];
 
   return (
-    <div className="p-2 mt-14 md:mt-32 grid grid-cols-2 md:grid-cols-4 w-full gap-3 mx-auto max-w-[44rem]">
+    <div className="p-2 mt-24 md:mt-40 grid grid-cols-2 md:grid-cols-4 w-full gap-3 mx-auto max-w-[44rem]">
       {items.map((item) => (
         <Link to={item.link} key={item.name}>
           <span

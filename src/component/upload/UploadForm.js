@@ -103,7 +103,7 @@ const UploadForm = ({ data, setdata ,onSubmit}) => {
         <DateInput handleChange={handleCheckIn} date={data.checkInDate} />
         <DateInput handleChange={handleCheckOut} date={data.checkOutDate} />
       </span>
-      <BtnSubmit loading={loading} loadingTxt={"uploading"} text={"Upload"} />
+      <BtnSubmit loading={loading} loadingTxt={"loading"} text={"Upload"} />
     </form>
   );
 };

@@ -14,7 +14,7 @@ const Register = () => {
           </h1>
           <p className="text-gray-500 text-xs rale">
             {" "}
-            Register as Accommodator to upload and mange rooms
+            Register as Accommodator to upload and manage rooms
           </p>
         </span>
         <BtnLink
