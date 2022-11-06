@@ -24,7 +24,7 @@ const RoomInfo = () => {
     getRoom(id)
   }, [id])
 
-  const waiting = <span className='grid w-[20rem] mt-20 md:mt-40 mx-auto'>
+  const waiting = <span className='grid w-[20rem] mt-32 md:mt-40 mx-auto'>
     <Loading text={"Fetching Room Info"} />
   </span>
   return (
