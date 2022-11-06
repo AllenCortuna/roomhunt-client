@@ -57,7 +57,7 @@ const Search = () => {
 
   const iconCl = "mr-1 inline";
   return (
-    <div className="grid grid-cols-1 border border-gray-200 bg-white shadow-lg rounded-lg w-[21rem] mx-auto mt-10 md:mt-14 pb-5 md:p-4 md:w-[22rem]">
+    <div className="grid grid-cols-1 border border-gray-200 bg-white shadow-lg rounded-lg w-[21rem] mx-auto mt-10 mt-20 pb-5 md:mt-32 md:p-4 md:w-[23rem]">
       {/* <span className="h-4 bg-cyan-600 rounded-tl-md rounded-tr-md shadow-sm"></span> */}
       <span className="p-3">
         <Label text={"Category"} icon={<AiFillSetting className={iconCl} />} />

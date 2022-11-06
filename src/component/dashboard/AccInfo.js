@@ -51,7 +51,6 @@ const AccInfo = ({ user }) => {
           )}
         </p>
       </span>
-
       {/* TODO: review */}
       {/* TODO:update feature  */}
     </div>
