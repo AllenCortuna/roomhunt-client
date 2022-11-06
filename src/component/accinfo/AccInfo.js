@@ -6,13 +6,12 @@ import { AiFillCheckCircle } from "react-icons/ai";
 
 const AccInfo = ({ user }) => {
   return (
-    <div className="grid gap-1 grid-cols-2 justify-items-between w-[21rem] border border-gray-200 rounded-lg shadow-md bg-smoke h-[26rem] md:h-[23rem] md:mr-0 md:ml-auto">
+    <div className="grid gap-1 grid-cols-2 justify-items-between w-[21rem] border border-gray-200 rounded-lg shadow-md bg-white h-[23rem] mx-auto">
       <img
         src={user.image}
         alt=""
         loading="lazy"
         className="w-[20.3rem] mt-1 mx-auto col-span-2  rounded-tr-md rounded-tl-md h-[12.5rem] object-cover border-smoke border shad"
-        // className="w-[19.8rem] mt-2 mx-auto col-span-2  rounded-tr-md rounded-tl-md h-[12.5rem] object-cover border-white border-2 shadow-md "
       />
       {/* Business name */}
       <span className="col-span-2 text-center">

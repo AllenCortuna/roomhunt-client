@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
-import AccInfo from "../dashboard/AccInfo";
+import AccInfo from "./AccInfo";
 import { accStore } from "../../state/acc";
 import Loading from "../utility/Loading";
 import NotFound from "../NotFound";
