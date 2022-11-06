@@ -3,13 +3,12 @@ import React, { useEffect } from "react";
 import AccInfo from "../dashboard/AccInfo";
 import { accStore } from "../../state/acc";
 import Loading from "../utility/Loading";
-import NotFound from "../utility/NotFound";
+import NotFound from "../NotFound";
 import { useParams } from 'react-router-dom';
 
 const BusinessInfo = () => {
   const acc = accStore((state) => state.acc);
   const getAcc = accStore((state) => state.getAcc);
-  const err = accStore((state) => state.err);
   const loading = accStore((state) => state.loading);
   const { id } = useParams()
   
@@ -33,7 +32,7 @@ const BusinessInfo = () => {
           )
         )}
       </div>
-      {err && <NotFound />}
+      {(!loading&& !acc) && <NotFound />}
     </span>
   );
 };

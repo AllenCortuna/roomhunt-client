@@ -19,6 +19,7 @@ import RoomInfo from "./component/room/RoomInfo";
 import Menu from "./component/menu/Menu";
 import AccRoomList from "./component/dashboard/AccRoomList";
 import About from "./component/About";
+import BusinessInfo from "./component/accinfo/BusinessInfo";
 
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Search />} />
+        <Route path="/accinfo/:id" element={< BusinessInfo />} />
         <Route path="/rooms" element={<RoomSearch />} />
         <Route path="/rooms/:id" element={<RoomInfo />} />
         <Route path="/acc/dashboard" element={<AccDashboard />} />

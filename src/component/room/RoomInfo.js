@@ -10,10 +10,12 @@ import { RiBuildingFill } from "react-icons/ri";
 import Review from './Review';
 import Info from './Info';
 import RoomReview from './RoomReview';
+import { useNavigate } from 'react-router-dom';
 
 
 const RoomInfo = () => {
-
+  
+const navigate = useNavigate()
   const getRoom = roomStore((state) => state.getRoom);
   const room = roomStore((state) => state.room);
   const loading = roomStore((state) => state.loading);
@@ -33,7 +35,8 @@ const RoomInfo = () => {
         <span className='grid grid-cols-1 md:grid-cols-3 w-[21rem] md:w-[42rem] mt-14 mb-14 md:mt-20 rounded-lg bg-white shadow-md mx-auto border p-0 gap-y-14 md:gap-y-0'>
           <span className="block md:col-span-2 pt-4">
             {/* room owner */}
-            <span className='shad grid p-3 bg-zinc-200  w-auto h-auto rounded-tr-xl rounded-br-xl md:mr-20 mr-8 mb-4 truncate '>
+            <span className='shad grid p-3 bg-zinc-200  w-auto h-auto rounded-tr-xl rounded-br-xl md:mr-20 mr-8 mb-4 truncate hover:bg-brown  ' 
+        onClick={()=> navigate(`/accinfo/${room.owner}`) }>
               <h4 className="drop-shadow-sm text-cyan-800 font-bold">
                 <RiBuildingFill className='inline mr-1 mb-1' />
                 {room.ownerName}</h4>

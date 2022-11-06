@@ -9,11 +9,12 @@ export const accStore = create((set) => ({
 
   getAcc: async (id)=>{
     set({loading: true})
+    set({acc: null})
     try {
-      const response = await api.get(`acc/${id}`)
+      const response = await api.get(`accommodator/${id}`)
       set({acc: response.data})
     } catch (err) {
-      
+      set({ err: err.response.data.message });
     }
     set({loading: false})
   },
