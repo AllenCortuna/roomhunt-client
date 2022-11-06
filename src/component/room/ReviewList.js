@@ -7,7 +7,7 @@ const ReviewList = ({ roomId }) => {
   const getReviews = reviewStore((state) => state.getReviews);
   useEffect(() => {
     getReviews(roomId);
-  }, [reviews]);
+  }, [roomId]);
 
   return <div className="grid md:grid-cols-2 p-3 gap-5 md:gap-10">
     {reviews?.map((review)=>(

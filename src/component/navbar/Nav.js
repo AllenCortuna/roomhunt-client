@@ -24,7 +24,7 @@ const Nav = ({ content }) => {
       }`}
     >
       {content.map((a) => (
-        <Link to={a.desc}>
+        <Link to={a.desc} key={a.name}>
           <p
             className={navlink}
             onClick={() => {
