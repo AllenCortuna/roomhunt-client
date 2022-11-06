@@ -46,7 +46,7 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
         />
 
         <Input
-          type="number"
+          type="tel"
           placeholder={"Contact"}
           register={{
             ...register("contact", {
