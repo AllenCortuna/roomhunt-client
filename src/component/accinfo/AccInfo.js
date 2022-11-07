@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { MdLocationOn } from "react-icons/md";
 import { MdEmail } from "react-icons/md";
 import { AiFillCheckCircle } from "react-icons/ai";
@@ -30,9 +31,9 @@ const AccInfo = ({ user }) => {
           <MdEmail className="text-[1rem] mr-1 inline" />
           contact
         </h1>
-        <p className="inline text-xs text-gray-500 rale">{user.email}</p>
+        <p className="inline underline text-xs text-gray-500 rale">{user.email}</p>
 
-        <p className="text-xs text-gray-500 rale ">{user.contact}</p>
+        <a href="" className="underline text-xs text-gray-500 rale">{user.contact}</a>
       </span>
 
       <span className="p-2">
