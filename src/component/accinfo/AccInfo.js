@@ -7,7 +7,7 @@ import { AiFillCheckCircle } from "react-icons/ai";
 
 const AccInfo = ({ user }) => {
   return (
-    <div className="grid gap-1 grid-cols-2 justify-items-between w-[21rem] border border-gray-200 rounded-lg shadow-md bg-white h-[23rem] mx-auto">
+    <div className="grid gap-1 grid-cols-2 justify-items-between w-[21rem] border border-gray-200 rounded-lg shadow-md bg-white h-[24rem] mx-auto">
       <img
         src={user.image}
         alt=""
@@ -31,9 +31,14 @@ const AccInfo = ({ user }) => {
           <MdEmail className="text-[1rem] mr-1 inline" />
           contact
         </h1>
-        <p className="inline underline text-xs text-gray-500 rale">{user.email}</p>
-
-        <a href="" className="underline text-xs text-gray-500 rale">{user.contact}</a>
+        <a href={`mailto:${user.email}?subject=Room Reservation`}>
+          <p className="inline underline text-xs text-gray-500 rale">
+            {user.email}
+          </p>
+        </a>
+        <a href={`sms:${user.contact}`}>
+        <p className="underline text-xs text-gray-500 rale">{user.contact}</p>
+        </a>
       </span>
 
       <span className="p-2">
