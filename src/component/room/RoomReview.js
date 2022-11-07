@@ -83,12 +83,13 @@ const RoomReview = ({ room }) => {
         <p className="drop-shadow-sm text-[.74rem] text-zinc-500 ">submit</p>
       </button>
       <textarea
-        rows={3}
+        rows={4}
         cols={50}
         value={comment}
-        className="rounded-sm text-zinc-500 text-xs p-3 focus:bg-brown focus:text-white focus:outline-none transition-all duration-300 ease-linear"
+        className="rounded-sm text-zinc-500 text-xs p-2 focus:bg-brown focus:text-white focus:outline-none transition-all duration-300 ease-linear"
         onChange={(e) => setcomment(e.target.value)}
       />
+    
     </div>
   );
 };

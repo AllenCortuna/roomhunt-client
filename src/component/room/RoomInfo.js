@@ -83,7 +83,7 @@ const RoomInfo = () => {
               loading="lazy"
             />
           </span>
-       <ReviewList roomId={room._id}  /> 
+          <ReviewList roomId={room._id} />
         </div>
       )}
     </>
