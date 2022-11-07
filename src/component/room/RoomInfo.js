@@ -64,7 +64,7 @@ const RoomInfo = () => {
                     Ratings
                   </h4>
                   <span className="ml-4 grid gap-1">
-                    <h4 className="text-zinc-500 text-[.64rem] capitalize rale ">
+                    <h4 className="text-zinc-500 text-[.64rem] capitalize rale w-[10rem] ">
                       total review:{" "}
                       <span className="space-mono font-bold">{room.total}</span>
                     </h4>
