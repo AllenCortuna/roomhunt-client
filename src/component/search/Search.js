@@ -54,6 +54,8 @@ const Search = () => {
       warnNotify(" Check-In-Date must be equal or less than Check-Out-Date");
     } else if (query.location === "") {
       warnNotify(" Enter a Location");
+    } else if (query.maxPrice === "" || query.minPrice === "") {
+      warnNotify(" Enter a Min-Price or Max-Price");
     } else if (parseInt(query.minPrice) > parseInt(query.maxPrice)) {
       warnNotify(" Min-Price must be equal or less than Max-Price");
     } else {
