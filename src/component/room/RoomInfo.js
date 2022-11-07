@@ -37,8 +37,8 @@ const RoomInfo = () => {
         waiting
       ) : (
         <div className="grid gap-10 w-[21rem] md:w-[42rem] mx-auto">
-          <span className="grid grid-cols-1 md:grid-cols-3 w-[21rem] md:w-[42rem] mt-14 mb-14 md:mt-20 rounded-lg bg-white shadow-md mx-auto border p-0 gap-y-14 md:gap-y-0">
-            <span className="block md:col-span-2 pt-4">
+          <span className="grid grid-cols-1 md:grid-cols-3 w-[21rem] md:w-[42rem] mt-14 rounded-lg bg-white shadow-md mx-auto border p-0 gap-y-14 md:gap-y-0">
+            <span className="block md:col-span-2 pt-4 ">
               {/* room owner */}
               <span
                 className="shad grid p-3 bg-zinc-200  w-auto h-auto rounded-tr-xl rounded-br-xl md:mr-20 mr-8 mb-4 truncate hover:bg-brown  "
@@ -57,7 +57,7 @@ const RoomInfo = () => {
               <span className="flex flex-wrap items-start">
                 <Info room={room} />
                 {/* room review */}
-                <span className="ml-4 mb-5 pt-4 grid gap-1">
+                <span className="ml-4 grid gap-1">
                   {/* <img src={review} alt="review" className='w-20 drop-shadow-md ' /> */}
                   <h4 className="text-cyan-800 font-[600] text-sm drop-shadow-sm">
                     <MdFeedback className="inline mr-1" />

@@ -23,7 +23,7 @@ const RoomReview = ({ room }) => {
   const star = "-mt-1 my-auto text-xl drop-shadow-sm inline text-yellow";
   const starClear = "-mt-1 my-auto text-xl drop-shadow-sm inline text-zinc-400";
   return (
-    <div className="flex flex-wrap gap-y-4  mt-14 border border-zinc-300 rounded-md ml-3 p-2 w-[15rem] justify-between items-center bg-zinc-100">
+    <div className="flex flex-wrap gap-y-3 border border-zinc-300 rounded-md ml-3 p-2 w-[15rem] justify-between items-center bg-zinc-100 mt-10 md:mt-0">
       <span className="grid gap-1 p-1 py-0 grid-cols-5 w-auto ">
         <span onClick={() => setreview(1)}>
           {review >= 1 ? (
@@ -83,10 +83,10 @@ const RoomReview = ({ room }) => {
         <p className="drop-shadow-sm text-[.74rem] text-zinc-500 ">submit</p>
       </button>
       <textarea
-        rows={5}
+        rows={3}
         cols={50}
         value={comment}
-        className="rounded-sm text-zinc-400 text-xs p-3"
+        className="rounded-sm text-zinc-500 text-xs p-3 focus:bg-brown focus:text-white focus:outline-none transition-all duration-300 ease-linear"
         onChange={(e) => setcomment(e.target.value)}
       />
     </div>
