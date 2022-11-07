@@ -41,7 +41,7 @@ const Filter = ({ handleChange, query, setquery, onSubmit, clear }) => {
         <InputVal
           type={"text"}
           onChange={handleChange}
-          register={{ ...register("location", { required: true }) }}
+          register={{ ...register("location", { required: false }) }}
           value={query.location}
           placeholder={"City or Province"}
         />
@@ -62,7 +62,7 @@ const Filter = ({ handleChange, query, setquery, onSubmit, clear }) => {
         <InputVal
           type={"number"}
           onChange={handleChange}
-          register={{ ...register("minPrice", { required: true }) }}
+          register={{ ...register("minPrice", { required: false }) }}
           value={query.minPrice}
           placeholder={"min price"}
         />
@@ -73,7 +73,7 @@ const Filter = ({ handleChange, query, setquery, onSubmit, clear }) => {
         <InputVal
           type={"number"}
           onChange={handleChange}
-          register={{ ...register("maxPrice", { required: true }) }}
+          register={{ ...register("maxPrice", { required: false }) }}
           value={query.maxPrice}
           placeholder={"max price"}
         />

@@ -41,7 +41,7 @@ export const errNotify = (err) =>
     });
 
 export const warnNotify = (text) =>
-    toast.warning(`WARN: ${text}`, {
+    toast.warning(`${text}`, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,

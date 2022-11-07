@@ -18,6 +18,18 @@ export const roomStore = create((set) => ({
   loading: false,
   err: null,
 
+  getRoomByLocation: async (query) => {
+    set({ loading: true });
+    set({ err: null });
+    try {
+      const response = await api.get( `/room/location?category=${query.category}&location=${query.location}`);
+      set({ rooms: response.data });
+    } catch (err) {
+      set({ err: err.response.data.message });
+    }
+    set({ loading: false });
+  },
+
   getRoomBySearch: async (query) => {
     set({ loading: true });
     set({ rooms: [] });
@@ -127,7 +139,7 @@ export const roomStore = create((set) => ({
     } else {
       try {
         const result = await api.post("/room/review/", review);
-        console.log(result.data)
+        console.log(result.data);
         set({ room: result.data });
       } catch (err) {
         set({ err: err.response.data.message });

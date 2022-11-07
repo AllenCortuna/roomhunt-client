@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import PropertyType from "./PropertyType";
 import Filter from "./Filter";
@@ -6,6 +6,8 @@ import { roomStore } from "../../state/room";
 import { AiFillSetting } from "react-icons/ai";
 import { Label } from "./utilty";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import {warnNotify} from '../utility/notify'
 
 const Search = () => {
 
@@ -20,6 +22,12 @@ const Search = () => {
     checkInDate: "",
     checkOutDate: "",
   });
+  useEffect(()=>{
+    let search = JSON.parse(localStorage.getItem("search"))
+    if (search) {
+      setquery(search)
+    }
+  },[])
   const handleChange = (e) => {
     setquery({ ...query, [e.target.name]: e.target.value });
   };
@@ -37,20 +45,20 @@ const Search = () => {
 
   const handleCat = (cat) => {
     setquery({ ...query, category: cat });
-    console.log(query);
   };
 
   const onSubmit = () => {
     if (query.category === "") {
-      alert("WARN: Choose a Category");
+      warnNotify(" Choose a Category");
     } else if (query.checkInDate > query.checkOutDate) {
-      alert("WARN: Check-In-Date must be equal or less than Check-Out-Date");
+      warnNotify(" Check-In-Date must be equal or less than Check-Out-Date");
     } else if (query.location === "") {
-      alert("WARN: Enter a Location");
+      warnNotify(" Enter a Location");
     } else if (parseInt(query.minPrice) > parseInt(query.maxPrice)) {
-      alert("WARN: Min-Price must be equal or less than Max-Price");
+      warnNotify(" Min-Price must be equal or less than Max-Price");
     } else {
       getRoomBySearch(query)
+      localStorage.setItem("search",JSON.stringify(query))
       navigate("/rooms");
     }
   };
@@ -70,7 +78,7 @@ const Search = () => {
         query={query}
         clear={clear}
       />
-      {/* <span className="h-2 mt-4 bg-cyan-600 rounded-bl-md rounded-br-md shadow-sm"></span> */}
+      <ToastContainer />
     </div>
   );
 };
