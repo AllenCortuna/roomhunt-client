@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import PropertyType from "./PropertyType";
@@ -8,11 +9,14 @@ import { Label } from "./utilty";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import {warnNotify} from '../utility/notify'
+import RoomByLocation from "../room/RoomByLocation";
 
 const Search = () => {
 
   const navigate = useNavigate()
   const getRoomBySearch = roomStore((state) => state.getRoomBySearch);
+  const getRoomByLocation = roomStore((state) => state.getRoomByLocation);
+  
   const [query, setquery] = useState({
     category: "",
     location: "",
@@ -23,10 +27,11 @@ const Search = () => {
     checkOutDate: "",
   });
   useEffect(()=>{
-    let search = JSON.parse(localStorage.getItem("search"))
+    const search = JSON.parse(localStorage.getItem("search"))
     if (search) {
       setquery(search)
     }
+    getRoomByLocation({location: search.location, category: search.category})
   },[])
   const handleChange = (e) => {
     setquery({ ...query, [e.target.name]: e.target.value });
@@ -67,6 +72,8 @@ const Search = () => {
 
   const iconCl = "mr-1 inline";
   return (
+    <span className="grid gap-14">
+      <ToastContainer />
     <div className="grid grid-cols-1 border border-gray-200 bg-white shadow-lg rounded-lg w-[21rem] mx-auto mt-10 mt-20 pb-5 md:mt-32 md:p-4 md:w-[23rem]">
       {/* <span className="h-4 bg-cyan-600 rounded-tl-md rounded-tr-md shadow-sm"></span> */}
       <span className="p-3">
@@ -80,8 +87,9 @@ const Search = () => {
         query={query}
         clear={clear}
       />
-      <ToastContainer />
     </div>
+    <RoomByLocation/>
+    </span>
   );
 };
 

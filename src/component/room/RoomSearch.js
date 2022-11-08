@@ -18,7 +18,7 @@ const RoomSearch = () => {
           className="drop-shadow-sm mx-auto mb-8 "
         />
         <h1 className="text-gray-500 text-center text-sm font-[500]">
-          No rooms available according to your search
+          No rooms available according to your Recent search
         </h1>
       </span>
       <BtnLink link={"/"} text="Search Again" />

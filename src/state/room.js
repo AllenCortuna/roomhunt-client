@@ -16,14 +16,16 @@ export const roomStore = create((set) => ({
   rooms: [],
   room: {},
   loading: false,
+  suggestedRoom: [],
   err: null,
 
   getRoomByLocation: async (query) => {
     set({ loading: true });
     set({ err: null });
+    console.log(query)
     try {
       const response = await api.get( `/room/location?category=${query.category}&location=${query.location}`);
-      set({ rooms: response.data });
+      set({ suggestedRoom: response.data });
     } catch (err) {
       set({ err: err.response.data.message });
     }
