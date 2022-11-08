@@ -8,15 +8,14 @@ import { AiFillSetting } from "react-icons/ai";
 import { Label } from "./utilty";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import {warnNotify} from '../utility/notify'
+import { warnNotify } from "../utility/notify";
 import RoomByLocation from "../room/RoomByLocation";
 
 const Search = () => {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const getRoomBySearch = roomStore((state) => state.getRoomBySearch);
   const getRoomByLocation = roomStore((state) => state.getRoomByLocation);
-  
+
   const [query, setquery] = useState({
     category: "",
     location: "",
@@ -26,13 +25,16 @@ const Search = () => {
     checkInDate: "",
     checkOutDate: "",
   });
-  useEffect(()=>{
-    const search = JSON.parse(localStorage.getItem("search"))
+  useEffect(() => {
+    const search = JSON.parse(localStorage.getItem("search"));
     if (search) {
-      setquery(search)
+      setquery(search);
+      getRoomByLocation({
+        location: search.location,
+        category: search.category,
+      });
     }
-    getRoomByLocation({location: search.location, category: search.category})
-  },[])
+  }, []);
   const handleChange = (e) => {
     setquery({ ...query, [e.target.name]: e.target.value });
   };
@@ -45,8 +47,8 @@ const Search = () => {
       maxPrice: "",
       checkInDate: "",
       checkOutDate: "",
-    })
-  }
+    });
+  };
 
   const handleCat = (cat) => {
     setquery({ ...query, category: cat });
@@ -64,8 +66,8 @@ const Search = () => {
     } else if (parseInt(query.minPrice) > parseInt(query.maxPrice)) {
       warnNotify(" Min-Price must be equal or less than Max-Price");
     } else {
-      getRoomBySearch(query)
-      localStorage.setItem("search",JSON.stringify(query))
+      getRoomBySearch(query);
+      localStorage.setItem("search", JSON.stringify(query));
       navigate("/rooms");
     }
   };
@@ -74,21 +76,24 @@ const Search = () => {
   return (
     <span className="grid gap-14">
       <ToastContainer />
-    <div className="grid grid-cols-1 border border-gray-200 bg-white shadow-lg rounded-lg w-[21rem] mx-auto mt-10 mt-20 pb-5 md:mt-32 md:p-4 md:w-[23rem]">
-      {/* <span className="h-4 bg-cyan-600 rounded-tl-md rounded-tr-md shadow-sm"></span> */}
-      <span className="p-3">
-        <Label text={"Category"} icon={<AiFillSetting className={iconCl} />} />
-        <PropertyType handleCat={handleCat} query={query} />
-      </span>
-      <Filter
-        handleChange={handleChange}
-        setquery={setquery}
-        onSubmit={onSubmit}
-        query={query}
-        clear={clear}
-      />
-    </div>
-    <RoomByLocation/>
+      <div className="grid grid-cols-1 border border-gray-200 bg-white shadow-lg rounded-lg w-[21rem] mx-auto mt-10 mt-20 pb-5 md:mt-32 md:p-4 md:w-[23rem]">
+        {/* <span className="h-4 bg-cyan-600 rounded-tl-md rounded-tr-md shadow-sm"></span> */}
+        <span className="p-3">
+          <Label
+            text={"Category"}
+            icon={<AiFillSetting className={iconCl} />}
+          />
+          <PropertyType handleCat={handleCat} query={query} />
+        </span>
+        <Filter
+          handleChange={handleChange}
+          setquery={setquery}
+          onSubmit={onSubmit}
+          query={query}
+          clear={clear}
+        />
+      </div>
+      <RoomByLocation />
     </span>
   );
 };
