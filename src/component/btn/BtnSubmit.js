@@ -15,5 +15,10 @@ const BtnSubmit = ({ loading, text, loadingTxt }) => {
     </button>
   );
 };
+BtnSubmit.defaultProps = {
+  text: "submit",
+  loadingTxt: "Processing",
+  loading: null
+}
 
 export default BtnSubmit;

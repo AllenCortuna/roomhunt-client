@@ -20,6 +20,7 @@ import Menu from "./component/menu/Menu";
 import AccRoomList from "./component/dashboard/AccRoomList";
 import About from "./component/About";
 import BusinessInfo from "./component/accinfo/BusinessInfo";
+import Reset from "./component/resetPassword/Reset";
 
 
 const App = () => {
@@ -28,6 +29,8 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Search />} />
+        <Route path="/reset/acc" element={<Reset />} />
+        <Route path="/reset/client" element={<Reset />} />
         <Route path="/accinfo/:id" element={< BusinessInfo />} />
         <Route path="/rooms" element={<RoomSearch />} />
         <Route path="/rooms/:id" element={<RoomInfo />} />
