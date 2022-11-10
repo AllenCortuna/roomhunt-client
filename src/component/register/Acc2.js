@@ -6,6 +6,8 @@ import Option from "../utility/Option";
 import BtnSubmit from "../btn/BtnSubmit";
 import FormErr from "../utility/FormErr";
 import {formHint} from "../utility/Text";
+import {errNotify} from "../utility/notify";
+import { ToastContainer } from "react-toastify";
 import Input from "../utility/Input";
 
 
@@ -19,11 +21,16 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
   } = useForm();
 
   const onSubmit = () => {
+    if (data.image ==="") {
+      errNotify("Select Accommodation Image")
+    } else {
     setPage(3);
+      }
   };
 
   return (
     <span className={page1container}>
+      <ToastContainer />
       <form onSubmit={handleSubmit(onSubmit)} className={form}>
         {formHint("Business Info")}
         <Input
