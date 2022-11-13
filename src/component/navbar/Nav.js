@@ -16,23 +16,24 @@ const Nav = ({ content }) => {
 
   // WARN: Navbar
   const navlink =
-    " text-[#fff] text-xs font-[700] transition-all ease-linear uppercase xs:hover:ml-5 duration-300 hover:text-amber-300 mx-auto my-auto";
+    " text-[#fff] text-xs font-[700] transition-all ease-linear uppercase duration-300 group-hover:text-amber-300 my-auto group-hover:underline ";
   const nav = (
     <nav
-      className={`grid gap-2 transition-all duration-300 ease-linear p-4  ${
-        !isSmallScreen && "grid-cols-4 p-5 py-1 justify-items-center"
+      className={`grid transition-all duration-300 ease-linear p-4 gap-5 md:gap-8 pb-4 ${
+        !isSmallScreen && "grid-cols-4 p-5 py-1 justify-items-center my-auto pb-0 "
       }`}
     >
       {content.map((a) => (
-        <Link to={a.desc} key={a.name}>
-          <p
-            className={navlink}
-            onClick={() => {
-              setShowNav(false);
-            }}
-          >
-            {a.name}
-          </p>
+        <Link
+          to={a.desc}
+          key={a.name}
+          className="flex flex-cols justify-start content-start group"
+          onClick={() => {
+            setShowNav(false);
+          }}
+        >
+          {a.icon}
+          <p className={navlink}>{a.name}</p>
         </Link>
       ))}
     </nav>
@@ -70,10 +71,10 @@ const Nav = ({ content }) => {
   const otherScreen = (
     <div>
       <span className="flex flex-wrap justify-between px-10 py-2">
-    <span className="flex flex-wrap gap-3">
-        {logo}
-        <h3 className="text-white text-xl font-[800]">roomhunt</h3>
-    </span>
+        <span className="flex flex-wrap gap-3">
+          {logo}
+          <h3 className="text-white text-xl font-[800]">roomhunt</h3>
+        </span>
         {nav}
       </span>
     </div>

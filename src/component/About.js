@@ -4,7 +4,7 @@ import house from './img/house.svg'
 
 const About = () => {
   return (
-    <div className="mx-auto p-5 mt-10 md:mt-20 max-w-[50rem] gap-14 gap-y-20 flex-wrap flex justify-center content-start ">
+    <div className="mx-auto p-5 mt-10 md:mt-20 max-w-[50rem] gap-14  md:gap-20 lg:gap-32  flex-wrap flex justify-center content-start ">
       <span className="w-[21rem] text-left block ">
         <h4 className="text-cyan-800 font-bold text-md drop-shadow-sm">
           <FaInfoCircle className="inline mr-2" />

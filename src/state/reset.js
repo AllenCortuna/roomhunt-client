@@ -14,7 +14,6 @@ export const resetStore = create((set) => ({
         email: data.email,
         password: data.password,
       });
-      console.log(result);
       localStorage.setItem(
         "resetPW",
         JSON.stringify({ password: data.password, id: result.data.result._id })
@@ -27,7 +26,6 @@ export const resetStore = create((set) => ({
   },
 
   resetAccOTP: async (data, navigate) => {
-    console.log("data", data);
     set({ loading: true });
     set({ acc: null });
     try {
@@ -59,7 +57,6 @@ export const resetStore = create((set) => ({
   resetClientOTP: async (data, navigate) => {
     set({ loading: true });
     set({ acc: null });
-      console.log(data.otp)
     try {
       const id = JSON.parse(localStorage.getItem("resetPW")).id;
       await api.patch(`reset/client/${id}`, data);

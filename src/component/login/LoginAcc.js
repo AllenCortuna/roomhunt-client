@@ -45,7 +45,7 @@ const LoginAcc = () => {
   };
 
   return (
-    <div className="grid text-center bg-white w-[21rem] h-auto border rounded-md shadow-md h-auto mx-auto mt-10 pb-5">
+    <div className="grid text-center bg-white w-[21rem] md:w-[24rem] h-auto border rounded-md shadow-md h-auto mx-auto mt-10 md:mt-24 pb-5 ">
       <ToastContainer />
       <span className="rounded-tl-md rounded-tr-md h-3 bg-orange mb-5 shadow-sm"></span>
       <img
@@ -63,7 +63,7 @@ const LoginAcc = () => {
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="p-4 gap-3 grid place-items-center"
+        className="p-4 md:p-6 md:gap-6 gap-3 grid place-items-center"
       >
         <Input
           type={"email"}
