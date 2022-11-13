@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BtnSubmit from "../btn/BtnSubmit";
 import Input from "../utility/Input";
 import { formHint } from "../utility/Text";
@@ -6,11 +6,21 @@ import { useForm } from "react-hook-form";
 import { resetStore } from "../../state/reset";
 import { useNavigate } from "react-router-dom";
 import { errNotify } from "../utility/notify";
-import { ToastContainer} from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 const ResetAcc = () => {
   const span = "grid gap-3";
   const resetAccPW = resetStore((state) => state.resetAccPW);
+  const loading = resetStore((state) => state.loading);
+  const err = resetStore((state) => state.err);
+  const setErr = resetStore((state) => state.setErr);
+
+  useEffect(() => {
+    if (err !== null) {
+      errNotify(err);
+    }
+  }, [err]);
+  
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const [data, setdata] = useState({
@@ -28,11 +38,12 @@ const ResetAcc = () => {
       errNotify("Complete all Info");
     } else {
       resetAccPW(data, navigate);
+      setErr(null)
     }
   };
   return (
     <form className="grid gap-1 " onSubmit={handleSubmit(onSubmit)}>
-    <ToastContainer/>
+      <ToastContainer />
       <h4 className="text-cyan-800 text-xs font-bold mx-auto">
         Reset Accommodator Password
       </h4>
@@ -64,7 +75,7 @@ const ResetAcc = () => {
           onChange={handleChange}
         />
       </span>
-      <BtnSubmit />
+      <BtnSubmit loading={loading} />
     </form>
   );
 };

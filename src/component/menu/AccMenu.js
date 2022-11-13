@@ -22,9 +22,9 @@ const AccMenu = () => {
     },
     {
       icon: review,
-      name: "account",
-      link: "/acc/account",
-      desc: "business info",
+      name: "password",
+      link: "/reset/acc",
+      desc: "change password",
     },
     {
       icon: message,

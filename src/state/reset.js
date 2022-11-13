@@ -11,11 +11,25 @@ export const resetStore = create((set) => ({
     set({ acc: null });
     try {
       const result = await api.post("reset/acc", data);
+      console.table(result.data);
       localStorage.setItem(
         "resetPW",
-        JSON.stringify({ password: data.password, id: result.data.password })
+        JSON.stringify({ password: data.password, id: result.data._id })
       );
-      navigate("/reset/otp-acc");
+      navigate("/reset/acc/otp");
+    } catch (err) {
+      set({ err: err.response.data.message });
+    }
+    set({ loading: false });
+  },
+
+  resetAccOTP: async (data, navigate) => {
+    set({ loading: true });
+    set({ acc: null });
+    try {
+      const id = JSON.parse(localStorage.getItem("resetPW")).result._id;
+      await api.post(`reset/client/${id}`, data);
+      navigate("/login/acc");
     } catch (err) {
       set({ err: err.response.data.message });
     }
@@ -31,22 +45,28 @@ export const resetStore = create((set) => ({
         "resetPW",
         JSON.stringify({ password: data.password, id: result.data.password })
       );
-      navigate("/reset/otp-client");
+      navigate("/reset/client/otp");
     } catch (err) {
       set({ err: err.response.data.message });
     }
     set({ loading: false });
   },
 
-  resetClientOTP: async (id, navigate) => {
+  resetClientOTP: async (data, navigate) => {
     set({ loading: true });
     set({ acc: null });
     try {
-      await api.post(`reset/client/${id}`);
+      const id = JSON.parse(localStorage.getItem("resetPW")).result._id;
+      await api.post(`reset/client/${id}`, data);
       navigate("/login/client");
     } catch (err) {
       set({ err: err.response.data.message });
     }
     set({ loading: false });
+  },
+  
+  
+  setErr: (err) =>{
+    set({ err: err });
   },
 }));
