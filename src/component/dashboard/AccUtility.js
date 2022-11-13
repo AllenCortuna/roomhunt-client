@@ -28,20 +28,20 @@ const AccUtility = () => {
   ];
 
   return (
-    <div className=" flex flex-wrap content-start w-[21rem] h-auto md:ml-0 md:mr-auto ">
+    <div className=" flex flex-wrap content-start w-[21rem] h-auto md:ml-5 md:mr-auto ">
       {/* content */}
       <div className=" grid grid-cols-2 w-full gap-4">
         {items.map((item) => (
           <Link to={item.link} key={item.name}>
             <span
               key={item}
-              className="group grid h-[10.9rem] shadow-md bg-primary rounded-lg p-2 transition-all duration-300 ease-linear hover:bg-yellow hover:shadow-lg hover:border-2 hover:border-gray-200"
+              className="group grid h-[10.9rem] shadow-md bg-white border rounded-lg p-2 transition-all duration-300 ease-linear hover:bg-yellow hover:shadow-lg hover:border-2 hover:border-gray-200"
             >
               <img
                 src={item.icon}
                 alt=""
           loading="lazy"
-                className="w-[60%] m-auto drop-shadow-md"
+                className="w-[64%] m-auto drop-shadow-lg "
               />
               <span className="flex flex-cols items-center">
                 <span className="grid mb-0 mt-auto p-2">
@@ -60,7 +60,7 @@ const AccUtility = () => {
     
           <a href={`https://mail.google.com/mail/`} >
             <span
-              className="group grid h-[10.9rem] shadow-md bg-primary rounded-lg p-2 transition-all duration-300 ease-linear hover:bg-yellow hover:shadow-lg hover:border-2 hover:border-gray-200"
+              className="group grid h-[10.9rem] shadow-md bg-white border rounded-lg p-2 transition-all duration-300 ease-linear hover:bg-yellow hover:shadow-lg hover:border-2 hover:border-gray-200"
             >
               <img
                 src={message}

@@ -12,16 +12,14 @@ const Nav = ({ content }) => {
 
   React.useEffect(() => {
     dom.current && autoAnimate(dom.current);
-  }, [dom]);
+  }, [dom, isSmallScreen]);
 
   // WARN: Navbar
   const navlink =
     " text-[#fff] text-xs font-[700] transition-all ease-linear uppercase duration-300 group-hover:text-amber-300 my-auto group-hover:underline ";
   const nav = (
     <nav
-      className={`grid transition-all duration-300 ease-linear p-4 gap-5 md:gap-8 pb-4 ${
-        !isSmallScreen && "grid-cols-4 p-5 py-1 justify-items-center my-auto pb-0 "
-      }`}
+      className={`grid transition-all duration-300 ease-linear p-4 gap-5 md:gap-8 pb-8 md:grid-cols-4 p-5 md:py-1 md:justify-items-center md:my-auto md:pb-0 `}
     >
       {content.map((a) => (
         <Link
@@ -81,7 +79,7 @@ const Nav = ({ content }) => {
   );
 
   return (
-    <div className="bg-black grid w-screen h-auto shadow-lg " ref={dom}>
+    <div className="bg-zinc-800 grid w-screen h-auto shad " ref={dom}>
       {isSmallScreen ? smallScreen : otherScreen}
     </div>
   );

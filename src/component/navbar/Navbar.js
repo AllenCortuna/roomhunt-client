@@ -7,7 +7,7 @@ import { RiFileSearchFill } from 'react-icons/ri'
 import { MdSpaceDashboard } from 'react-icons/md'
 import {  CgMenuGridR} from 'react-icons/cg'
 import {  RiLogoutBoxRFill} from 'react-icons/ri'
-import { BsFillInfoSquareFill } from 'react-icons/bs'
+import { BsInfoCircleFill } from 'react-icons/bs'
 import { FaHouseUser, FaUserCircle} from 'react-icons/fa'
 
 const Navbar = () => {
@@ -33,7 +33,7 @@ const Navbar = () => {
           content={[
             { name: "dashboard", desc: "/acc/dashboard",icon: <MdSpaceDashboard className={icon}/> },
             { name: "menu", desc: "/acc/menu" , icon: <CgMenuGridR className={icon}/> },
-            { name: "about", desc: "/about", icon: <BsFillInfoSquareFill className={icon}/> },
+            { name: "about", desc: "/about", icon: <BsInfoCircleFill className={icon}/> },
             { name: "logout", desc: "/logout", icon: <RiLogoutBoxRFill className={icon}/> },
           ]}
         />
@@ -55,7 +55,7 @@ const Navbar = () => {
             { name: "search", desc: "/", icon:<RiFileSearchFill className={icon}/> },
             { name: "login", desc: "/login",icon: <FaUserCircle className={icon}/> },
             { name: "register", desc: "/register", icon: <FaHouseUser className={icon}/> },
-            { name: "about", desc: "/about", icon: <BsFillInfoSquareFill className={icon}/> },
+            { name: "about", desc: "/about", icon: <BsInfoCircleFill className={icon}/> },
           ]}
         />
       )}
