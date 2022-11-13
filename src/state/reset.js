@@ -10,24 +10,43 @@ export const resetStore = create((set) => ({
     set({ loading: true });
     set({ acc: null });
     try {
-      await api.post("reset/acc",data);
+      const result = await api.post("reset/acc", data);
+      localStorage.setItem(
+        "resetPW",
+        JSON.stringify({ password: data.password, id: result.data.password })
+      );
       navigate("/reset/otp-acc");
     } catch (err) {
       set({ err: err.response.data.message });
     }
     set({ loading: false });
   },
-  
+
   resetClientPW: async (data, navigate) => {
     set({ loading: true });
     set({ acc: null });
     try {
-      await api.post("reset/client",data);
+      const result = await api.post("reset/client", data);
+      localStorage.setItem(
+        "resetPW",
+        JSON.stringify({ password: data.password, id: result.data.password })
+      );
       navigate("/reset/otp-client");
     } catch (err) {
       set({ err: err.response.data.message });
     }
     set({ loading: false });
   },
-  
+
+  resetClientOTP: async (id, navigate) => {
+    set({ loading: true });
+    set({ acc: null });
+    try {
+      await api.post(`reset/client/${id}`);
+      navigate("/login/client");
+    } catch (err) {
+      set({ err: err.response.data.message });
+    }
+    set({ loading: false });
+  },
 }));

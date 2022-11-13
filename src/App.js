@@ -21,7 +21,8 @@ import AccRoomList from "./component/dashboard/AccRoomList";
 import About from "./component/About";
 import BusinessInfo from "./component/accinfo/BusinessInfo";
 import Reset from "./component/resetPassword/Reset";
-
+import ResetAccOTP from "./component/resetPassword/ResetAccOTP";
+import ResetClientOTP from "./component/resetPassword/ResetClientOTP";
 
 const App = () => {
   return (
@@ -29,35 +30,40 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Search />} />
-        <Route path="/reset/acc" element={<Reset />} />
-        <Route path="/reset/client" element={<Reset />} />
-        <Route path="/accinfo/:id" element={< BusinessInfo />} />
+        <Route path="/accinfo/:id" element={<BusinessInfo />} />
         <Route path="/rooms" element={<RoomSearch />} />
         <Route path="/rooms/:id" element={<RoomInfo />} />
+    
+        {/* reset password  */}
+        <Route path="/reset/acc" element={<Reset />} />
+        <Route path="/reset/client" element={<Reset />} />
+        <Route path="/reset/acc/otp" element={<ResetAccOTP />} />
+        <Route path="/reset/client/otp" element={<ResetClientOTP />} />
+   
         <Route path="/acc/dashboard" element={<AccDashboard />} />
         <Route path="/acc/roomlist" element={<AccRoomList />} />
+        <Route path="/upload" element={<Upload />} />
         <Route path="/client/dashboard" element={<ClientDashboard />} />
-    
-    
+
         {/* register */}
         <Route path="/register" element={<Register />} />
         <Route path="/register/acc" element={<RegisterAcc />} />
         <Route path="/register/acc/verify-email" element={<Otp />} />
         <Route path="/register/client" element={<RegisterClient />} />
         <Route path="/register/client/verify-email" element={<ClientOtp />} />
-        {/* utility */}
-        <Route path="/upload" element={<Upload />} />
+    
         {/* login */}
         <Route path="/login/" element={<Login />} />
         <Route path="/login/acc" element={<LoginAcc />} />
         <Route path="/login/client" element={<LoginClient />} />
-    
+
         <Route path="/client/menu" element={<Menu />} />
         <Route path="/acc/menu" element={<Menu />} />
-    
 
         <Route path="/logout" element={<Logout />} />
         <Route path="/about" element={<About />} />
+    
+    
         <Route path="*" element={<Notfound />} />
       </Routes>
     </Router>

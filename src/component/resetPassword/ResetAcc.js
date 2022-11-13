@@ -3,14 +3,16 @@ import BtnSubmit from "../btn/BtnSubmit";
 import Input from "../utility/Input";
 import { formHint } from "../utility/Text";
 import { useForm } from "react-hook-form";
-import {resetStore} from '../../state/reset'
+import { resetStore } from "../../state/reset";
 import { useNavigate } from "react-router-dom";
+import { errNotify } from "../utility/notify";
+import { ToastContainer} from "react-toastify";
 
 const ResetAcc = () => {
   const span = "grid gap-3";
-  const resetAccPW = resetStore(state=>state.resetAccPW)
+  const resetAccPW = resetStore((state) => state.resetAccPW);
   const { register, handleSubmit } = useForm();
-  const navigate =  useNavigate()
+  const navigate = useNavigate();
   const [data, setdata] = useState({
     email: "",
     password: "",
@@ -20,10 +22,17 @@ const ResetAcc = () => {
     setdata({ ...data, [e.target.name]: e.target.value });
   };
   const onSubmit = () => {
-    resetAccPW(data,navigate);
+    if (data.password !== data.confirmPassword) {
+      errNotify("Passsword does not match");
+    } else if (!data.email || !data.password || !data.confirmPassword) {
+      errNotify("Complete all Info");
+    } else {
+      resetAccPW(data, navigate);
+    }
   };
   return (
     <form className="grid gap-1 " onSubmit={handleSubmit(onSubmit)}>
+    <ToastContainer/>
       <h4 className="text-cyan-800 text-xs font-bold mx-auto">
         Reset Accommodator Password
       </h4>
