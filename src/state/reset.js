@@ -10,11 +10,14 @@ export const resetStore = create((set) => ({
     set({ loading: true });
     set({ acc: null });
     try {
-      const result = await api.post("reset/acc", data);
-      console.table(result.data);
+      const result = await api.post("reset/acc", {
+        email: data.email,
+        password: data.password,
+      });
+      console.log(result);
       localStorage.setItem(
         "resetPW",
-        JSON.stringify({ password: data.password, id: result.data._id })
+        JSON.stringify({ password: data.password, id: result.data.result._id })
       );
       navigate("/reset/acc/otp");
     } catch (err) {
@@ -24,11 +27,12 @@ export const resetStore = create((set) => ({
   },
 
   resetAccOTP: async (data, navigate) => {
+    console.log("data", data);
     set({ loading: true });
     set({ acc: null });
     try {
-      const id = JSON.parse(localStorage.getItem("resetPW")).result._id;
-      await api.post(`reset/client/${id}`, data);
+      const id = JSON.parse(localStorage.getItem("resetPW")).id;
+      await api.patch(`reset/acc/${id}`,data);
       navigate("/login/acc");
     } catch (err) {
       set({ err: err.response.data.message });
@@ -43,7 +47,7 @@ export const resetStore = create((set) => ({
       const result = await api.post("reset/client", data);
       localStorage.setItem(
         "resetPW",
-        JSON.stringify({ password: data.password, id: result.data.password })
+        JSON.stringify({ password: data.password, id: result.data.result._id })
       );
       navigate("/reset/client/otp");
     } catch (err) {
@@ -55,18 +59,18 @@ export const resetStore = create((set) => ({
   resetClientOTP: async (data, navigate) => {
     set({ loading: true });
     set({ acc: null });
+      console.log(data.otp)
     try {
-      const id = JSON.parse(localStorage.getItem("resetPW")).result._id;
-      await api.post(`reset/client/${id}`, data);
+      const id = JSON.parse(localStorage.getItem("resetPW")).id;
+      await api.patch(`reset/client/${id}`, data);
       navigate("/login/client");
     } catch (err) {
       set({ err: err.response.data.message });
     }
     set({ loading: false });
   },
-  
-  
-  setErr: (err) =>{
+
+  setErr: (err) => {
     set({ err: err });
   },
 }));

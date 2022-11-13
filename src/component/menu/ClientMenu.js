@@ -7,6 +7,7 @@ import review from "../img/review.svg";
 import { CgMoreVertical } from "react-icons/cg";
 import { Link } from "react-router-dom";
 
+
 const ClientMenu = () => {
   const items = [
     {
@@ -23,9 +24,9 @@ const ClientMenu = () => {
     },
     {
       icon: review,
-      name: "account",
-      link: "/acc/account",
-      desc: "business info",
+      name: "password",
+      link: "/reset/client",
+      desc: "reset password",
     },
     {
       icon: message,

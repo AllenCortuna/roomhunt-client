@@ -24,7 +24,7 @@ const ResetAccOTP = () => {
   const handleReset = () => {
     resetAccOTP(
       {
-        otp: otp,
+        otp: otp.join(""),
         password: JSON.parse(localStorage.getItem("resetPW")).password,
       },
       navigate
