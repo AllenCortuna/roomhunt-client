@@ -9,7 +9,7 @@ import acc from "../img/acc.svg";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import {errNotify} from '../utility/notify'
+import { errNotify } from "../utility/notify";
 
 const LoginAcc = () => {
   const [data, setdata] = useState({
@@ -18,17 +18,17 @@ const LoginAcc = () => {
   });
   const loginAcc = useRegisterState((state) => state.loginAcc);
   const loading = useRegisterState((state) => state.loading);
-  
+
   const err = useRegisterState((state) => state.err);
   const setErr = useRegisterState((state) => state.setErr);
-  
-  useEffect(()=>{
-    if (err!==null) {
-      errNotify(err)
+
+  useEffect(() => {
+    if (err !== null) {
+      errNotify(err);
     }
-    setErr(null)
-  },[err])
-  
+    setErr(null);
+  }, [err]);
+
   const navigate = useNavigate();
 
   const {
@@ -87,7 +87,11 @@ const LoginAcc = () => {
         to="/register/acc"
         className="text-gray-400 underline text-xs mt-5 "
       >
-        Dont have an Account? Register{" "}
+        Dont have an Account? Register
+      </Link>
+
+      <Link to="/reset/acc" className="text-gray-400 underline text-xs mt-5 ">
+        Forgot Password?
       </Link>
     </div>
   );

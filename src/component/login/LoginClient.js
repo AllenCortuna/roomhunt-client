@@ -88,6 +88,13 @@ const LoginAcc = () => {
       >
         Dont have an Account? Register{" "}
       </Link>
+    
+      <Link
+        to="/reset/client"
+        className="text-gray-400 underline text-xs mt-5 "
+      >
+       Forgot Password? 
+      </Link>
     </div>
   );
 };

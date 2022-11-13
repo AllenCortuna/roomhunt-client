@@ -45,7 +45,7 @@ const ResetClient = () => {
     <form className="grid gap-1 " onSubmit={handleSubmit(onSubmit)}>
       <ToastContainer />
       <h4 className="text-cyan-800 text-xs font-bold mx-auto">
-        Reset Accommodator Password
+        Reset Client Password
       </h4>
       <hr className="text-zinc-400 " />
 
