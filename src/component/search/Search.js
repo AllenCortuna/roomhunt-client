@@ -74,9 +74,9 @@ const Search = () => {
 
   const iconCl = "mr-1 inline";
   return (
-    <span className="grid md:grid gap-14">
+    <span className="grid gap-10">
       <ToastContainer />
-      <div className="grid grid-cols-1 border border-gray-200 bg-white shadow-lg rounded-lg w-[21rem] mx-auto mt-10 mt-4 pb-5 lg:mt-24 md:p-4 md:w-[23rem]">
+      <div className="grid grid-cols-1 border border-gray-200 bg-white shadow-lg rounded-lg w-[21rem] mx-auto mt-10 mt-4 pb-5 md:p-4 md:w-[23rem]">
         {/* <span className="h-4 bg-cyan-600 rounded-tl-md rounded-tr-md shadow-sm"></span> */}
         <span className="p-3">
           <Label

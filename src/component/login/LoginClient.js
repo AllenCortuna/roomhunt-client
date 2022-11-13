@@ -44,7 +44,7 @@ const LoginAcc = () => {
   };
 
   return (
-    <div className="grid text-center bg-white w-[21rem] h-auto border rounded-md shadow-md h-auto mx-auto mt-10 pb-5">
+    <div className="grid text-center bg-white w-[21rem] md:w-[23rem] h-auto border rounded-md shadow-md h-auto mx-auto mt-10 pb-5">
       <ToastContainer />
       <span className="rounded-tl-md rounded-tr-md h-3 bg-orange mb-5 shadow-sm"></span>
       <img
