@@ -4,8 +4,8 @@ import house from './img/client.svg'
 
 const About = () => {
   return (
-    <div className="mx-auto p-5 mt-10 md:mt-20 max-w-[50rem] gap-14  md:gap-20 lg:gap-32  flex-wrap flex justify-center ">
-      <span className="w-[21rem] text-left block ">
+    <div className="mx-auto p-5 mt-10 md:mt-20 max-w-[50rem] gap-14  md:gap-20 lg:gap-32  grid md:grid-cols-2">
+      <span className="max-w-[21rem] text-left block ">
         <h4 className="text-cyan-800 font-bold text-md drop-shadow-sm">
           <FaInfoCircle className="inline mr-2" />
           About us!
@@ -19,7 +19,7 @@ const About = () => {
       </span>
     
     
-      <span className="w-[21rem] text-left block ">
+      <span className="max-w-[21rem] text-left block ">
         <h4 className="text-cyan-800 font-bold text-md drop-shadow-sm">
           <FaInfoCircle className="inline mr-2" />
           Objective
