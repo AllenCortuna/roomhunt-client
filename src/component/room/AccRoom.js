@@ -2,7 +2,7 @@
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import { BsCalendarWeek, BsFillHouseFill } from "react-icons/bs";
-import { MdLocationOn } from "react-icons/md";
+import { MdPreview } from "react-icons/md";
 import Moment from "react-moment";
 
 const AccRoom = ({ room }) => {
@@ -36,6 +36,12 @@ const AccRoom = ({ room }) => {
         </h1>
 
         <h1 className={txt}>
+          <MdPreview className="inline mr-1" />
+          <span className="rale font-normal text-gray-400">Total View: </span>
+         <span className="font-semibold"> {room.view}</span> 
+        </h1>
+
+        <h1 className={txt}>
           <BsCalendarWeek className="inline mr-1" />
           <span className="rale font-normal text-gray-400">CheckIn:</span>{" "}
           {room.checkInDate ? (
@@ -53,12 +59,6 @@ const AccRoom = ({ room }) => {
           ) : (
             "null"
           )}
-        </h1>
-    
-        <h1 className="text-gray-400 text-[.64rem] capitalize truncate rale">
-          <MdLocationOn className="mr-[.2rem] inline -mt-[.15rem]" />
-          views:
-          <span className="text-zinc-500 rale font-semibold ml-1">{room.view}</span>
         </h1>
       </span>
     </span>
