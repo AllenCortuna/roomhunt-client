@@ -27,7 +27,7 @@ const RoomInfo = () => {
   }, [id]);
 
   const waiting = (
-    <span className="grid w-[20rem] mt-32 md:mt-40 mx-auto">
+    <span className="grid w-[20rem] mt-[20%] mx-auto">
       <Loading text={"Fetching Room Info"} />
     </span>
   );
@@ -37,7 +37,7 @@ const RoomInfo = () => {
         waiting
       ) : (
         <div className="grid gap-10 w-[21rem] md:w-[42rem] mx-auto">
-          <span className="grid grid-cols-1 md:grid-cols-3 w-[21rem] md:w-[42rem] mt-14 rounded-lg bg-white shadow-md mx-auto border p-0 gap-y-14 md:gap-y-0">
+          <span className="grid grid-cols-1 md:grid-cols-3 w-[21rem] md:w-[42rem] mt-[20%] rounded-lg bg-white shadow-md mx-auto border p-0 gap-y-14 md:gap-y-0">
             <span className="block md:col-span-2 pt-4 ">
               {/* room owner */}
               <span

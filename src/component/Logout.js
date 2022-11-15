@@ -7,7 +7,7 @@ const Logout = () => {
 
   const logOut = useRegisterState((state) => state.logOut);
   return (
-    <div className="grid grid-cols-2 place-items-center p-4 mt-56 md:mt-60 gap-5 min-w-[18rem] max-w-[24rem] mx-auto ">
+    <div className="grid grid-cols-2 place-items-center p-4 mt-[30%] md:mt-60 gap-5 min-w-[18rem] max-w-[24rem] mx-auto ">
       <span className="col-span-2 text-center">
         <h1 className="font-bold uppercase text-cyan-800 text-xl drop-shadow-sm ">
           logout
