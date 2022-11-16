@@ -71,7 +71,7 @@ const Upload = () => {
   };
   return (
     <>
-      <div className="flex flex-wrap justify-center items-start gap-y-14 gap-0 mt-5 mb-14">
+      <div className="flex flex-wrap justify-center content-start gap-y-14 gap-0 mt-[5%] mb-14">
         <span className="mx-auto flex flex-wrap  w-[21rem] rounded-md shadow-md bg-white border h-auto p-4 ">
           <h1 className="uppercase text-sm font-bold drop-shadow-sm text-cyan-800 mb-2 ml-1">
             <BsFillGridFill className="inline mr-1 -mt-1" />
