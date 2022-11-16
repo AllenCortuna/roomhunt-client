@@ -6,6 +6,7 @@ import AccInfo from "./AccInfo";
 // import RoomList from "./RoomList";
 import AccUtility from "./AccUtility";
 import Verify from "./Verify";
+import Content from "./Content";
 
 const AccDashboard = () => {
   const navigate = useNavigate();
@@ -32,6 +33,7 @@ const AccDashboard = () => {
 
   return (
     <div className="grid gap-14 md:gap-5 place-items-start justify-items-center pt-10 grid-cols-1 md:grid-cols-2 pb-14 md:mt-40 mb-auto" >
+    <Content />
       {/* accommodator info */}
     <AccInfo user={user?.result} />
     {user?.result.verified===true ?  <AccUtility/> : <Verify/>  }
