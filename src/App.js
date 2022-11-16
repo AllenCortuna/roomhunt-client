@@ -23,6 +23,7 @@ import BusinessInfo from "./component/accinfo/BusinessInfo";
 import Reset from "./component/resetPassword/Reset";
 import ResetAccOTP from "./component/resetPassword/ResetAccOTP";
 import ResetClientOTP from "./component/resetPassword/ResetClientOTP";
+import Message from "./component/message/Mesagge";
 
 const App = () => {
   return (
@@ -33,13 +34,13 @@ const App = () => {
         <Route path="/accinfo/:id" element={<BusinessInfo />} />
         <Route path="/rooms" element={<RoomSearch />} />
         <Route path="/rooms/:id" element={<RoomInfo />} />
-    
+
         {/* reset password  */}
         <Route path="/reset/acc" element={<Reset />} />
         <Route path="/reset/client" element={<Reset />} />
         <Route path="/reset/acc/otp" element={<ResetAccOTP />} />
         <Route path="/reset/client/otp" element={<ResetClientOTP />} />
-   
+
         <Route path="/acc/dashboard" element={<AccDashboard />} />
         <Route path="/acc/roomlist" element={<AccRoomList />} />
         <Route path="/upload" element={<Upload />} />
@@ -51,7 +52,7 @@ const App = () => {
         <Route path="/register/acc/verify-email" element={<Otp />} />
         <Route path="/register/client" element={<RegisterClient />} />
         <Route path="/register/client/verify-email" element={<ClientOtp />} />
-    
+
         {/* login */}
         <Route path="/login/" element={<Login />} />
         <Route path="/login/acc" element={<LoginAcc />} />
@@ -60,10 +61,10 @@ const App = () => {
         <Route path="/client/menu" element={<Menu />} />
         <Route path="/acc/menu" element={<Menu />} />
 
+        <Route path="/message" element={<Message />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/about" element={<About />} />
-    
-    
+
         <Route path="*" element={<Notfound />} />
       </Routes>
     </Router>
