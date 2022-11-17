@@ -58,7 +58,7 @@ const Nav = ({ content }) => {
             ></span>
             <span
               className={`${toggleCls}${
-                showNav && "h-5 border -mt-4  rotate-45 bg-transparent"
+                showNav && "h-5 border -mt-4  rotate-45 bg-zinc-200"
               }`}
             ></span>
           </span>
