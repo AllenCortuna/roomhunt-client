@@ -16,7 +16,6 @@ const Navbar = () => {
   // set navbar content to acc pag refresh
   const acc = localStorage.getItem("acc");
   const client = localStorage.getItem("client");
-  const icon = "text-white group-hover:text-amber-300 mr-2"
   useEffect(() => {
     if (acc) {
       curUsr("acc");
@@ -31,20 +30,20 @@ const Navbar = () => {
       {login === "acc" && (
         <Nav
           content={[
-            { name: "dashboard", desc: "/acc/dashboard",icon: <MdSpaceDashboard className={icon}/> },
-            { name: "menu", desc: "/acc/menu" , icon: <CgMenuGridR className={icon}/> },
-            { name: "about", desc: "/about", icon: <BsInfoCircleFill className={icon}/> },
-            { name: "logout", desc: "/logout", icon: <RiLogoutBoxRFill className={icon}/> },
+            { name: "dashboard", desc: "/acc/dashboard",icon: <MdSpaceDashboard /> },
+            { name: "menu", desc: "/acc/menu" , icon: <CgMenuGridR /> },
+            { name: "about", desc: "/about", icon: <BsInfoCircleFill /> },
+            { name: "logout", desc: "/logout", icon: <RiLogoutBoxRFill /> },
           ]}
         />
       )}
       {login === "client" && (
         <Nav
           content={[
-            { name: "search", desc: "/", icon:<RiFileSearchFill className={icon}/> },
-            { name: "account", desc: "/client/dashboard", icon: <MdSpaceDashboard className={icon}/> },
-            { name: "menu", desc: "/client/menu" , icon: <CgMenuGridR className={icon}/> },
-            { name: "logout", desc: "/logout", icon: <RiLogoutBoxRFill className={icon}/> },
+            { name: "search", desc: "/", icon:<RiFileSearchFill /> },
+            { name: "account", desc: "/client/dashboard", icon: <MdSpaceDashboard /> },
+            { name: "menu", desc: "/client/menu" , icon: <CgMenuGridR /> },
+            { name: "logout", desc: "/logout", icon: <RiLogoutBoxRFill /> },
           ]}
         />
       )}
@@ -52,10 +51,10 @@ const Navbar = () => {
       {login === "" && (
         <Nav
           content={[
-            { name: "search", desc: "/", icon:<RiFileSearchFill className={icon}/> },
-            { name: "login", desc: "/login",icon: <FaUserCircle className={icon}/> },
-            { name: "register", desc: "/register", icon: <FaHouseUser className={icon}/> },
-            { name: "about", desc: "/about", icon: <BsInfoCircleFill className={icon}/> },
+            { name: "search", desc: "/", icon:<RiFileSearchFill /> },
+            { name: "login", desc: "/login",icon: <FaUserCircle /> },
+            { name: "register", desc: "/register", icon: <FaHouseUser /> },
+            { name: "about", desc: "/about", icon: <BsInfoCircleFill /> },
           ]}
         />
       )}

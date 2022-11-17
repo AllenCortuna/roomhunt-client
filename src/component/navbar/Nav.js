@@ -25,12 +25,14 @@ const Nav = ({ content }) => {
         <Link
           to={a.desc}
           key={a.name}
-          className="flex flex-cols justify-start content-start group"
+          className="flex flex-cols justify-start content-start group gap-3  text-white hover:text-amber-300"
           onClick={() => {
             setShowNav(false);
           }}
         >
+        <span className="">
           {a.icon}
+        </span>
           <p className={navlink}>{a.name}</p>
         </Link>
       ))}
@@ -51,12 +53,12 @@ const Nav = ({ content }) => {
           >
             <span
               className={`${toggleCls}${
-                showNav && "h-5 border bg-gray-800 rotate-45 bg-transparent "
+                showNav && "h-5 border rotate-45 bg-transparent"
               }`}
             ></span>
             <span
               className={`${toggleCls}${
-                showNav && "h-5 border -mt-4  rotate-45 bg-gray-200"
+                showNav && "h-5 border -mt-4  rotate-45 bg-transparent"
               }`}
             ></span>
           </span>
