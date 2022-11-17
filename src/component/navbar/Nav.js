@@ -16,16 +16,16 @@ const Nav = ({ content }) => {
 
   // WARN: Navbar
   const navlink =
-    " text-[#fff] text-xs font-[700] transition-all ease-linear uppercase duration-300 group-hover:text-amber-300 my-auto group-hover:underline ";
+    " text-xs font-[700] transition-all ease-linear uppercase duration-300 my-auto";
   const nav = (
     <nav
-      className={`grid transition-all duration-300 ease-linear p-4 gap-5 md:gap-8 pb-8 md:grid-cols-4 p-5 md:py-1 md:justify-items-center md:my-auto md:pb-0 `}
+      className={`p-3 md:p-0 flex flex-col md:flex-row transition-all duration-300 ease-linear md:gap-1 md:my-auto`}
     >
       {content.map((a) => (
         <Link
           to={a.desc}
           key={a.name}
-          className="flex flex-cols justify-start content-start group gap-3  text-white hover:text-amber-300"
+          className="p-2 flex flex-cols justify-start content-start group gap-2 text-white hover:text-zinc-800 hover:bg-amber-200 rounded-lg w-auto"
           onClick={() => {
             setShowNav(false);
           }}
@@ -41,24 +41,24 @@ const Nav = ({ content }) => {
 
   // WARN: Small Screen
   const toggleCls =
-    "w-5 bg-gray-200 transition-all duration-300 ease-linear h-1 rounded-md ";
+    "w-6 bg-gray-200 transition-all duration-300 ease-linear h-1 rounded-md ";
   const smallScreen = (
     <>
       <div className="">
-        <span className="font-[800] flex justify-between px-3 py-2 items-center">
+        <span className="my-auto font-[800] flex justify-between px-3 py-2 items-center">
           {logo}
           <span
             onClick={() => setShowNav(!showNav)}
-            className="h-5 w-5 flex flex-wrap align-center justify-center my-auto"
+            className="h-6 w-6 flex flex-wrap align-center justify-center my-auto"
           >
             <span
               className={`${toggleCls}${
-                showNav && "h-5 border rotate-45 bg-transparent"
+                showNav && "h-6 border rotate-45 bg-transparent"
               }`}
             ></span>
             <span
               className={`${toggleCls}${
-                showNav && "h-5 border -mt-4  rotate-45 bg-zinc-200"
+                showNav && "h-6 border -mt-4  rotate-45 bg-zinc-200"
               }`}
             ></span>
           </span>
@@ -73,7 +73,6 @@ const Nav = ({ content }) => {
       <span className="flex flex-wrap justify-between px-10 py-2">
         <span className="flex flex-wrap gap-3">
           {logo}
-          <h3 className="text-white text-xl font-[800]">roomhunt</h3>
         </span>
         {nav}
       </span>
@@ -81,7 +80,7 @@ const Nav = ({ content }) => {
   );
 
   return (
-    <div className="bg-zinc-800 grid w-screen h-auto shad " ref={dom}>
+    <div className="bg-zinc-800 grid w-screen h-auto shad" ref={dom}>
       {isSmallScreen ? smallScreen : otherScreen}
     </div>
   );

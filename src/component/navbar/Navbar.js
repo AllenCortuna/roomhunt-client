@@ -31,7 +31,6 @@ const Navbar = () => {
         <Nav
           content={[
             { name: "dashboard", desc: "/acc/dashboard",icon: <MdSpaceDashboard /> },
-            { name: "menu", desc: "/acc/menu" , icon: <CgMenuGridR /> },
             { name: "about", desc: "/about", icon: <BsInfoCircleFill /> },
             { name: "logout", desc: "/logout", icon: <RiLogoutBoxRFill /> },
           ]}
@@ -42,7 +41,6 @@ const Navbar = () => {
           content={[
             { name: "search", desc: "/", icon:<RiFileSearchFill /> },
             { name: "account", desc: "/client/dashboard", icon: <MdSpaceDashboard /> },
-            { name: "menu", desc: "/client/menu" , icon: <CgMenuGridR /> },
             { name: "logout", desc: "/logout", icon: <RiLogoutBoxRFill /> },
           ]}
         />
