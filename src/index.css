@@ -29,6 +29,9 @@ body {
 .red-hat {
   font-family: "Red Hat Display", sans-serif;
 }
+.quick {
+  font-family: "Quicksand", sans-serif;
+}
 .poppin {
   font-family: "Poppins", sans-serif;
 }
@@ -36,7 +39,8 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 .rale {
-  font-family: "Raleway", sans-serif;
+  /* font-family: "Raleway", sans-serif; */
+  font-family: "Quicksand", sans-serif;
 }
 .shad {
   /* box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, */

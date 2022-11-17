@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useEffect } from "react";
 import autoAnimate from "@formkit/auto-animate";
 // import { rightIcon } from "./utility/rightIcon";
 import { Link } from "react-router-dom";
@@ -10,13 +10,12 @@ const Nav = ({ content }) => {
   const dom = React.useRef(null);
   const [showNav, setShowNav] = React.useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     dom.current && autoAnimate(dom.current);
   }, [dom, isSmallScreen]);
 
-  // WARN: Navbar
   const navlink =
-    " text-xs font-[700] transition-all ease-linear uppercase duration-300 my-auto";
+    " text-xs font-[800] uppercase  my-auto";
   const nav = (
     <nav
       className={`p-3 md:p-0 flex flex-col md:flex-row transition-all duration-300 ease-linear md:gap-1 md:my-auto`}
@@ -25,7 +24,7 @@ const Nav = ({ content }) => {
         <Link
           to={a.desc}
           key={a.name}
-          className="p-2 flex flex-cols justify-start content-start group gap-2 text-white hover:text-zinc-800 hover:bg-amber-200 rounded-lg w-auto"
+          className="p-2 flex flex-cols justify-start content-start group gap-2 text-white hover:text-zinc-800 hover:bg-amber-200 rounded-full w-auto transition-all ease-linear duration-300 "
           onClick={() => {
             setShowNav(false);
           }}

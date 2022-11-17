@@ -2,10 +2,9 @@
 import Nav from "./Nav";
 import React, { useEffect } from "react";
 import { useRegisterState } from "../../state/register";
-
 import { RiFileSearchFill } from 'react-icons/ri'
 import { MdSpaceDashboard } from 'react-icons/md'
-import {  CgMenuGridR} from 'react-icons/cg'
+// import {  CgMenuGridR} from 'react-icons/cg'
 import {  RiLogoutBoxRFill} from 'react-icons/ri'
 import { BsInfoCircleFill } from 'react-icons/bs'
 import { FaHouseUser, FaUserCircle} from 'react-icons/fa'
