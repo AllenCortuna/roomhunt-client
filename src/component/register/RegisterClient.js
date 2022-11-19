@@ -9,7 +9,7 @@ import { formHint } from "../utility/Text";
 import { useForm } from "react-hook-form";
 import BtnSubmit from "../btn/BtnSubmit";
 import { ToastContainer } from "react-toastify";
-import {errNotify} from '../utility/notify'
+import { errNotify } from "../utility/notify";
 import { container, img, form, page1container } from "./style";
 import { useRegisterState } from "../../state/register";
 
@@ -18,15 +18,15 @@ const RegisterClient = () => {
   const navigate = useNavigate();
   const loading = useRegisterState((state) => state.loading);
   const err = useRegisterState((state) => state.err);
-  
+
   const setErr = useRegisterState((state) => state.setErr);
-  useEffect(()=>{
-    if (err!==null) {
-      errNotify(err)
+  useEffect(() => {
+    if (err !== null) {
+      errNotify(err);
     }
     setErr(null);
-  },[err])
-  
+  }, [err]);
+
   const {
     register,
     handleSubmit,
@@ -38,20 +38,24 @@ const RegisterClient = () => {
     name: "",
     password: "",
     confirmPassword: "",
-    birthday: ""
-  })
+    birthday: "",
+  });
 
-  const onSubmit = async() => {
-    await registerClient(data, navigate);
+  const onSubmit = async () => {
+    if (data.password !== data.confirmPassword) {
+      errNotify("Password Not Match");
+    } else {
+      await registerClient(data, navigate);
+    }
   };
+  
   const handleChange = (e) => {
     setdata({ ...data, [e.target.name]: e.target.value });
-  }
+  };
+  
   const handleDate = (e) => {
     setdata({ ...data, birthday: e.target.value });
-  }
-
-
+  };
 
   return (
     <div className={container}>
@@ -69,9 +73,9 @@ const RegisterClient = () => {
           />
           <FormErr text={"Full Name is required"} err={errors.name} />
           {formHint("birthday")}
-    <span className="w-[50%]">
-          <DateInput date={data.birthday} handleChange={handleDate} />
-    </span>
+          <span className="w-[50%]">
+            <DateInput date={data.birthday} handleChange={handleDate} />
+          </span>
 
           {formHint("email")}
           <Input
@@ -89,7 +93,6 @@ const RegisterClient = () => {
             onChange={handleChange}
           />
           <FormErr text={"password is required"} err={errors.password} />
-
 
           <Input
             type="password"
@@ -109,12 +112,4 @@ const RegisterClient = () => {
   );
 };
 
-
-
-
-export default RegisterClient
-
-
-
-
-
+export default RegisterClient;

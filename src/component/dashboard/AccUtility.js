@@ -21,9 +21,9 @@ const AccUtility = () => {
     },
     {
       icon: review,
-      name: "account",
+      name: "terms",
       link: "/acc/account",
-      desc: "account setting",
+      desc: "terms and policy",
     },
   ];
 
@@ -48,7 +48,7 @@ const AccUtility = () => {
                   <p className="text-cyan-800 text-xs font-bold uppercase">
                     {item.name}
                   </p>
-                  <p className="md:text-sm text-gray-400 text-xs rale group-hover:text-gray-600">
+                  <p className="md:text-sm text-gray-400 text-xs rale group-hover:text-gray-600 truncate">
                     {item.desc}
                   </p>
                 </span>

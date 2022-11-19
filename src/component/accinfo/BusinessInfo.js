@@ -22,8 +22,8 @@ const BusinessInfo = () => {
       <div className="grid mt-14 md:mt-20 p-4 mx-auto">
         {!loading && !acc && <NotFound />}
         {loading ? (
-          <span className="max-w-[24rem] p-5">
-            <Loading text={"Getting Accommodation Info"} />
+          <span className="mx-auto max-w-[24rem] p-5">
+            <Loading text={"Getting Info"} />
           </span>
         ) : (
           acc && (
