@@ -1,23 +1,32 @@
-import React from 'react'
-import { useLocation } from 'react-router-dom'
-import ResetAcc from './ResetAcc'
-import ResetClient from './ResetClient'
-import reset from '../img/acc.svg'
+import React from "react";
+import { useLocation } from "react-router-dom";
+import ResetAcc from "./ResetAcc";
+import ResetClient from "./ResetClient";
+import Notfound from "../NotFound";
+import ResetClientOTP from "./ResetClientOTP";
+import ResetAccOTP from "./ResetAccOTP";
 
 const Reset = () => {
- const path =  useLocation()
+  const path = useLocation();
+  const pathname = path.pathname;
+  const reset = (pathname) => {
+    switch (pathname) {
+      case "/reset/acc":
+        return <ResetAcc />;
+      case "/reset/client":
+        return <ResetClient/>
+      case "/reset/client-otp":
+        return <ResetClientOTP/>
+      case "/reset/acc-otp":
+        return <ResetAccOTP/>
+      default:
+        return <Notfound />;
+    }
+  };
 
-  return (
-    <div className='mt-14 md:mt-40 p-4 mx-auto grid'>
+  return <div>{reset(pathname)}</div>;
+};
 
-    <span className="bg-white p-5 md:p-6 border shadow-md rounded-lg max-w-[24rem] mx-auto">
-    <img src={reset} alt="reset" className="drop-shadow-md w-[50%] my-5 mx-auto" />
-      
-    {(path.pathname ==="/reset/acc") ? <ResetAcc/> : <ResetClient/>
-   } 
-    </span>  
-    </div>
-  )
-}
+// <ResetClient/>
 
-export default Reset
+export default Reset;

@@ -21,8 +21,6 @@ import AccRoomList from "./component/dashboard/AccRoomList";
 import About from "./component/About";
 import BusinessInfo from "./component/accinfo/BusinessInfo";
 import Reset from "./component/resetPassword/Reset";
-import ResetAccOTP from "./component/resetPassword/ResetAccOTP";
-import ResetClientOTP from "./component/resetPassword/ResetClientOTP";
 import Message from "./component/message/Mesagge";
 
 const App = () => {
@@ -35,12 +33,7 @@ const App = () => {
         <Route path="/rooms" element={<RoomSearch />} />
         <Route path="/rooms/:id" element={<RoomInfo />} />
 
-        {/* reset password  */}
-        <Route path="/reset/acc" element={<Reset />} />
-        <Route path="/reset/client" element={<Reset />} />
-        <Route path="/reset/acc/otp" element={<ResetAccOTP />} />
-        <Route path="/reset/client/otp" element={<ResetClientOTP />} />
-
+        <Route path="/reset/:id" element={<Reset />} />
         <Route path="/acc/dashboard" element={<AccDashboard />} />
         <Route path="/acc/roomlist" element={<AccRoomList />} />
         <Route path="/upload" element={<Upload />} />

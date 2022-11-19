@@ -18,7 +18,7 @@ export const resetStore = create((set) => ({
         "resetPW",
         JSON.stringify({ password: data.password, id: result.data.result._id })
       );
-      navigate("/reset/acc/otp");
+      navigate("/reset/acc-otp");
     } catch (err) {
       set({ err: err.response.data.message });
     }
@@ -47,7 +47,7 @@ export const resetStore = create((set) => ({
         "resetPW",
         JSON.stringify({ password: data.password, id: result.data.result._id })
       );
-      navigate("/reset/client/otp");
+      navigate("/reset/client-otp");
     } catch (err) {
       set({ err: err.response.data.message });
     }

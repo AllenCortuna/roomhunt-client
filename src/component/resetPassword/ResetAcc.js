@@ -7,6 +7,7 @@ import { resetStore } from "../../state/reset";
 import { useNavigate } from "react-router-dom";
 import { errNotify } from "../utility/notify";
 import { ToastContainer } from "react-toastify";
+import reset from "../img/acc.svg";
 
 const ResetAcc = () => {
   const span = "grid gap-3";
@@ -20,7 +21,7 @@ const ResetAcc = () => {
       errNotify(err);
     }
   }, [err]);
-  
+
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const [data, setdata] = useState({
@@ -38,45 +39,55 @@ const ResetAcc = () => {
       errNotify("Complete all Info");
     } else {
       resetAccPW(data, navigate);
-      setErr(null)
+      setErr(null);
     }
   };
   return (
-    <form className="grid gap-1 " onSubmit={handleSubmit(onSubmit)}>
-      <ToastContainer />
-      <h4 className="text-cyan-800 text-xs font-bold mx-auto">
-        Reset Accommodator Password
-      </h4>
-      <hr className="text-zinc-400 " />
-
-      <span className={span}>
-        {formHint("Email")}
-        <Input
-          type={"email"}
-          register={{ ...register("email", { required: true }) }}
-          onChange={handleChange}
+    <div className="mt-14 md:mt-40 p-4 mx-auto grid">
+      <span className="bg-white p-5 md:p-6 border shadow-md rounded-lg max-w-[24rem] mx-auto">
+        <img
+          src={reset}
+          alt="reset"
+          className="drop-shadow-md w-[50%] my-5 mx-auto"
         />
-      </span>
 
-      <span className={span}>
-        {formHint("New Password")}
-        <Input
-          type={"password"}
-          register={{ ...register("password", { required: true }) }}
-          onChange={handleChange}
-        />
-      </span>
+        <form className="grid gap-1 " onSubmit={handleSubmit(onSubmit)}>
+          <ToastContainer />
+          <h4 className="text-cyan-800 text-xs font-bold mx-auto">
+            Reset Accommodator Password
+          </h4>
+          <hr className="text-zinc-400 " />
 
-      <span className={span}>
-        {formHint("confirm Password")}
-        <Input
-          type={"password"}
-          register={{ ...register("confirmPassword", { required: true }) }}
-          onChange={handleChange}
-        />
+          <span className={span}>
+            {formHint("Email")}
+            <Input
+              type={"email"}
+              register={{ ...register("email", { required: true }) }}
+              onChange={handleChange}
+            />
+          </span>
+
+          <span className={span}>
+            {formHint("New Password")}
+            <Input
+              type={"password"}
+              register={{ ...register("password", { required: true }) }}
+              onChange={handleChange}
+            />
+          </span>
+
+          <span className={span}>
+            {formHint("confirm Password")}
+            <Input
+              type={"password"}
+              register={{ ...register("confirmPassword", { required: true }) }}
+              onChange={handleChange}
+            />
+          </span>
+          <BtnSubmit loading={loading} />
+        </form>
       </span>
-      <BtnSubmit loading={loading} />
-    </form>
+    </div>
   );
 };
 
