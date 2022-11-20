@@ -32,7 +32,7 @@ const AccDashboard = () => {
   }, [logOut, navigate, user.token]);
 
   return (
-    <div className="grid gap-14 md:gap-5 place-items-start justify-items-center mt-10 md:mt-[20%] grid-cols-1 md:grid-cols-2 mb-auto" >
+    <div className="grid gap-14 md:gap-5 place-items-start justify-items-center mt-10 md:mt-[20%] grid-cols-1 md:grid-cols-2 mb-10" >
     {/* <Content /> */}
       {/* accommodator info */}
     <AccInfo user={user?.result} />
