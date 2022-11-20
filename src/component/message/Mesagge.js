@@ -1,8 +1,14 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import Chat from "./Chat";
 
 const Mesagge = () => {
   // todo: display icon for message
+  const acc = localStorage.getItem(JSON.stringify("acc"))
+  const client = localStorage.getItem(JSON.stringify("client"))
+  const profile = acc ? acc : client
+
+
 
   return (
     <span className="flex p-4 flex-col p-4 px-auto ">
@@ -10,9 +16,9 @@ const Mesagge = () => {
       <div className="mx-auto mt-14 flex flex-wrap content-start  justify-center gap-5 md:gap-10 ">
         <Chat
           text={
-            "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."
+            "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat"
           }
-          sender={"kd"}
+          sender={"Kd"}
         />
         <Chat
           text={
