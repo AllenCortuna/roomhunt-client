@@ -23,7 +23,7 @@ const PropertyType = ({ handleCat,query }) => {
       <span className="grid grid-cols-3 gap-3 mt-2">
         {type.map((a) => (
           <span
-            className={`group flex flex-wrap justify-center items-center text-center flex-row p-2 rounded-lg transition-all duration-300 ease-linear hover:bg-brown ${query.category===a.name ? "text-white bg-brown rounded-3xl" : "bg-smoke shad text-gray-500"}`}
+            className={`group flex flex-wrap justify-center items-center text-center flex-row p-2 rounded-lg transition-all duration-300 ease-linear hover:bg-brown ${query.category===a.name ? "text-white bg-brown rounded-3xl shad" : "bg-smoke shad text-gray-500"}`}
             key={a.name}
             onClick={()=>handleCat(a.name)}
           >

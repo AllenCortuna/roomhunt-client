@@ -33,7 +33,7 @@ const Filter = ({ handleChange, query, setquery, onSubmit, clear }) => {
 
   return (
     <form
-      className="mt-3 grid grid-cols-2 gap-5 p-3 "
+      className="mt-3 grid grid-cols-2 gap-5 p-4 "
       onSubmit={handleSubmit(onSubmit)}
     >
       <span>
