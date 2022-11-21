@@ -21,26 +21,25 @@ export const messageStore = create((set) => ({
     set({ acc: null });
     try {
       const result = await api.get(`message/getRecieve/${id}`);
-      set({ message: result });
+      set({ message: result.data.result });
     } catch (err) {
       set({ err: err.response.data.message });
+      console.log(err)
     }
     set({ loading: false });
   },
-  
+
   getSend: async (id) => {
     set({ loading: true });
     set({ acc: null });
     try {
       const result = await api.get(`message/getSend/${id}`);
-      set({ message: result });
+      set({ message: result.data.result });
     } catch (err) {
       set({ err: err.response.data.message });
     }
     set({ loading: false });
   },
-  
-  
 
   sendMessage: async (data) => {
     set({ loading: true });
