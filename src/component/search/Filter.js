@@ -20,7 +20,6 @@ const Filter = ({ handleChange, query, setquery, onSubmit, clear }) => {
 
   const handleOpt = (e) => {
     setquery({ ...query, bed: e.target.value });
-    console.log(query.bed)
   };
 
   const handleCheckIn = (e) => {

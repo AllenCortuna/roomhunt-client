@@ -41,14 +41,14 @@ const RoomInfo = () => {
             <span className="block md:col-span-2 pt-4 ">
               {/* room owner */}
               <span
-                className="shad grid p-3 bg-zinc-200  w-auto h-auto rounded-tr-xl rounded-br-xl md:mr-20 mr-8 mb-4 truncate hover:bg-brown  "
+                className="shad grid p-3 bg-zinc-200  w-auto h-auto rounded-tr-xl rounded-br-xl md:mr-20 mr-8 mb-4 hover:bg-brown overflow-x-scroll"
                 onClick={() => navigate(`/accinfo/${room.owner}`)}
               >
-                <h4 className="drop-shadow-sm text-cyan-800 font-bold">
+                <h4 className="drop-shadow-sm text-cyan-800 font-bold text-xs">
                   <RiBuildingFill className="inline mr-1 mb-1" />
                   {room.ownerName}
                 </h4>
-                <h4 className="text-zinc-500 text-xs">
+                <h4 className="text-zinc-500 text-[.6rem] rale truncate">
                   <MdLocationOn className="inline mb-1" />
                   {room.location}
                 </h4>
