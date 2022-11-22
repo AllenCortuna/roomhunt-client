@@ -23,7 +23,7 @@ const RoomReview = ({ room }) => {
   const star = "-mt-1 my-auto text-xl drop-shadow-sm inline text-yellow";
   const starClear = "-mt-1 my-auto text-xl drop-shadow-sm inline text-zinc-400";
   return (
-    <div className="flex flex-wrap gap-y-3 border border-zinc-300 rounded-md ml-3 p-2 w-[15rem] justify-between items-center bg-zinc-100 mt-10 md:mt-0">
+    <div className="flex flex-wrap gap-y-3 border border-zinc-300 rounded-md ml-3 p-2 w-[18rem] justify-between items-center bg-zinc-100 mt-10 md:mt-0 mb-3">
       <span className="grid gap-1 p-1 py-0 grid-cols-5 w-auto ">
         <span onClick={() => setreview(1)}>
           {review >= 1 ? (
@@ -78,12 +78,12 @@ const RoomReview = ({ room }) => {
       <button
         type="submit"
         onClick={onSubmit}
-        className="p-3 font-semibold bg-zinc-300 rounded-md hover:shadow-lg shad"
+        className="p-2 font-semibold bg-zinc-300 rounded-md hover:shadow-lg shad"
       >
         <p className="drop-shadow-sm text-[.74rem] text-zinc-500 ">submit</p>
       </button>
       <textarea
-        rows={4}
+        rows={3}
         cols={50}
         value={comment}
         className="rounded-sm text-zinc-500 text-xs p-2 focus:bg-brown focus:text-white focus:outline-none transition-all duration-300 ease-linear"

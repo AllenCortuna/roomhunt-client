@@ -9,7 +9,7 @@ const Info = ({ room }) => {
   const txt = "ml-3 text-gray-500 font-[500] text-[.74rem] space-mono truncate";
   const highlight = "ml-3 text-gray-500 font-semibold  text-[.74rem] space-mono";
   return (
-    <span className="p-4 pt-0 grid">
+    <span className="p-4 pt-0 grid md:mt-0 mt-4">
       <h1 className="text-cyan-800 font-semibold text-[.84rem] capitalize ">
         <BsFillHouseFill className="mr-[.2rem] inline -mt-[.15rem]" />
     Room Status
