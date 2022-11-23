@@ -50,7 +50,8 @@ export const messageStore = create((set) => ({
     set({ loading: true });
     set({ acc: null });
     try {
-      const result = await api.post("message/send", { data });
+      console.log("data",data)
+      const result = await api.post("message/send", data );
       set((state) => ({ messages: [...state.messages, result.data] }));
     } catch (err) {
       set({ err: err.response.data.message });

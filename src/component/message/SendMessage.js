@@ -16,19 +16,19 @@ const SendMessage = () => {
   const recieverId = new URLSearchParams(query).get("recieverId");
 
   const [data, setdata] = useState({
-    sender: String(sender),
-    senderId: String(senderId),
-    receiver: String(reciever),
-    receiverId: String(recieverId),
+    sender: sender,
+    senderId: senderId,
+    receiver: reciever,
+    recieverId: recieverId,
     message: "",
   });
 
   useEffect(() => {
     setdata({
-    sender: String(sender),
-    senderId: String(senderId),
-    receiver: String(reciever),
-    receiverId: String(recieverId),
+    sender: sender,
+    senderId: senderId,
+    receiver: reciever,
+    receiverId: recieverId,
     message: "",
     });
   }, [reciever, recieverId, sender, senderId]);
@@ -39,8 +39,8 @@ const SendMessage = () => {
 
   const navigate = useNavigate();
   const handleSend = async () => {
-   console.log(data.message) 
-   console.log(data.senderId) 
+   console.log(data.recieverId)
+   console.log(recieverId)
     if (data.message === "") {
       alert("No Message Content");
     } else {

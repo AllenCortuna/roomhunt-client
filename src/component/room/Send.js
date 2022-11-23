@@ -1,5 +1,5 @@
 import React from "react";
-import { BiMailSend } from "react-icons/bi";
+import { RiSendPlaneFill } from "react-icons/ri";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 
@@ -15,19 +15,19 @@ const Send = ({ room, verified }) => {
           type="button"
           onClick={() =>
             navigate(
-              `/messageSend?reciever=${room.ownerName}&recieverId=${room.owner}&sender=${profile.name}&senderId=${profile._id}`
+              `/messageSend?&sender=${profile.name}&senderId=${profile._id}&reciever=${room.ownerName}&recieverId=${room.owner}`
             )
           }
-          className="p-2 text-zinc-500 rale  text-xs font-[500] border rounded-sm shad bg-zinc-200"
+          className="p-2 text-zinc-500 rale  text-xs font-[500] border rounded-md shad bg-zinc-200"
         >
-          <BiMailSend className="mr-1 inline" /> Message
+          <RiSendPlaneFill className="mr-1 inline" /> Message
         </button>
       )}
 
       <button
         type="button"
         onClick={() => navigate(`/accinfo/${room.owner}`)}
-        className="p-2 text-zinc-500 rale text-xs font-[500] border rounded-sm shad bg-zinc-200"
+        className="p-2 text-zinc-500 rale text-xs font-[500] border rounded-md shad bg-zinc-200"
       >
         <BsFillInfoCircleFill className="mr-1 inline" />
         Info
