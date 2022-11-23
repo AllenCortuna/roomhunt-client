@@ -29,7 +29,7 @@ export const messageStore = create((set) => ({
       set({ message: result.data.result });
     } catch (err) {
       set({ err: err.response.data.message });
-      console.log(err)
+      console.log(err);
     }
     set({ loading: false });
   },
@@ -50,10 +50,11 @@ export const messageStore = create((set) => ({
     set({ loading: true });
     set({ acc: null });
     try {
-      const result = await api.post("message/post", { data });
+      const result = await api.post("message/send", { data });
       set((state) => ({ messages: [...state.messages, result.data] }));
     } catch (err) {
       set({ err: err.response.data.message });
+      console.log(err.response.data.message);
     }
     set({ loading: false });
   },
