@@ -46,13 +46,14 @@ export const messageStore = create((set) => ({
     set({ loading: false });
   },
 
-  sendMessage: async (data) => {
+  sendMessage: async (data,navigate) => {
     set({ loading: true });
     set({ acc: null });
     try {
-      console.log("data",data)
       const result = await api.post("message/send", data );
       set((state) => ({ messages: [...state.messages, result.data] }));
+      navigate(-1);
+      alert("Message Sent!")
     } catch (err) {
       set({ err: err.response.data.message });
       console.log(err.response.data.message);

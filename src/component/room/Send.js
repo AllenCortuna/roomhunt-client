@@ -18,7 +18,7 @@ const Send = ({ room, verified }) => {
               `/messageSend?&sender=${profile.name}&senderId=${profile._id}&reciever=${room.ownerName}&recieverId=${room.owner}`
             )
           }
-          className="p-2 text-zinc-500 rale  text-xs font-[500] border rounded-md shad bg-zinc-200"
+          className="p-2 text-zinc-600 rale  text-xs font-[500] border rounded-md shad bg-zinc-100"
         >
           <RiSendPlaneFill className="mr-1 inline" /> Message
         </button>
@@ -27,7 +27,7 @@ const Send = ({ room, verified }) => {
       <button
         type="button"
         onClick={() => navigate(`/accinfo/${room.owner}`)}
-        className="p-2 text-zinc-500 rale text-xs font-[500] border rounded-md shad bg-zinc-200"
+        className="p-2 text-zinc-600 rale text-xs font-[500] border rounded-md shad bg-zinc-100"
       >
         <BsFillInfoCircleFill className="mr-1 inline" />
         Info

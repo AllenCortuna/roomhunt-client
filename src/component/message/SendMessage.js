@@ -18,7 +18,7 @@ const SendMessage = () => {
   const [data, setdata] = useState({
     sender: sender,
     senderId: senderId,
-    receiver: reciever,
+    reciever: reciever,
     recieverId: recieverId,
     message: "",
   });
@@ -27,8 +27,8 @@ const SendMessage = () => {
     setdata({
     sender: sender,
     senderId: senderId,
-    receiver: reciever,
-    receiverId: recieverId,
+    reciever: reciever,
+    recieverId: recieverId,
     message: "",
     });
   }, [reciever, recieverId, sender, senderId]);
@@ -44,8 +44,7 @@ const SendMessage = () => {
     if (data.message === "") {
       alert("No Message Content");
     } else {
-      await sendMessage(data);
-      navigate(-1);
+      await sendMessage(data, navigate);
     }
   };
 
@@ -64,7 +63,7 @@ const SendMessage = () => {
           cols={5}
           value={data.message}
           name="message"
-          className="rale text-xs font-[500] text-zinc-500 p-3 bg-zinc-100 rounded-md focus:outline-none focus:shadow-md transition-all duration-300 ease-linear"
+          className="rale text-xs font-[500] text-zinc-500 p-3 bg-zinc-100 rounded-md focus:outline-none border focus:border-zinc-400 transition-all duration-300 ease-linear"
           onChange={handleMessage}
         />
         <button
