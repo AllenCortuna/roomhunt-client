@@ -43,21 +43,11 @@ const AccRoom = ({ room }) => {
 
         <h1 className={txt}>
           <BsCalendarWeek className="inline mr-1" />
-          <span className="rale font-normal text-gray-400">CheckIn:</span>{" "}
-          {room.checkInDate ? (
-            <Moment date={room.checkInDate} format="MMM-DD" />
+          <span className="rale font-normal text-gray-400">Unvailable-Until:</span>{" "}
+          {room.unvailableUntil ? (
+            <Moment date={room.unvailableUntil} format="MMM-DD" />
           ) : (
-            "null"
-          )}
-        </h1>
-
-        <h1 className={txt}>
-          <BsCalendarWeek className="inline mr-1" />
-          <span className="rale font-normal text-gray-400">CheckOut:</span>
-          {room.checkOutDate ? (
-            <Moment date={room.checkOutDate} format="MMM-DD" />
-          ) : (
-            "null"
+            "None"
           )}
         </h1>
       </span>

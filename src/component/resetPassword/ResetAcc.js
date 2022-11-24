@@ -8,8 +8,10 @@ import { useNavigate } from "react-router-dom";
 import { errNotify } from "../utility/notify";
 import { ToastContainer } from "react-toastify";
 import reset from "../img/acc.svg";
+import FormErr from "../utility/FormErr";
 
 const ResetAcc = () => {
+  
   const span = "grid gap-3";
   const resetAccPW = resetStore((state) => state.resetAccPW);
   const loading = resetStore((state) => state.loading);
@@ -22,7 +24,9 @@ const ResetAcc = () => {
     }
   }, [err]);
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit,
+    formState: { errors },
+  } = useForm();
   const navigate = useNavigate();
   const [data, setdata] = useState({
     email: "",
@@ -71,10 +75,16 @@ const ResetAcc = () => {
             {formHint("New Password")}
             <Input
               type={"password"}
-              register={{ ...register("password", { required: true }) }}
+              register={{
+                ...register("password", { required: true, minLength: 8 }),
+              }}
               onChange={handleChange}
             />
           </span>
+          <FormErr
+            text={"Password must have at least 8 characters"}
+            err={errors.password}
+          />
 
           <span className={span}>
             {formHint("confirm Password")}

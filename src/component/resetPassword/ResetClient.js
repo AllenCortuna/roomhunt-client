@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import BtnSubmit from "../btn/BtnSubmit";
 import Input from "../utility/Input";
+import FormErr from "../utility/FormErr";
 import { formHint } from "../utility/Text";
 import { useForm } from "react-hook-form";
 import { resetStore } from "../../state/reset";
@@ -22,7 +23,11 @@ const ResetClient = () => {
     }
   }, [err]);
 
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const navigate = useNavigate();
   const [data, setdata] = useState({
     email: "",
@@ -75,6 +80,10 @@ const ResetClient = () => {
               onChange={handleChange}
             />
           </span>
+          <FormErr
+            text={"Password must have at least 8 characters"}
+            err={errors.password}
+          />
 
           <span className={span}>
             {formHint("confirm Password")}

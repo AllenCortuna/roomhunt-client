@@ -29,28 +29,16 @@ const Info = ({ room }) => {
 
       <h1 className={txt}>
         <BsCalendar2CheckFill className="inline mr-1" />
-        <span className="rale text-gray-400">CheckIn:</span>
-        <span className=' ml-2 font-[600] space-mono'>
-          {room.checkInDate ? (
-            <Moment date={room.checkInDate} format="MMM-DD-YYYY" />
+        <span className="rale text-gray-400">Unavailable-Until:</span>
+        <span className=' ml-2 font-[600]'>
+          {room.unavailableUntil ? (
+            <Moment date={room.unavailableUntil} format="MMM-DD-YYYY" />
           ) : (
-            "null"
+            "None"
           )}
         </span>
       </h1>
 
-      <h1 className={txt}>
-        <BsCalendar2CheckFill className="inline mr-1" />
-        <span className="rale text-gray-400">CheckOut:</span>
-        <span className='ml-2 font-[600] space-mono'>
-          {room.checkOutDate ? (
-            <Moment date={room.checkOutDate} format="MMM-DD-YYYY" />
-          ) : (
-            "null"
-          )}
-        </span>
-      </h1>
-    
       <h1 className={txt}>
         <BsCalendarWeek className="inline mr-1" />
         <span className="rale text-gray-400">Updated at:</span>

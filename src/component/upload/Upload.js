@@ -15,16 +15,20 @@ const Upload = () => {
   const initialValue = {
     name: "",
     price: "",
-    checkInDate: "",
-    checkOutDate: "",
+    category: "",
+    unavailableUntil: "",
+    description: "",
+    location:"",
     bed: 1,
     image: "",
   };
   const [data, setdata] = useState({
     name: "",
     price: "",
-    checkInDate: "",
-    checkOutDate: "",
+    category: "",
+    unavailableUntil: "",
+    description: "",
+    location:"",
     bed: 1,
     image: "",
   });
@@ -58,8 +62,12 @@ const Upload = () => {
     if (id === 0) {
       if (data.image === "") {
         warnNotify("Select a Room Image")
-      } else if (data.checkInDate > data.checkOutDate) {
-        warnNotify("INVALID DATE: Check-Out-Date must be less than Check-Out-Date");
+      } else if (data.location ==="") {
+        warnNotify("Invalid Location");
+      } else if (data.price ==="") {
+        warnNotify("Invalid Price");
+      } else if (data.category ==="") {
+        warnNotify("Choose a category");
       } else {
         await uploadRoom(data);
         clear();
