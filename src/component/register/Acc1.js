@@ -41,10 +41,18 @@ const Acc1 = ({ setPage, page, handleChange, data }) => {
         <Input
           type="password"
           placeholder={"Password"}
-          register={{ ...register("password", { required: true }) }}
+          register={{
+            ...register("password", {
+              required: true,
+              minLength: 8,
+            }),
+          }}
           onChange={handleChange}
         />
-        <FormErr text={"Password is required"} err={errors.password} />
+        <FormErr
+          text={"Password must have at least 8 characters"}
+          err={errors.password}
+        />
 
         <Input
           type="password"

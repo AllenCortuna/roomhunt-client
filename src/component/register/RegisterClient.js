@@ -48,11 +48,11 @@ const RegisterClient = () => {
       await registerClient(data, navigate);
     }
   };
-  
+
   const handleChange = (e) => {
     setdata({ ...data, [e.target.name]: e.target.value });
   };
-  
+
   const handleDate = (e) => {
     setdata({ ...data, birthday: e.target.value });
   };
@@ -89,10 +89,19 @@ const RegisterClient = () => {
           <Input
             type="password"
             placeholder={"password"}
-            register={{ ...register("password", { required: true }) }}
+            // register={{ ...register("password", { required: true }) }}
+            register={{
+              ...register("password", {
+                required: true,
+                minLength: 8,
+              }),
+            }}
             onChange={handleChange}
           />
-          <FormErr text={"password is required"} err={errors.password} />
+          <FormErr
+            text={"Password must have at least 8 characters"}
+            err={errors.password}
+          />
 
           <Input
             type="password"
