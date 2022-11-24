@@ -11,11 +11,12 @@ import RoomList from "./RoomList";
 
 
 const Upload = () => {
+ const acc = JSON.parse(localStorage.getItem("acc"))
   const [id, setid] = useState(0);
   const initialValue = {
     name: "",
     price: "",
-    category: "",
+    category: acc?.category,
     unavailableUntil: "",
     description: "",
     location:"",
@@ -25,7 +26,7 @@ const Upload = () => {
   const [data, setdata] = useState({
     name: "",
     price: "",
-    category: "",
+    category: acc?.category,
     unavailableUntil: "",
     description: "",
     location:"",
