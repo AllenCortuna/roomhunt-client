@@ -80,14 +80,7 @@ export const roomStore = create((set) => ({
     set({ loading: true });
     set({ err: null });
     try {
-      const result = await api.post("/room", {
-        name: data.name,
-        price: parseInt(data.price),
-        image: data.image,
-        checkInDate: data.checkInDate,
-        checkOutDate: data.checkOutDate,
-        bed: parseInt(data.bed),
-      });
+      const result = await api.post("/room", data);
       set((state) => ({ rooms: [...state.rooms, result.data] }));
     } catch (err) {
       set({ err: err.response.data.message });
@@ -99,14 +92,7 @@ export const roomStore = create((set) => ({
     set({ loading: true });
     set({ err: null });
     try {
-      const result = await api.patch(`/room/${id}`, {
-        name: data.name,
-        price: parseInt(data.price),
-        image: data.image,
-        checkInDate: data.checkInDate,
-        checkOutDate: data.checkOutDate,
-        bed: parseInt(data.bed),
-      });
+      const result = await api.patch(`/room/${id}`, data);
       set((state) => ({
         rooms: [
           ...state.rooms.map((room) => (room._id === id ? result.data : room)),
