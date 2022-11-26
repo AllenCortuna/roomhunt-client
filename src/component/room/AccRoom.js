@@ -29,6 +29,7 @@ const AccRoom = ({ room }) => {
         <h1 className={highlight}>
           <span className="rale font-normal text-gray-400">Price:</span> &#8369;
           {room.price}
+    <span className="">{room.category === "Dorm" ? "monthly": "per night"}</span>
         </h1>
         <h1 className={highlight}>
           <span className="rale font-normal text-gray-400">Bed count:</span>

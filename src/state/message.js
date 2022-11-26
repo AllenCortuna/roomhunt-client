@@ -52,7 +52,7 @@ export const messageStore = create((set) => ({
     set({ acc: null });
     try {
       const result = await api.post("message/send", data);
-      set((state) => ({ message: [...state.message, result.data] }));
+      set((state) => ({ message: [...state.message, result.data.result] }));
       navigate(-1);
       alert("Message Sent!");
     } catch (err) {

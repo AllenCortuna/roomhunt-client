@@ -4,6 +4,7 @@ import { TiWarning } from "react-icons/ti";
 import { BsFillQuestionCircleFill } from "react-icons/bs";
 import { MdAttachEmail } from "react-icons/md";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Verify = () => {
   const location = useLocation();
@@ -23,7 +24,7 @@ const Verify = () => {
         Send the following files and info <br />
         Full Name <br />
         Address <br />
-        Valid I.D. <br />
+        <Link to="/terms" className="underline">Valid I.D.</Link> <br />
         to:
         <MdAttachEmail className="ml-2 mr-1 inline" />
         <a

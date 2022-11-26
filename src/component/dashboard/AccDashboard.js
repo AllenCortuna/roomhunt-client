@@ -11,9 +11,7 @@ import Verify from "./Verify";
 const AccDashboard = () => {
   const navigate = useNavigate();
 
-  const [user, setUser] = useState(
-    JSON.parse(localStorage?.getItem("acc"))
-  );
+  const [user, setUser] = useState(JSON.parse(localStorage?.getItem("acc")));
   const logOut = useRegisterState((state) => state.logOut);
 
   useEffect(() => {
@@ -32,12 +30,12 @@ const AccDashboard = () => {
   }, [logOut, navigate, user.token]);
 
   return (
-    <div className="grid gap-14 md:gap-5 place-items-start justify-items-center mt-10 md:mt-[20%] grid-cols-1 md:grid-cols-2 mb-10" >
-    {/* <Content /> */}
+    <div className="grid gap-14 md:gap-5 place-items-start justify-items-center mt-10 md:mt-[20%] grid-cols-1 md:grid-cols-2 mb-10">
+      {/* <Content /> */}
       {/* accommodator info */}
-    <AccInfo user={user?.result} />
-    {user?.result.verified===true ?  <AccUtility/> : <Verify/>  }
-    {/* <RoomList id={user._id}/> */}
+      {user?.result.verified === false ? <AccInfo user={user?.result} /> : <span></span>}
+      {user?.result.verified === true ? <AccUtility /> : <Verify />}
+      {/* <RoomList id={user._id}/> */}
     </div>
   );
 };

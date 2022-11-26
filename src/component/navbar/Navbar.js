@@ -3,7 +3,7 @@ import Nav from "./Nav";
 import React, { useEffect } from "react";
 import { useRegisterState } from "../../state/register";
 import { RiFileSearchFill } from "react-icons/ri";
-import { MdSpaceDashboard, MdMarkEmailUnread } from "react-icons/md";
+import { MdSpaceDashboard, MdMarkEmailUnread ,MdPolicy } from "react-icons/md";
 import { BsInfoCircleFill } from "react-icons/bs";
 import { FaHouseUser, FaUserCircle } from "react-icons/fa";
 import { TiUser } from "react-icons/ti";
@@ -60,6 +60,7 @@ const Navbar = () => {
             { name: "search", desc: "/", icon: <RiFileSearchFill /> },
             { name: "login", desc: "/login", icon: <FaUserCircle /> },
             { name: "register", desc: "/register", icon: <FaHouseUser /> },
+            { name: "terms", desc: "/terms", icon: <MdPolicy /> },
             { name: "about", desc: "/about", icon: <BsInfoCircleFill /> },
           ]}
         />

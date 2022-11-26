@@ -8,7 +8,7 @@ import { FaInfoCircle } from "react-icons/fa";
 import Moment from "react-moment";
 import { useNavigate } from "react-router-dom";
 
-const Room = ({ room}) => {
+const Room = ({ room }) => {
   const icon = "inline";
   const navigate = useNavigate();
   return (
@@ -23,11 +23,11 @@ const Room = ({ room}) => {
         className="rounded-tr-md rounded-tl-md object-cover w-full h-28"
       />
       <span className="p-2 py-0 grid">
-
-        <Content
+        <Price
           icon={<ImPriceTag className={icon} />}
           text={"price"}
-          value={<span> &#8369;{room.price}</span>}
+          value={<span>&#8369; {room.price}</span>}
+          cat={room.category}
         />
         <Content
           icon={<BsFillGridFill className={icon} />}
@@ -50,11 +50,8 @@ const Room = ({ room}) => {
             )
           }
         />
-        <Place
-          icon={<MdLocationOn className={icon} />}
-          value={room.location}
-        />
-    
+        <Place icon={<MdLocationOn className={icon} />} value={room.location} />
+
         <Place
           icon={<FaInfoCircle className={icon} />}
           value={room.description}
@@ -65,9 +62,11 @@ const Room = ({ room}) => {
 };
 const Content = ({ icon, text, value }) => {
   return (
-    <h1 className={"text-gray-600 font-[500]  text-[.64rem] capitalize"}>
+    <h1 className={"text-gray-600 font-[800]  text-[.64rem] capitalize rale"}>
       <span className="mr-1 inline">{icon}</span>
-      <span className="mr-1 rale font-normal text-gray-500 capitalize truncate">{text}</span>
+      <span className="mr-1 rale font-normal text-gray-500 capitalize truncate ">
+        {text}
+      </span>
       {value}
     </h1>
   );
@@ -77,7 +76,22 @@ const Place = ({ icon, value }) => {
   return (
     <h1 className={"text-gray-500 font-semibold  text-[.64rem] truncate "}>
       <span className="mr-1 inline">{icon}</span>
-      <span className="mr-1 rale font-normal text-gray-500 capitalize">{value}</span>
+      <span className="mr-1 rale font-normal text-gray-500 capitalize">
+        {value}
+      </span>
+    </h1>
+  );
+};
+
+const Price = ({ icon, text, value, cat }) => {
+  return (
+    <h1 className={"text-gray-600 font-[800]  text-[.64rem] capitalize rale "}>
+      <span className="mr-1 inline">{icon}</span>
+      <span className="mr-1 rale font-normal text-gray-500 capitalize truncate">
+        {text}
+      </span>
+      {value}
+      <span className="ml-1 lowercase rale text-zinc-500 font-[400]">{cat === "Dorm" ? "montly" : "per night"}</span>
     </h1>
   );
 };

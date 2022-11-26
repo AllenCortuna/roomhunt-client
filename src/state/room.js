@@ -23,7 +23,9 @@ export const roomStore = create((set) => ({
     set({ loading: true });
     set({ err: null });
     try {
-      const response = await api.get( `/room/location?category=${query.category}&location=${query.location}`);
+      const response = await api.get(
+        `/room/location?category=${query.category}&location=${query.location}`
+      );
       set({ suggestedRoom: response.data });
     } catch (err) {
       set({ err: err.response.data.message });
@@ -41,9 +43,7 @@ export const roomStore = create((set) => ({
           query.location
         }&minPrice=${parseInt(query.minPrice)}&maxPrice=${parseInt(
           query.maxPrice
-        )}&bed=${query.bed}&checkInDate=${
-          query.checkInDate
-        }&checkOutDate=${query.checkOutDate}`
+        )}&bed=${query.bed}&checkInDate=${query.checkInDate}`
       );
       set({ rooms: response.data });
     } catch (err) {

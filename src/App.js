@@ -23,6 +23,7 @@ import BusinessInfo from "./component/accinfo/BusinessInfo";
 import Reset from "./component/resetPassword/Reset";
 import Message from "./component/message/Mesagge";
 import SendMessage from "./component/message/SendMessage";
+import Terms from "./component/Terms";
 
 const App = () => {
   return (
@@ -57,6 +58,7 @@ const App = () => {
 
         <Route path="/message" element={<Message />} />
         <Route path="/messageSend" element={<SendMessage />} />
+        <Route path="/terms" element={<Terms />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/about" element={<About />} />
 

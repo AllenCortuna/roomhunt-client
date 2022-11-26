@@ -8,7 +8,7 @@ import { AiFillSetting } from "react-icons/ai";
 import { Label } from "./utilty";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { warnNotify } from "../utility/notify";
+import { errNotify } from "../utility/notify";
 import RoomByLocation from "../room/RoomByLocation";
 
 const Search = () => {
@@ -23,7 +23,6 @@ const Search = () => {
     minPrice: "",
     maxPrice: "",
     checkInDate: "",
-    checkOutDate: "",
   });
   useEffect(() => {
     const search = JSON.parse(localStorage.getItem("search"));
@@ -46,7 +45,6 @@ const Search = () => {
       minPrice: "",
       maxPrice: "",
       checkInDate: "",
-      checkOutDate: "",
     });
   };
 
@@ -55,16 +53,12 @@ const Search = () => {
   };
 
   const onSubmit = () => {
-    if (query.checkInDate > query.checkOutDate) {
-      warnNotify(" Check-In-Date must be equal or less than Check-Out-Date");
-    } else if (query.checkInDate === "") {
-      warnNotify(" Check-In-Date is Require");
-    } else if (query.checkOutDate === "") {
-      warnNotify(" Check-Out-Date is Require");
+    if (query.checkInDate === "") {
+      errNotify(" Check-In-Date is Require");
     } else if (query.maxPrice === "" || query.minPrice === "") {
-      warnNotify("Enter a Min-Price or Max-Price");
+      errNotify("Enter a Min-Price or Max-Price");
     } else if (parseInt(query.minPrice) > parseInt(query.maxPrice)) {
-      warnNotify(" Min-Price must be equal or less than Max-Price");
+      errNotify(" Min-Price must be equal or less than Max-Price");
     } else {
       getRoomBySearch(query);
       localStorage.setItem("search", JSON.stringify(query));

@@ -22,7 +22,7 @@ const Mesagge = () => {
       {/* <p>message</p> */}
       <div className="mx-auto mt-14 flex flex-wrap content-start  justify-center gap-5 md:gap-10 ">
         {message?.map((a) => (
-          <Chat chat={a} />
+          <Chat chat={a} key={a._id} />
         ))}
       </div>
     {loading && <Loading text={"Loading Message..."}/>} 
