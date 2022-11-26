@@ -9,13 +9,10 @@ import { roomStore } from "../../state/room";
 import Option from "../utility/Option";
 
 const UploadForm = ({ data, setdata, onSubmit }) => {
-  const {
-    register,
-    handleSubmit,
-  } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const loading = roomStore((state) => state.loading);
-  
+
   const handleChange = (e) => {
     setdata({ ...data, [e.target.name]: e.target.value });
   };
@@ -33,7 +30,7 @@ const UploadForm = ({ data, setdata, onSubmit }) => {
   };
 
   const handleAvailable = (e) => {
-    setdata({ ...data, availableUntil: e.target.value });
+    setdata({ ...data, unavailableUntil: e.target.value });
   };
 
   const acc = JSON.parse(localStorage?.getItem("acc"))?.result?.category;
@@ -57,25 +54,28 @@ const UploadForm = ({ data, setdata, onSubmit }) => {
     >
       <Image handleImg={handleImg} data={data} />
       <span className=" mt-2 grid grid-cols-2 gap-1 gap-x-3">
+        {text("Name")}
+        <span></span>
+        <InputVal
+          value={data.name}
+          type={"text"}
+          placeholder={"Room Name/No."}
+          register={{ ...register("name") }}
+          onChange={handleChange}
+        />
+      </span>
+      <span className=" mt-2 grid grid-cols-2 gap-1 gap-x-3">
         {text("Price")}
         {text("Bed")}
-        {acc === "hotel" || acc === "resort" ? (
-          <InputVal
-            value={data.price}
-            type={"number"}
-            placeholder={"per night"}
-            register={{ ...register("price") }}
-            onChange={handleChange}
-          />
-        ) : (
-          <InputVal
-            value={data.price}
-            type={"number"}
-            placeholder={"monthly"}
-            register={{ ...register("price") }}
-            onChange={handleChange}
-          />
-        )}
+        <InputVal
+          value={data.price}
+          type={"number"}
+          placeholder={
+            acc === "hotel" || acc === "resort" ? "per night" : "per month"
+          }
+          register={{ ...register("price") }}
+          onChange={handleChange}
+        />
         <Option
           label={"Bed"}
           option={[1, 2, 3, 4, 5]}
@@ -90,13 +90,16 @@ const UploadForm = ({ data, setdata, onSubmit }) => {
         {text("Available Until")}
         <Option
           label={"Type"}
-          option={["Dorm","Resort","Hotel"]}
+          option={["", "Dorm", "Resort", "Hotel"]}
           handleOpt={handleCategory}
           value={data.category}
         />
-        <DateInput handleChange={handleAvailable} date={data.availableUntil} />
+        <DateInput
+          handleChange={handleAvailable}
+          date={data.unavailableUntil}
+        />
       </span>
-    
+
       {/* location  */}
       <span className="grid gap-1">
         {text("Room Location")}

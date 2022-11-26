@@ -4,6 +4,7 @@ import { BsFillCalendarWeekFill, BsFillGridFill } from "react-icons/bs";
 import { ImPriceTag } from "react-icons/im";
 import { MdLocationOn } from "react-icons/md";
 import { IoIosBed } from "react-icons/io";
+import { FaInfoCircle } from "react-icons/fa";
 import Moment from "react-moment";
 import { roomStore } from "../../state/room";
 
@@ -15,7 +16,7 @@ const Room = ({ room, setid }) => {
   return (
     <span
       key={room._id}
-      className="group bg-white shadow-md grid p-1 gap-1  grid-cols-1 rounded-lg pb-1 transition-all ease-linear duration-300 hover:-m-2 hover:shadow-xl border"
+      className="group bg-white shadow-md grid p-0 gap-1  grid-cols-1 rounded-lg pb-1 transition-all ease-linear duration-300 hover:-m-2 hover:shadow-xl border max-w-[18rem]"
     >
       <img
         src={room.image}
@@ -41,19 +42,23 @@ const Room = ({ room, setid }) => {
         />
         <Content
           icon={<BsFillCalendarWeekFill className={icon} />}
-          text={"unavailableUntil"}
+          text={"unavailable til"}
           value={
             room.unavailableUntil ? (
-              <Moment date={room.unavailableUntil} format="MMM-DD-YYYY" />
+              <Moment date={room.unavailableUntil} format="MMM-DD" />
             ) : (
               "None"
             )
           }
         />
-    
         <Place
           icon={<MdLocationOn className={icon} />}
           value={room.location}
+        />
+    
+        <Place
+          icon={<FaInfoCircle className={icon} />}
+          value={room.description}
         />
 
         {/* btn */}
@@ -87,7 +92,7 @@ const Content = ({ icon, text, value }) => {
   return (
     <h1 className={"text-gray-600 font-[500]  text-[.64rem] capitalize"}>
       <span className="mr-1 inline">{icon}</span>
-      <span className="mr-1 rale font-normal text-gray-500 capitalize">{text}</span>
+      <span className="mr-1 rale font-normal text-gray-500 capitalize truncate">{text}</span>
       {value}
     </h1>
   );

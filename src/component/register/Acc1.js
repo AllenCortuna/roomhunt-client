@@ -63,7 +63,7 @@ const Acc1 = ({ setPage, page, handleChange, data }) => {
         <FormErr text={"Password is required"} err={errors.confirmPassword} />
         <FormErr text={"Password does not match"} err={!isMatch} />
 
-        <BtnSubmit loading={false} loadingTxt={""} text={"Submit"} />
+        <BtnSubmit loading={false} loadingTxt={""} text={"next"} />
       </form>
     </span>
   );

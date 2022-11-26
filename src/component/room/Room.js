@@ -1,18 +1,20 @@
 /* eslint-disable no-unused-vars */
-import { useNavigate } from "react-router-dom";
 import React from "react";
-import { BsCalendarWeek, BsFillHouseFill } from "react-icons/bs";
+import { BsFillCalendarWeekFill, BsFillGridFill } from "react-icons/bs";
+import { ImPriceTag } from "react-icons/im";
 import { MdLocationOn } from "react-icons/md";
+import { IoIosBed } from "react-icons/io";
+import { FaInfoCircle } from "react-icons/fa";
 import Moment from "react-moment";
+import { useNavigate } from "react-router-dom";
 
-const Room = ({ room }) => {
+const Room = ({ room}) => {
+  const icon = "inline";
   const navigate = useNavigate();
-  const txt = "text-gray-500 font-[500] text-[.64rem] space-mono truncate";
-  const highlight = "text-gray-500 font-semibold  text-[.64rem] space-mono";
   return (
     <span
       key={room._id}
-      className="group bg-white shadow-md grid p-1 gap-1  grid-cols-1 rounded-lg pb-1 transition-all ease-linear duration-300 hover:-m-2 hover:shadow-xl md:w-[12rem] border h-auto"
+      className="group bg-white shadow-md grid p-0 gap-1  grid-cols-1 rounded-lg pb-1 transition-all ease-linear duration-300 hover:-m-2 hover:shadow-xl border md:w-[12rem]"
       onClick={() => navigate(`/rooms/${room._id}`)}
     >
       <img
@@ -21,36 +23,62 @@ const Room = ({ room }) => {
         className="rounded-tr-md rounded-tl-md object-cover w-full h-28"
       />
       <span className="p-2 py-0 grid">
-        <h1 className="text-cyan-800 font-semibold text-[.64rem] capitalize ">
-          <BsFillHouseFill className="mr-[.2rem] inline -mt-[.15rem]" />
-          {room.ownerName}
-        </h1>
 
-        <h1 className="text-gray-400 text-[.64rem] capitalize truncate rale">
-          <MdLocationOn className="mr-[.2rem] inline -mt-[.15rem]" />
-          {room.location}
-        </h1>
-        <h1 className={highlight}>
-          <span className="rale font-normal text-gray-400">Price:</span> &#8369;
-          {room.price}
-        </h1>
-        <h1 className={highlight}>
-          <span className="rale font-normal text-gray-400">Bed count:</span>
-          {room.bed}
-        </h1>
-
-        <h1 className={txt}>
-          <BsCalendarWeek className="inline mr-1" />
-          <span className="rale font-normal text-gray-400">Unavailable-Until:</span>{" "}
-          {room.unavailableUntil ? (
-            <Moment date={room.unavailableUntil} format="MMM-DD" />
-          ) : (
-            "None"
-          )}
-        </h1>
-
+        <Content
+          icon={<ImPriceTag className={icon} />}
+          text={"price"}
+          value={<span> &#8369;{room.price}</span>}
+        />
+        <Content
+          icon={<BsFillGridFill className={icon} />}
+          text={"category"}
+          value={room.category}
+        />
+        <Content
+          icon={<IoIosBed className={icon} />}
+          text={"no. of bed"}
+          value={room.bed}
+        />
+        <Content
+          icon={<BsFillCalendarWeekFill className={icon} />}
+          text={"unavailable til"}
+          value={
+            room.unavailableUntil ? (
+              <Moment date={room.unavailableUntil} format="MMM-DD" />
+            ) : (
+              "None"
+            )
+          }
+        />
+        <Place
+          icon={<MdLocationOn className={icon} />}
+          value={room.location}
+        />
+    
+        <Place
+          icon={<FaInfoCircle className={icon} />}
+          value={room.description}
+        />
       </span>
     </span>
+  );
+};
+const Content = ({ icon, text, value }) => {
+  return (
+    <h1 className={"text-gray-600 font-[500]  text-[.64rem] capitalize"}>
+      <span className="mr-1 inline">{icon}</span>
+      <span className="mr-1 rale font-normal text-gray-500 capitalize truncate">{text}</span>
+      {value}
+    </h1>
+  );
+};
+
+const Place = ({ icon, value }) => {
+  return (
+    <h1 className={"text-gray-500 font-semibold  text-[.64rem] truncate "}>
+      <span className="mr-1 inline">{icon}</span>
+      <span className="mr-1 rale font-normal text-gray-500 capitalize">{value}</span>
+    </h1>
   );
 };
 

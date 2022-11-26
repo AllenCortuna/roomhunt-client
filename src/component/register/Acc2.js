@@ -81,7 +81,7 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
         <BtnSubmit
           loading={null}
           loadingTxt={"Registering"}
-          text={"Submit"}
+          text={"next"}
         />
       </form>
     </span>

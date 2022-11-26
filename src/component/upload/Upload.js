@@ -5,18 +5,17 @@ import { useState } from "react";
 import { roomStore } from "../../state/room";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { roomUploadNotify, roomUpdateNotify , errNotify, warnNotify} from "../utility/notify";
+import { roomUploadNotify, roomUpdateNotify , errNotify} from "../utility/notify";
 import RoomList from "./RoomList";
 
 
 
 const Upload = () => {
- const acc = JSON.parse(localStorage.getItem("acc"))
   const [id, setid] = useState(0);
   const initialValue = {
     name: "",
     price: "",
-    category: acc?.category,
+    category: "",
     unavailableUntil: "",
     description: "",
     location:"",
@@ -26,7 +25,7 @@ const Upload = () => {
   const [data, setdata] = useState({
     name: "",
     price: "",
-    category: acc?.category,
+    category: "",
     unavailableUntil: "",
     description: "",
     location:"",
@@ -62,13 +61,15 @@ const Upload = () => {
   const onSubmit = async () => {
     if (id === 0) {
       if (data.image === "") {
-        warnNotify("Select a Room Image")
+        errNotify("Select a Room Image")
       } else if (data.location ==="") {
-        warnNotify("Invalid Location");
-      } else if (data.price ==="") {
-        warnNotify("Invalid Price");
+        errNotify("Invalid Location");
       } else if (data.category ==="") {
-        warnNotify("Choose a category");
+        errNotify("Invalid Room Category");
+      } else if (data.price ==="") {
+        errNotify("Invalid Price");
+      } else if (data.category ==="") {
+        errNotify("Choose a Category");
       } else {
         await uploadRoom(data);
         clear();
@@ -82,8 +83,8 @@ const Upload = () => {
   };
   return (
     <>
-      <div className="flex flex-wrap justify-center content-start gap-y-14 gap-0 mt-[5%] mb-14">
-        <span className="mx-auto flex flex-wrap  w-[21rem] rounded-md shadow-md bg-white border h-auto p-4 ">
+      <div className="flex flex-wrap flex-row justify-center content-start gap-y-14 gap-0 mt-[5%] mb-14">
+        <span className="mx-auto flex flex-wrap  w-[21rem] rounded-xl shadow-md bg-white border h-auto p-4 ">
           <h1 className="uppercase text-sm font-bold drop-shadow-sm text-cyan-800 mb-2 ml-1">
             <BsFillGridFill className="inline mr-1 -mt-1" />
             Upload
