@@ -19,7 +19,7 @@ const Search = () => {
   const [query, setquery] = useState({
     category: "",
     location: "",
-    bed: "",
+    bed: 1,
     minPrice: "",
     maxPrice: "",
     checkInDate: "",
@@ -42,7 +42,7 @@ const Search = () => {
     setquery({
       category: "",
       location: "",
-      bed: "",
+      bed: 1,
       minPrice: "",
       maxPrice: "",
       checkInDate: "",
@@ -55,14 +55,14 @@ const Search = () => {
   };
 
   const onSubmit = () => {
-    if (query.checkInDate > query.checkOutDate) {
+    if (query.category === "") {
+      warnNotify(" Choose a Category");
+    } else if (query.checkInDate > query.checkOutDate) {
       warnNotify(" Check-In-Date must be equal or less than Check-Out-Date");
-    } else if (query.checkInDate === "") {
-      warnNotify(" Check-In-Date is Require");
-    } else if (query.checkOutDate === "") {
-      warnNotify(" Check-Out-Date is Require");
+    } else if (query.location === "") {
+      warnNotify(" Enter a Location");
     } else if (query.maxPrice === "" || query.minPrice === "") {
-      warnNotify("Enter a Min-Price or Max-Price");
+      warnNotify(" Enter a Min-Price or Max-Price");
     } else if (parseInt(query.minPrice) > parseInt(query.maxPrice)) {
       warnNotify(" Min-Price must be equal or less than Max-Price");
     } else {

@@ -50,7 +50,7 @@ const Filter = ({ handleChange, query, setquery, onSubmit, clear }) => {
         <Label text={"Bed"} icon={<IoIosBed className={iconCl} />} />
         <br />
         <Option
-          option={[1, 2, 3, 4, 5]}
+          option={["","1", "2", "3", "4", "5"]}
           value={query.bed}
           handleOpt={handleOpt}
         />

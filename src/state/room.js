@@ -41,7 +41,7 @@ export const roomStore = create((set) => ({
           query.location
         }&minPrice=${parseInt(query.minPrice)}&maxPrice=${parseInt(
           query.maxPrice
-        )}&bed=${parseInt(query.bed)}&checkInDate=${
+        )}&bed=${query.bed}&checkInDate=${
           query.checkInDate
         }&checkOutDate=${query.checkOutDate}`
       );
