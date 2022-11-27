@@ -3,25 +3,29 @@ import InputVal from "../utility/InputVal";
 import { errNotify } from "../utility/notify";
 import { ToastContainer } from "react-toastify";
 import { useForm } from "react-hook-form";
+import Image from "../utility/Image";
+import Option from "../utility/Option";
 
-const UpdateForm = ({ data }) => {
+
+const UpdateForm = ({ data, handleChange,handleImg, handleOpt }) => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = () => {
     errNotify("hello");
   };
 
-  const handleChange = (e) => {
-    console.log(e);
-  };
   return (
-    <form className="" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="flex flex-col gap-3 bg-white p-4 shad rounded-lg"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <ToastContainer />
+        <Image handleImg={handleImg} data={data} />
       <InputVal
         placeholder={"Business Name"}
         type={"text"}
         value={data.businessName}
-        register={{ ...register("owner", { required: true }) }}
+        register={{ ...register("businessName", { required: true }) }}
         onChange={handleChange}
       />
 
@@ -29,9 +33,47 @@ const UpdateForm = ({ data }) => {
         placeholder={"Owner Name"}
         type={"text"}
         value={data.ownerName}
-        register={null}
+        register={{ ...register("ownerName", { required: true }) }}
         onChange={handleChange}
       />
+
+      <InputVal
+        placeholder={"Location"}
+        type={"text"}
+        value={data.location}
+        register={{ ...register("location", { required: true }) }}
+        onChange={handleChange}
+      />
+
+      <InputVal
+        placeholder={"Email"}
+        type={"email"}
+        value={data.email}
+        register={{ ...register("email", { required: true }) }}
+        onChange={handleChange}
+      />
+
+      <InputVal
+        placeholder={"Contact"}
+        type={"number"}
+        value={data.contact}
+        register={{
+          ...register("contact", {
+            minLength: 11,
+            maxLength: 11,
+            required: true,
+          }),
+        }}
+        onChange={handleChange}
+      />
+    
+        <Option
+          label={"Category"}
+          handleOpt={handleOpt}
+          option={["", "resort", "hotel", "dorm"]}
+          value={data.category}
+        />
+    
     </form>
   );
 };

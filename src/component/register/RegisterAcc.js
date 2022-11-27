@@ -17,7 +17,6 @@ const RegisterAcc= () => {
     image: "",
     category: "boarding-house",
     owner: "",
-    // location`
     street: "",
     brgy: "",
     city: "",
