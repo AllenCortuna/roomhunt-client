@@ -24,6 +24,7 @@ import Reset from "./component/resetPassword/Reset";
 import Message from "./component/message/Mesagge";
 import SendMessage from "./component/message/SendMessage";
 import Terms from "./component/Terms";
+import UpdateInfo from "./component/updateInfo/UpdateInfo";
 
 const App = () => {
   return (
@@ -55,6 +56,8 @@ const App = () => {
 
         <Route path="/client/menu" element={<Menu />} />
         <Route path="/acc/menu" element={<Menu />} />
+        <Route path="/acc/updateInfo" element={<UpdateInfo />} />
+    
 
         <Route path="/message" element={<Message />} />
         <Route path="/messageSend" element={<SendMessage />} />

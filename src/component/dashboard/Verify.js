@@ -52,7 +52,7 @@ const Verify = () => {
         Send the following files and info <br />
         Full Name <br />
         Address <br />
-        Valid I.D. <br />
+        <Link to="/terms" className="underline">Valid I.D.</Link> <br />
         Business Permit. <br />
         to:
         <MdAttachEmail className="ml-2 mr-1 inline" />
@@ -69,7 +69,7 @@ const Verify = () => {
     "p-3 text-white rounded-full w-full bg-zinc-400  mt-3 text-center  mx-10 shad text-sm font-semibold ";
 
   return (
-    <div className="flex flex-wrap content-start flex-rows border border-gray-200 rounded-lg shadow-md bg-white h-[26rem] w-[21rem]">
+    <div className="flex flex-wrap content-start flex-rows border border-gray-200 rounded-lg shadow-md bg-white h-[26rem] w-[21rem] mx-auto">
       <span className="text-left p-1 bg-zinc-300 w-full rounded-tr-md rounded-tl-md w-full mb-0">
         <h1 className="text-cyan-900 capitalize font-bold text-[1.2rem] ">
           <TiWarning className="mr-2 inline" />

@@ -1,27 +1,51 @@
 import { MdLocationOn } from "react-icons/md";
 import { MdEmail } from "react-icons/md";
 import { AiFillCheckCircle } from "react-icons/ai";
-// import { AiFillPhone } from "react-icons/ai";
-// import { GiHouse } from "react-icons/gi";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useRegisterState } from "../../state/register";
+import decode from "jwt-decode";
 
-const AccInfo = ({ user }) => {
+const AccInfo = () => {
+  
+  const navigate = useNavigate();
+  const [user, setUser] = useState(JSON.parse(localStorage?.getItem("acc")));
+  const logOut = useRegisterState((state) => state.logOut);
+
+  useEffect(() => {
+    const logout = () => {
+      logOut();
+      navigate.push("/acc/login");
+      setUser(null);
+    };
+    const token = user?.token;
+
+    if (token) {
+      const decodedToken = decode(token);
+      if (decodedToken.exp * 1000 < new Date().getTime()) logout();
+    }
+    setUser(JSON.parse(localStorage?.getItem("acc")));
+  }, [logOut, navigate, user.token]);
+
+  
   return (
-    <div className="grid gap-1 grid-cols-2 justify-items-between w-[21rem] border border-gray-200 rounded-lg shadow-md bg-white h-[26rem] md:h-[23rem] md:mr-5 md:ml-auto">
+    <div className="grid gap-1 grid-cols-2 justify-items-between w-[21rem] border rounded-lg shadow-md bg-white h-[26rem] md:h-[23rem] mx-auto ">
       <img
-        src={user.image}
+        src={user?.result.image}
         alt=""
         loading="lazy"
-        className="w-[20.3rem] mt-1 mx-auto col-span-2  rounded-tr-md rounded-tl-md h-[12.5rem] object-cover border-zinc-300 border shad"
-        // className="w-[19.8rem] mt-2 mx-auto col-span-2  rounded-tr-md rounded-tl-md h-[12.5rem] object-cover border-white border-2 shadow-md "
+        className="w-full mx-auto col-span-2  rounded-tr-md rounded-tl-md h-[12.5rem] object-cover border-zinc-300 "
       />
       {/* Business name */}
-      <span className="col-span-2 text-center">
-        <h1 className="text-cyan-900 capitalize font-bold text-[1.5rem] mt-1">
-          {user?.businessName}
+      <span className="spacing-0 col-span-2 text-center">
+        <h1 className="text-cyan-900 capitalize font-bold text-[1.5rem] inline">
+          {user?.result.businessName}
         </h1>
+        <p className="inline truncate text-xs text-gray-500 rale "> {user?.result.category}</p>
+    <br/>
         <MdLocationOn className="mr-1 inline text-sm text-gray-400" />
-        <p className=" inline text-center text-xs text-gray-500 capitalize rale">
-          {user.location}
+        <p className=" inline text-center text-xs text-gray-600 capitalize rale">
+          {user?.result.location}
         </p>
         <hr className="w-auto mt-2 ml-2 mr-2 text-gray-400 shadow-md" />
       </span>
@@ -31,9 +55,8 @@ const AccInfo = ({ user }) => {
           <MdEmail className="text-[1rem] mr-1 inline" />
           contact
         </h1>
-        <p className=" ml-3 inline text-xs text-gray-500 rale truncate">{user.email}</p>
-
-        <p className=" ml-3 truncate text-xs text-gray-500 rale ">{user.contact}</p>
+        <p className=" ml-3 inline text-xs text-gray-500 rale truncate">{user?.result.email}</p>
+        <p className=" ml-3 truncate text-xs text-gray-500 rale ">{user?.result.contact}</p>
       </span>
 
       <span className=" p-2">
@@ -41,10 +64,10 @@ const AccInfo = ({ user }) => {
           <AiFillCheckCircle className="text-[1rem] mr-1 inline" />
           Owner
         </h1>
-        <p className=" truncate ml-4 inline text-xs text-gray-500 rale">{user.owner}</p>
+        <p className=" truncate ml-4 inline text-xs text-gray-500 rale">{user?.result.owner}</p>
 
         <p className="drop-shadow-sm text-xs space-mono font-[900] ml-4 truncate">
-          {user.verified ? (
+          {user?.result.verified ? (
             <span className="text-lime-500">verifed</span>
           ) : (
             <span className="text-rose-500">unverifed</span>

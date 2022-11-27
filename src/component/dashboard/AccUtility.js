@@ -22,7 +22,7 @@ const AccUtility = () => {
     {
       icon: review,
       name: "Account",
-      link: "/acc/account",
+      link: "/acc/updateInfo",
       desc: "account settings",
     },
     {
@@ -34,7 +34,7 @@ const AccUtility = () => {
   ];
 
   return (
-    <div className=" flex flex-wrap content-start w-[21rem] h-auto md:ml-5 md:mr-auto ">
+    <div className=" flex flex-wrap content-start w-[21rem] h-auto mx-auto ">
       {/* content */}
       <div className=" grid grid-cols-2 w-full gap-4">
         {items.map((item) => (

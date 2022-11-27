@@ -24,7 +24,7 @@ const Nav = ({ content }) => {
         <Link
           to={a.desc}
           key={a.name}
-          className="p-2 flex flex-cols justify-start content-start group gap-2 text-white hover:text-zinc-800 hover:bg-amber-200 rounded-full w-auto transition-all ease-linear duration-300 "
+          className="p-2 flex flex-cols justify-start content-start group gap-2 text-white hover:text-zinc-800 hover:bg-cyan-100 rounded-full w-auto transition-all ease-linear duration-300 "
           onClick={() => {
             setShowNav(false);
           }}

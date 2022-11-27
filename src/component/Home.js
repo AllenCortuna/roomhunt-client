@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-  
 import logo from "./img/roomhunt_logo.png";
 
 import React from "react";

@@ -23,6 +23,8 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
   const onSubmit = () => {
     if (data.image ==="") {
       errNotify("Select Accommodation Image")
+    }else if (data.category ==="") {
+      errNotify("Select Property Type")
     } else {
     setPage(3);
       }
@@ -71,7 +73,7 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
         <Option
           label={"Category"}
           handleOpt={handleOpt}
-          option={["resort", "hotel", "dorm"]}
+          option={["", "resort", "hotel", "dorm"]}
           value={data.category}
         />
 
