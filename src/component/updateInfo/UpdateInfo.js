@@ -1,8 +1,14 @@
-import { useState } from "react";
+import React,{ useState } from "react";
 import AccInfo from "../dashboard/AccInfo";
 import UpdateForm from "./UpdateForm";
+import autoAnimate from "@formkit/auto-animate";
 
 const UpdateInfo = () => {
+  const dom = React.useRef(null);
+  React.useEffect(() => {
+    dom.current && autoAnimate(dom.current);
+  }, [dom]);
+
   const [open, setopen] = useState(false);
   const [data, setdata] = useState({
     businessName: "",
@@ -11,6 +17,7 @@ const UpdateInfo = () => {
     email: "",
     contact: "",
     image: "",
+    category: "",
   });
 
   const handleChange = (e) => {
@@ -25,8 +32,8 @@ const UpdateInfo = () => {
   };
 
   return (
-    <div className="flex flex-col w-full mx-auto justify-center  pt-10 p-3 gap-10">
-      <span className="flex flex-col mx-auto justify-center content-start w-full">
+    <div className="flex flex-col w-full mx-auto justify-center  pt-10 p-3 gap-10" >
+      <span className="flex flex-col mx-auto justify-center content-start w-full" ref={dom}>
         <button
           type="button"
           onClick={() => setopen(!open)}

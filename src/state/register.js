@@ -8,6 +8,20 @@ export const useRegisterState = create((set) => ({
   err: null,
   login: "",
 
+  patchAcc: async (data, id) => {
+    set({ loading: true });
+    set({ err: null });
+    try {
+      const result = await api.patch(`/accommodator/patch/${id}`, data);
+      localStorage.setItem("acc", JSON.stringify(result?.data));
+      set({ login: "acc" });
+    } catch (err) {
+      console.log(err);
+      set({ err: err.response.data.message });
+    }
+    set({ loading: false });
+  },
+
   registerAcc: async (data, navigate) => {
     set({ loading: true });
     set({ err: null });
@@ -59,7 +73,7 @@ export const useRegisterState = create((set) => ({
       localStorage.setItem("acc", JSON.stringify(result?.data));
       set({ login: "acc" });
     } catch (err) {
-      console.log(err.response.data.message)
+      console.log(err.response.data.message);
       set({ err: err.response.data.message });
     }
     set({ loading: false });
@@ -113,7 +127,7 @@ export const useRegisterState = create((set) => ({
       localStorage.setItem("client", JSON.stringify(result?.data));
       set({ login: "client" });
     } catch (err) {
-      console.log(err)
+      console.log(err);
       set({ err: err.response.data.message });
     }
     set({ loading: false });
@@ -125,7 +139,7 @@ export const useRegisterState = create((set) => ({
     set({ err: null });
     set({ login: data });
   },
-  setErr: (err) =>{
+  setErr: (err) => {
     set({ err: err });
   },
 

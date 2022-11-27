@@ -5,13 +5,31 @@ import { ToastContainer } from "react-toastify";
 import { useForm } from "react-hook-form";
 import Image from "../utility/Image";
 import Option from "../utility/Option";
+import BtnSubmit from "../btn/BtnSubmit";
+import { useRegisterState } from "../../state/register";
 
-
-const UpdateForm = ({ data, handleChange,handleImg, handleOpt }) => {
+const UpdateForm = ({ data, handleChange, handleImg, handleOpt }) => {
+  const id = JSON.parse(localStorage?.getItem("acc"))?.result?._id;
   const { register, handleSubmit } = useForm();
+  const loading = useRegisterState((state) => state.loading);
+  const patchAcc = useRegisterState((state) => state.patchAcc);
 
   const onSubmit = () => {
-    errNotify("hello");
+    if (data.image === "") {
+      errNotify("Business Image required");
+    } else if (data.businessName === "") {
+      errNotify("Business Name required");
+    } else if (data.location === "") {
+      errNotify("Location required");
+    } else if (data.email === "") {
+      errNotify("Email required");
+    } else if (data.contact === "") {
+      errNotify("Contact required");
+    } else if (data.category === "" || data.category === "property type") {
+      errNotify("Change Property Type");
+    } else {
+      patchAcc(data, id);
+    }
   };
 
   return (
@@ -20,7 +38,7 @@ const UpdateForm = ({ data, handleChange,handleImg, handleOpt }) => {
       onSubmit={handleSubmit(onSubmit)}
     >
       <ToastContainer />
-        <Image handleImg={handleImg} data={data} />
+      <Image handleImg={handleImg} data={data} />
       <InputVal
         placeholder={"Business Name"}
         type={"text"}
@@ -66,14 +84,15 @@ const UpdateForm = ({ data, handleChange,handleImg, handleOpt }) => {
         }}
         onChange={handleChange}
       />
-    
-        <Option
-          label={"Category"}
-          handleOpt={handleOpt}
-          option={["", "resort", "hotel", "dorm"]}
-          value={data.category}
-        />
-    
+
+      <Option
+        label={"Category"}
+        handleOpt={handleOpt}
+        option={["property type", "resort", "hotel", "dorm"]}
+        value={data.category}
+      />
+
+      <BtnSubmit loading={loading} text={"Submit"} loadingTxt={"Processing"} />
     </form>
   );
 };
