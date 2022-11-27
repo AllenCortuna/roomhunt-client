@@ -9,6 +9,11 @@ api.interceptors.request.use((req) => {
       JSON.parse(localStorage.getItem("acc")).token
     }`;
   }
+  if (localStorage.getItem("client")) {
+    req.headers.Authorization = `Bearer ${
+      JSON.parse(localStorage.getItem("client")).token
+    }`;
+  }
   return req;
 });
 

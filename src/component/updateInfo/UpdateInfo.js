@@ -1,4 +1,4 @@
-import React,{ useState } from "react";
+import React,{ useEffect, useState } from "react";
 import AccInfo from "../dashboard/AccInfo";
 import UpdateForm from "./UpdateForm";
 import autoAnimate from "@formkit/auto-animate";
@@ -30,6 +30,10 @@ const UpdateInfo = () => {
     setdata({ ...data, category: e.target.value });
     console.log("cat:", data.category);
   };
+  const acc = JSON.parse(localStorage.getItem("acc"))
+  useEffect(()=>{
+
+  },[acc])
 
   return (
     <div className="flex flex-col w-full mx-auto justify-center  pt-10 p-3 gap-10" >

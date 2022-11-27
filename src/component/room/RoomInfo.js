@@ -35,7 +35,7 @@ const RoomInfo = () => {
         waiting
       ) : (
         <div className="grid gap-5 w-[21rem] md:w-[42rem] mx-auto">
-          <span className="grid grid-cols-1 md:grid-cols-3 w-[21rem] md:w-[42rem] mt-[20%] rounded-lg bg-white shadow-md mx-auto border p-0 gap-y-14 md:gap-y-0">
+          <span className="grid grid-cols-1 md:grid-cols-3 w-[21rem] md:w-[42rem] h-auto mt-[20%] rounded-lg bg-white shadow-md mx-auto border p-0 gap-y-14 md:gap-y-0">
             <span className="block md:col-span-2 pt-4 ">
               {/* room owner */}
               <span className="shad grid p-3 bg-zinc-200  w-auto h-auto rounded-tr-xl rounded-br-xl md:mr-20 mr-8 overflow-x-scroll">
@@ -76,7 +76,7 @@ const RoomInfo = () => {
             <img
               src={room.image}
               alt="room"
-              className="object-cover w-auto h-[24rem] rounded-br-lg rounded-bl-lg md:rounded-tr-lg md:rounded-bl-none m w-full border"
+              className="object-cover md:h-full  h-[24rem] rounded-br-lg rounded-bl-lg md:rounded-tr-lg md:rounded-bl-none  w-full border"
               loading="lazy"
             />
           </span>
