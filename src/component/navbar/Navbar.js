@@ -42,7 +42,7 @@ const Navbar = () => {
       {login === "client" && (
         <Nav
           content={[
-            { name: "search", desc: "/", icon: <RiFileSearchFill /> },
+            { name: "search", desc: "/search", icon: <RiFileSearchFill /> },
             {
               name: "account",
               desc: "/client/dashboard",
@@ -57,7 +57,7 @@ const Navbar = () => {
       {login === "" && (
         <Nav
           content={[
-            { name: "search", desc: "/", icon: <RiFileSearchFill /> },
+            { name: "search", desc: "/search", icon: <RiFileSearchFill /> },
             { name: "login", desc: "/login", icon: <FaUserCircle /> },
             { name: "register", desc: "/register", icon: <FaHouseUser /> },
             { name: "terms", desc: "/terms", icon: <MdPolicy /> },

@@ -24,6 +24,7 @@ import Reset from "./component/resetPassword/Reset";
 import Message from "./component/message/Mesagge";
 import SendMessage from "./component/message/SendMessage";
 import Terms from "./component/Terms";
+import Home from "./component/Home";
 import UpdateInfo from "./component/updateInfo/UpdateInfo";
 
 const App = () => {
@@ -31,7 +32,8 @@ const App = () => {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Search />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/accinfo/:id" element={<BusinessInfo />} />
         <Route path="/rooms" element={<RoomSearch />} />
         <Route path="/rooms/:id" element={<RoomInfo />} />
