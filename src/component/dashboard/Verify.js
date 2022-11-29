@@ -28,10 +28,10 @@ const Verify = () => {
         to:
         <MdAttachEmail className="ml-2 mr-1 inline" />
         <a
-          href="mailto:olsencortuna@gmail.com?subject=Verify Account Client"
+          href="mailto:2022roomhunt@gmail.com?subject=Verify Account Client"
           className="underline font-[500]"
         >
-          olsencortuna@gmail.com
+          2022roomhunt@gmail.com
         </a>
       </span>
     </>
@@ -57,10 +57,10 @@ const Verify = () => {
         to:
         <MdAttachEmail className="ml-2 mr-1 inline" />
         <a
-          href="mailto:olsencortuna@gmail.com?subject=Verify Account Accommodator"
+          href="mailto:2022roomhunt@gmail.com?subject=Verify Account Accommodator"
           className="underline font-[500]"
         >
-          olsencortuna@gmail.com
+          2022roomhunt@gmail.com
         </a>
       </span>
     </>
@@ -84,14 +84,14 @@ const Verify = () => {
       </p>
       {location.pathname === "/client/dashboard" ? (
         <a
-          href="mailto:olsencortuna@gmail.com?subject=Verify Account Client"
+          href="mailto:2022roomhunt@gmail.com?subject=Verify Account Client"
           className={btn}
         >
           Verify
         </a>
       ) : (
         <a
-          href="mailto:olsencortuna@gmail.com?subject=Verify Account Accommodator"
+          href="mailto:2022roomhunt@gmail.com?subject=Verify Account Accommodator"
           className={btn}
         >
           Verify
