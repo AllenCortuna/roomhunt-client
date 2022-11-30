@@ -72,7 +72,6 @@ const Upload = () => {
       } else {
         await uploadRoom(data);
         clear();
-        roomUploadNotify();
       }
     } else {
       await updateRoom(data, id);

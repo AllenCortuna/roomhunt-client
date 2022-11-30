@@ -26,14 +26,13 @@ export const roomStore = create((set) => ({
 
   getRoomByLocation: async (query) => {
     set({ loading: true });
-    set({ err: null });
     try {
       const response = await api.get(
         `/room/location?category=${query.category}&location=${query.location}`
       );
       set({ suggestedRoom: response.data });
     } catch (err) {
-      set({ err: err.response.data.message });
+      alert(err.response.data.message) 
     }
     set({ loading: false });
   },
@@ -41,7 +40,6 @@ export const roomStore = create((set) => ({
   getRoomBySearch: async (query) => {
     set({ loading: true });
     set({ rooms: [] });
-    set({ err: null });
     try {
       const response = await api.get(
         `/room/search?category=${query.category}&location=${
@@ -52,32 +50,29 @@ export const roomStore = create((set) => ({
       );
       set({ rooms: response.data });
     } catch (err) {
-      set({ err: err.response.data.message });
+      alert(err.response.data.message) 
     }
     set({ loading: false });
   },
 
   getRoom: async (id) => {
     set({ loading: true });
-    set({ err: null });
     try {
       const response = await api.get(`room/${id}`);
       set({ room: response.data });
     } catch (err) {
-      set({ err: err.response.data.message });
       alert(err.response.data.message);
     }
     set({ loading: false });
   },
 
   getOwnRooms: async (id) => {
-    set({ err: null });
     set({ loading: true });
     try {
       const response = await api.get(`room/own/${id}`);
       set({ rooms: response.data });
     } catch (err) {
-      set({ err: err.response.data.message });
+      // set({ err: err.response.data.message });
       alert(err.response.data.message);
     }
     set({ loading: false });
@@ -85,19 +80,17 @@ export const roomStore = create((set) => ({
 
   uploadRoom: async (data) => {
     set({ loading: true });
-    set({ err: null });
     try {
       const result = await api.post("/room", data);
       set((state) => ({ rooms: [...state.rooms, result.data] }));
     } catch (err) {
-      set({ err: err.response.data.message });
+      alert(err.response.data.message) 
     }
     set({ loading: false });
   },
 
   updateRoom: async (data, id) => {
     set({ loading: true });
-    set({ err: null });
     try {
       const result = await api.patch(`/room/${id}`, data);
       set((state) => ({
@@ -106,21 +99,20 @@ export const roomStore = create((set) => ({
         ],
       }));
     } catch (err) {
-      set({ err: err.response.data.message });
+      alert(err.response.data.message) 
     }
     set({ loading: false });
   },
 
   deleteRoom: async (id) => {
     set({ loading: true });
-    set({ err: null });
     try {
       await api.delete(`/room/${id}`);
       set((state) => ({
         rooms: state.rooms.filter((a) => a._id !== id),
       }));
     } catch (err) {
-      set({ err: err.response.data.message });
+      alert(err.response.data.message) 
     }
     set({ loading: false });
   },
@@ -133,10 +125,8 @@ export const roomStore = create((set) => ({
     } else {
       try {
         const result = await api.post("/room/review/", review);
-        console.log(result.data);
         set({ room: result.data });
       } catch (err) {
-        set({ err: err.response.data.message });
         alert(err.response.data.message);
       }
     }
