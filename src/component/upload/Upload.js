@@ -49,6 +49,7 @@ const Upload = () => {
     setroom(id ? rooms.find((r) => r._id === id) : null);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
+  
   useEffect(() => {
     if (err!==null) {
       errNotify(err)
@@ -65,11 +66,9 @@ const Upload = () => {
       } else if (data.location ==="") {
         errNotify("Invalid Location");
       } else if (data.category ==="") {
-        errNotify("Invalid Room Category");
+        errNotify("Choose a Room Type");
       } else if (data.price ==="") {
         errNotify("Invalid Price");
-      } else if (data.category ==="") {
-        errNotify("Choose a Category");
       } else {
         await uploadRoom(data);
         clear();
@@ -78,7 +77,6 @@ const Upload = () => {
     } else {
       await updateRoom(data, id);
       clear();
-      roomUpdateNotify();
     }
   };
   return (

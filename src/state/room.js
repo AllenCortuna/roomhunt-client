@@ -65,18 +65,20 @@ export const roomStore = create((set) => ({
       set({ room: response.data });
     } catch (err) {
       set({ err: err.response.data.message });
+      alert(err.response.data.message);
     }
     set({ loading: false });
   },
 
   getOwnRooms: async (id) => {
-    set({ loading: true });
     set({ err: null });
+    set({ loading: true });
     try {
       const response = await api.get(`room/own/${id}`);
       set({ rooms: response.data });
     } catch (err) {
       set({ err: err.response.data.message });
+      alert(err.response.data.message);
     }
     set({ loading: false });
   },
@@ -104,7 +106,7 @@ export const roomStore = create((set) => ({
         ],
       }));
     } catch (err) {
-      set({ err: err.message });
+      set({ err: err.response.data.message });
     }
     set({ loading: false });
   },
@@ -124,8 +126,8 @@ export const roomStore = create((set) => ({
   },
 
   reviewRoom: async (review) => {
-    set({ loading: true });
     set({ err: null });
+    set({ loading: true });
     if (!review.senderId) {
       alert("WARN:Client(only) must be Login or Register to submit Review");
     } else {
@@ -135,6 +137,7 @@ export const roomStore = create((set) => ({
         set({ room: result.data });
       } catch (err) {
         set({ err: err.response.data.message });
+        alert(err.response.data.message);
       }
     }
     set({ loading: false });
