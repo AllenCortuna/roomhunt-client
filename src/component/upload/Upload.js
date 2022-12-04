@@ -5,7 +5,7 @@ import { useState } from "react";
 import { roomStore } from "../../state/room";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { roomUploadNotify, roomUpdateNotify , errNotify} from "../utility/notify";
+import { errNotify} from "../utility/notify";
 import RoomList from "./RoomList";
 
 

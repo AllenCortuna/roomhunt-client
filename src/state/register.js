@@ -15,6 +15,7 @@ export const useRegisterState = create((set) => ({
       const result = await api.patch(`/accommodator/patch/${id}`, data);
       localStorage.setItem("acc", JSON.stringify(result?.data));
       set({ login: "acc" });
+      alert("Info Updated")
     } catch (err) {
       console.log(err);
       set({ err: err.response.data.message });
