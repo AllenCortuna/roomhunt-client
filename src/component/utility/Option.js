@@ -16,14 +16,3 @@ const Option = ({ handleOpt, option,value }) => {
 };
 
 export default Option;
-
-  // document.addEventListener("DOMContentLoaded", function () {
-  //   var input = document.getElementById("opt");
-  //   if (localStorage["job"]) {
-  //     // if job is set
-  //     input.value = localStorage["job"]; // set the value
-  //   }
-  //   input.onchange = function () {
-  //     localStorage["job"] = this.value; // change localStorage on change
-  //   };
-  // });
