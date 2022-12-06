@@ -12,7 +12,7 @@ export const useRegisterState = create((set) => ({
     set({ loading: true });
     set({ err: null });
     try {
-      const result = await api.patch(`/accommodator/patch/${id}`, data);
+      const result = await api.patch(`/accommodator/patch/${id}`, data,{timeout:45000});
       localStorage.setItem("acc", JSON.stringify(result?.data));
       set({ login: "acc" });
       alert("Info Updated")
@@ -36,7 +36,7 @@ export const useRegisterState = create((set) => ({
         category: data.category,
         owner: data.owner,
         location: `${data.street} ${data.brgy} ${data.city}, ${data.province}`,
-      });
+      },{timeout:45000});
       localStorage.setItem("register", JSON.stringify(result?.data));
       navigate("/register/acc/verify-email");
     } catch (err) {
@@ -52,7 +52,7 @@ export const useRegisterState = create((set) => ({
       const result = await api.post("/accommodator/verify-email", {
         otp: data.otp,
         accommodatorId: data.accommodatorId,
-      });
+      },{timeout:45000});
       navigate("/acc/dashboard");
       set({ data: result.data.result });
       set({ login: "acc" });
@@ -67,7 +67,7 @@ export const useRegisterState = create((set) => ({
     set({ loading: true });
     set({ err: null });
     try {
-      const result = await api.post("/accommodator/login", data);
+      const result = await api.post("/accommodator/login", data,{timeout:45000});
       set({ data: result.data.result });
       navigate("/acc/dashboard");
       set({ data: result.data.result });
@@ -90,7 +90,7 @@ export const useRegisterState = create((set) => ({
         email: data.email,
         password: data.password,
         birthday: data.birthday,
-      });
+      },{timeout:45000});
       localStorage.setItem("register", JSON.stringify(result?.data));
       navigate("/register/client/verify-email");
     } catch (err) {
@@ -106,7 +106,7 @@ export const useRegisterState = create((set) => ({
       const result = await api.post("/client/verify-email", {
         otp: data.otp,
         clientId: data.clientId,
-      });
+      },{timeout:45000});
       navigate("/client/dashboard");
       set({ data: result.data.result });
       set({ login: "client" });
@@ -121,7 +121,7 @@ export const useRegisterState = create((set) => ({
     set({ loading: true });
     set({ err: null });
     try {
-      const result = await api.post("/client/login", data);
+      const result = await api.post("/client/login", data,{timeout:45000});
       set({ data: result.data.result });
       navigate("/client/dashboard");
       set({ data: result.data.result });

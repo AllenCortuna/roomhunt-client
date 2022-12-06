@@ -17,12 +17,17 @@ const RoomInfo = () => {
   const getRoom = roomStore((state) => state.getRoom);
   const room = roomStore((state) => state.room);
   const loading = roomStore((state) => state.loading);
+  const updateView = roomStore((state) => state.updateView);
   const { id } = useParams();
   const verified = JSON.parse(localStorage?.getItem("client"))?.result.verified;
 
   useEffect(() => {
     getRoom(id);
   }, [id]);
+  
+  useEffect(()=>{
+   updateView(id)
+  },[])
 
   const waiting = (
     <span className="grid w-[20rem] mt-[20%] mx-auto">

@@ -1,4 +1,5 @@
 import React from "react";
+import animate from '../img/animate.svg'
 
 
 const BtnSubmit = ({ loading, text, loadingTxt }) => {
@@ -14,8 +15,7 @@ const BtnSubmit = ({ loading, text, loadingTxt }) => {
       disabled={loading}
     >
       {loading && (
-        <span className="border-[.1rem] rounded-[.2rem] animate-spin bg-none border-zinc-500 w-4 h-4 my-auto"></span>
-      )}
+        <img src={animate} alt={"https://loading.io/spinner/ellipsis/-speaking-discussion-text-ellipsis-typing-move"} className="w-6 h-4 my-auto"/>)}
       {loading ? loadingTxt : text}
     </button>
   );

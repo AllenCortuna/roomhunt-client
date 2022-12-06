@@ -1,7 +1,6 @@
 import create from "zustand";
 import axios from "axios";
 const api = axios.create({ baseURL: process.env.REACT_APP_API });
-// const api = axios.create({ baseURL: "https://roomhunt-server.onrender.com" });
 
 api.interceptors.request.use((req) => {
   if (localStorage.getItem("acc")) {
@@ -28,11 +27,11 @@ export const roomStore = create((set) => ({
     set({ loading: true });
     try {
       const response = await api.get(
-        `/room/location?category=${query.category}&location=${query.location}`
+        `/room/location?category=${query.category}&location=${query.location}`,{timeout:45000}
       );
       set({ suggestedRoom: response.data });
     } catch (err) {
-      alert(err.response.data.message) 
+      alert(err.response.data.message);
     }
     set({ loading: false });
   },
@@ -46,11 +45,11 @@ export const roomStore = create((set) => ({
           query.location
         }&minPrice=${parseInt(query.minPrice)}&maxPrice=${parseInt(
           query.maxPrice
-        )}&bed=${query.bed}&checkInDate=${query.checkInDate}`
+        )}&bed=${query.bed}&checkInDate=${query.checkInDate}`,{timeout:45000}
       );
       set({ rooms: response.data });
     } catch (err) {
-      alert(err.response.data.message) 
+      alert(err.response.data.message);
     }
     set({ loading: false });
   },
@@ -58,7 +57,7 @@ export const roomStore = create((set) => ({
   getRoom: async (id) => {
     set({ loading: true });
     try {
-      const response = await api.get(`room/${id}`);
+      const response = await api.get(`room/${id}`,{timeout:45000});
       set({ room: response.data });
     } catch (err) {
       alert(err.response.data.message);
@@ -69,22 +68,30 @@ export const roomStore = create((set) => ({
   getOwnRooms: async (id) => {
     set({ loading: true });
     try {
-      const response = await api.get(`room/own/${id}`);
+      const response = await api.get(`room/own/${id}`,{timeout:45000});
       set({ rooms: response.data });
     } catch (err) {
-      // set({ err: err.response.data.message });
       alert(err.response.data.message);
     }
     set({ loading: false });
   },
 
+  updateView: async (id) => {
+    try {
+      await api.patch(`room/view/${id}`,{timeout:45000});
+      alert("room view updated");
+    } catch (err) {
+      console.log(err.response.data.message);
+    }
+  },
+
   uploadRoom: async (data) => {
     set({ loading: true });
     try {
-      const result = await api.post("/room", data);
+      const result = await api.post("/room", data,{timeout:45000});
       set((state) => ({ rooms: [...state.rooms, result.data] }));
     } catch (err) {
-      alert(err.response.data.message) 
+      alert(err.response.data.message);
     }
     set({ loading: false });
   },
@@ -92,14 +99,14 @@ export const roomStore = create((set) => ({
   updateRoom: async (data, id) => {
     set({ loading: true });
     try {
-      const result = await api.patch(`/room/${id}`, data);
+      const result = await api.patch(`/room/${id}`, data,{timeout:45000});
       set((state) => ({
         rooms: [
           ...state.rooms.map((room) => (room._id === id ? result.data : room)),
         ],
       }));
     } catch (err) {
-      alert(err.response.data.message) 
+      alert(err.response.data.message);
     }
     set({ loading: false });
   },
@@ -107,12 +114,12 @@ export const roomStore = create((set) => ({
   deleteRoom: async (id) => {
     set({ loading: true });
     try {
-      await api.delete(`/room/${id}`);
+      await api.delete(`/room/${id}`,{timeout:45000});
       set((state) => ({
         rooms: state.rooms.filter((a) => a._id !== id),
       }));
     } catch (err) {
-      alert(err.response.data.message) 
+      alert(err.response.data.message);
     }
     set({ loading: false });
   },
@@ -124,7 +131,7 @@ export const roomStore = create((set) => ({
       alert("WARN:Client(only) must be Login or Register to submit Review");
     } else {
       try {
-        const result = await api.post("/room/review/", review);
+        const result = await api.post("/room/review/", review,{timeout:45000});
         set({ room: result.data });
       } catch (err) {
         alert(err.response.data.message);
