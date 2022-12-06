@@ -9,9 +9,9 @@ const AccUtility = () => {
   const items = [
     {
       icon: roomlist,
-      name: "Roomlist",
+      name: "Views",
       link: "/acc/roomlist",
-      desc: "room info",
+      desc: "views and info",
     },
     {
       icon: upload,

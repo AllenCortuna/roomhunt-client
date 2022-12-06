@@ -34,7 +34,7 @@ const UpdateForm = ({ data, handleChange, handleImg, handleOpt }) => {
 
   return (
     <form
-      className="flex flex-col gap-3 bg-white p-4 shad rounded-lg"
+      className="flex flex-col gap-3 bg-white p-5 shad rounded-lg max-w-[24rem] min-w-[21rem] mx-auto"
       onSubmit={handleSubmit(onSubmit)}
     >
       <ToastContainer />
