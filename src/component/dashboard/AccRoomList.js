@@ -14,13 +14,17 @@ const AccRoomList = () => {
   }, [id]);
   return (
     <span className="flex flex-col">
+      {loading && (
+        <span className="m-auto mt-20 ">
+          <Loading text={"Getting Rooms"} />
+        </span>
+      )}
       <div className="mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-14 md:mt-32 p-2 md:px-40">
-        {loading && <Loading text={"Getting Rooms"} />}
         {rooms.map((room) => (
           <AccRoom room={room} />
         ))}
       </div>
-      
+
       {rooms.length === 0 && !loading && (
         <span className="text-3xl text-zinc-800 text-center mx-auto">
           No rooms Available
