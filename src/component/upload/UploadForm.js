@@ -106,7 +106,7 @@ const UploadForm = ({ data, setdata, onSubmit }) => {
         <InputVal
           value={data.location}
           type={"text"}
-          placeholder={"Location"}
+          placeholder={"Street Brgy. City, Province"}
           register={{ ...register("location", { required: true }) }}
           onChange={handleChange}
         />
