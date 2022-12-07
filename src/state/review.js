@@ -1,6 +1,6 @@
 import create from "zustand";
-import axios from "axios";
-const api = axios.create({ baseURL: process.env.REACT_APP_API });
+import {api} from './api'
+
 
 api.interceptors.request.use((req) => {
   if (localStorage.getItem("client")) {

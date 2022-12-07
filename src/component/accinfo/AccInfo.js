@@ -12,7 +12,7 @@ const AccInfo = ({ user }) => {
         src={user.image}
         alt=""
         loading="lazy"
-        className="w-[20.3rem] mt-1 mx-auto col-span-2  rounded-tr-md rounded-tl-md h-[12.5rem] object-cover border-smoke border shad"
+        className="w-full mx-auto col-span-2  rounded-tr-md rounded-tl-md h-[12.5rem] object-cover border-smoke border "
       />
       {/* Business name */}
       <span className="col-span-2 text-center">

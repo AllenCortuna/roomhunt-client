@@ -10,18 +10,21 @@ const RoomSearch = () => {
   const loading = roomStore((state) => state.loading);
 
   const empty = (
-      <span className="mx-auto mt-14 md:mt-20 w-[21rem] p-5 ">
-    <span className=" rounded-2xl border border-zinc-300 p-10 block mb-5">
+    <span className="mx-auto mt-14 md:mt-20 w-[18rem] p-5 flex flex-col">
+      <span className="p-5 block">
         <img
           src={noRoom}
           alt="empty"
-          className="drop-shadow-sm mx-auto mb-8 "
+          className="drop-shadow-lg ml-2 mx-auto mb-8 "
         />
-        <h1 className="text-gray-500 text-center text-sm font-[500]">
-          No rooms available according to your Recent search
+        <h1 className="text-zinc-500 text-center text-sm font-[500] drop-shadow-sm rale">
+          No rooms available according to your recent search. Try different queries !
+
         </h1>
       </span>
-      <BtnLink link={"/"} text="Search Again" />
+      <span className="w-[10rem] mx-auto">
+        <BtnLink link={"/search"} text="Search Again" />
+      </span>
     </span>
   );
   return (

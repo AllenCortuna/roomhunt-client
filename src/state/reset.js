@@ -1,6 +1,5 @@
 import create from "zustand";
-import axios from "axios";
-const api = axios.create({ baseURL: process.env.REACT_APP_API });
+import {api} from './api'
 
 export const resetStore = create((set) => ({
   err: null,

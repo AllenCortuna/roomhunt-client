@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 import { roomStore } from "../../state/room";
 import AccRoom from "../room/AccRoom";
 import Loading from "../utility/Loading";
+import noRoom from "../img/noRoom.svg";
+import BtnLink from "../btn/BtnLink";
 
 const AccRoomList = () => {
   const id = JSON.parse(localStorage?.getItem("acc")).result._id;
@@ -26,8 +28,20 @@ const AccRoomList = () => {
       </div>
 
       {rooms.length === 0 && !loading && (
-        <span className="text-3xl text-zinc-800 text-center mx-auto">
-          No rooms Available
+        <span className="mx-auto mt-14 md:mt-20 w-[18rem] p-5 flex flex-col">
+          <span className="p-5 block">
+            <img
+              src={noRoom}
+              alt="empty"
+              className="drop-shadow-lg ml-2 mx-auto mb-8 "
+            />
+            <h1 className="text-zinc-500 text-center text-sm font-[500] drop-shadow-sm rale">
+              No rooms available !
+            </h1>
+          </span>
+          <span className="w-[7.5rem] mx-auto">
+            <BtnLink link={"/upload"} text="Upload" />
+          </span>
         </span>
       )}
     </span>
