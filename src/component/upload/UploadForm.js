@@ -78,7 +78,7 @@ const UploadForm = ({ data, setdata, onSubmit }) => {
         />
         <Option
           label={"Bed"}
-          option={[1, 2, 3, 4, 5]}
+          option={["1", "2", "3", "4", "5"]}
           handleOpt={handleOpt}
           value={data.bed}
         />
@@ -90,7 +90,7 @@ const UploadForm = ({ data, setdata, onSubmit }) => {
         {text("Available Until")}
         <Option
           label={"Type"}
-          option={["", "Dorm", "Resort", "Hotel"]}
+          option={["", "dorm", "resort", "hotel"]}
           handleOpt={handleCategory}
           value={data.category}
         />
