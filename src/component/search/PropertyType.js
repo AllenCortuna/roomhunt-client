@@ -7,14 +7,14 @@ const PropertyType = ({ handleCat,query }) => {
     "text-[1.5rem] inline group-hover:drop-shadow-md ";
   const type = [
     {
-      name: "Dorm",
+      name: "dorm",
       icon: <BiHome className={`${iconClass}`} />,
     },
     {
-      name: "Hotel",
+      name: "hotel",
       icon: <BiBuildings className={`${iconClass}`} />,
     },
-    { name: "Resort", icon: <TbBeach className={`${iconClass}`} />
+    { name: "resort", icon: <TbBeach className={`${iconClass}`} />
     },
   ];
   return (
