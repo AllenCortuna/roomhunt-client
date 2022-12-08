@@ -30,7 +30,7 @@ const Send = ({ room, verified }) => {
         className="p-2 text-zinc-600 rale text-xs font-[500] border rounded-md shad bg-zinc-100"
       >
         <BsFillInfoCircleFill className="mr-1 inline" />
-        Info
+        Contact Info
       </button>
     </span>
   );

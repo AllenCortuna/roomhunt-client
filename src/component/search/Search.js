@@ -8,7 +8,6 @@ import { AiFillSetting } from "react-icons/ai";
 import { Label } from "./utilty";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { errNotify } from "../utility/notify";
 import RoomByLocation from "../room/RoomByLocation";
 
 const Search = () => {
@@ -53,17 +52,9 @@ const Search = () => {
   };
 
   const onSubmit = () => {
-    if (query.checkInDate === "") {
-      errNotify(" Check-In-Date is Require");
-    } else if (query.maxPrice === "" || query.minPrice === "") {
-      errNotify("Enter a Min-Price or Max-Price");
-    } else if (parseInt(query.minPrice) > parseInt(query.maxPrice)) {
-      errNotify(" Min-Price must be equal or less than Max-Price");
-    } else {
       getRoomBySearch(query);
       localStorage.setItem("search", JSON.stringify(query));
       navigate("/rooms");
-    }
   };
 
   const iconCl = "mr-1 inline";
@@ -71,7 +62,6 @@ const Search = () => {
     <span className="grid gap-10">
       <ToastContainer />
       <div className="grid grid-cols-1 border border-gray-200 bg-white shadow-lg rounded-lg w-[21rem] mx-auto mt-10 mt-4 pb-5 md:p-4 md:w-[23rem]">
-        {/* <span className="h-4 bg-cyan-600 rounded-tl-md rounded-tr-md shadow-sm"></span> */}
         <span className="p-4">
           <Label
             text={"Category"}

@@ -91,7 +91,7 @@ const Price = ({ icon, text, value, cat }) => {
         {text}
       </span>
       {value}
-      <span className="ml-1 lowercase rale text-zinc-500 font-[400]">{cat === "Dorm" ? "montly" : "per night"}</span>
+      <span className="ml-1 lowercase rale text-zinc-500 font-[400]">{cat === "dorm" ? "montly" : "per night"}</span>
     </h1>
   );
 };

@@ -43,9 +43,9 @@ export const roomStore = create((set) => ({
       const response = await api.get(
         `/room/search?category=${query.category}&location=${
           query.location
-        }&minPrice=${parseInt(query.minPrice)}&maxPrice=${parseInt(
+        }&minPrice=${query.minPrice}&maxPrice=${
           query.maxPrice
-        )}&bed=${query.bed}&checkInDate=${query.checkInDate}`,{timeout:45000}
+        }&bed=${query.bed}&checkInDate=${query.checkInDate}`,{timeout:45000}
       );
       set({ rooms: response.data });
     } catch (err) {
