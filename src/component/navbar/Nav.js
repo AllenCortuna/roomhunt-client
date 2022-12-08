@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import autoAnimate from "@formkit/auto-animate";
 // import { rightIcon } from "./utility/rightIcon";
 import { Link } from "react-router-dom";
-import { logo } from "./content";
+import { Logo } from "./content";
 
 const Nav = ({ content }) => {
   const isSmallScreen = window.innerWidth <= 440;
@@ -45,7 +45,7 @@ const Nav = ({ content }) => {
     <>
       <div className="">
         <span className="my-auto font-[800] flex justify-between px-3 py-2 items-center">
-          {logo}
+          <Logo/>
           <span
             onClick={() => setShowNav(!showNav)}
             className="h-6 w-6 flex flex-wrap align-center justify-center my-auto"
@@ -71,7 +71,7 @@ const Nav = ({ content }) => {
     <div>
       <span className="flex flex-wrap justify-between px-10 py-2">
         <span className="flex flex-wrap gap-3">
-          {logo}
+          <Logo/>
         </span>
         {nav}
       </span>

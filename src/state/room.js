@@ -133,6 +133,7 @@ export const roomStore = create((set) => ({
       try {
         const result = await api.post("/room/review/", review,{timeout:45000});
         set({ room: result.data });
+       alert("review sent!") 
       } catch (err) {
         alert(err.response.data.message);
       }

@@ -10,14 +10,22 @@ const RoomReview = ({ room }) => {
   const [comment, setcomment] = useState("");
   const id = JSON.parse(localStorage.getItem("client"))?.result?._id;
   const name = JSON.parse(localStorage.getItem("client"))?.result?.name;
-  const onSubmit = () => {
-    reviewRoom({
-      room: room._id,
-      senderId: id,
-      senderName: name,
-      review: review,
-      comment: comment,
-    });
+  
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (review === 0) {
+      alert("select a star");
+    } else if (comment === "") {
+      alert("enter a comment");
+    } else {
+      reviewRoom({
+        room: room._id,
+        senderId: id,
+        senderName: name,
+        review: review,
+        comment: comment,
+      });
+    }
   };
 
   const star = "-mt-1 my-auto text-xl drop-shadow-sm inline text-yellow";
@@ -89,7 +97,6 @@ const RoomReview = ({ room }) => {
         className="rounded-sm text-zinc-500 text-xs p-2 focus:bg-brown focus:text-white focus:outline-none transition-all duration-300 ease-linear"
         onChange={(e) => setcomment(e.target.value)}
       />
-    
     </div>
   );
 };
