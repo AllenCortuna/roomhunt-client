@@ -12,7 +12,6 @@ import Info from "./Info";
 import RoomReview from "./RoomReview";
 import ReviewList from "./ReviewList";
 import Send from "./Send";
-import Slider from "./Slider";
 
 const RoomInfo = () => {
   const getRoom = roomStore((state) => state.getRoom);
@@ -25,10 +24,10 @@ const RoomInfo = () => {
   useEffect(() => {
     getRoom(id);
   }, [id]);
-
-  useEffect(() => {
-    updateView(id);
-  }, []);
+  
+  useEffect(()=>{
+   updateView(id)
+  },[])
 
   const waiting = (
     <span className="grid w-[20rem] mt-[20%] mx-auto">
@@ -54,7 +53,7 @@ const RoomInfo = () => {
                   {room.location}
                 </h4>
               </span>
-
+        
               <Send room={room} verified={verified} />
               {/* room info */}
               <span className="flex flex-wrap items-start">
@@ -79,7 +78,12 @@ const RoomInfo = () => {
               {/* room review */}
               {verified && <RoomReview room={room} />}
             </span>
-            <Slider image={room.image} /> 
+            <img
+              src={room.image}
+              alt="room"
+              className="object-cover md:h-full  h-[24rem] rounded-br-lg rounded-bl-lg md:rounded-tr-lg md:rounded-bl-none  w-full border"
+              loading="lazy"
+            />
           </span>
           <ReviewList roomId={room._id} />
         </div>
