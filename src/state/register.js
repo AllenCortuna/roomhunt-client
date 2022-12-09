@@ -16,7 +16,6 @@ export const useRegisterState = create((set) => ({
       alert("Info Updated");
     } catch (err) {
       alertErr(err);
-      alert(err.response.data.message);
     }
     set({ loading: false });
   },
@@ -132,8 +131,6 @@ export const useRegisterState = create((set) => ({
     }
     set({ loading: false });
   },
-
-  // PIN :UTILITY
 
   curUsr: (data) => {
     set({ err: null });

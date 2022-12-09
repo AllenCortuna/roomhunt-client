@@ -20,6 +20,7 @@ const RegisterClient = () => {
   const err = useRegisterState((state) => state.err);
 
   const setErr = useRegisterState((state) => state.setErr);
+  
   useEffect(() => {
     if (err !== null) {
       errNotify(err);
