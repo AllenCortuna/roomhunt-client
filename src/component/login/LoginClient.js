@@ -1,8 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { ToastContainer } from "react-toastify";
-import {errNotify} from '../utility/notify'
-import React, { useState, useEffect } from "react";
-import FormErr from "../utility/FormErr";
+import { errNotify } from "../utility/notify";
+import React, { useState } from "react";
 import Input from "../utility/Input";
 import { useForm } from "react-hook-form";
 import { useRegisterState } from "../../state/register";
@@ -12,16 +11,6 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const LoginAcc = () => {
-  
-  const err = useRegisterState((state) => state.err);
-  const setErr = useRegisterState((state) => state.setErr);
-  useEffect(()=>{
-    if (err!==null) {
-      errNotify(err)
-    }
-    setErr(null)
-  },[err])
-  
   const [data, setdata] = useState({
     email: "",
     password: "",
@@ -33,11 +22,15 @@ const LoginAcc = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
   } = useForm();
   const onSubmit = () => {
+    if (!data.email) {
+      errNotify("Enter email!");
+    } else if (!data.password) {
+      errNotify("Enter Pasaword!");
+    } else {
     loginClient(data, navigate);
-    return;
+    }
   };
   const handleChange = (e) => {
     setdata({ ...data, [e.target.name]: e.target.value });
@@ -46,7 +39,6 @@ const LoginAcc = () => {
   return (
     <div className="grid text-center bg-white w-[21rem] md:w-[23rem] h-auto border-t-[1rem] border-orange rounded-md shadow-md h-auto mx-auto mt-10 py-5">
       <ToastContainer />
-      {/* <span className="rounded-tl-md rounded-tr-md h-3 bg-orange mb-5 shadow-sm"></span> */}
       <img
         src={client}
         alt="accommodator"
@@ -67,18 +59,16 @@ const LoginAcc = () => {
         <Input
           type={"email"}
           placeholder={"Email"}
-          register={{ ...register("email", { required: true }) }}
+          register={{ ...register("email", { required: false }) }}
           onChange={handleChange}
         />
-        <FormErr text={"Email is required"} err={errors.email} />
 
         <Input
           type={"password"}
           placeholder={"Password"}
-          register={{ ...register("password", { required: true }) }}
+          register={{ ...register("password", { required: false }) }}
           onChange={handleChange}
         />
-        <FormErr text={"Passwords required"} err={errors.password} />
         <BtnSubmit loading={loading} loadingTxt={"Processing"} text={"Login"} />
       </form>
 
@@ -88,12 +78,12 @@ const LoginAcc = () => {
       >
         Dont have an Account? Register{" "}
       </Link>
-    
+
       <Link
         to="/reset/client"
         className="text-gray-400 underline text-xs mt-5 "
       >
-       Forgot Password? 
+        Forgot Password?
       </Link>
     </div>
   );

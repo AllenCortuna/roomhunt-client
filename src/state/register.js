@@ -1,5 +1,5 @@
 import create from "zustand";
-import {api} from './api'
+import { api } from "./api";
 
 export const useRegisterState = create((set) => ({
   loading: false,
@@ -10,13 +10,12 @@ export const useRegisterState = create((set) => ({
     set({ loading: true });
     set({ err: null });
     try {
-      const result = await api.patch(`/accommodator/patch/${id}`, data,{timeout:45000});
+      const result = await api.patch(`/accommodator/patch/${id}`, data);
       localStorage.setItem("acc", JSON.stringify(result?.data));
       set({ login: "acc" });
-      alert("Info Updated")
+      alert("Info Updated");
     } catch (err) {
-      console.log(err);
-      set({ err: err.response.data.message });
+      alert(err.response.data.message);
     }
     set({ loading: false });
   },
@@ -34,11 +33,11 @@ export const useRegisterState = create((set) => ({
         category: data.category,
         owner: data.owner,
         location: `${data.street} ${data.brgy} ${data.city}, ${data.province}`,
-      },{timeout:45000});
+      });
       localStorage.setItem("register", JSON.stringify(result?.data));
       navigate("/register/acc/verify-email");
     } catch (err) {
-      set({ err: err.response.data.message });
+      alert(err.response.data.message);
     }
     set({ loading: false });
   },
@@ -50,13 +49,13 @@ export const useRegisterState = create((set) => ({
       const result = await api.post("/accommodator/verify-email", {
         otp: data.otp,
         accommodatorId: data.accommodatorId,
-      },{timeout:45000});
+      });
       navigate("/acc/dashboard");
       set({ data: result.data.result });
       set({ login: "acc" });
       localStorage.setItem("acc", JSON.stringify(result?.data));
     } catch (err) {
-      set({ err: err.response.data.message });
+      alert(err.response.data.message);
     }
     set({ loading: false });
   },
@@ -65,15 +64,16 @@ export const useRegisterState = create((set) => ({
     set({ loading: true });
     set({ err: null });
     try {
-      const result = await api.post("/accommodator/login", data,{timeout:45000});
+      const result = await api.post("/accommodator/login", data, {
+        timeout: 45000,
+      });
       set({ data: result.data.result });
       navigate("/acc/dashboard");
       set({ data: result.data.result });
       localStorage.setItem("acc", JSON.stringify(result?.data));
       set({ login: "acc" });
     } catch (err) {
-      console.log(err.response.data.message);
-      set({ err: err.response.data.message });
+      alert(err.response.data.message);
     }
     set({ loading: false });
   },
@@ -88,11 +88,11 @@ export const useRegisterState = create((set) => ({
         email: data.email,
         password: data.password,
         birthday: data.birthday,
-      },{timeout:45000});
+      });
       localStorage.setItem("register", JSON.stringify(result?.data));
       navigate("/register/client/verify-email");
     } catch (err) {
-      set({ err: err.response.data.message });
+      alert(err.response.data.message);
     }
     set({ loading: false });
   },
@@ -104,13 +104,13 @@ export const useRegisterState = create((set) => ({
       const result = await api.post("/client/verify-email", {
         otp: data.otp,
         clientId: data.clientId,
-      },{timeout:45000});
+      });
       navigate("/client/dashboard");
       set({ data: result.data.result });
       set({ login: "client" });
       localStorage.setItem("client", JSON.stringify(result?.data));
     } catch (err) {
-      set({ err: err.response.data.message });
+      alert(err.response.data.message);
     }
     set({ loading: false });
   },
@@ -119,15 +119,14 @@ export const useRegisterState = create((set) => ({
     set({ loading: true });
     set({ err: null });
     try {
-      const result = await api.post("/client/login", data,{timeout:45000});
+      const result = await api.post("/client/login", data);
       set({ data: result.data.result });
       navigate("/client/dashboard");
       set({ data: result.data.result });
       localStorage.setItem("client", JSON.stringify(result?.data));
       set({ login: "client" });
     } catch (err) {
-      console.log(err);
-      set({ err: err.response.data.message });
+      alert(err.response.data.message);
     }
     set({ loading: false });
   },

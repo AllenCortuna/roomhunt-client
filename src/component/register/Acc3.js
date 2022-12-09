@@ -1,8 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "../utility/Input";
-import FormErr from "../utility/FormErr";
 import { formHint } from "../utility/Text";
 import { useForm } from "react-hook-form";
 import BtnSubmit from "../btn/BtnSubmit";
@@ -15,24 +14,17 @@ const Acc3 = ({ handleChange, data }) => {
   const registerAcc = useRegisterState((state) => state.registerAcc);
   const navigate = useNavigate();
   const loading = useRegisterState((state) => state.loading);
-  const err = useRegisterState((state) => state.err);
-  const setErr = useRegisterState((state) => state.setErr);
   const {
     register,
     handleSubmit,
-    formState: { errors },
-    // watch,
   } = useForm();
 
-  useEffect(() => {
-    if (err !== null) {
-      errNotify(err);
-    }
-    setErr(null);
-  }, [err]);
-
   const onSubmit = async () => {
-    await registerAcc(data, navigate);
+    if (!data.street || !data.brgy || !data.city || !data.province) {
+      errNotify("Complete all the Info !");
+    } else {
+      await registerAcc(data, navigate);
+    }
   };
 
   return (
@@ -42,34 +34,30 @@ const Acc3 = ({ handleChange, data }) => {
         <Input
           type="text"
           placeholder={"Street"}
-          register={{ ...register("street", { required: true }) }}
+          register={{ ...register("street", { required: false }) }}
           onChange={handleChange}
         />
-        <FormErr text={"Street is required"} err={errors.street} />
 
         <Input
           type="text"
           placeholder={"Brgy"}
-          register={{ ...register("brgy", { required: true }) }}
+          register={{ ...register("brgy", { required: false }) }}
           onChange={handleChange}
         />
-        <FormErr text={"Brgy is required"} err={errors.brgy} />
 
         <Input
           type="text"
           placeholder={"City/Town"}
-          register={{ ...register("city", { required: true }) }}
+          register={{ ...register("city", { required: false }) }}
           onChange={handleChange}
         />
-        <FormErr text={"City is required"} err={errors.city} />
 
         <Input
           type="text"
           placeholder={"Province"}
-          register={{ ...register("province", { required: true }) }}
+          register={{ ...register("province", { required: false }) }}
           onChange={handleChange}
         />
-        <FormErr text={"Province is required"} err={errors.province} />
 
         <BtnSubmit
           loading={loading}

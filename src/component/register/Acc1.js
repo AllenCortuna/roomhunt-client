@@ -1,25 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { form, page1container } from "./style";
 import Input from "../utility/Input";
 import BtnSubmit from "../btn/BtnSubmit";
-import FormErr from "../utility/FormErr";
 import { formHint } from "../utility/Text";
+import { errNotify } from "../utility/notify";
 
 const Acc1 = ({ setPage, page, handleChange, data }) => {
   const {
     register,
     handleSubmit,
-    // watch,
-    formState: { errors },
   } = useForm();
-  const [isMatch, setIsMatch] = useState(true);
 
   const onSubmit = () => {
     if (data.password !== data.confirmPassword) {
-      setIsMatch(false);
-    } else {
-      setPage(page + 1);
+      errNotify("Password does not Match!");
+    } else if (data.email === "") {
+      errNotify("Email is required")
+    } else if (data.password === "") {
+      errNotify("Password is Required!")
+    }
+    else{
+    setPage(page + 1);
     }
   };
 
@@ -33,35 +35,28 @@ const Acc1 = ({ setPage, page, handleChange, data }) => {
         <Input
           type="email"
           placeholder={"Email"}
-          register={{ ...register("email", { required: true }) }}
+          register={{ ...register("email", { required: false }) }}
           onChange={handleChange}
         />
-        <FormErr text={"Email is required"} err={errors.email} />
 
         <Input
           type="password"
           placeholder={"Password"}
           register={{
             ...register("password", {
-              required: true,
+              required: false,
               minLength: 8,
             }),
           }}
           onChange={handleChange}
         />
-        <FormErr
-          text={"Password must have at least 8 characters"}
-          err={errors.password}
-        />
 
         <Input
           type="password"
           placeholder={"Confirm Password"}
-          register={{ ...register("confirmPassword", { required: true }) }}
+          register={{ ...register("confirmPassword", { required: false }) }}
           onChange={handleChange}
         />
-        <FormErr text={"Password is required"} err={errors.confirmPassword} />
-        <FormErr text={"Password does not match"} err={!isMatch} />
 
         <BtnSubmit loading={false} loadingTxt={""} text={"next"} />
       </form>

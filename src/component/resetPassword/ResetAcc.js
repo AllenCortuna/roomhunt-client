@@ -8,10 +8,8 @@ import { useNavigate } from "react-router-dom";
 import { errNotify } from "../utility/notify";
 import { ToastContainer } from "react-toastify";
 import reset from "../img/acc.svg";
-import FormErr from "../utility/FormErr";
 
 const ResetAcc = () => {
-  
   const span = "grid gap-3";
   const resetAccPW = resetStore((state) => state.resetAccPW);
   const loading = resetStore((state) => state.loading);
@@ -24,9 +22,7 @@ const ResetAcc = () => {
     }
   }, [err]);
 
-  const { register, handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const [data, setdata] = useState({
     email: "",
@@ -41,6 +37,8 @@ const ResetAcc = () => {
       errNotify("Passsword does not match");
     } else if (!data.email || !data.password || !data.confirmPassword) {
       errNotify("Complete all Info");
+    } else if (data.password.length() < 8) {
+      errNotify("password must have at least 8 character");
     } else {
       resetAccPW(data, navigate);
       setErr(null);
@@ -66,7 +64,7 @@ const ResetAcc = () => {
             {formHint("Email")}
             <Input
               type={"email"}
-              register={{ ...register("email", { required: true }) }}
+              register={{ ...register("email", { required: false }) }}
               onChange={handleChange}
             />
           </span>
@@ -76,21 +74,17 @@ const ResetAcc = () => {
             <Input
               type={"password"}
               register={{
-                ...register("password", { required: true, minLength: 8 }),
+                ...register("password", { required: false, minLength: 8 }),
               }}
               onChange={handleChange}
             />
           </span>
-          <FormErr
-            text={"Password must have at least 8 characters"}
-            err={errors.password}
-          />
 
           <span className={span}>
             {formHint("confirm Password")}
             <Input
               type={"password"}
-              register={{ ...register("confirmPassword", { required: true }) }}
+              register={{ ...register("confirmPassword", { required: false }) }}
               onChange={handleChange}
             />
           </span>

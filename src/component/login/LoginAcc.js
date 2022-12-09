@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import FormErr from "../utility/FormErr";
 import Input from "../utility/Input";
 import { useForm } from "react-hook-form";
@@ -19,16 +19,6 @@ const LoginAcc = () => {
   const loginAcc = useRegisterState((state) => state.loginAcc);
   const loading = useRegisterState((state) => state.loading);
 
-  const err = useRegisterState((state) => state.err);
-  const setErr = useRegisterState((state) => state.setErr);
-
-  useEffect(() => {
-    if (err !== null) {
-      errNotify(err);
-    }
-    setErr(null);
-  }, [err]);
-
   const navigate = useNavigate();
 
   const {
@@ -37,8 +27,13 @@ const LoginAcc = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = () => {
-    loginAcc(data, navigate);
-    return;
+    if (!data.email) {
+      errNotify("Enter email!");
+    } else if (!data.password) {
+      errNotify("Enter Pasaword!");
+    } else {
+      loginAcc(data, navigate);
+    }
   };
   const handleChange = (e) => {
     setdata({ ...data, [e.target.name]: e.target.value });
@@ -47,7 +42,6 @@ const LoginAcc = () => {
   return (
     <div className="grid text-center bg-white w-[21rem] md:w-[24rem] h-auto border-t-[1rem] border-orange rounded-md shadow-md h-auto mx-auto mt-10 py-5 ">
       <ToastContainer />
-      {/* <span className="rounded-tl-md rounded-tr-md h-3 bg-orange mb-5 shadow-sm"></span> */}
       <img
         src={acc}
         alt="accommodator"

@@ -12,7 +12,7 @@ export const accStore = create((set) => ({
       const response = await api.get(`accommodator/${id}`)
       set({acc: response.data})
     } catch (err) {
-      set({ err: err.response.data.message });
+      alert(err.response.data.message);
     }
     set({loading: false})
   },

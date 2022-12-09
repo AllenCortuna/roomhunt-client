@@ -19,4 +19,10 @@ const InputVal = ({ type, onChange, placeholder, register, value }) => {
   );
 };
 
+InputVal.defaultProps = {
+  register: null,
+  onChange: null,
+  placeholder: "",
+}
+
 export default InputVal;
