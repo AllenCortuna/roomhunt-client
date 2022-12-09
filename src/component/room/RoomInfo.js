@@ -61,7 +61,6 @@ const RoomInfo = () => {
                 <Info room={room} />
                 {/* room review */}
                 <span className="ml-4 grid gap-1">
-                  {/* <img src={review} alt="review" className='w-20 drop-shadow-md ' /> */}
                   <h4 className="text-cyan-800 font-[600] text-sm drop-shadow-sm">
                     <MdFeedback className="inline mr-1" />
                     Ratings

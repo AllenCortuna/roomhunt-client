@@ -11,6 +11,9 @@ import { useNavigate } from "react-router-dom";
 const Room = ({ room }) => {
   const icon = "inline";
   const navigate = useNavigate();
+  const now = new Date();
+  now.setHours(0, 0, 0, 0);
+  const unavailable = new Date(room.unavailableUntil).getTime() > now.getTime();
   return (
     <span
       key={room._id}
@@ -23,6 +26,17 @@ const Room = ({ room }) => {
         className="rounded-tr-md rounded-tl-md object-cover w-full h-28"
       />
       <span className="p-2 py-0 grid">
+        <Content
+          icon={<BsFillCalendarWeekFill className={icon} />}
+          text={unavailable ? "unavailable til" : ""}
+          value={
+            unavailable ? (
+              <Moment date={room.unavailableUntil} format="MMM-DD" />
+            ) : (
+              "Available"
+            )
+          }
+        />
         <Price
           icon={<ImPriceTag className={icon} />}
           text={"price"}
@@ -38,17 +52,6 @@ const Room = ({ room }) => {
           icon={<IoIosBed className={icon} />}
           text={"no. of bed"}
           value={room.bed}
-        />
-        <Content
-          icon={<BsFillCalendarWeekFill className={icon} />}
-          text={room.unavailableUntil > new Date() || room.unavailableUntil ? "unavailable til" : "" }
-          value={
-            room.unavailableUntil ? (
-              <Moment date={room.unavailableUntil} format="MMM-DD" />
-            ) : (
-             "Available" 
-            )
-          }
         />
         <Place icon={<MdLocationOn className={icon} />} value={room.location} />
 
@@ -91,7 +94,9 @@ const Price = ({ icon, text, value, cat }) => {
         {text}
       </span>
       {value}
-      <span className="ml-1 lowercase rale text-zinc-500 font-[400]">{cat === "dorm" ? "montly" : "per night"}</span>
+      <span className="ml-1 lowercase rale text-zinc-500 font-[400]">
+        {cat === "dorm" ? "montly" : "per night"}
+      </span>
     </h1>
   );
 };

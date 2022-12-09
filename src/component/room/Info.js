@@ -5,9 +5,13 @@ import { IoIosBed } from "react-icons/io";
 import Moment from "react-moment";
 
 const Info = ({ room }) => {
-  const txt = "ml-3 text-gray-500 font-[500] text-[.74rem] space-mono truncate";
+  const txt = "ml-3 text-gray-500 font-[500] text-[.74rem] truncate space-mono";
   const highlight =
-    "ml-3 text-gray-500 font-semibold  text-[.74rem] space-mono";
+    "ml-3 text-gray-500 font-semibold  text-[.74rem] space-mono ";
+  const now = new Date();
+  now.setHours(0, 0, 0, 0);
+  const unavailable = new Date(room.unavailableUntil).getTime() > now.getTime();
+  
   return (
     <span className="p-4 pt-0 grid md:mt-0 mt-4">
       <h1 className="text-cyan-800 font-semibold text-[.84rem] capitalize ">
@@ -17,10 +21,10 @@ const Info = ({ room }) => {
 
       <h1 className={txt}>
         <BsCalendar2CheckFill className="inline mr-1" />
-        <span className=" ml-2 font-[600]">
-          {room.unavailableUntil <= new Date() ? (
+        <span className="font-[600]">
+          {unavailable ? (
             <>
-              <span className="rale text-gray-400">Unavailable-Until:</span>
+              <span className=" font-[400] rale text-gray-400">Unavailable-Until: </span>
               <Moment date={room.unavailableUntil} format="MMM-DD-YYYY" />
             </>
           ) : (
@@ -50,7 +54,7 @@ const Info = ({ room }) => {
           updated:
         </span>
         <span className="ml-2 font-[600] space-mono">
-          <Moment date={room.uodatedAt} format="MMM-DD-YYYY" />
+          <Moment date={room.updatedAt} format="MMM-DD-YYYY" />
         </span>
       </h1>
 
