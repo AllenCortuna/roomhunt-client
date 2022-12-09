@@ -1,5 +1,5 @@
 import create from "zustand";
-import {api} from './api'
+import {alertErr, api} from './api'
 
 
 api.interceptors.request.use((req) => {
@@ -27,7 +27,7 @@ export const roomStore = create((set) => ({
     set({ loading: true });
     try {
       const response = await api.get(
-        `/room/location?category=${query.category}&location=${query.location}`,{timeout:45000}
+        `/room/location?category=${query.category}&location=${query.location}`
       );
       set({ suggestedRoom: response.data });
     } catch (err) {
@@ -36,7 +36,7 @@ export const roomStore = create((set) => ({
     set({ loading: false });
   },
 
-  getRoomBySearch: async (query) => {
+  getRoomBySearch: async (query,navigate) => {
     set({ loading: true });
     set({ rooms: [] });
     try {
@@ -45,11 +45,13 @@ export const roomStore = create((set) => ({
           query.location
         }&minPrice=${query.minPrice}&maxPrice=${
           query.maxPrice
-        }&bed=${query.bed}&checkInDate=${query.checkInDate}`,{timeout:45000}
+        }&bed=${query.bed}&checkInDate=${query.checkInDate}`
       );
       set({ rooms: response.data });
     } catch (err) {
-      alert(err.response.data.message);
+      alertErr(err);
+      // alert(err.response.data.message);
+      navigate("/search")
     }
     set({ loading: false });
   },
@@ -57,7 +59,7 @@ export const roomStore = create((set) => ({
   getRoom: async (id) => {
     set({ loading: true });
     try {
-      const response = await api.get(`room/${id}`,{timeout:45000});
+      const response = await api.get(`room/${id}`);
       set({ room: response.data });
     } catch (err) {
       alert(err.response.data.message);
@@ -68,7 +70,7 @@ export const roomStore = create((set) => ({
   getOwnRooms: async (id) => {
     set({ loading: true });
     try {
-      const response = await api.get(`room/own/${id}`,{timeout:45000});
+      const response = await api.get(`room/own/${id}`);
       set({ rooms: response.data });
     } catch (err) {
       alert(err.response.data.message);
@@ -78,7 +80,7 @@ export const roomStore = create((set) => ({
 
   updateView: async (id) => {
     try {
-      await api.patch(`room/view/${id}`,{timeout:45000});
+      await api.patch(`room/view/${id}`);
       alert("room view updated");
     } catch (err) {
       console.log(err.response.data.message);
@@ -88,7 +90,7 @@ export const roomStore = create((set) => ({
   uploadRoom: async (data) => {
     set({ loading: true });
     try {
-      const result = await api.post("/room", data,{timeout:45000});
+      const result = await api.post("/room", data);
       set((state) => ({ rooms: [...state.rooms, result.data] }));
     } catch (err) {
       alert(err.response.data.message);
@@ -99,7 +101,7 @@ export const roomStore = create((set) => ({
   updateRoom: async (data, id) => {
     set({ loading: true });
     try {
-      const result = await api.patch(`/room/${id}`, data,{timeout:45000});
+      const result = await api.patch(`/room/${id}`, data);
       set((state) => ({
         rooms: [
           ...state.rooms.map((room) => (room._id === id ? result.data : room)),
@@ -114,7 +116,7 @@ export const roomStore = create((set) => ({
   deleteRoom: async (id) => {
     set({ loading: true });
     try {
-      await api.delete(`/room/${id}`,{timeout:45000});
+      await api.delete(`/room/${id}`);
       set((state) => ({
         rooms: state.rooms.filter((a) => a._id !== id),
       }));
@@ -131,7 +133,7 @@ export const roomStore = create((set) => ({
       alert("WARN:Client(only) must be Login or Register to submit Review");
     } else {
       try {
-        const result = await api.post("/room/review/", review,{timeout:45000});
+        const result = await api.post("/room/review/", review);
         set({ room: result.data });
        alert("review sent!") 
       } catch (err) {

@@ -1,5 +1,5 @@
 import create from "zustand";
-import {api} from './api'
+import {alertErr, api} from './api'
 
 export const resetStore = create((set) => ({
   err: null,
@@ -19,6 +19,7 @@ export const resetStore = create((set) => ({
       );
       navigate("/reset/acc-otp");
     } catch (err) {
+      alertErr(err)
       set({ err: err.response.data.message });
     }
     set({ loading: false });
@@ -32,6 +33,7 @@ export const resetStore = create((set) => ({
       await api.patch(`reset/acc/${id}`,data);
       navigate("/login/acc");
     } catch (err) {
+      alertErr(err)
       set({ err: err.response.data.message });
     }
     set({ loading: false });
@@ -48,6 +50,7 @@ export const resetStore = create((set) => ({
       );
       navigate("/reset/client-otp");
     } catch (err) {
+      alertErr(err)
       set({ err: err.response.data.message });
     }
     set({ loading: false });
@@ -61,6 +64,7 @@ export const resetStore = create((set) => ({
       await api.patch(`reset/client/${id}`, data);
       navigate("/login/client");
     } catch (err) {
+      alertErr(err)
       set({ err: err.response.data.message });
     }
     set({ loading: false });

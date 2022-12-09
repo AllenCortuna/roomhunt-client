@@ -41,12 +41,12 @@ const Room = ({ room }) => {
         />
         <Content
           icon={<BsFillCalendarWeekFill className={icon} />}
-          text={"unavailable til"}
+          text={room.unavailableUntil > new Date() || room.unavailableUntil ? "unavailable til" : "" }
           value={
             room.unavailableUntil ? (
               <Moment date={room.unavailableUntil} format="MMM-DD" />
             ) : (
-              "None"
+             "Available" 
             )
           }
         />

@@ -25,11 +25,13 @@ const Slider = ({ image }) => {
         >
           {image.map((a) => (
             <SwiperSlide>
-              <img
-                src={a}
-                alt="room"
-                className="object-cover md:h-full  h-[24rem] rounded-br-lg rounded-bl-lg md:rounded-tr-lg md:rounded-bl-none  w-full border"
-              />
+              <span className="h-full w-auto">
+                <img
+                  src={a}
+                  alt="room"
+                  className="object-cover md:h-full  h-[24rem] rounded-br-lg rounded-bl-lg md:rounded-tr-lg md:rounded-bl-none  w-full border"
+                />
+              </span>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -46,11 +48,13 @@ const Slider = ({ image }) => {
           onSlideChange={() => console.log("slide change")}
         >
           <SwiperSlide>
-            <img
-              src={image}
-              alt="room"
-              className="object-cover md:h-full  h-[24rem] rounded-br-lg rounded-bl-lg md:rounded-tr-lg md:rounded-bl-none  w-full border"
-            />
+            <span className="h-full w-auto">
+              <img
+                src={image}
+                alt="room"
+                className="object-cover md:h-full  h-[24rem] rounded-br-lg rounded-bl-lg md:rounded-tr-lg md:rounded-bl-none  w-full border"
+              />
+            </span>
           </SwiperSlide>
         </Swiper>
       )}

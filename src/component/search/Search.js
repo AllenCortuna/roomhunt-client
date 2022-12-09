@@ -52,9 +52,9 @@ const Search = () => {
   };
 
   const onSubmit = () => {
-      getRoomBySearch(query);
-      localStorage.setItem("search", JSON.stringify(query));
-      navigate("/rooms");
+    getRoomBySearch(query, navigate);
+    localStorage.setItem("search", JSON.stringify(query));
+    navigate("/rooms");
   };
 
   const iconCl = "mr-1 inline";

@@ -1,5 +1,5 @@
 import create from "zustand";
-import { api } from "./api";
+import { alertErr, api } from "./api";
 
 export const useRegisterState = create((set) => ({
   loading: false,
@@ -15,6 +15,7 @@ export const useRegisterState = create((set) => ({
       set({ login: "acc" });
       alert("Info Updated");
     } catch (err) {
+      alertErr(err);
       alert(err.response.data.message);
     }
     set({ loading: false });
@@ -38,6 +39,7 @@ export const useRegisterState = create((set) => ({
       navigate("/register/acc/verify-email");
     } catch (err) {
       alert(err.response.data.message);
+      alertErr(err);
     }
     set({ loading: false });
   },
@@ -55,7 +57,7 @@ export const useRegisterState = create((set) => ({
       set({ login: "acc" });
       localStorage.setItem("acc", JSON.stringify(result?.data));
     } catch (err) {
-      alert(err.response.data.message);
+      alertErr(err);
     }
     set({ loading: false });
   },
@@ -73,7 +75,7 @@ export const useRegisterState = create((set) => ({
       localStorage.setItem("acc", JSON.stringify(result?.data));
       set({ login: "acc" });
     } catch (err) {
-      alert(err.response.data.message);
+      alertErr(err);
     }
     set({ loading: false });
   },
@@ -92,7 +94,7 @@ export const useRegisterState = create((set) => ({
       localStorage.setItem("register", JSON.stringify(result?.data));
       navigate("/register/client/verify-email");
     } catch (err) {
-      alert(err.response.data.message);
+      alertErr(err);
     }
     set({ loading: false });
   },
@@ -110,7 +112,7 @@ export const useRegisterState = create((set) => ({
       set({ login: "client" });
       localStorage.setItem("client", JSON.stringify(result?.data));
     } catch (err) {
-      alert(err.response.data.message);
+      alertErr(err);
     }
     set({ loading: false });
   },
@@ -126,7 +128,7 @@ export const useRegisterState = create((set) => ({
       localStorage.setItem("client", JSON.stringify(result?.data));
       set({ login: "client" });
     } catch (err) {
-      alert(err.response.data.message);
+      alertErr(err);
     }
     set({ loading: false });
   },
