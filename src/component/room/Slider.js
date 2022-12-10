@@ -10,7 +10,7 @@ import "swiper/css/scrollbar";
 const Slider = ({ image }) => {
   const isObject = typeof image === "object";
   return (
-    <div className="flex m-0 w-full h-full bg-zinc-700 rounded-br-lg rounded-tr-lg rounded-bl-lg md:rounded-bl-none justify-center conter-center">
+    <div className="flex m-0 w-full h-full bg-zinc-700 rounded-lg justify-center conter-center">
       <span className="w-full my-auto">
         {isObject ? (
           <Swiper
@@ -29,7 +29,7 @@ const Slider = ({ image }) => {
                   <img
                     src={a}
                     alt="room"
-                    className="object-cover max-h-[20rem] my-auto w-full shad"
+                    className="object-cover max-h-[20rem] my-auto w-full shad rounded-lg"
                   />
                 </span>
               </SwiperSlide>
@@ -51,7 +51,7 @@ const Slider = ({ image }) => {
                 <img
                   src={image}
                   alt="room"
-                  className="object-cover h-full  w-full shad rounded-br-lg rounded-bl-lg md:rounded-none my-auto "
+                  className="object-cover h-full  w-full shad rounded-lg my-auto "
                 />
               </span>
             </SwiperSlide>

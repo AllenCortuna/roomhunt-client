@@ -64,7 +64,7 @@ const UploadForm = ({ data, setdata, onSubmit }) => {
       className="flex flex-wrap flex-col gap-3 w-full mt-4"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <MultipleImage handleImg={handleImg} data={data} />
+      <MultipleImage handleImg={handleImg} data={data} setdata={setdata} />
       <span className=" mt-2 grid grid-cols-2 gap-1 gap-x-3">
         {text("Name")}
         <span></span>
