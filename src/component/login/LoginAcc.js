@@ -62,7 +62,7 @@ const LoginAcc = () => {
         <Input
           type={"email"}
           placeholder={"Email"}
-          register={{ ...register("email", { required: true }) }}
+          register={{ ...register("email", { required: false }) }}
           onChange={handleChange}
         />
         <FormErr text={"Email is required"} err={errors.email} />
@@ -70,7 +70,7 @@ const LoginAcc = () => {
         <Input
           type={"password"}
           placeholder={"Password"}
-          register={{ ...register("password", { required: true }) }}
+          register={{ ...register("password", { required: false }) }}
           onChange={handleChange}
         />
         <FormErr text={"Passwords required"} err={errors.password} />

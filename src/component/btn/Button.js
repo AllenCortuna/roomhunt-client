@@ -21,7 +21,7 @@ const Button = ({ text, color, onClick, loading }) => {
           className="w-6 h-4 my-auto"
         />
       )}
-      {loading ? "Processing" : text}
+      {loading ? "Loading" : text}
     </button>
   );
 };

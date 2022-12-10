@@ -1,7 +1,7 @@
 import axios from "axios";
 export const api = axios.create({
   baseURL: process.env.REACT_APP_API,
-  timeout: 1000* 35,
+  timeout: 1000 * 35,
   timeoutErrorMessage: "Server refused to Connect please try again !!",
 });
 
@@ -20,9 +20,11 @@ api.interceptors.request.use((req) => {
 });
 
 export const alertErr = (err) => {
-  if (err.message) {
+  if (err.response.data.message) {
+    alert(err.response.data.message);
+  } else if (err.message) {
     alert(err.message);
   } else {
-    alert(err.response.data.message);
+    alert("Something went wrong!");
   }
 };

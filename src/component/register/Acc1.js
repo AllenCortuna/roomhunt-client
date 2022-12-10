@@ -5,6 +5,7 @@ import Input from "../utility/Input";
 import BtnSubmit from "../btn/BtnSubmit";
 import { formHint } from "../utility/Text";
 import { errNotify } from "../utility/notify";
+import { ToastContainer } from "react-toastify";
 
 const Acc1 = ({ setPage, page, handleChange, data }) => {
   const {
@@ -13,21 +14,21 @@ const Acc1 = ({ setPage, page, handleChange, data }) => {
   } = useForm();
 
   const onSubmit = () => {
-    if (data.password !== data.confirmPassword) {
-      errNotify("Password does not Match!");
-    } else if (data.email === "") {
-      errNotify("Email is required")
-    } else if (data.password === "") {
-      errNotify("Password is Required!")
-    }
-    else{
-    setPage(page + 1);
+    if (!data.email || !data.password) {
+      errNotify("Complete all info");
+    } else if (data.password?.length < 8) {
+      errNotify("password must be 8 or more characters");
+    } else if (data.password !== data.confirmPassword) {
+      errNotify("Password not match!");
+    } else {
+      setPage(page + 1);
     }
   };
 
   // console.log(watch("example"));
   return (
     <span className={page1container}>
+      <ToastContainer />
       <hr className="my-4" />
       <form onSubmit={handleSubmit(onSubmit)} className={form}>
         {formHint("Email")}
@@ -45,7 +46,6 @@ const Acc1 = ({ setPage, page, handleChange, data }) => {
           register={{
             ...register("password", {
               required: false,
-              minLength: 8,
             }),
           }}
           onChange={handleChange}

@@ -123,7 +123,10 @@ const UploadForm = ({ data, setdata, onSubmit }) => {
           onChange={handleChange}
         />
       </span>
-      <BtnSubmit loading={loading} loadingTxt={"loading"} text={"Upload"} />
+      <span className="w-full flex flex-row justify-between">
+        <BtnSubmit loading={loading} loadingTxt={"loading"} text={"Upload"} />
+        <BtnSubmit loading={loading} loadingTxt={"loading"} text={"Upload"} />
+      </span>
     </form>
   );
 };

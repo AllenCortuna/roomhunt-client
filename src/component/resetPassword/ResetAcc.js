@@ -37,7 +37,7 @@ const ResetAcc = () => {
       errNotify("Passsword does not match");
     } else if (!data.email || !data.password || !data.confirmPassword) {
       errNotify("Complete all Info");
-    } else if (data.password.length() < 8) {
+    } else if (data.password.split("") < 8) {
       errNotify("password must have at least 8 character");
     } else {
       resetAccPW(data, navigate);
@@ -74,7 +74,7 @@ const ResetAcc = () => {
             <Input
               type={"password"}
               register={{
-                ...register("password", { required: false, minLength: 8 }),
+                ...register("password", { required: false }),
               }}
               onChange={handleChange}
             />
