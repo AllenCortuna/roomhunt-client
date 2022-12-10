@@ -20,7 +20,7 @@ const RegisterClient = () => {
   const err = useRegisterState((state) => state.err);
 
   const setErr = useRegisterState((state) => state.setErr);
-  
+
   useEffect(() => {
     if (err !== null) {
       errNotify(err);
@@ -45,6 +45,10 @@ const RegisterClient = () => {
   const onSubmit = async () => {
     if (data.password !== data.confirmPassword) {
       errNotify("Password Not Match");
+    } else if (!data.email || !data.password || !data.birthday || !data.name) {
+      errNotify("Complete all info");
+    } else if (data.password?.length < 8) {
+      errNotify("Password must be more than 8 characters");
     } else {
       await registerClient(data, navigate);
     }
@@ -69,7 +73,7 @@ const RegisterClient = () => {
           <Input
             type="text"
             placeholder={"Mario Luigue"}
-            register={{ ...register("name", { required: true }) }}
+            register={{ ...register("name", { required: false }) }}
             onChange={handleChange}
           />
           <FormErr text={"Full Name is required"} err={errors.name} />
@@ -82,7 +86,7 @@ const RegisterClient = () => {
           <Input
             type="email"
             placeholder={"email"}
-            register={{ ...register("email", { required: true }) }}
+            register={{ ...register("email", { required: false }) }}
             onChange={handleChange}
           />
           <FormErr text={"email is required"} err={errors.email} />
@@ -90,11 +94,10 @@ const RegisterClient = () => {
           <Input
             type="password"
             placeholder={"password"}
-            // register={{ ...register("password", { required: true }) }}
+            // register={{ ...register("password", { required: false }) }}
             register={{
               ...register("password", {
-                required: true,
-                minLength: 8,
+                required: false,
               }),
             }}
             onChange={handleChange}
@@ -107,7 +110,7 @@ const RegisterClient = () => {
           <Input
             type="password"
             placeholder={"confirmPassword"}
-            register={{ ...register("confirmPassword", { required: true }) }}
+            register={{ ...register("confirmPassword", { required: false }) }}
             onChange={handleChange}
           />
 
