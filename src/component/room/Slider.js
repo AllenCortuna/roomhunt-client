@@ -10,7 +10,7 @@ import "swiper/css/scrollbar";
 const Slider = ({ image }) => {
   const isObject = typeof image === "object";
   return (
-    <div className="flex m-0 w-full h-full bg-zinc-700 rounded-br-lg rounded-tr-lg rounded-bl-lg md:rounded-bl-none">
+    <div className="flex m-0 w-full h-full bg-zinc-700 rounded-br-lg rounded-tr-lg rounded-bl-lg md:rounded-bl-none justify-center conter-center">
       <span className="w-full my-auto">
         {isObject ? (
           <Swiper
@@ -18,19 +18,18 @@ const Slider = ({ image }) => {
             modules={[Navigation, Pagination, Scrollbar, A11y]}
             spaceBetween={50}
             slidesPerView={1}
+            autoHeight={true}
             navigation
             pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}
-            // onSwiper={(swiper) => console.log(swiper)}
-            // onSlideChange={() => console.log("slide change")}
           >
             {image.map((a) => (
               <SwiperSlide>
-                <span className="h-full w-auto">
+                <span className="max-h-[20rem] w-auto my-auto " key={a}>
                   <img
                     src={a}
                     alt="room"
-                    className="object-cover h-auto  w-full shad"
+                    className="object-cover max-h-[20rem] my-auto w-full shad"
                   />
                 </span>
               </SwiperSlide>
@@ -43,17 +42,16 @@ const Slider = ({ image }) => {
             spaceBetween={50}
             slidesPerView={1}
             navigation
+            autoHeight={true}
             pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}
-            // onSwiper={(swiper) => console.log(swiper)}
-            // onSlideChange={() => console.log("slide change")}
           >
             <SwiperSlide>
               <span className="h-full w-auto">
                 <img
                   src={image}
                   alt="room"
-                    className="object-cover h-auto  w-full shad rounded-br-lg rounded-bl-lg md:rounded-none "
+                  className="object-cover h-full  w-full shad rounded-br-lg rounded-bl-lg md:rounded-none my-auto "
                 />
               </span>
             </SwiperSlide>

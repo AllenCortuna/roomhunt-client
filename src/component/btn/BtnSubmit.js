@@ -7,7 +7,7 @@ const BtnSubmit = ({ loading, text, loadingTxt }) => {
   return (
     <button
       type="submit"
-      className={`transition-all duration-200 ease-linear border-2 p-4 py-3 text-xs md:text-sm font-[500] shad rounded-md mt-5 text-gray-600 mr-0 ml-auto flex flex-row gap-1 ${
+      className={`transition-all duration-200 ease-linear border-2 p-4 py-3 text-xs md:text-sm font-[500] shad rounded-md mr-0 text-gray-600 ml-auto flex flex-row gap-1 capitalized ${
         loading
           ? "border-gray-500 text-gray-400 bg-none px-2 py-3"
           : "bg-secondary border-secondary"

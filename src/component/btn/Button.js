@@ -11,6 +11,7 @@ const Button = ({ text, color, onClick, loading }) => {
       }`}
       onClick={onClick}
       disabled={loading}
+      type="button"
     >
       {loading && (
         <img

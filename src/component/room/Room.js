@@ -14,6 +14,7 @@ const Room = ({ room }) => {
   const now = new Date();
   now.setHours(0, 0, 0, 0);
   const unavailable = new Date(room.unavailableUntil).getTime() > now.getTime();
+  const isObject = typeof room?.image === "object";
   return (
     <span
       key={room._id}
@@ -21,7 +22,7 @@ const Room = ({ room }) => {
       onClick={() => navigate(`/rooms/${room._id}`)}
     >
       <img
-        src={room.image}
+        src={isObject? room.image[0] : room.image}
         alt="roomImg"
         className="rounded-tr-md rounded-tl-md object-cover w-full h-28"
       />

@@ -1,12 +1,12 @@
-// import React from "react";
 import { useForm } from "react-hook-form";
 import InputVal from "../utility/InputVal";
 import DateInput from "../utility/Date";
-import Image from "../utility/Image";
 import BtnSubmit from "../btn/BtnSubmit";
+import Button from "../btn/Button";
 import { BsFillGridFill } from "react-icons/bs";
 import { roomStore } from "../../state/room";
 import Option from "../utility/Option";
+import MultipleImage from "../utility/MultipleImage";
 
 const UploadForm = ({ data, setdata, onSubmit }) => {
   const { register, handleSubmit } = useForm();
@@ -18,13 +18,25 @@ const UploadForm = ({ data, setdata, onSubmit }) => {
   };
 
   const handleImg = (img) => {
-    setdata({ ...data, image: img });
+    const oldImages = data.image; 
+    //accept only 10 maximum image
+    if (data.image.length <= 10) {
+      const newImage = oldImages.concat(img);
+      setdata({ ...data, image: newImage });
+    } else {
+      oldImages.shift()
+      const newImage = oldImages.concat(img);
+      setdata({ ...data, image: newImage });
+    }
   };
 
   const handleOpt = (e) => {
     setdata({ ...data, bed: e.target.value });
   };
 
+  const setAvailable = () => {
+    setdata({ ...data, unavailableUntil: "" });
+  };
   const handleCategory = (e) => {
     setdata({ ...data, category: e.target.value });
   };
@@ -52,7 +64,7 @@ const UploadForm = ({ data, setdata, onSubmit }) => {
       className="flex flex-wrap flex-col gap-3 w-full mt-4"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <Image handleImg={handleImg} data={data} />
+      <MultipleImage handleImg={handleImg} data={data} />
       <span className=" mt-2 grid grid-cols-2 gap-1 gap-x-3">
         {text("Name")}
         <span></span>
@@ -107,7 +119,7 @@ const UploadForm = ({ data, setdata, onSubmit }) => {
           value={data.location}
           type={"text"}
           placeholder={"Street Brgy. City, Province"}
-          register={{ ...register("location", { required: true }) }}
+          register={{ ...register("location", { required: false }) }}
           onChange={handleChange}
         />
       </span>
@@ -119,12 +131,17 @@ const UploadForm = ({ data, setdata, onSubmit }) => {
           value={data.description}
           type={"text"}
           placeholder={"Room Description"}
-          register={{ ...register("description", { required: true }) }}
+          register={{ ...register("description", { required: false }) }}
           onChange={handleChange}
         />
       </span>
-      <span className="w-full flex flex-row justify-between">
-        <BtnSubmit loading={loading} loadingTxt={"loading"} text={"Upload"} />
+      <span className="w-full flex flex-row justify-between content-center h-10">
+        <Button
+          loading={loading}
+          color={"bg-zinc-300 h-auto"}
+          text={"Set Available"}
+          onClick={setAvailable}
+        />
         <BtnSubmit loading={loading} loadingTxt={"loading"} text={"Upload"} />
       </span>
     </form>

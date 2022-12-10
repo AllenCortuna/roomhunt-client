@@ -13,18 +13,18 @@ const Room = ({ room, setid }) => {
   const icon = "inline";
 
   const loading = roomStore((state) => state.loading);
+  const isObject = typeof room?.image === "object";
   return (
     <span
       key={room._id}
       className="group bg-white shadow-md grid p-0 gap-1  grid-cols-1 rounded-lg pb-1 transition-all ease-linear duration-300 hover:-m-2 hover:shadow-xl border max-w-[18rem]"
     >
       <img
-        src={room.image}
+        src={isObject ? room.image[0] : room.image}
         alt="roomImg"
         className="rounded-tr-md rounded-tl-md object-cover w-full h-28"
       />
       <span className="p-2 py-0 grid">
-
         <Content
           icon={<ImPriceTag className={icon} />}
           text={"price"}
@@ -51,11 +51,8 @@ const Room = ({ room, setid }) => {
             )
           }
         />
-        <Place
-          icon={<MdLocationOn className={icon} />}
-          value={room.location}
-        />
-    
+        <Place icon={<MdLocationOn className={icon} />} value={room.location} />
+
         <Place
           icon={<FaInfoCircle className={icon} />}
           value={room.description}
@@ -92,7 +89,9 @@ const Content = ({ icon, text, value }) => {
   return (
     <h1 className={"text-gray-600 font-[500]  text-[.64rem] capitalize"}>
       <span className="mr-1 inline">{icon}</span>
-      <span className="mr-1 rale font-normal text-gray-500 capitalize truncate">{text}</span>
+      <span className="mr-1 rale font-normal text-gray-500 capitalize truncate">
+        {text}
+      </span>
       {value}
     </h1>
   );
@@ -102,7 +101,9 @@ const Place = ({ icon, value }) => {
   return (
     <h1 className={"text-gray-500 font-semibold  text-[.64rem] truncate "}>
       <span className="mr-1 inline">{icon}</span>
-      <span className="mr-1 rale font-normal text-gray-500 capitalize">{value}</span>
+      <span className="mr-1 rale font-normal text-gray-500 capitalize">
+        {value}
+      </span>
     </h1>
   );
 };

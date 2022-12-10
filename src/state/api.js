@@ -20,10 +20,10 @@ api.interceptors.request.use((req) => {
 });
 
 export const alertErr = (err) => {
-  if (err.response.data.message) {
-    alert(err.response.data.message);
-  } else if (err.message) {
-    alert(err.message);
+  if (err?.response?.data?.message) {
+    alert(err?.response?.data?.message);
+  } else if (err?.message) {
+    alert(err?.message);
   } else {
     alert("Something went wrong!");
   }
