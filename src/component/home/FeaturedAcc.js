@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { accStore } from "../../state/acc";
-import AccInfo from "../accinfo/AccInfo";
+import AccInfo from "./AccInfo";
 
 const FeaturedAcc = () => {
   const accs = accStore((state) => state.featured);
@@ -11,9 +11,9 @@ const FeaturedAcc = () => {
   }, [getFeaturedAccs]);
   
   return (
-    <div className="flex flex-wrap w-full lg:p-40 md:p-14 content-start justify-start">
-      <h4 className="text-cyan-800 font-bold drop-shadow-md text-lg mb-4 ml-3 mx-auto text-center">
-        Featured Accommodations
+    <div className="flex flex-wrap w-full lg:p-40 md:p-14 content-start justify-start gap-10">
+      <h4 className=" w-full text-cyan-800 font-bold drop-shadow-md text-xl mb-4 ml-3 ">
+        Featured Accommodations 
       </h4>
     
       {accs?.map((acc) => (

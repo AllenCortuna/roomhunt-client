@@ -5,6 +5,7 @@ import { accStore } from "../../state/acc";
 import Loading from "../utility/Loading";
 import NotFound from "../NotFound";
 import { useParams } from "react-router-dom";
+import OwnRooms from "./OwnRooms";
 
 const BusinessInfo = () => {
   const acc = accStore((state) => state.acc);
@@ -19,7 +20,7 @@ const BusinessInfo = () => {
 
   return (
     <span>
-      <div className="grid mt-14 md:mt-20 p-4 mx-auto">
+      <div className="flex flex-row justify-center flex-wrap mt-9 md:mt-20 p-4 mx-auto">
         {!loading && !acc && <NotFound />}
         {loading ? (
           <span className="mx-auto max-w-[24rem] p-5">
@@ -32,6 +33,7 @@ const BusinessInfo = () => {
             </span>
           )
         )}
+        <OwnRooms />
       </div>
     </span>
   );
