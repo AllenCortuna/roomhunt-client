@@ -1,26 +1,12 @@
 import create from "zustand";
-import {alertErr, api} from './api'
-
-
-api.interceptors.request.use((req) => {
-  if (localStorage.getItem("acc")) {
-    req.headers.Authorization = `Bearer ${
-      JSON.parse(localStorage.getItem("acc")).token
-    }`;
-  }
-  if (localStorage.getItem("client")) {
-    req.headers.Authorization = `Bearer ${
-      JSON.parse(localStorage.getItem("client")).token
-    }`;
-  }
-  return req;
-});
+import { alertErr, api } from "./api";
 
 export const roomStore = create((set) => ({
   rooms: [],
   room: {},
   loading: false,
   suggestedRoom: [],
+  featuredRoom: [],
   err: null,
 
   getRoomByLocation: async (query) => {
@@ -31,27 +17,22 @@ export const roomStore = create((set) => ({
       );
       set({ suggestedRoom: response.data });
     } catch (err) {
-      alert(err.response.data.message);
+      console.log(err.response.data.message);
     }
     set({ loading: false });
   },
 
-  getRoomBySearch: async (query,navigate) => {
+  getRoomBySearch: async (query, navigate) => {
     set({ loading: true });
     set({ rooms: [] });
     try {
       const response = await api.get(
-        `/room/search?category=${query.category}&location=${
-          query.location
-        }&minPrice=${query.minPrice}&maxPrice=${
-          query.maxPrice
-        }&bed=${query.bed}&checkInDate=${query.checkInDate}`
+        `/room/search?category=${query.category}&location=${query.location}&minPrice=${query.minPrice}&maxPrice=${query.maxPrice}&bed=${query.bed}&checkInDate=${query.checkInDate}`
       );
       set({ rooms: response.data });
     } catch (err) {
       alertErr(err);
-      // alert(err.response.data.message);
-      navigate("/search")
+      navigate("/search");
     }
     set({ loading: false });
   },
@@ -62,7 +43,7 @@ export const roomStore = create((set) => ({
       const response = await api.get(`room/${id}`);
       set({ room: response.data });
     } catch (err) {
-      alert(err.response.data.message);
+      console.log(err.response.data.message);
     }
     set({ loading: false });
   },
@@ -73,7 +54,7 @@ export const roomStore = create((set) => ({
       const response = await api.get(`room/own/${id}`);
       set({ rooms: response.data });
     } catch (err) {
-      alert(err.response.data.message);
+      console.log(err.response.data.message);
     }
     set({ loading: false });
   },
@@ -135,7 +116,7 @@ export const roomStore = create((set) => ({
       try {
         const result = await api.post("/room/review/", review);
         set({ room: result.data });
-       alert("review sent!") 
+        alert("review sent!");
       } catch (err) {
         alert(err.response.data.message);
       }

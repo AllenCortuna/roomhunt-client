@@ -24,7 +24,7 @@ import Reset from "./component/resetPassword/Reset";
 import Message from "./component/message/Mesagge";
 import SendMessage from "./component/message/SendMessage";
 import Terms from "./component/Terms";
-import Home from "./component/Home";
+import Home from "./component/home/Home";
 import UpdateInfo from "./component/updateInfo/UpdateInfo";
 
 const App = () => {

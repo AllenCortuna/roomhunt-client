@@ -4,6 +4,7 @@ export const accStore = create((set) => ({
   acc : {},
   err: null,
   loading: false,
+  featured: [],
 
   getAcc: async (id)=>{
     set({loading: true})
@@ -15,6 +16,18 @@ export const accStore = create((set) => ({
       alert(err.response.data.message);
     }
     set({loading: false})
+  },
+  
+  getFeaturedAccs: async () => {
+    set({ loading: true });
+    try {
+      const response = await api.get(`accommodator/getFeatured`);
+      set({ featured: response.data });
+     console.log(response) 
+    } catch (err) {
+      console.log(err.response.data.message);
+    }
+    set({ loading: false });
   },
   
 }))
