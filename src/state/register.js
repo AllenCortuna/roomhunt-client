@@ -37,7 +37,6 @@ export const useRegisterState = create((set) => ({
       localStorage.setItem("register", JSON.stringify(result?.data));
       navigate("/register/acc/verify-email");
     } catch (err) {
-      alert(err.response.data.message);
       alertErr(err);
     }
     set({ loading: false });
