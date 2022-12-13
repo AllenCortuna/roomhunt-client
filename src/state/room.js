@@ -62,7 +62,6 @@ export const roomStore = create((set) => ({
   updateView: async (id) => {
     try {
       await api.patch(`room/view/${id}`);
-      alert("room view updated");
     } catch (err) {
       console.log(err.response.data.message);
     }

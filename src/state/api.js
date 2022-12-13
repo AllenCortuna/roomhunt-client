@@ -1,7 +1,7 @@
 import axios from "axios";
 export const api = axios.create({
   baseURL: process.env.REACT_APP_API,
-  timeout: 1000 * 45,
+  timeout: 1000 * 55,
   timeoutErrorMessage: "Server refused to Connect please try again !!",
 });
 

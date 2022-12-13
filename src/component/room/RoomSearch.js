@@ -19,7 +19,6 @@ const RoomSearch = () => {
         />
         <h1 className="text-zinc-500 text-center text-sm font-[500] drop-shadow-sm rale">
           No rooms available according to your recent search. Try different queries !
-
         </h1>
       </span>
       <span className="w-[10rem] mx-auto">
@@ -34,7 +33,7 @@ const RoomSearch = () => {
           <Loading text={"Searching..."} />
         </span>
       )}
-      {rooms.length === 0 && loading === false && empty}
+      {!rooms && !loading && empty}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto  gap-3  pt-14 items-start p-3 md:p-10">
         {rooms.map((room) => (
           <Room room={room} key={room._id} />

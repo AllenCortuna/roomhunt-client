@@ -20,6 +20,7 @@ const Search = () => {
     maxPrice: "",
     checkInDate: "",
   });
+  
   useEffect(() => {
     const search = JSON.parse(localStorage.getItem("search"));
     if (search) {
@@ -30,6 +31,7 @@ const Search = () => {
       });
     }
   }, []);
+  
   const handleChange = (e) => {
     setquery({ ...query, [e.target.name]: e.target.value });
   };
