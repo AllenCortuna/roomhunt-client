@@ -30,9 +30,9 @@ export const roomStore = create((set) => ({
         `/room/search?category=${query.category}&location=${query.location}&minPrice=${query.minPrice}&maxPrice=${query.maxPrice}&bed=${query.bed}&checkInDate=${query.checkInDate}`
       );
       set({ rooms: response.data });
+      navigate("/search");
     } catch (err) {
       alertErr(err);
-      navigate("/search");
     }
     set({ loading: false });
   },
