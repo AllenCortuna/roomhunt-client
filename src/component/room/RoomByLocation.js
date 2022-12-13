@@ -12,7 +12,7 @@ const RoomByLocation = () => {
         Suggested Rooms
         <hr className="text-zinc-400 drop-shadow-sm" />
       </h4>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto  gap-3 pt-5 items-start p-3 md:p-10">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto  gap-3 pt-5 items-center md:p-10">
         {rooms?.map((room) => (
           <span key={room._id}>
             <Room room={room} />
