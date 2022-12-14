@@ -5,7 +5,7 @@ import decode from "jwt-decode";
 import AccInfo from "./AccInfo";
 import AccUtility from "./AccUtility";
 import Verify from "./Verify";
-import Paypal from "../google-pay/Paypal";
+import GooglePay from "../google-pay/GooglePay";
 
 const AccDashboard = () => {
   const navigate = useNavigate();
@@ -29,14 +29,14 @@ const AccDashboard = () => {
   }, [logOut, navigate, user.token]);
 
   return (
-    <div className=" flex flex-col gap-14 justify-center items-center mt-10 mx-auto w-full h-auto">
+    <div className=" flex flex-col gap-8 md:gap-14 justify-center items-center mt-10 mx-auto w-full h-auto">
+   <GooglePay/> 
       {user?.result.verified === true ? <AccUtility /> : <Verify />}
       {user?.result.verified === false ? (
         <AccInfo user={user?.result} />
       ) : (
         <span></span>
       )}
-      <Paypal />
     </div>
   );
 };

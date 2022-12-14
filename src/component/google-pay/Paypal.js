@@ -48,8 +48,10 @@ export default function Paypal() {
         "client-id": process.env.REACT_APP_PAYPAL,
       }}
     >
-      <div>
-        <button type="submit" onClick={() => setShow(!show)}>
+      <div className="flex flex-col justify-center gap-2 content-start">
+        <button type="submit" onClick={() => setShow(!show)}
+    className="p-4 px-6 rounded-full bg-cyan-900 mx-auto text-white rale shadow-lg"
+    >
           Subcribe Now!
         </button>
 
