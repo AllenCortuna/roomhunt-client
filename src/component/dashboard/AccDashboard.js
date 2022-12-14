@@ -29,7 +29,6 @@ const AccDashboard = () => {
 
   return (
     <div className=" flex flex-col gap-14 justify-center items-center mt-10 mx-auto w-full h-auto">
-      {/* accommodator info */}
       {user?.result.verified === true ? <AccUtility /> : <Verify />}
       {user?.result.verified === false ? <AccInfo user={user?.result} /> : <span></span>}
     </div>

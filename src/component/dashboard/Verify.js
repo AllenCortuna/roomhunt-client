@@ -11,7 +11,7 @@ const Verify = () => {
 
   const client = (
     <>
-      <span className="border p-4 text-xs text-zinc-400 w-[16rem] ml-4 m-3 rounded-lg">
+      <span className="border p-4 text-xs text-zinc-400 w-[16rem] rounded-lg">
         <TiWarning className="mr-2 inline" />
         Some feature are not available for unverfied room seekers (Sending of
         feedback and chatting with accommodators).
