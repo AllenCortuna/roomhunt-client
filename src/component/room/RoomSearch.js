@@ -18,7 +18,8 @@ const RoomSearch = () => {
           className="drop-shadow-lg ml-2 mx-auto mb-8 "
         />
         <h1 className="text-zinc-500 text-center text-sm font-[500] drop-shadow-sm rale">
-          No rooms available according to your recent search. Try different queries !
+          No rooms available according to your recent search. Try different
+          queries !
         </h1>
       </span>
       <span className="w-[10rem] mx-auto">
@@ -34,11 +35,13 @@ const RoomSearch = () => {
         </span>
       )}
       {!rooms && !loading && empty}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto  gap-3  pt-14 items-start p-3 md:p-10">
-        {rooms.map((room) => (
-          <Room room={room} key={room._id} />
-        ))}
-      </div>
+      {rooms && !loading && (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto  gap-3  pt-14 items-start p-3 md:p-10">
+          {rooms.map((room) => (
+            <Room room={room} key={room._id} />
+          ))}
+        </div>
+      )}
     </span>
   );
 };
