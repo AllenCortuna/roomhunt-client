@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <div className="w-full h-auto p-5 flex flex-wrap gap-10 pt-10 md:pt-24 justify-center">
       <span className="flex flex-col max-w-[22rem] gap-2 justify-center mx-auto text-center">
-          <img src={logo} alt="logo" className="drop-shadow-lg  mx-auto w-40" />
+        <img src={logo} alt="logo" className="drop-shadow-lg  mx-auto w-40" />
         <h5 className="text-[2rem] font-[800] text-cyan-900 drop-shadow-lg">
           ROOMHUNT
         </h5>
@@ -43,9 +43,9 @@ const Home = () => {
           <BtnLink link={"/register"} text="Register" />
         </span>
       </span>
-   <span className="w-full">
-<FeaturedAcc/>
-    </span> 
+      <span className="w-full">
+        <FeaturedAcc />
+      </span>
     </div>
   );
 };

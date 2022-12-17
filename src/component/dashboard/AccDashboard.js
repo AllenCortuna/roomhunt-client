@@ -6,12 +6,15 @@ import AccInfo from "./AccInfo";
 import AccUtility from "./AccUtility";
 import Verify from "./Verify";
 import Subcribe from "../google-pay/Subcribe";
+import { now } from "../utility/dateNow";
 
 const AccDashboard = () => {
   const navigate = useNavigate();
 
   const [user, setUser] = useState(JSON.parse(localStorage?.getItem("acc")));
   const logOut = useRegisterState((state) => state.logOut);
+
+  const subcribe = new Date(user?.result.subcribeTil) > now;
 
   useEffect(() => {
     const logout = () => {
@@ -29,14 +32,10 @@ const AccDashboard = () => {
   }, [logOut, navigate, user.token]);
 
   return (
-    <div className=" flex flex-col gap-8 md:gap-14 justify-center items-center mt-10 mx-auto w-full h-auto">
-   <Subcribe /> 
-      {user?.result.verified === true ? <AccUtility /> : <Verify />}
-      {user?.result.verified === false ? (
-        <AccInfo user={user?.result} />
-      ) : (
-        <span></span>
-      )}
+    <div className="flex flex-col gap-8 md:gap-14 justify-center items-center my-10 mx-auto w-full h-auto">
+      {!subcribe && user?.result.verified && <Subcribe />}
+      {(user?.result.verified && subcribe) ? <AccUtility /> : <Verify />}
+      {!user?.result.verified && <AccInfo user={user?.result} />}
     </div>
   );
 };

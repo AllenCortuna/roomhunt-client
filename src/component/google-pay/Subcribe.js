@@ -8,8 +8,8 @@ const Subcribe = () => {
         1 month PRO access for Php 200
       </h4>
       <h3 className="rale text-zinc-500 text-center">
-        and have the access to the following feature: upload rooms, monitor
-        views, view room ratings and chat with room seeker
+        and have the access to the following feature: <b>upload rooms, monitor
+        views, view room ratings and chat with room seeker</b>
       </h3>
 
       <span className="mx-auto my-4">
