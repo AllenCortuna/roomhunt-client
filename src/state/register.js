@@ -63,7 +63,6 @@ export const useRegisterState = create((set) => ({
         timeout: 45000,
       });
       set({ data: result.data.result });
-      set({ data: result.data.result });
       localStorage.setItem("acc", JSON.stringify(result?.data));
       set({ login: "acc" });
       navigate("/acc/dashboard");
