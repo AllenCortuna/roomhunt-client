@@ -21,11 +21,8 @@ const LoginAcc = () => {
 
   const navigate = useNavigate();
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
+  
   const onSubmit = () => {
     if (!data.email) {
       errNotify("Enter email!");
@@ -65,7 +62,6 @@ const LoginAcc = () => {
           register={{ ...register("email", { required: false }) }}
           onChange={handleChange}
         />
-        <FormErr text={"Email is required"} err={errors.email} />
 
         <Input
           type={"password"}
@@ -73,7 +69,6 @@ const LoginAcc = () => {
           register={{ ...register("password", { required: false }) }}
           onChange={handleChange}
         />
-        <FormErr text={"Passwords required"} err={errors.password} />
         <BtnSubmit loading={loading} loadingTxt={"Processing"} text={"Login"} />
       </form>
 

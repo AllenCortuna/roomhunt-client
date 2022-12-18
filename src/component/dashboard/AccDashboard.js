@@ -33,9 +33,12 @@ const AccDashboard = () => {
 
   return (
     <div className="flex flex-col gap-8 md:gap-14 justify-center items-center my-10 mx-auto w-full h-auto">
+    
       {!subcribe && user?.result.verified && <Subcribe />}
-      {(user?.result.verified && subcribe) ? <AccUtility /> : <Verify />}
+      {user?.result.verified && subcribe && <AccUtility />}
+    
       {!user?.result.verified && <AccInfo user={user?.result} />}
+      {!user?.result.verified && <Verify />}
     </div>
   );
 };

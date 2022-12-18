@@ -3,12 +3,10 @@ import { alertErr, api } from "./api";
 
 export const useRegisterState = create((set) => ({
   loading: false,
-  err: null,
   login: "",
 
   patchAcc: async (data, id) => {
     set({ loading: true });
-    set({ err: null });
     try {
       const result = await api.patch(`/accommodator/patch/${id}`, data);
       localStorage.setItem("acc", JSON.stringify(result?.data));
@@ -22,7 +20,6 @@ export const useRegisterState = create((set) => ({
 
   registerAcc: async (data, navigate) => {
     set({ loading: true });
-    set({ err: null });
     try {
       const result = await api.post("/accommodator/signup", {
         email: data.email,
@@ -44,7 +41,6 @@ export const useRegisterState = create((set) => ({
 
   verifyEmail: async (data, navigate) => {
     set({ loading: true });
-    set({ err: null });
     try {
       const result = await api.post("/accommodator/verify-email", {
         otp: data.otp,
@@ -62,16 +58,15 @@ export const useRegisterState = create((set) => ({
 
   loginAcc: async (data, navigate) => {
     set({ loading: true });
-    set({ err: null });
     try {
       const result = await api.post("/accommodator/login", data, {
         timeout: 45000,
       });
       set({ data: result.data.result });
-      navigate("/acc/dashboard");
       set({ data: result.data.result });
       localStorage.setItem("acc", JSON.stringify(result?.data));
       set({ login: "acc" });
+      navigate("/acc/dashboard");
     } catch (err) {
       alertErr(err);
     }
@@ -81,7 +76,6 @@ export const useRegisterState = create((set) => ({
   //PIN: CLIENT
   registerClient: async (data, navigate) => {
     set({ loading: true });
-    set({ err: null });
     try {
       const result = await api.post("/client/signup", {
         name: data.name,
@@ -99,7 +93,6 @@ export const useRegisterState = create((set) => ({
 
   verifyEmailClient: async (data, navigate) => {
     set({ loading: true });
-    set({ err: null });
     try {
       const result = await api.post("/client/verify-email", {
         otp: data.otp,
@@ -117,7 +110,6 @@ export const useRegisterState = create((set) => ({
 
   loginClient: async (data, navigate) => {
     set({ loading: true });
-    set({ err: null });
     try {
       const result = await api.post("/client/login", data);
       set({ data: result.data.result });
@@ -132,7 +124,6 @@ export const useRegisterState = create((set) => ({
   },
 
   curUsr: (data) => {
-    set({ err: null });
     set({ login: data });
   },
   setErr: (err) => {
@@ -140,7 +131,6 @@ export const useRegisterState = create((set) => ({
   },
 
   logOut: (navigate) => {
-    set({ err: null });
     localStorage.clear();
     set({ login: "" });
     navigate("/");
