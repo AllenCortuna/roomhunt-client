@@ -139,9 +139,9 @@ const App = () => {
 
 export default App;
 
-export const Secure = ({ a }) => {
+export function Secure({children}){
   if (localStorage.getItem("client") || localStorage.getItem("acc")) {
-    return a;
+    return children;
   } else {
     return <Navigate to="/login" />;
   }
