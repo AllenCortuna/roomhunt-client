@@ -26,6 +26,7 @@ import SendMessage from "./component/message/SendMessage";
 import Terms from "./component/Terms";
 import Home from "./component/home/Home";
 import UpdateInfo from "./component/updateInfo/UpdateInfo";
+import { Navigate } from "react-router-dom";
 
 const App = () => {
   return (
@@ -39,10 +40,6 @@ const App = () => {
         <Route path="/rooms/:id" element={<RoomInfo />} />
 
         <Route path="/reset/:id" element={<Reset />} />
-        <Route path="/acc/dashboard" element={<AccDashboard />} />
-        <Route path="/acc/roomlist" element={<AccRoomList />} />
-        <Route path="/upload" element={<Upload />} />
-        <Route path="/client/dashboard" element={<ClientDashboard />} />
 
         {/* register */}
         <Route path="/register" element={<Register />} />
@@ -51,18 +48,85 @@ const App = () => {
         <Route path="/register/client" element={<RegisterClient />} />
         <Route path="/register/client/verify-email" element={<ClientOtp />} />
 
+        {/* secure acc routes  */}
+        <Route
+          path="/acc/dashboard"
+          element={
+            <Secure>
+              <AccDashboard />
+            </Secure>
+          }
+        />
+        <Route
+          path="/acc/roomlist"
+          element={
+            <Secure>
+              <AccRoomList />
+            </Secure>
+          }
+        />
+        <Route
+          path="/upload"
+          element={
+            <Secure>
+              <Upload />
+            </Secure>
+          }
+        />
+        <Route
+          path="/client/dashboard"
+          element={
+            <Secure>
+              <ClientDashboard />
+            </Secure>
+          }
+        />
+        <Route
+          path="/client/menu"
+          element={
+            <Secure>
+              <Menu />
+            </Secure>
+          }
+        />
+        <Route
+          path="/acc/menu"
+          element={
+            <Secure>
+              <Menu />
+            </Secure>
+          }
+        />
+        <Route
+          path="/acc/updateInfo"
+          element={
+            <Secure>
+              <UpdateInfo />
+            </Secure>
+          }
+        />
+        <Route
+          path="/message"
+          element={
+            <Secure>
+              <Message />
+            </Secure>
+          }
+        />
+        <Route
+          path="/messageSend"
+          element={
+            <Secure>
+              <SendMessage />
+            </Secure>
+          }
+        />
+
         {/* login */}
-        <Route path="/login/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/login/acc" element={<LoginAcc />} />
         <Route path="/login/client" element={<LoginClient />} />
 
-        <Route path="/client/menu" element={<Menu />} />
-        <Route path="/acc/menu" element={<Menu />} />
-        <Route path="/acc/updateInfo" element={<UpdateInfo />} />
-    
-
-        <Route path="/message" element={<Message />} />
-        <Route path="/messageSend" element={<SendMessage />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/about" element={<About />} />
@@ -74,3 +138,11 @@ const App = () => {
 };
 
 export default App;
+
+export const Secure = ({ a }) => {
+  if (localStorage.getItem("client") || localStorage.getItem("acc")) {
+    return a;
+  } else {
+    return <Navigate to="/login" />;
+  }
+};
