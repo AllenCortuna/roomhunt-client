@@ -15,13 +15,14 @@ const BusinessInfo = () => {
 
   useEffect(() => {
     getAcc(id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id]);
+  }, [getAcc, id]);
 
   return (
     <span>
       <div className="flex flex-row justify-center flex-wrap mt-9 md:mt-20 p-4 mx-auto">
+        {/* display not found if invalid id   */}
         {!loading && !acc && <NotFound />}
+        {/* if loading  */}
         {loading ? (
           <span className="mx-auto max-w-[24rem] p-5">
             <Loading text={"Getting Info"} />
