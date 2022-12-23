@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { ToastContainer } from "react-toastify";
-import { errNotify } from "../utility/notify";
 import acc from "../img/acc.svg";
 import { img, container, otpContainer, otpInput, otpText } from "./style";
 import Button from "../../component/btn/Button";
@@ -12,13 +11,7 @@ const Acc3 = () => {
 
   const loading = useRegisterState((state) => state.loading);
   const verifyEmail = useRegisterState((state) => state.verifyEmail);
-  const err = useRegisterState((state) => state.err);
 
-  useEffect(() => {
-    if (err !== null) {
-      errNotify(err);
-    }
-  }, [err]);
   const handleVerify = () => {
     const verifyData = {
       otp: otp.join(""),
