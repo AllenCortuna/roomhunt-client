@@ -31,6 +31,7 @@ export const useRegisterState = create((set) => ({
         owner: data.owner,
         location: `${data.street} ${data.brgy} ${data.city}, ${data.province}`,
       });
+      localStorage.clear()
       localStorage.setItem("register", JSON.stringify(result?.data));
       navigate("/register/acc/verify-email");
     } catch (err) {
@@ -63,6 +64,7 @@ export const useRegisterState = create((set) => ({
         timeout: 45000,
       });
       set({ data: result.data.result });
+      localStorage.clear()
       localStorage.setItem("acc", JSON.stringify(result?.data));
       set({ login: "acc" });
       navigate("/acc/dashboard");
@@ -82,6 +84,7 @@ export const useRegisterState = create((set) => ({
         password: data.password,
         birthday: data.birthday,
       });
+      localStorage.clear()
       localStorage.setItem("register", JSON.stringify(result?.data));
       navigate("/register/client/verify-email");
     } catch (err) {
@@ -114,6 +117,7 @@ export const useRegisterState = create((set) => ({
       set({ data: result.data.result });
       navigate("/client/dashboard");
       set({ data: result.data.result });
+      localStorage.clear()
       localStorage.setItem("client", JSON.stringify(result?.data));
       set({ login: "client" });
     } catch (err) {
