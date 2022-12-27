@@ -6,12 +6,10 @@ import BtnSubmit from "../btn/BtnSubmit";
 import { formHint } from "../utility/Text";
 import { errNotify } from "../utility/notify";
 import { ToastContainer } from "react-toastify";
+import ProcessIndicator from "./ProcessIndicator";
 
 const Acc1 = ({ setPage, page, handleChange, data }) => {
-  const {
-    register,
-    handleSubmit,
-  } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const onSubmit = () => {
     if (!data.email || !data.password) {
@@ -57,6 +55,7 @@ const Acc1 = ({ setPage, page, handleChange, data }) => {
           register={{ ...register("confirmPassword", { required: false }) }}
           onChange={handleChange}
         />
+        <ProcessIndicator page={1}/>
 
         <BtnSubmit loading={false} loadingTxt={""} text={"next"} />
       </form>

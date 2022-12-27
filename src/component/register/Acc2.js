@@ -8,6 +8,7 @@ import {formHint} from "../utility/Text";
 import {errNotify} from "../utility/notify";
 import { ToastContainer } from "react-toastify";
 import Input from "../utility/Input";
+import ProcessIndicator from "./ProcessIndicator";
 
 
 const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
@@ -26,6 +27,8 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
       errNotify("Enter a Business Name")
     }else if (data.owner ==="") {
       errNotify("Enter Owner Name")
+    }else if (data.contact?.length !== 11) {
+      errNotify("Contact must be 11 digit number")
     } else {
     setPage(3);
       }
@@ -55,8 +58,6 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
           placeholder={"Contact"}
           register={{
             ...register("contact", {
-              minLength: 11,
-              maxLength: 11,
               required: false,
             }),
           }}
@@ -74,6 +75,7 @@ const Acc2 = ({ setPage, handleChange, data, handleImg, handleOpt }) => {
 
         {formHint("Business Image")}
         <Image handleImg={handleImg} data={data} />
+        <ProcessIndicator page={2}/>
 
         <BtnSubmit
           loading={null}

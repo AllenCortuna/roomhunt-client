@@ -9,6 +9,7 @@ import { form, page1container } from "./style";
 import { useRegisterState } from "../../state/register";
 import { ToastContainer } from "react-toastify";
 import { errNotify } from "../utility/notify";
+import ProcessIndicator from "./ProcessIndicator";
 
 const Acc3 = ({ handleChange, data }) => {
   const registerAcc = useRegisterState((state) => state.registerAcc);
@@ -59,6 +60,7 @@ const Acc3 = ({ handleChange, data }) => {
           onChange={handleChange}
         />
 
+        <ProcessIndicator page={3}/>
         <BtnSubmit
           loading={loading}
           loadingTxt={"Registering"}
