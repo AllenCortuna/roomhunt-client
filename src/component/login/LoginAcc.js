@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState } from "react";
-import FormErr from "../utility/FormErr";
 import Input from "../utility/Input";
 import { useForm } from "react-hook-form";
 import { useRegisterState } from "../../state/register";

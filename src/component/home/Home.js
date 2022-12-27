@@ -9,7 +9,7 @@ const Home = () => {
     <div className="w-full h-auto p-5 flex flex-wrap gap-10 pt-10 md:pt-24 justify-center">
       <span className="flex flex-col max-w-[22rem] gap-2 justify-center mx-auto text-center">
         <img src={logo} alt="logo" className="drop-shadow-lg  mx-auto w-40" />
-        <h5 className="text-[2rem] font-[800] text-cyan-900 drop-shadow-lg">
+        <h5 className="text-[2rem] mon font-[900] text-cyan-900 drop-shadow-lg">
           ROOMHUNT
         </h5>
         <p className="rale text-md md:text-lg text-zinc-600">

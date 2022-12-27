@@ -1,6 +1,6 @@
 
 import React from "react";
-import BtnLink from "../btn/BtnLink";
+import BtnNavigate from "../btn/BtnNavigate";
 import acc from "../img/acc.svg";
 import client from "../img/client.svg";
 
@@ -18,7 +18,7 @@ const Login = () => {
             Login as Accommodator 
           </p>
         </span>
-        <BtnLink
+        <BtnNavigate
           text={"login"}
           link={"/login/acc"}
           width={"w-[8rem]"}
@@ -36,7 +36,7 @@ const Login = () => {
             Login as Client 
           </p>
         </span>
-        <BtnLink
+        <BtnNavigate
           text={"login"}
           link={"/login/client"}
           width={"w-[8rem]"}

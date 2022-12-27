@@ -1,5 +1,5 @@
 import React from "react";
-import BtnLink from "../btn/BtnLink";
+import BtnNavigate from "../btn/BtnNavigate";
 import acc from "../img/acc.svg";
 import client from "../img/client.svg";
 
@@ -17,7 +17,7 @@ const Register = () => {
             Register as Accommodator to upload and manage rooms
           </p>
         </span>
-        <BtnLink
+        <BtnNavigate
           text={"register"}
           link={"/register/acc"}
           width={"w-[8rem]"}
@@ -35,7 +35,7 @@ const Register = () => {
             Register as Client to reserve a room and send reviews
           </p>
         </span>
-        <BtnLink
+        <BtnNavigate
           text={"register"}
           link={"/register/client"}
           width={"w-[8rem]"}
