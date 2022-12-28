@@ -13,7 +13,7 @@ import RoomReview from "./RoomReview";
 import ReviewList from "./ReviewList";
 import Send from "./Send";
 import Slider from "./Slider";
-import Back from '../btn/Back'
+import Back from "../btn/Back";
 
 const RoomInfo = () => {
   const getRoom = roomStore((state) => state.getRoom);
@@ -79,10 +79,10 @@ const RoomInfo = () => {
               {/* room review */}
               {verified && <RoomReview room={room} />}
             </span>
-            <Slider image={room.image} /> 
+            <Slider image={room.image} />
           </span>
           <ReviewList roomId={room._id} />
-        <Back/>
+          <Back />
         </div>
       )}
     </>

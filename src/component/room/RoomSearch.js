@@ -3,7 +3,8 @@ import { roomStore } from "../../state/room";
 import Room from "./Room";
 import Loading from "../utility/Loading";
 import noRoom from "../img/noRoom.svg";
-import BtnLink from "../btn/BtnLink";
+import Back from "../btn/Back";
+import BtnNavigate from "../btn/BtnNavigate";
 
 const RoomSearch = () => {
   const rooms = roomStore((state) => state.rooms);
@@ -23,7 +24,7 @@ const RoomSearch = () => {
         </h1>
       </span>
       <span className="w-[10rem] mx-auto">
-        <BtnLink link={"/search"} text="Search Again" />
+        <BtnNavigate link={"/search"} text="Search Again" />
       </span>
     </span>
   );
@@ -34,7 +35,9 @@ const RoomSearch = () => {
           <Loading text={"Searching..."} />
         </span>
       )}
-      {!rooms && !loading && empty}
+
+      {!rooms.length && !loading && empty}
+
       {rooms && !loading && (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto  gap-3  pt-14 items-start p-3 md:p-10">
           {rooms.map((room) => (
@@ -42,6 +45,7 @@ const RoomSearch = () => {
           ))}
         </div>
       )}
+      {rooms.length && !loading ? <Back /> : null}
     </span>
   );
 };
