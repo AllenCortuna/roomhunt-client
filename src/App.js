@@ -48,61 +48,61 @@ const App = () => {
         <Route path="/register/client" element={<RegisterClient />} />
         <Route path="/register/client/verify-email" element={<ClientOtp />} />
 
-        {/* secure acc routes  */}
+        {/* Acc acc routes  */}
         <Route
           path="/acc/dashboard"
           element={
-            <Secure>
+            <Acc>
               <AccDashboard />
-            </Secure>
+            </Acc>
           }
         />
         <Route
           path="/acc/roomlist"
           element={
-            <Secure>
+            <Acc>
               <AccRoomList />
-            </Secure>
+            </Acc>
           }
         />
         <Route
           path="/upload"
           element={
-            <Secure>
+            <Acc>
               <Upload />
-            </Secure>
+            </Acc>
           }
         />
         <Route
           path="/client/dashboard"
           element={
-            <Secure>
+            <Client>
               <ClientDashboard />
-            </Secure>
+            </Client>
           }
         />
         <Route
           path="/client/menu"
           element={
-            <Secure>
+            <Client>
               <Menu />
-            </Secure>
+            </Client>
           }
         />
         <Route
           path="/acc/menu"
           element={
-            <Secure>
+            <Acc>
               <Menu />
-            </Secure>
+            </Acc>
           }
         />
         <Route
           path="/acc/updateInfo"
           element={
-            <Secure>
+            <Acc>
               <UpdateInfo />
-            </Secure>
+            </Acc>
           }
         />
         <Route
@@ -122,7 +122,7 @@ const App = () => {
           }
         />
 
-        {/* login */}
+        {/*:login */}
         <Route path="/login" element={<Login />} />
         <Route path="/login/acc" element={<LoginAcc />} />
         <Route path="/login/client" element={<LoginClient />} />
@@ -138,6 +138,22 @@ const App = () => {
 };
 
 export default App;
+
+export function Acc({children}){
+  if (localStorage.getItem("acc")) {
+    return children;
+  } else {
+    return <Navigate to="/login/acc" />;
+  }
+};
+
+export function Client({children}){
+  if (localStorage.getItem("client")) {
+    return children;
+  } else {
+    return <Navigate to="/login/client" />;
+  }
+};
 
 export function Secure({children}){
   if (localStorage.getItem("client") || localStorage.getItem("acc")) {

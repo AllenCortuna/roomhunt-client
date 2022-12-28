@@ -1,7 +1,7 @@
 export const container =
   "text-center p-4 bg-white w-[21rem] min-h-[20rem] rounded-lg shadow-md h-auto mx-auto mt-10 mb-24 md:w-[26rem] md:p-8 border";
 export const img = "w-32 md:w-40 m-auto my-2 drop-shadow-lg";
-export const header = "font-bold text-cyan-800 mx-auto text-lg uppercase drop-shadow-sm my-1";
+export const header = "font-bold text-cyan-900 mx-auto text-[1rem] uppercase drop-shadow-sm my-1";
 
 // RegisterClient1
 export const page1container = "flex flex-wrap justify-center";

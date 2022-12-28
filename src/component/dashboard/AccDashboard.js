@@ -11,11 +11,19 @@ import { now } from "../utility/dateNow";
 const AccDashboard = () => {
   const navigate = useNavigate();
 
-  const [user, setUser] = useState(JSON.parse(localStorage?.getItem("acc")));
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("acc")));
   const logOut = useRegisterState((state) => state.logOut);
 
+  // check if accommodators is subcribe to premuim account
   const subcribe = new Date(user?.result.subcribeTil) > now;
+ // check if accommodators is login 
+  useEffect(() => {
+    if (localStorage.getItem("acc")) {
+    setUser(localStorage.getItem("acc"));
+    }
+  }, []);
 
+  // logout accommodators if token expired
   useEffect(() => {
     const logout = () => {
       logOut();
@@ -31,7 +39,6 @@ const AccDashboard = () => {
     setUser(JSON.parse(localStorage?.getItem("acc")));
   }, [logOut, navigate, user.token]);
 
-  console.log(user.result.verified, subcribe);
   return (
     <div className="flex flex-col gap-8 md:gap-14 justify-center items-center my-10 mx-auto w-full h-auto">
       {!subcribe && user?.result.verified && <Subcribe />}
