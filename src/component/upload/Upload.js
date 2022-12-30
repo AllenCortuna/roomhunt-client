@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import UploadForm from "./UploadForm";
 import { BsFillGridFill } from "react-icons/bs";
@@ -7,6 +8,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { errNotify } from "../utility/notify";
 import RoomList from "./RoomList";
+import Back from "../btn/Back";
 
 const Upload = () => {
   const [id, setid] = useState(0);
@@ -45,9 +47,8 @@ const Upload = () => {
 
   useEffect(() => {
     setroom(id ? rooms.find((r) => r._id === id) : null);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
-
+// notify if there is an error while uploding or patching
   useEffect(() => {
     if (err !== null) {
       errNotify(err);
@@ -78,7 +79,7 @@ const Upload = () => {
   };
   return (
     <>
-      <div className="flex flex-wrap flex-row justify-center content-start gap-y-14 gap-0 mt-[5%] mb-14">
+      <div className="flex flex-wrap flex-row justify-center content-start gap-10 mt-[5%] mb-14">
         <span className="mx-auto flex flex-wrap  w-[21rem] rounded-xl shadow-md bg-white border h-auto p-4 ">
           <h1 className="uppercase text-sm font-bold drop-shadow-sm text-cyan-800 mb-2 ml-1">
             <BsFillGridFill className="inline mr-1 -mt-1" />
@@ -87,7 +88,12 @@ const Upload = () => {
           <hr className="w-full text-gray-400 drop-shadow-sm" />
           <UploadForm data={data} setdata={setdata} onSubmit={onSubmit} />
         </span>
+        {/* list of ownrooms  */}
         <RoomList setid={setid} />
+        {/* back button  */}
+        <span className="w-full">
+          <Back />
+        </span>
       </div>
       <ToastContainer />
     </>

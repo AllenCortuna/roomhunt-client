@@ -2,8 +2,10 @@
 import React, { useEffect } from "react";
 import { messageStore } from "../../state/message";
 import Chat from "./Chat";
+import Back from '../btn/Back'
 import empty from "../img/mes.svg";
 import Loading from "../utility/Loading";
+
 
 const Mesagge = () => {
   // todo: display icon for message
@@ -29,9 +31,10 @@ const Mesagge = () => {
       {message?.length===0 && !loading && (
         <span className="grid mt-20 md:mt-28 mx-auto w-[20rem] p-4">
           <img src={empty} alt="empty" className="w-[45%] mx-auto drop-shadow-lg" />
-          <h4 className="text-sm rale font-[600] text-cyan-800 text-center mt-5 drop-shadow-lg">
+          <h4 className="text-sm font-[700] text-cyan-900 text-center my-5 drop-shadow-lg">
             No Message Available!
           </h4>
+        <Back/>
         </span>
       )}
     </span>

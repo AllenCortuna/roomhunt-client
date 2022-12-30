@@ -41,7 +41,7 @@ const AccUtility = () => {
           <Link to={item.link} key={item.name}>
             <span
               key={item}
-              className="group grid h-[10.9rem] shadow-md bg-white border rounded-lg p-2 transition-all duration-300 ease-linear hover:bg-yellow hover:shadow-lg hover:border-2 hover:border-gray-200"
+              className="group grid h-[10.9rem] shadow-md bg-white border rounded-xl p-2 transition-all duration-300 ease-linear hover:bg-zinc-700 hover:shadow-lg hover:border-2 hover:border-zinc-100 hover:rounded-3xl"
             >
               <img
                 src={item.icon}
@@ -51,10 +51,11 @@ const AccUtility = () => {
               />
               <span className="flex flex-cols items-center">
                 <span className="grid mb-0 mt-auto p-2">
-                  <p className="text-cyan-800 text-xs font-bold uppercase">
+                  <p className="text-cyan-800 text-xs font-bold uppercase group-hover:text-white">
                     {item.name}
                   </p>
-                  <p className="md:text-sm text-gray-400 text-xs rale group-hover:text-gray-600 truncate">
+                  <p className="md:text-sm text-gray-400 text-xs rale group-hover:text-zinc-300 truncate">
+          
                     {item.desc}
                   </p>
                 </span>

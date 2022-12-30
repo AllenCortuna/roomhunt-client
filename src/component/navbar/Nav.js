@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
 import autoAnimate from "@formkit/auto-animate";
-// import { rightIcon } from "./utility/rightIcon";
 import { Link } from "react-router-dom";
 import { Logo } from "./content";
 
@@ -40,7 +39,7 @@ const Nav = ({ content }) => {
 
   // WARN: Small Screen
   const toggleCls =
-    "w-6 bg-gray-200 transition-all duration-300 ease-linear h-1 rounded-md ";
+    "w-6 bg-gray-200 transition-all duration-300 ease-linear h-1 rounded-sm ";
   const smallScreen = (
     <>
       <div className="">
@@ -79,7 +78,7 @@ const Nav = ({ content }) => {
   );
 
   return (
-    <div className="bg-zinc-800 grid w-screen h-auto shad" ref={dom}>
+    <div className="bg-zinc-800 grid w-screen h-auto py-2 shadow border-b " ref={dom}>
       {isSmallScreen ? smallScreen : otherScreen}
     </div>
   );

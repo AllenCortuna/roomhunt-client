@@ -29,12 +29,12 @@ const AccInfo = () => {
 
   
   return (
-    <div className="grid gap-1 grid-cols-2 justify-items-between max-w-[21rem] border rounded-lg shadow-md bg-white h-auto mx-auto pb-4">
+    <div className="grid gap-1 grid-cols-2 justify-items-between max-w-[21rem] border rounded-xl shadow-md bg-white h-auto mx-auto pb-4">
       <img
         src={user?.result.image}
         alt=""
         loading="lazy"
-        className="w-full mx-auto col-span-2  rounded-tr-md rounded-tl-md h-[12.5rem] object-cover border-zinc-300 "
+        className="w-full mx-auto col-span-2  rounded-tr-xl rounded-tl-xl h-[12.5rem] object-cover border-zinc-300 "
       />
       {/* Business name */}
       <span className="spacing-0 col-span-2 text-center">

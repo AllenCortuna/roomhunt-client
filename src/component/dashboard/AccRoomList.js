@@ -23,7 +23,9 @@ const AccRoomList = () => {
       )}
       <div className="mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-14 md:mt-32 p-2 md:px-40">
         {rooms.map((room) => (
-          <AccRoom room={room} />
+          <span key={room._id}>
+            <AccRoom room={room} />
+          </span>
         ))}
       </div>
 

@@ -24,7 +24,7 @@ const Slider = ({ image }) => {
             scrollbar={{ draggable: true }}
           >
             {image.map((a) => (
-              <SwiperSlide>
+              <SwiperSlide key={a}>
                 <span className="max-h-[20rem] w-auto my-auto " key={a}>
                   <img
                     src={a}
