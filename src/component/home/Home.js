@@ -1,14 +1,22 @@
 import logo from "../img/roomhunt_logo.png";
-import resort from "../img/resort.svg";
+import room from "../img/room.jpg";
+import resort from "../img/client.svg";
 
 import React from "react";
 import BtnNavigate from "../btn/BtnNavigate";
 // import FeaturedAcc from "./FeaturedAcc";
 const Home = () => {
   return (
-    <div className="w-full h-auto p-5 flex flex-wrap gap-10 pt-10 md:pt-24 justify-center">
-      <span className="flex flex-col max-w-[22rem] gap-2 justify-center mx-auto text-center">
-        <img src={logo} alt="logo" className="drop-shadow-lg  mx-auto w-40" />
+    <div className="w-full h-auto flex flex-wrap gap-10  justify-center">
+      <span className="flex flex-col max-w-[24rem] gap-2 pt-10 md:pt-24 p-2 md:p-5  justify-center mx-auto text-center">
+        <img
+          src={room}
+          alt="room"
+          className="rounded-tl-2xl rounded-tr-2xl rounded-md drop-shadow-lg"
+        />
+        <span className=" w-40  bg-smoke rounded-full mx-auto -mt-20 p-4 z-50">
+          <img src={logo} alt="logo" className="" />
+        </span>
         <h5 className="text-[2rem] mon font-[900] text-cyan-900 drop-shadow-lg">
           ROOMHUNT
         </h5>
@@ -21,20 +29,23 @@ const Home = () => {
           <BtnNavigate link={"/search"} text="Search Rooms" />
         </span>
       </span>
-      <span className="flex flex-col max-w-[22rem] gap-2 justify-center mx-auto text-center">
+
+      {/* SECOND CONTENT */}
+      <span className="flex flex-col max-w-[24rem] gap-2 pt-10 md:pt-24 p-5 justify-center mx-auto text-center">
         <img
           src={resort}
           alt="logo"
-          className="drop-shadow-lg md:w-[15rem] w-[10rem] mx-auto"
+          className="drop-shadow-lg w-full mx-auto mb-5"
         />
+        {/* <span className="bg-zinc-600 h-20 w-full rounded-xl"></span> */}
         <h5 className="text-[1.2rem] md:text-[1.5rem] font-[800] text-cyan-900 drop-shadow-lg">
-          Register or Sign-up
+          Register or Sign-Up
         </h5>
 
         <p className="rale text-md md:text-lg text-zinc-600">
           Register your business and start uploading all your rooms. Verified
-          Accommodators can access deifferent features likes reciving messages,
-          reviews and monitoring of rooms.{" "}
+          Accommodators can access deifferent features likes recieving messages,
+          reviews and monitoring of rooms. Client can send reviewsand messages.
         </p>
         <span className="w-36 mx-auto mb-10">
           <BtnNavigate link={"/register"} text="Register" />
