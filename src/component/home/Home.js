@@ -8,6 +8,7 @@ import BtnNavigate from "../btn/BtnNavigate";
 const Home = () => {
   return (
     <div className="w-full h-auto flex flex-wrap gap-10  justify-center">
+    {/* first content */}
       <span className="flex flex-col max-w-[24rem] gap-2 pt-10 md:pt-24 p-2 md:p-5  justify-center mx-auto text-center">
         <img
           src={room}

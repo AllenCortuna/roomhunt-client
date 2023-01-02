@@ -31,6 +31,7 @@ export const roomStore = create((set) => ({
       );
       set({ rooms: response.data });
     } catch (err) {
+      console.log(err)
       alertErr(err);
       navigate("/search");
     }
@@ -63,7 +64,7 @@ export const roomStore = create((set) => ({
     try {
       await api.patch(`room/view/${id}`);
     } catch (err) {
-      console.log(err.response.data.message);
+      console.log(err);
     }
   },
 
