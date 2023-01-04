@@ -7,7 +7,7 @@ import { IoIosBed } from "react-icons/io";
 import { FaInfoCircle } from "react-icons/fa";
 import Moment from "react-moment";
 import { useNavigate } from "react-router-dom";
-import Review from "./Review";
+import ReviewSmaller from "./ReviewSmaller";
 
 const Room = ({ room }) => {
   const icon = "inline";
@@ -27,10 +27,11 @@ const Room = ({ room }) => {
         alt="roomImg"
         className="rounded-tr-md rounded-tl-md object-cover w-full h-28"
       />
-   {/* star review overlay  */}
-      <span className="absolute inline font-[700] text-amber-300 top-0 left-0 bg-black/20 rounded-lg backdrop-blur-sm ">
-        <Review review={room?.review} width={"text-[.73rem]"} />
-      </span>
+      {/* star review overlay  */}
+    {room?.total > 0 && 
+      <span className="absolute inline font-[700] text-amber-300 top-1 left-0 bg-black/20 rounded-tr-lg rounded-br-lg backdrop-blur-sm ">
+        <ReviewSmaller review={room?.review} width={"text-[.6rem]"} />
+      </span>}
       <span className="p-2 py-0 grid">
         <Content
           icon={<BsFillCalendarWeekFill className={icon} />}

@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { roomStore } from "../../state/room";
 import Room from "./Room";
 import Loading from "../utility/Loading";
@@ -14,25 +14,18 @@ const RoomSearch = () => {
   const getRoomBySearch = roomStore((state) => state.getRoomBySearch);
   const navigate = useNavigate();
   const controller = new AbortController();
-  
-  const [query, setquery] = useState({
-    category: "",
-    location: "",
-    bed: "",
-    minPrice: "",
-    maxPrice: "",
-    checkInDate: "",
-  });
-  
-  useEffect(()=>{
-    getRoomBySearch(query, navigate, controller);
-  },[])
-  
+
   useEffect(() => {
-    const search = JSON.parse(localStorage.getItem("search"));
-    if (search) {
-      setquery(search);
-    }
+    getRoomBySearch(
+      JSON.parse(localStorage.getItem("search")),
+      navigate,
+      controller
+    );
+
+    return function cleanup() {
+      controller.abort();
+      // console.log("unmount");
+    };
   }, []);
 
   const empty = (
@@ -53,6 +46,7 @@ const RoomSearch = () => {
       </span>
     </span>
   );
+
   return (
     <span className="grid">
       {loading && (
