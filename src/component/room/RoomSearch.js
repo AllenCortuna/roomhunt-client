@@ -1,14 +1,39 @@
-import React from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from "react";
 import { roomStore } from "../../state/room";
 import Room from "./Room";
 import Loading from "../utility/Loading";
 import noRoom from "../img/noRoom.svg";
 import Back from "../btn/Back";
 import BtnNavigate from "../btn/BtnNavigate";
+import { useNavigate } from "react-router-dom";
 
 const RoomSearch = () => {
   const rooms = roomStore((state) => state.rooms);
   const loading = roomStore((state) => state.loading);
+  const getRoomBySearch = roomStore((state) => state.getRoomBySearch);
+  const navigate = useNavigate();
+  const controller = new AbortController();
+  
+  const [query, setquery] = useState({
+    category: "",
+    location: "",
+    bed: "",
+    minPrice: "",
+    maxPrice: "",
+    checkInDate: "",
+  });
+  
+  useEffect(()=>{
+    getRoomBySearch(query, navigate, controller);
+  },[])
+  
+  useEffect(() => {
+    const search = JSON.parse(localStorage.getItem("search"));
+    if (search) {
+      setquery(search);
+    }
+  }, []);
 
   const empty = (
     <span className="mx-auto mt-14 md:mt-20 w-[18rem] p-5 flex flex-col">

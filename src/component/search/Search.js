@@ -9,7 +9,7 @@ import RoomByLocation from "../room/RoomByLocation";
 
 const Search = () => {
   const navigate = useNavigate();
-  const getRoomBySearch = roomStore((state) => state.getRoomBySearch);
+  // const getRoomBySearch = roomStore((state) => state.getRoomBySearch);
   const getRoomByLocation = roomStore((state) => state.getRoomByLocation);
 
   const [query, setquery] = useState({
@@ -20,18 +20,22 @@ const Search = () => {
     maxPrice: "",
     checkInDate: "",
   });
-  
+  const controller = new AbortController();
+
   useEffect(() => {
     const search = JSON.parse(localStorage.getItem("search"));
     if (search) {
       setquery(search);
-      getRoomByLocation({
-        location: search.location,
-        category: search.category,
-      });
+      getRoomByLocation(
+        {
+          location: search.location,
+          category: search.category,
+        },
+        controller
+      );
     }
   }, []);
-  
+
   const handleChange = (e) => {
     setquery({ ...query, [e.target.name]: e.target.value });
   };
@@ -46,12 +50,16 @@ const Search = () => {
     });
   };
 
-
   const onSubmit = () => {
-    getRoomBySearch(query, navigate);
+    // getRoomBySearch(query, navigate, controller);
     localStorage.setItem("search", JSON.stringify(query));
     navigate("/rooms");
   };
+  
+  // clean up component unmount
+  useEffect(() => {
+    return () => controller.abort();
+  }, []);
 
   return (
     <span className="grid gap-10">

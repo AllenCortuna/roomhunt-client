@@ -20,6 +20,7 @@ specifiers:
   react-hook-form: ^7.36.1
   react-icons: ^4.4.0
   react-moment: ^1.1.2
+  react-paginate: ^8.1.4
   react-router-dom: ^6.3.0
   react-scripts: 5.0.1
   react-toastify: ^9.1.1
@@ -46,6 +47,7 @@ dependencies:
   react-hook-form: 7.38.0_react@18.2.0
   react-icons: 4.6.0_react@18.2.0
   react-moment: 1.1.2_moment@2.29.4+react@18.2.0
+  react-paginate: 8.1.4_react@18.2.0
   react-router-dom: 6.4.2_biqbaboplfbrettd7655fr4n2y
   react-scripts: 5.0.1_react@18.2.0
   react-toastify: 9.1.1_biqbaboplfbrettd7655fr4n2y
@@ -8448,6 +8450,15 @@ packages:
       react: ^16.0 || ^17.0.0 || ^18.0.0
     dependencies:
       moment: 2.29.4
+      react: 18.2.0
+    dev: false
+
+  /react-paginate/8.1.4_react@18.2.0:
+    resolution: {integrity: sha512-c3rxjcTEqeDQa6LqXifxLeFguY2qy2CHGRphVjHLFFMGfIHyaJ+v3bOvIlLYEeohwQ1q+cQpknjsqBVrkc/SNA==}
+    peerDependencies:
+      react: ^16 || ^17 || ^18
+    dependencies:
+      prop-types: 15.8.1
       react: 18.2.0
     dev: false
 

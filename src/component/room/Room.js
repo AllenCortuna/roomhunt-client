@@ -7,6 +7,7 @@ import { IoIosBed } from "react-icons/io";
 import { FaInfoCircle } from "react-icons/fa";
 import Moment from "react-moment";
 import { useNavigate } from "react-router-dom";
+import Review from "./Review";
 
 const Room = ({ room }) => {
   const icon = "inline";
@@ -18,14 +19,18 @@ const Room = ({ room }) => {
   return (
     <span
       key={room._id}
-      className="group bg-white shadow-md grid p-0 gap-1  grid-cols-1 rounded-lg pb-1 transition-all ease-linear duration-300 hover:-m-2 hover:shadow-xl border md:w-[12rem]"
+      className="group bg-white shadow-md grid p-0 gap-1  grid-cols-1 rounded-lg pb-1 transition-all ease-linear duration-300 hover:-m-2 hover:shadow-xl border md:w-[12rem] relative"
       onClick={() => navigate(`/rooms/${room._id}`)}
     >
       <img
-        src={isObject? room.image[0] : room.image}
+        src={isObject ? room.image[0] : room.image}
         alt="roomImg"
         className="rounded-tr-md rounded-tl-md object-cover w-full h-28"
       />
+   {/* star review overlay  */}
+      <span className="absolute inline font-[700] text-amber-300 top-0 left-0 bg-black/20 rounded-lg backdrop-blur-sm ">
+        <Review review={room?.review} width={"text-[.73rem]"} />
+      </span>
       <span className="p-2 py-0 grid">
         <Content
           icon={<BsFillCalendarWeekFill className={icon} />}

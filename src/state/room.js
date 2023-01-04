@@ -2,6 +2,8 @@ import create from "zustand";
 import { alertErr, api } from "./api";
 
 export const roomStore = create((set) => ({
+  totalPage: 0, //total page of room by search
+  page: 1, // current page in the pagination
   rooms: [],
   room: {},
   loading: false,
@@ -9,29 +11,35 @@ export const roomStore = create((set) => ({
   featuredRoom: [],
   err: null,
 
-  getRoomByLocation: async (query) => {
+  getRoomByLocation: async (query, controller) => {
     set({ loading: true });
     try {
       const response = await api.get(
-        `/room/location?category=${query.category}&location=${query.location}`
+        `/room/location?category=${query.category}&location=${query.location}`,
+        { signal: controller.signal }
       );
       set({ suggestedRoom: response.data });
     } catch (err) {
-      console.log(err.response.data.message);
+      if (err.message === "canceled") {
+        return null;
+      } else {
+        console.log(err);
+      }
     }
     set({ loading: false });
   },
 
-  getRoomBySearch: async (query, navigate) => {
+  getRoomBySearch: async (query, navigate, controller) => {
     set({ loading: true });
     set({ rooms: [] });
     try {
       const response = await api.get(
-        `/room/search?category=${query.category}&location=${query.location}&minPrice=${query.minPrice}&maxPrice=${query.maxPrice}&bed=${query.bed}&checkInDate=${query.checkInDate}`
+        `/room/search?category=${query.category}&location=${query.location}&minPrice=${query.minPrice}&maxPrice=${query.maxPrice}&bed=${query.bed}&checkInDate=${query.checkInDate}`,
+        { signal: controller.signal }
       );
       set({ rooms: response.data });
     } catch (err) {
-      console.log(err)
+      console.log(err);
       alertErr(err);
       navigate("/search");
     }
