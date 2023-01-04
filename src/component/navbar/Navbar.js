@@ -2,10 +2,15 @@
 import Nav from "./Nav";
 import React, { useEffect } from "react";
 import { useRegisterState } from "../../state/register";
-import { RiFileSearchFill } from "react-icons/ri";
-import { MdSpaceDashboard, MdMarkEmailUnread ,MdPolicy } from "react-icons/md";
+import { MdSpaceDashboard, MdMarkEmailUnread } from "react-icons/md";
+import { AiOutlineQuestionCircle, AiOutlineMessage } from "react-icons/ai";
+import {
+  HiSearch,
+  HiOutlineInformationCircle,
+  HiOutlineSearch,
+} from "react-icons/hi";
 import { BsInfoCircleFill } from "react-icons/bs";
-import { FaHouseUser, FaUserCircle } from "react-icons/fa";
+import { BiPencil, BiDoorOpen, BiUserCircle } from "react-icons/bi";
 import { TiUser } from "react-icons/ti";
 
 const Navbar = () => {
@@ -42,14 +47,14 @@ const Navbar = () => {
       {login === "client" && (
         <Nav
           content={[
-            { name: "search", desc: "/search", icon: <RiFileSearchFill /> },
+            { name: "search", desc: "/search", icon: <HiOutlineSearch /> },
             {
               name: "account",
               desc: "/client/dashboard",
-              icon: <MdSpaceDashboard />,
+              icon: <BiUserCircle />,
             },
-            { name: "message", desc: "/message", icon: <MdMarkEmailUnread /> },
-            { name: "logout", desc: "/logout", icon: <TiUser /> },
+            { name: "message", desc: "/message", icon: <AiOutlineMessage /> },
+            { name: "logout", desc: "/logout", icon: <BiDoorOpen /> },
           ]}
         />
       )}
@@ -57,11 +62,19 @@ const Navbar = () => {
       {login === "" && (
         <Nav
           content={[
-            { name: "search", desc: "/search", icon: <RiFileSearchFill /> },
-            { name: "login", desc: "/login", icon: <FaUserCircle /> },
-            { name: "register", desc: "/register", icon: <FaHouseUser /> },
-            { name: "terms", desc: "/terms", icon: <MdPolicy /> },
-            { name: "about", desc: "/about", icon: <BsInfoCircleFill /> },
+            { name: "search", desc: "/search", icon: <HiSearch /> },
+            { name: "login", desc: "/login", icon: <BiUserCircle /> },
+            { name: "register", desc: "/register", icon: <BiPencil /> },
+            {
+              name: "terms",
+              desc: "/terms",
+              icon: <AiOutlineQuestionCircle />,
+            },
+            {
+              name: "about",
+              desc: "/about",
+              icon: <HiOutlineInformationCircle />,
+            },
           ]}
         />
       )}
