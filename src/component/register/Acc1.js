@@ -7,6 +7,7 @@ import { formHint } from "../utility/Text";
 import { errNotify } from "../utility/notify";
 import { ToastContainer } from "react-toastify";
 import ProcessIndicator from "./ProcessIndicator";
+import TermsAgree from "../utility/TermsAgree";
 
 const Acc1 = ({ setPage, page, handleChange, data }) => {
   const { register, handleSubmit } = useForm();
@@ -55,10 +56,11 @@ const Acc1 = ({ setPage, page, handleChange, data }) => {
           register={{ ...register("confirmPassword", { required: false }) }}
           onChange={handleChange}
         />
-        <ProcessIndicator page={1}/>
+        <ProcessIndicator page={1} />
 
         <BtnSubmit loading={false} loadingTxt={""} text={"next"} />
       </form>
+      <TermsAgree />
     </span>
   );
 };

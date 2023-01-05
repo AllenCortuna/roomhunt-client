@@ -1,5 +1,5 @@
 import React from "react";
-
+import Back from './btn/Back'
 const Terms = () => {
   return (
     <div className="grid max-w-[22rem] mx-auto mt-14">
@@ -27,6 +27,7 @@ const Terms = () => {
           </ul>
        </li> 
       </ol>
+   <Back/> 
     </div>
   );
 };

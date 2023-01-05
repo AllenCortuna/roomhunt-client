@@ -12,21 +12,13 @@ import { ToastContainer } from "react-toastify";
 import { errNotify } from "../utility/notify";
 import { container, img, form, page1container } from "./style";
 import { useRegisterState } from "../../state/register";
+import TermsAgree from "../utility/TermsAgree";
 
 const RegisterClient = () => {
   const registerClient = useRegisterState((state) => state.registerClient);
   const navigate = useNavigate();
   const loading = useRegisterState((state) => state.loading);
-  const err = useRegisterState((state) => state.err);
 
-  const setErr = useRegisterState((state) => state.setErr);
-
-  useEffect(() => {
-    if (err !== null) {
-      errNotify(err);
-    }
-    setErr(null);
-  }, [err]);
 
   const {
     register,
@@ -121,6 +113,7 @@ const RegisterClient = () => {
           />
         </form>
       </span>
+      <TermsAgree />
     </div>
   );
 };

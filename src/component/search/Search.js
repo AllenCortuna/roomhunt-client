@@ -6,6 +6,7 @@ import { roomStore } from "../../state/room";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import RoomByLocation from "../room/RoomByLocation";
+import TermsAgree from "../utility/TermsAgree";
 
 const Search = () => {
   const navigate = useNavigate();
@@ -74,6 +75,7 @@ const Search = () => {
         />
       </div>
       <RoomByLocation />
+   <TermsAgree/> 
     </span>
   );
 };
