@@ -15,7 +15,7 @@ const Home = () => {
           alt="room"
           className="rounded-tl-2xl rounded-tr-2xl rounded-md shad"
         />
-        <span className=" w-40  bg-smoke rounded-full mx-auto -mt-20 p-4 z-50 shad">
+        <span className=" w-36  bg-zinc-200 rounded-full mx-auto -mt-20 p-5 z-50 shad mb-5">
           <img src={logo} alt="logo" className="" />
         </span>
         <h5 className="text-[2rem] mon font-[900] text-cyan-900 drop-shadow-lg">
