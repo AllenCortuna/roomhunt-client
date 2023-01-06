@@ -100,3 +100,7 @@ body {
 .toast-hide {
   display: none;
 }
+
+.drop-shad {
+filter: drop-shadow(-100px 3px 87px #84B2AF);
+}

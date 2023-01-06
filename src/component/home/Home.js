@@ -13,9 +13,9 @@ const Home = () => {
         <img
           src={room}
           alt="room"
-          className="rounded-tl-2xl rounded-tr-2xl rounded-md drop-shadow-lg"
+          className="rounded-tl-2xl rounded-tr-2xl rounded-md shad"
         />
-        <span className=" w-40  bg-smoke rounded-full mx-auto -mt-20 p-4 z-50">
+        <span className=" w-40  bg-smoke rounded-full mx-auto -mt-20 p-4 z-50 shad">
           <img src={logo} alt="logo" className="" />
         </span>
         <h5 className="text-[2rem] mon font-[900] text-cyan-900 drop-shadow-lg">
@@ -36,7 +36,7 @@ const Home = () => {
         <img
           src={resort}
           alt="logo"
-          className="drop-shadow-lg w-full mx-auto mb-5"
+          className="drop-shadow-lg w-full mx-auto mb-5 drop-shad"
         />
         {/* <span className="bg-zinc-600 h-20 w-full rounded-xl"></span> */}
         <h5 className="text-[1.2rem] md:text-[1.5rem] font-[800] text-cyan-900 drop-shadow-lg">

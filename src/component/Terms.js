@@ -2,7 +2,7 @@ import React from "react";
 import Back from "./btn/Back";
 const Terms = () => {
   return (
-    <div className="grid max-w-[34rem] mx-auto mt-14">
+    <div className="grid max-w-[38rem] mx-auto mt-14">
       <h4 className="text-xl font-[700] mx-auto text-zinc-700">Terms and Condition</h4>
       <ol className="text-sm font-[500] text-zinc-500 flex flex-col gap-2 p-4">
         <Li
