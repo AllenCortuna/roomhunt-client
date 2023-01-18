@@ -17,13 +17,13 @@ const Nav = ({ content }) => {
     " text-xs font-[800] uppercase  my-auto";
   const nav = (
     <nav
-      className={`p-3 md:p-0 flex flex-col sm:justify-start md:flex-row transition-all duration-300 ease-linear md:gap-1 md:my-auto`}
+      className={`p-3 md:p-0 flex flex-col sm:justify-start md:flex-row transition-all duration-300 ease-linear gap-2 lg:gap-3 md:my-auto`}
     >
       {content.map((a) => (
         <Link
           to={a.desc}
           key={a.name}
-          className="p-2 flex flex-cols justify-start content-start group gap-2 text-white hover:text-zinc-800 hover:bg-secondary rounded-full w-auto transition-all ease-linear duration-300 "
+          className="p-2 flex flex-cols justify-start content-start group gap-1 text-white hover:text-zinc-800 hover:bg-secondary rounded-full w-auto transition-all ease-linear duration-300 "
           onClick={() => {
             setShowNav(false);
           }}

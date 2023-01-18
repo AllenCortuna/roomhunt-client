@@ -5,6 +5,7 @@ import resort from "../img/client.svg";
 import React from "react";
 import BtnNavigate from "../btn/BtnNavigate";
 // import FeaturedAcc from "./FeaturedAcc";
+// 
 const Home = () => {
   return (
     <div className="w-full h-auto flex flex-wrap gap-10  justify-center">
@@ -36,7 +37,7 @@ const Home = () => {
         <img
           src={resort}
           alt="logo"
-          className="drop-shadow-lg w-full mx-auto mb-5 drop-shad"
+          className="drop-shadow-lg w-full mx-auto mb-5"
         />
         {/* <span className="bg-zinc-600 h-20 w-full rounded-xl"></span> */}
         <h5 className="text-[1.2rem] md:text-[1.5rem] font-[800] text-cyan-900 drop-shadow-lg">
