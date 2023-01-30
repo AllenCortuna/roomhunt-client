@@ -137,8 +137,8 @@ const UploadForm = ({ data, setdata, onSubmit }) => {
       </span>
       <span className="w-full flex flex-row justify-between content-center h-10">
         <Button
-          loading={loading}
-          color={"bg-zinc-300 h-auto"}
+          loading={null}
+          color={"bg-amber-400 h-auto"}
           text={"Set Available"}
           onClick={setAvailable}
         />

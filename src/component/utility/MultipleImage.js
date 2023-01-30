@@ -8,8 +8,9 @@ const MultipleImage = ({ handleImg, data, setdata }) => {
 
   return (
     <div className=" shad flex flex-col gap-2 w-full border-2 border-primary rounded-md bg-primary transition-all duration-300 ease-liner">
-      {data?.image.map((a) => (
+      {data?.image.map((a, index) => (
         <img
+          id={index}
           alt="not found"
           src={a}
           className="rounded-sm w-full shad border-gray-200 h-[5rem] object-cover"
@@ -23,6 +24,12 @@ const MultipleImage = ({ handleImg, data, setdata }) => {
             onDone={({ base64 }) => handleImg(base64)}
             id="upload-img"
           />
+          {/* <input */}
+          {/*   type="file" */}
+          {/*   name="" */}
+          {/*   id="upload-img" */}
+          {/*   onChange={e=>handleImg(e.target.value)} */}
+          {/* /> */}
         </p>
 
         <button

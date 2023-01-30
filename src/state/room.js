@@ -63,7 +63,7 @@ export const roomStore = create((set) => ({
       const response = await api.get(`room/own/${id}`);
       set({ rooms: response.data });
     } catch (err) {
-      console.log(err.response.data.message);
+      console.log(err);
     }
     set({ loading: false });
   },

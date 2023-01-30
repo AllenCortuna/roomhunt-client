@@ -10,6 +10,7 @@ specifiers:
   '@testing-library/user-event': ^13.5.0
   autoprefixer: ^10.4.7
   axios: ^0.27.2
+  compress.js: ^1.2.2
   jwt-decode: ^3.1.2
   moment: ^2.29.4
   offline: ^0.0.1
@@ -38,6 +39,7 @@ dependencies:
   '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
   '@testing-library/user-event': 13.5.0
   axios: 0.27.2
+  compress.js: 1.2.2
   jwt-decode: 3.1.2
   moment: 2.29.4
   offline: 0.0.1
@@ -3781,6 +3783,12 @@ packages:
 
   /commondir/1.0.1:
     resolution: {integrity: sha512-W9pAhw0ja1Edb5GVdIF1mjZw/ASI0AlShXM83UUGe2DVr5TdAPEA1OA8m/g8zWp9x6On7gqufY+FatDbC3MDQg==}
+    dev: false
+
+  /compress.js/1.2.2:
+    resolution: {integrity: sha512-eIsMmzyBtPVDdPtpmPXTRB6uiLjgTXygYl0KCVVp0I/U/++YzZtEkhVTuWH97dzTxKvzAcZMFwYUHGC09BSUqg==}
+    dependencies:
+      regenerator-runtime: 0.13.10
     dev: false
 
   /compressible/2.0.18:

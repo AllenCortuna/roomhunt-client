@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import UploadForm from "./UploadForm";
-import { BsFillGridFill } from "react-icons/bs";
 import { useState } from "react";
 import { roomStore } from "../../state/room";
 import { ToastContainer } from "react-toastify";
@@ -48,7 +47,7 @@ const Upload = () => {
   useEffect(() => {
     setroom(id ? rooms.find((r) => r._id === id) : null);
   }, [id]);
-// notify if there is an error while uploding or patching
+
   useEffect(() => {
     if (err !== null) {
       errNotify(err);
@@ -58,6 +57,7 @@ const Upload = () => {
   useEffect(() => {
     if (room) setdata(room);
   }, [id, room]);
+
   const onSubmit = async () => {
     if (id === 0) {
       if (data.image.length < 1) {
@@ -81,11 +81,6 @@ const Upload = () => {
     <>
       <div className="flex flex-wrap flex-row justify-center content-start gap-10 mt-[5%] mb-14">
         <span className="mx-auto flex flex-wrap  w-[21rem] rounded-xl shadow-md bg-white border h-auto p-4 ">
-          <h1 className="uppercase text-sm font-bold drop-shadow-sm text-cyan-800 mb-2 ml-1">
-            <BsFillGridFill className="inline mr-1 -mt-1" />
-            {data.image?.length} total images
-          </h1>
-          <hr className="w-full text-gray-400 drop-shadow-sm" />
           <UploadForm data={data} setdata={setdata} onSubmit={onSubmit} />
         </span>
         {/* list of ownrooms  */}
