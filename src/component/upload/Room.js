@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useState } from "react";
 import { BsFillCalendarWeekFill, BsFillGridFill } from "react-icons/bs";
 import { ImPriceTag } from "react-icons/im";
 import { MdLocationOn } from "react-icons/md";
@@ -14,6 +14,11 @@ const Room = ({ room, setid }) => {
 
   const loading = roomStore((state) => state.loading);
   const isObject = typeof room?.image === "object";
+  const [show, setshow] = useState(false);
+  const handleDelete = () => {
+    deleteRoom(room._id);
+    setshow(false);
+  };
   return (
     <span
       key={room._id}
@@ -66,7 +71,7 @@ const Room = ({ room, setid }) => {
               setid(room._id);
               window.scroll(0, 0);
             }}
-            className="text-[.6rem] font-semibold p-1 rounded-md border-[0.085rem] border-zinc-400 bg-none text-zinc-400 shadow-sm"
+            className={!show ?"text-[.6rem] font-semibold p-1 rounded-md border-[0.085rem] border-zinc-400 bg-none text-zinc-400 shadow-sm": "hidden"}
             disabled={loading}
           >
             update
@@ -74,11 +79,43 @@ const Room = ({ room, setid }) => {
 
           <button
             type="button"
-            onClick={() => deleteRoom(room._id)}
-            className="text-[.6rem] font-semibold p-1 rounded-lg border bg-rose-600 text-white shadow-sm truncate"
+            onClick={() => {
+              setshow(false);
+            }}
+            className={
+              show
+                ? "text-[.6rem] font-semibold p-1 rounded-md border-[0.085rem] border-zinc-400 bg-none text-zinc-400 shadow-sm"
+                : "hidden"
+            }
+            disabled={loading}
+          >
+            cancel
+          </button>
+          {/* delete roon  */}
+          <button
+            type="button"
+            onClick={() => setshow(true)}
+            className={
+              !show
+                ? "text-[.6rem] font-semibold p-1 rounded-lg border bg-amber-600 text-white shadow-sm truncate"
+                : "hidden"
+            }
             disabled={loading}
           >
             {loading ? "processing" : "delete"}
+          </button>
+          {/* confirm delete */}
+          <button
+            type="button"
+            onClick={handleDelete}
+            className={
+              show
+                ? "text-[.6rem] font-semibold p-1 rounded-lg border bg-rose-600 text-white shadow-sm truncate"
+                : "hidden"
+            }
+            disabled={loading}
+          >
+            confirm
           </button>
         </span>
       </span>
