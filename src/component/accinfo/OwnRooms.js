@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { roomStore } from "../../state/room";
 import Back from "../btn/Back";
-import AccRoom from "../room/AccRoom";
+import Room from "../room/Room";
 import Loading from "../utility/Loading";
 import { useParams } from "react-router-dom";
 
@@ -26,7 +26,7 @@ const OwnRooms = () => {
         <div className="mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-5 p-2 md:px-40 mb-5">
           {rooms.map((room) => (
             <span key={room._id}>
-            <AccRoom room={room} />
+            <Room room={room} />
             </span>
           ))}
         </div>

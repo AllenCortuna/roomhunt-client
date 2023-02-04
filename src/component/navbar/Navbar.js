@@ -62,18 +62,18 @@ const Navbar = () => {
       {login === "" && (
         <Nav
           content={[
-            { name: "search", desc: "/search", icon: <HiSearch /> },
-            { name: "login", desc: "/login", icon: <BiUserCircle /> },
-            { name: "register", desc: "/register", icon: <BiPencil /> },
+            { name: "search", desc: "/search", icon: null },
+            { name: "login", desc: "/login", icon: null },
+            { name: "register", desc: "/register", icon: null },
             {
               name: "terms",
               desc: "/terms",
-              icon: <AiOutlineQuestionCircle />,
+              icon: null,
             },
             {
               name: "about",
               desc: "/about",
-              icon: <HiOutlineInformationCircle />,
+              icon: null,
             },
           ]}
         />

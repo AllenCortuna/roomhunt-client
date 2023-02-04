@@ -19,15 +19,14 @@ const AccRoom = ({ room }) => {
   return (
     <span
       key={room._id}
-      className="group bg-white shadow-md grid gap-1  grid-cols-1 rounded-lg pb-1 transition-all ease-linear duration-300 hover:-m-2 hover:shadow-xl sm:min-w-[10.5rem] md:max-w-[12rem] border h-auto"
+      className="group bg-white shadow-md grid gap-1  grid-cols-1 rounded-xl pb-1 transition-all ease-linear duration-300 hover:-m-2 hover:shadow-xl sm:min-w-[10.5rem] md:max-w-[12rem] border h-auto"
       onClick={() => navigate(`/rooms/${room._id}`)}
     >
       <img
         src={isObject ? room.image[0] : room.image}
         alt="roomImg"
-        className="rounded-tr-md rounded-tl-md object-cover w-full h-28"
+        className="rounded-lg object-cover w-full h-28"
       />
-      {/* <Slider image={room.image} />  */}
       <span className="p-2 py-0 grid">
 
         <h1 className={highlight}>

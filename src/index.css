@@ -12,7 +12,8 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #f7f6f0;
+  /* background-color: #f7f6f0; */
+  background-color: #EFF0E9;
 }
 
 @layer components {
