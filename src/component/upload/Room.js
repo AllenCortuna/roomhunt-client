@@ -71,7 +71,7 @@ const Room = ({ room, setid }) => {
               setid(room._id);
               window.scroll(0, 0);
             }}
-            className={!show ?"text-[.6rem] font-semibold p-1 rounded-md border-[0.085rem] border-zinc-400 bg-none text-zinc-400 shadow-sm": "hidden"}
+            className={!show ?"text-[.6rem] font-semibold p-1 rounded-full border-[0.085rem] border-zinc-400 bg-none text-zinc-400 shadow-sm": "hidden"}
             disabled={loading}
           >
             update
@@ -84,7 +84,7 @@ const Room = ({ room, setid }) => {
             }}
             className={
               show
-                ? "text-[.6rem] font-semibold p-1 rounded-md border-[0.085rem] border-zinc-400 bg-none text-zinc-400 shadow-sm"
+                ? "text-[.6rem] font-semibold p-1 rounded-full border-[0.085rem] border-zinc-400 bg-none text-zinc-400 shadow-sm"
                 : "hidden"
             }
             disabled={loading}
@@ -97,7 +97,7 @@ const Room = ({ room, setid }) => {
             onClick={() => setshow(true)}
             className={
               !show
-                ? "text-[.6rem] font-semibold p-1 rounded-lg border bg-amber-600 text-white shadow-sm truncate"
+                ? "text-[.6rem] font-semibold p-1 rounded-full border bg-amber-600 text-white shadow-sm truncate"
                 : "hidden"
             }
             disabled={loading}
@@ -110,7 +110,7 @@ const Room = ({ room, setid }) => {
             onClick={handleDelete}
             className={
               show
-                ? "text-[.6rem] font-semibold p-1 rounded-lg border bg-rose-600 text-white shadow-sm truncate"
+                ? "text-[.6rem] font-semibold p-1 rounded-full border bg-rose-600 text-white shadow-sm truncate"
                 : "hidden"
             }
             disabled={loading}

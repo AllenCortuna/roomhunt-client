@@ -4,7 +4,7 @@ import { roomStore } from "../../state/room";
 import AccRoom from "../room/AccRoom";
 import Loading from "../utility/Loading";
 import noRoom from "../img/noRoom.svg";
-import BtnLink from "../btn/BtnLink";
+import BtnNavigate from "../btn/BtnNavigate";
 
 const AccRoomList = () => {
   const id = JSON.parse(localStorage?.getItem("acc")).result._id;
@@ -42,7 +42,7 @@ const AccRoomList = () => {
             </h1>
           </span>
           <span className="w-[7.5rem] mx-auto">
-            <BtnLink link={"/upload"} text="Upload" />
+            <BtnNavigate link={"/upload"} text="Upload" />
           </span>
         </span>
       )}
