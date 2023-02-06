@@ -29,7 +29,7 @@ const AccInfo = () => {
 
   
   return (
-    <div className="grid gap-1 grid-cols-2 justify-items-between max-w-[21rem] border rounded-xl shadow-md bg-white h-auto mx-auto pb-4">
+    <div className="grid gap-1 grid-cols-2 justify-items-between max-w-[21rem] border rounded-xl shadow-md bg-white h-auto pb-4">
       <img
         src={user?.result.image}
         alt=""

@@ -1,17 +1,14 @@
-/* eslint-disable no-unused-vars */
 import Nav from "./Nav";
 import React, { useEffect } from "react";
 import { useRegisterState } from "../../state/register";
-import { MdSpaceDashboard, MdMarkEmailUnread } from "react-icons/md";
-import { AiOutlineQuestionCircle, AiOutlineMessage } from "react-icons/ai";
+import { FaUserCircle,FaQuestionCircle } from "react-icons/fa";
+import { MdSpaceDashboard } from "react-icons/md";
+import { AiOutlineMessage } from "react-icons/ai";
 import {
-  HiSearch,
-  HiOutlineInformationCircle,
   HiOutlineSearch,
 } from "react-icons/hi";
-import { BsInfoCircleFill } from "react-icons/bs";
-import { BiPencil, BiDoorOpen, BiUserCircle } from "react-icons/bi";
-import { TiUser } from "react-icons/ti";
+import { BsFillChatRightQuoteFill } from "react-icons/bs";
+import { BiDoorOpen, BiUserCircle } from "react-icons/bi";
 
 const Navbar = () => {
   const login = useRegisterState((state) => state.login);
@@ -38,9 +35,9 @@ const Navbar = () => {
               desc: "/acc/dashboard",
               icon: <MdSpaceDashboard />,
             },
-            { name: "about", desc: "/about", icon: <BsInfoCircleFill /> },
-            { name: "message", desc: "/message", icon: <MdMarkEmailUnread /> },
-            { name: "logout", desc: "/logout", icon: <TiUser /> },
+            { name: "about", desc: "/about", icon: <FaQuestionCircle /> },
+            { name: "message", desc: "/message", icon: <BsFillChatRightQuoteFill/> },
+            { name: "logout", desc: "/logout", icon: <FaUserCircle /> },
           ]}
         />
       )}

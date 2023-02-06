@@ -24,7 +24,6 @@ const RegisterClient = () => {
     register,
     handleSubmit,
     formState: { errors },
-    // watch,
   } = useForm();
   const [data, setdata] = useState({
     email: "",
@@ -64,7 +63,7 @@ const RegisterClient = () => {
           {formHint("full Name")}
           <Input
             type="text"
-            placeholder={"Mario Luigue"}
+            placeholder={"John A. Doe"}
             register={{ ...register("name", { required: false }) }}
             onChange={handleChange}
           />
@@ -77,7 +76,7 @@ const RegisterClient = () => {
           {formHint("email")}
           <Input
             type="email"
-            placeholder={"email"}
+            placeholder={"youremail@gmail.com"}
             register={{ ...register("email", { required: false }) }}
             onChange={handleChange}
           />
@@ -85,7 +84,7 @@ const RegisterClient = () => {
 
           <Input
             type="password"
-            placeholder={"password"}
+            placeholder={"Password"}
             // register={{ ...register("password", { required: false }) }}
             register={{
               ...register("password", {
@@ -101,7 +100,7 @@ const RegisterClient = () => {
 
           <Input
             type="password"
-            placeholder={"confirmPassword"}
+            placeholder={"Confirm Password"}
             register={{ ...register("confirmPassword", { required: false }) }}
             onChange={handleChange}
           />

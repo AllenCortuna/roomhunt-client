@@ -40,7 +40,7 @@ const AccDashboard = () => {
   }, [logOut, navigate, user.token]);
 
   return (
-    <div className="flex flex-col gap-8 md:gap-14 justify-center items-center my-10 mx-auto w-full h-auto">
+    <div className="flex flex-wrap gap-8 md:gap-14 justify-center items-center my-10 mx-auto w-full h-auto">
       {!subcribe && user?.result.verified && <Subcribe />}
       {user?.result.verified && subcribe && <AccUtility />}
 
