@@ -10,7 +10,7 @@ const MultipleImage = ({ handleImg, data, setdata }) => {
     <div className=" shad flex flex-col gap-2 w-full border-2 border-primary rounded-md bg-primary transition-all duration-300 ease-liner">
       {data?.image.map((a, index) => (
         <img
-          id={index}
+          id={index+1}
           alt="not found"
           src={a}
           className="rounded-sm w-full shad border-gray-200 h-[5rem] object-cover"

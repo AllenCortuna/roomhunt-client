@@ -11,7 +11,8 @@ import Back from "../btn/Back";
 
 const Upload = () => {
   const [id, setid] = useState(0);
-  const initialValue = {
+  // set location
+  const [initialValue, setinitialValue] = useState({
     name: "",
     price: "",
     category: "",
@@ -20,7 +21,7 @@ const Upload = () => {
     location: "",
     bed: 1,
     image: [],
-  };
+  });
   const [data, setdata] = useState({
     name: "",
     price: "",
@@ -31,6 +32,19 @@ const Upload = () => {
     bed: 1,
     image: [],
   });
+
+  useEffect(() => {
+    const curLocation = JSON.parse(localStorage.getItem("acc"))?.result
+      ?.location;
+    const curCat = JSON.parse(localStorage.getItem("acc"))?.result?.category;
+    setinitialValue({
+      ...initialValue,
+      category: curCat,
+      location: curLocation,
+    });
+    // setdata({...data, location: curLocation})
+    setdata({ ...data, category: curCat, location: curLocation });
+  }, []);
 
   const uploadRoom = roomStore((state) => state.uploadRoom);
   const updateRoom = roomStore((state) => state.updateRoom);
