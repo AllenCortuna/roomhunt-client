@@ -27,7 +27,7 @@ const ClientDashboard = () => {
   }, [logOut, navigate, user.token]);
 
   return (
-    <div className="w-full p-2 md:p-8 flex flex-row flex-wrap pt-14 pb-14 justify-center">
+    <div className="w-full p-2 md:p-8 flex flex-row flex-wrap pt-14 pb-14 justify-center gap-5 md:gap-10">
       {/* client info */}
     <ClientInfo user={user?.result} />
     {user?.result.verified===false && <Verify/>}

@@ -29,16 +29,16 @@ const AccInfo = () => {
 
   
   return (
-    <div className="grid gap-1 grid-cols-2 justify-items-between max-w-[21rem] border rounded-xl shadow-md bg-white h-auto pb-4">
+    <div className="grid gap-1 grid-cols-2 justify-items-between max-w-[21rem] rounded-2xl shadow-lg bg-white h-[26rem] pb-4">
       <img
         src={user?.result.image}
         alt=""
         loading="lazy"
-        className="w-full mx-auto col-span-2  rounded-tr-xl rounded-tl-xl h-[12.5rem] object-cover border-zinc-300 "
+        className="w-full mx-auto col-span-2  rounded-tr-2xl rounded-tl-2xl h-[12.5rem] object-cover border-zinc-300 "
       />
       {/* Business name */}
       <span className="spacing-0 col-span-2 text-center">
-        <h1 className="text-cyan-900 capitalize font-bold text-[1.5rem] inline">
+        <h1 className="text-cyan-900 capitalize font-bold text-[1.3rem] inline">
           {user?.result.businessName}
         </h1>
         <p className="inline truncate text-xs text-gray-500 rale "> {user?.result.category}</p>
@@ -51,22 +51,22 @@ const AccInfo = () => {
       </span>
 
       <span className="p-2">
-        <h1 className="text-xs text-cyan-800 font-bold uppercase ">
+        <h1 className="text-xs text-cyan-900 font-bold ">
           <MdEmail className="text-[1rem] mr-1 inline" />
-          contact
+          Contact
         </h1>
         <p className=" ml-3 inline text-xs text-gray-500 rale truncate">{user?.result.email}</p>
         <p className=" ml-3 truncate text-xs text-gray-500 rale ">{user?.result.contact}</p>
       </span>
 
       <span className=" p-2">
-        <h1 className="text-xs text-cyan-800 font-bold uppercase ">
+        <h1 className="text-xs text-cyan-900 font-bold ">
           <AiFillCheckCircle className="text-[1rem] mr-1 inline" />
           Owner
         </h1>
         <p className=" truncate ml-4 inline text-xs text-gray-500 rale">{user?.result.owner}</p>
 
-        <p className="drop-shadow-sm text-xs space-mono font-[900] ml-4 truncate">
+        <p className="drop-shadow-sm text-xs font-[800] ml-4 truncate">
           {user?.result.verified ? (
             <span className="text-lime-500">verifed</span>
           ) : (

@@ -29,7 +29,7 @@ const Verify = () => {
           href="https://www.gsis.gov.ph/ginhawa-for-all/list-of-acceptable-valid-ids/"
           className="underline"
         >
-          Valid I.D.
+       <b>  Valid I.D.</b> 
         </a>
         <br />
         to:
@@ -65,7 +65,7 @@ const Verify = () => {
           href="https://www.gsis.gov.ph/ginhawa-for-all/list-of-acceptable-valid-ids/"
           className="underline"
         >
-          Valid I.D.
+       <b>  Valid I.D.</b> 
         </a>
         <br />
         Business Permit. <br />

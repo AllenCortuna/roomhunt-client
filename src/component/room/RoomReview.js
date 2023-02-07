@@ -31,7 +31,7 @@ const RoomReview = ({ room }) => {
   const star = "-mt-1 my-auto text-xl drop-shadow-md inline text-yellow ";
   const starClear = "-mt-1 my-auto text-xl drop-shadow-md inline text-zinc-100 ";
   return (
-    <div className="flex flex-wrap gap-y-3 border border-zinc-300 rounded-md ml-3 p-2 w-[18rem] justify-between items-center bg-zinc-400 mt-10 md:mt-0 mb-3">
+    <div className="flex flex-wrap gap-y-3 shadow-lg rounded-lg ml-3 p-2 w-[18rem] justify-between items-center bg-zinc-400 mt-10 md:mt-0 mb-3">
       <span className="grid gap-1 p-1 py-0 grid-cols-5 w-auto ">
         <span onClick={() => setreview(1)}>
           {review >= 1 ? (

@@ -19,7 +19,7 @@ const AccRoom = ({ room }) => {
   return (
     <span
       key={room._id}
-      className="group bg-white shadow-md grid gap-1  grid-cols-1 rounded-xl pb-1 transition-all ease-linear duration-300 hover:-m-2 hover:shadow-xl sm:min-w-[10.5rem] md:max-w-[12rem] border h-auto"
+      className="group bg-white shadow-md grid p-0 gap-1  grid-cols-1 rounded-lg pb-1 transition-all ease-linear duration-300 hover:-m-2 hover:shadow-xl border w-[10rem] md:w-[14rem]"
       onClick={() => navigate(`/rooms/${room._id}`)}
     >
       <img

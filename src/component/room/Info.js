@@ -5,33 +5,21 @@ import { IoIosBed } from "react-icons/io";
 import Moment from "react-moment";
 
 const Info = ({ room }) => {
-  const txt = "ml-3 text-gray-500 font-[500] text-[.74rem] truncate space-mono";
+  const txt = "ml-3 text-gray-500 font-[500] text-[.74rem] truncate";
+  const txt2 = "ml-3 text-amber-600 font-[500] text-[.74rem] truncate drop-shadow-lg";
   const highlight =
-    "ml-3 text-gray-500 font-semibold  text-[.74rem] space-mono ";
+    "ml-3 text-gray-500 font-semibold  text-[.74rem]";
   const now = new Date();
   now.setHours(0, 0, 0, 0);
   const unavailable = new Date(room.unavailableUntil).getTime() > now.getTime();
   
   return (
     <span className="p-4 pt-0 grid md:mt-0 mt-4">
-      <h1 className="text-cyan-800 font-semibold text-[.84rem] capitalize ">
+      <h1 className="text-cyan-900 font-semibold text-[.84rem] capitalize ">
         <BsFillHouseFill className="mr-[.2rem] inline -mt-[.15rem]" />
         Room Status
       </h1>
 
-      <h1 className={txt}>
-        <BsCalendar2CheckFill className="inline mr-1" />
-        <span className="font-[600]">
-          {unavailable ? (
-            <>
-              <span className=" font-[400] rale text-gray-400">Unavailable-Until: </span>
-              <Moment date={room.unavailableUntil} format="MMM-DD-YYYY" />
-            </>
-          ) : (
-            "Available"
-          )}
-        </span>
-      </h1>
 
       <h1 className={highlight}>
         <MdPriceChange className="inline mr-1" />
@@ -44,7 +32,7 @@ const Info = ({ room }) => {
 
       <h1 className={highlight}>
         <IoIosBed className="inline mr-1" />
-        <span className="rale font-normal text-gray-400 mr-2">Bed count: </span>
+        <span className="font-normal text-gray-400 mr-2 rale">Bed count: </span>
         {room.bed}
       </h1>
 
@@ -53,7 +41,7 @@ const Info = ({ room }) => {
         <span className="rale font-normal text-gray-400 mr-2 whitespace-pre-wrap">
           updated:
         </span>
-        <span className="ml-2 font-[600] space-mono">
+        <span className="ml-2 font-[600]">
           <Moment date={room.updatedAt} format="MMM-DD-YYYY" />
         </span>
       </h1>
@@ -63,7 +51,21 @@ const Info = ({ room }) => {
         <span className="rale font-normal text-gray-400 mr-2 whitespace-pre-wrap">
           description:
         </span>
-        {room.description ? room.description : "no description availbale"}
+        {room.description ? room.description : "no description available"}
+      </h1>
+    
+      <h1 className={txt2}>
+        <BsCalendar2CheckFill className="inline mr-1" />
+        <span className="font-[700]">
+          {unavailable ? (
+            <>
+              <span className=" font-[400] rale text-cyan-800">Unavailable-Until: </span>
+              <Moment date={room.unavailableUntil} format="MMM-DD-YYYY" />
+            </>
+          ) : (
+            "Available"
+          )}
+        </span>
       </h1>
     </span>
   );
