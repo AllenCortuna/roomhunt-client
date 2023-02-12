@@ -33,7 +33,7 @@ const GooglePay = () => {
           transactionInfo: {
             totalPriceStatus: "FINAL",
             totalPriceLabel: "Total",
-            totalPrice: "4.00",
+            totalPrice: "2.00",
             currencyCode: "USD",
             countryCode: "US",
           },
