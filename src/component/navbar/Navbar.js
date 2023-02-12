@@ -36,7 +36,8 @@ const Navbar = () => {
               icon: <MdSpaceDashboard />,
             },
             { name: "about", desc: "/about", icon: <FaQuestionCircle /> },
-            { name: "message", desc: "/message", icon: <BsFillChatRightQuoteFill/> },
+            // { name: "message", desc: "/message", icon: <BsFillChatRightQuoteFill/> },
+            { name: "terms", desc: "/terms", icon: <BsFillChatRightQuoteFill/> },
             { name: "logout", desc: "/logout", icon: <FaUserCircle /> },
           ]}
         />
