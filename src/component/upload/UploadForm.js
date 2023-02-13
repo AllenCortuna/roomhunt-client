@@ -61,7 +61,7 @@ const UploadForm = ({ data, setdata, onSubmit }) => {
 
   return (
     <form
-      className="flex flex-wrap flex-col gap-3 w-full mt-4"
+      className="flex flex-wrap flex-col gap-3 w-full mt-4 h-auto"
       onSubmit={handleSubmit(onSubmit)}
     >
       <MultipleImage handleImg={handleImg} data={data} setdata={setdata} />
@@ -135,10 +135,10 @@ const UploadForm = ({ data, setdata, onSubmit }) => {
           onChange={handleChange}
         />
       </span>
-      <span className="w-full flex flex-row justify-between content-center h-10">
+      <span className="w-full flex flex-row justify-between content-center h-auto">
         <Button
           loading={null}
-          color={"bg-amber-400 h-auto"}
+          color={"bg-amber-400"}
           text={"Set Available"}
           onClick={setAvailable}
         />

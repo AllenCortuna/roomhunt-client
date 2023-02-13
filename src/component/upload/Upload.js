@@ -5,7 +5,7 @@ import { useState } from "react";
 import { roomStore } from "../../state/room";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { errNotify } from "../utility/notify";
+import { errNotify, okNotify } from "../utility/notify";
 import RoomList from "./RoomList";
 import Back from "../btn/Back";
 
@@ -42,7 +42,6 @@ const Upload = () => {
       category: curCat,
       location: curLocation,
     });
-    // setdata({...data, location: curLocation})
     setdata({ ...data, category: curCat, location: curLocation });
   }, []);
 
@@ -83,11 +82,11 @@ const Upload = () => {
       } else if (data.price === "") {
         errNotify("Invalid Price");
       } else {
-        await uploadRoom(data);
+        await uploadRoom(data,okNotify,errNotify);
         clear();
       }
     } else {
-      await updateRoom(data, id);
+      await updateRoom(data, id,okNotify,errNotify);
       clear();
     }
   };

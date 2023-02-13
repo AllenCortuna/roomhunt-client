@@ -60,13 +60,13 @@ const Acc3 = () => {
           <Button
             onClick={() => setOtp([...otp.map(() => "")])}
             text={"Clear"}
-            color={"bg-none border-2 border-gray-500"}
+            color={"bg-none border-zinc-400 text-zinc-400"}
             txtClr={"text-gray-400"}
           />
           <Button
             onClick={handleVerify}
             text={"Verify"}
-            color={"bg-secondary"}
+            color={"border-zinc-200 bg-zinc-700 text-white"}
             loading={loading}
           />
         </span>

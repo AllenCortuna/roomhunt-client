@@ -7,6 +7,7 @@ import { IoIosBed } from "react-icons/io";
 import { FaInfoCircle } from "react-icons/fa";
 import Moment from "react-moment";
 import { roomStore } from "../../state/room";
+import { errNotify, warnNotify } from "../utility/notify";
 
 const Room = ({ room, setid }) => {
   const deleteRoom = roomStore((state) => state.deleteRoom);
@@ -16,7 +17,7 @@ const Room = ({ room, setid }) => {
   const isObject = typeof room?.image === "object";
   const [show, setshow] = useState(false);
   const handleDelete = () => {
-    deleteRoom(room._id);
+    deleteRoom(room._id, warnNotify, errNotify);
     setshow(false);
   };
   return (
@@ -71,7 +72,11 @@ const Room = ({ room, setid }) => {
               setid(room._id);
               window.scroll(0, 0);
             }}
-            className={!show ?"text-[.6rem] font-semibold p-1 rounded-full border-[0.085rem] border-zinc-400 bg-none text-zinc-400 shadow-sm": "hidden"}
+            className={
+              !show
+                ? "text-[.6rem] font-semibold p-1 rounded-full border-[0.085rem] border-zinc-400 bg-none text-zinc-400 shadow-sm"
+                : "hidden"
+            }
             disabled={loading}
           >
             update

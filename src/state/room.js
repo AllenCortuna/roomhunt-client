@@ -39,7 +39,6 @@ export const roomStore = create((set) => ({
       );
       set({ rooms: response.data });
     } catch (err) {
-      console.log(err);
       alertErr(err);
       navigate("/search");
     }
@@ -76,18 +75,20 @@ export const roomStore = create((set) => ({
     }
   },
 
-  uploadRoom: async (data) => {
+  uploadRoom: async (data,okNotify,errNotify) => {
     set({ loading: true });
     try {
       const result = await api.post("/room", data);
       set((state) => ({ rooms: [...state.rooms, result.data] }));
+      okNotify("Room Uploaded!")
     } catch (err) {
-      alert(err.response.data.message);
+      // alert(err.response.data.message);
+      errNotify(err.response.data.message)
     }
     set({ loading: false });
   },
 
-  updateRoom: async (data, id) => {
+  updateRoom: async (data, id,okNotify,errNotify) => {
     set({ loading: true });
     try {
       const result = await api.patch(`/room/${id}`, data);
@@ -96,21 +97,23 @@ export const roomStore = create((set) => ({
           ...state.rooms.map((room) => (room._id === id ? result.data : room)),
         ],
       }));
+      okNotify("Room Updated!")
     } catch (err) {
-      alert(err.response.data.message);
+      errNotify(err.response.data.message)
     }
     set({ loading: false });
   },
 
-  deleteRoom: async (id) => {
+  deleteRoom: async (id,okNotify,errNotify) => {
     set({ loading: true });
     try {
       await api.delete(`/room/${id}`);
       set((state) => ({
         rooms: state.rooms.filter((a) => a._id !== id),
       }));
+      okNotify("Room Deleted!")
     } catch (err) {
-      alert(err.response.data.message);
+      errNotify(err.response.data.message)
     }
     set({ loading: false });
   },

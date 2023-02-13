@@ -71,14 +71,14 @@ const ResetAccOTP = () => {
           <Button
             onClick={() => setOtp([...otp.map(() => "")])}
             text={"Clear"}
-            color={"bg-none border-2 border-gray-500"}
             txtClr={"text-gray-400"}
+            color={"bg-none border-zinc-400 text-zinc-400"}
           />
           <Button
             onClick={handleReset}
             text={"Verify"}
-            color={"bg-secondary"}
             loading={loading}
+            color={"border-zinc-200 bg-zinc-700 text-white"}
           />
         </span>
       </div>
